@@ -1,10 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Home</title>
+    <title>Success</title>
 </head>
 <body>
-<a href="/login">Login</a>
-<a href="/Registration">Registration</a>
+<h3>User has been successfully registered.</h3>
+<a href="/">Home</a><br>
+
+
 </body>
 </html>
