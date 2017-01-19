@@ -2,10 +2,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Login</title>
+    <title>Registration Form</title>
 </head>
 <body>
-${message}
+Registration form
 <a href="/">Home</a>
 </body>
 </html>
