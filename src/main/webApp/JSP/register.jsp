@@ -11,19 +11,19 @@ Registration form
 <form:form method="post" modelAttribute="User" action="registration">
     <table>
         <tr>
-            <td><spring:message code="lbl.firstName" text="First Name"/></td>
+            <td>First Name</td>
             <td><form:input path="firstName"/></td>
         </tr>
         <tr>
-            <td><spring:message code="lbl.lastName" text="Last Name"/></td>
+            <td>Last Name</td>
             <td><form:input path="lastName"/></td>
         </tr>
         <tr>
-            <td><spring:message code="lbl.email" text="Email Id"/></td>
+            <td>Email</td>
             <td><form:input path="email"/></td>
         </tr>
         <tr>
-            <td><spring:message code="lbl.phone" text="Phone"/></td>
+            <td>Phone Number</td>
             <td><form:input path="phone"/></td>
         </tr>
         <tr>
