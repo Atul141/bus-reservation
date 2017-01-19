@@ -8,7 +8,7 @@
 </head>
 <body>
 Registration form
-<form:form method="post" modelAttribute="User" action="registration">
+<form:form method="post" modelAttribute="User" action="RegisterUserDetails">
     <table>
         <tr>
             <td>First Name</td>
@@ -21,6 +21,10 @@ Registration form
         <tr>
             <td>Email</td>
             <td><form:input path="email"/></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><form:input path="password"/></td>
         </tr>
         <tr>
             <td>Phone Number</td>

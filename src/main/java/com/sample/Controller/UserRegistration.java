@@ -17,7 +17,7 @@ public class UserRegistration {
         return "register";
     }
 
-    @RequestMapping(value = "/registration", method = RequestMethod.POST)
+    @RequestMapping(value = "/RegisterUserDetails", method = RequestMethod.POST)
     public String submitForm(@ModelAttribute("User") User user) {
         System.out.println(user.getFirstName());
         return "redirect:/success";
