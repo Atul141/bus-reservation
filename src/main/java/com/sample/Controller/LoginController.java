@@ -19,8 +19,8 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/loginValidation", method = RequestMethod.POST)
-    public String validateLogin(@ModelAttribute("User") User user, BindingResult result) {
-        System.out.println(user.getFirstName());
+    public String validateLogin(@ModelAttribute("User") User user) {
+        System.out.println("User"+user.getPassword());
         return "redirect:/Home";
     }
 
