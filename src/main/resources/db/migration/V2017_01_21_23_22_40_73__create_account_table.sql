@@ -1,0 +1,10 @@
+CREATE TABLE userDetails
+(
+id int PRIMARY KEY ,
+firstName VARCHAR NOT NULL ,
+lastName VARCHAR(100) NOT NULL ,
+email VARCHAR(100) NOT NULL ,
+phone VARCHAR(100) NOT NULL ,
+password VARCHAR (100) NOT NULL
+
+);
