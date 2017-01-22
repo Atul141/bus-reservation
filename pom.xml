@@ -87,6 +87,16 @@
             <version>1.1.0.Final</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>3.6.9.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.0-api</artifactId>
+            <version>1.0.0.Final</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -103,7 +113,14 @@
                     <initOnMigrate>true</initOnMigrate>
                 </configuration>
             </plugin>
-        </plugins>
+                <plugin>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>2.6</version>
+                    <configuration>
+                        <packagingIncludes>WEB-INF/lib/hibernate-core*.jar,WEB-INF/lib/someOther*.jar</packagingIncludes>
+                    </configuration>
+                </plugin>
+            </plugins>
     </build>
 </project>
 
