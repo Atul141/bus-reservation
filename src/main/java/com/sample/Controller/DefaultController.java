@@ -1,6 +1,6 @@
 package com.sample.Controller;
 
-import Models.User;
+import Models.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +11,7 @@ public class DefaultController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String homePage(Model model) {
-        model.addAttribute("User",new User());
+        model.addAttribute("UserDetails",new UserDetails());
         return "index";
     }
 

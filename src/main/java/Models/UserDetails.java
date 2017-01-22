@@ -1,15 +1,26 @@
 package Models;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
-public class User implements Serializable {
+@Entity
+@Table(name = "userdetails")
+public class UserDetails implements Serializable {
     private static final long serialVersionUID = 1L;
-
+    @Id
+    @Column( columnDefinition = "INTEGER")
     private int id;
+    @Column(columnDefinition = "VARCHAR(100)")
     private String firstName;
+    @Column(columnDefinition = "VARCHAR(100)")
     private String lastName;
+    @Column(columnDefinition = "VARCHAR(100)")
     private String email;
-    private long phone;
+    @Column(columnDefinition = "VARCHAR(100)")
+    private String phone;
+    @Column(columnDefinition = "VARCHAR(100)")
     private String password;
 
 
@@ -36,11 +47,11 @@ public class User implements Serializable {
         return email;
     }
 
-    public long getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(long phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

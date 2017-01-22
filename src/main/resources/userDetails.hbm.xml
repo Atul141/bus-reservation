@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="Models.User" table="userdetails">
+    <class name="Models.UserDetails" table="userdetails">
         <id name="id" column="id" type="integer">
             <generator class="native"/>
         </id>

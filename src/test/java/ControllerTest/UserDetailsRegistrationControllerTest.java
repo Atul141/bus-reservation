@@ -1,6 +1,6 @@
 package ControllerTest;
 
-import Models.User;
+import Models.UserDetails;
 import com.sample.Controller.UserRegistration;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 
 import static junit.framework.Assert.assertEquals;
 
-public class UserRegistrationControllerTest {
+public class UserDetailsRegistrationControllerTest {
 
     Model model;
     private UserRegistration userRegistration;
@@ -24,6 +24,6 @@ public class UserRegistrationControllerTest {
     }
     @Test
     public void shouldReturnSuccessWhenRegistrationFormIsSubmittedSuccessfully(){
-        assertEquals("redirect:/success",userRegistration.submitForm(new User()));
+        assertEquals("redirect:/success",userRegistration.submitForm(new UserDetails()));
     }
 }

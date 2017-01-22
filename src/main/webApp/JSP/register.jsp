@@ -8,7 +8,7 @@
 </head>
 <body>
 Registration form
-<form:form method="post" modelAttribute="User" action="RegisterUserDetails">
+<form:form method="post" modelAttribute="UserDetails" action="RegisterUserDetails">
     <table>
         <tr>
             <td>First Name</td>

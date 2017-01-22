@@ -7,7 +7,7 @@
 </head>
 <body>
 Login
-<form:form method="post" modelAttribute="User" action="loginValidation">
+<form:form method="post" modelAttribute="UserDetails" action="loginValidation">
     <table>
         <tr>
             <td>Email</td>

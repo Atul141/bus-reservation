@@ -1,7 +1,6 @@
 package ControllerTest;
 
-import Models.Login;
-import Models.User;
+import Models.UserDetails;
 import com.sample.Controller.LoginController;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,6 +26,6 @@ public class LoginControllerTest {
 
 @Test
     public void shouldReturnToHomeAfterSuccessfullValidation(){
-        assertEquals("redirect:/Home",loginController.validateLogin(new User()));
+        assertEquals("redirect:/Home",loginController.validateLogin(new UserDetails()));
 }
 }

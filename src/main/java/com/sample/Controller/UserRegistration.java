@@ -1,6 +1,7 @@
 package com.sample.Controller;
 
-import Models.User;
+import Models.UserDetails;
+import Services.UserDetailsService;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
@@ -13,24 +14,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class UserRegistration {
 
+    private UserDetailsService userDetailsService;
+    public UserRegistration(){
+        userDetailsService=new UserDetailsService();
+    }
     @RequestMapping(value = "/Registration", method = RequestMethod.GET)
     public String setupForm(Model model) {
-        User user = new User();
-        model.addAttribute("User", user);
+        UserDetails userDetails = new UserDetails();
+        model.addAttribute("UserDetails", userDetails);
         return "register";
     }
 
     @RequestMapping(value = "/RegisterUserDetails", method = RequestMethod.POST)
-    public String submitForm(@ModelAttribute("User") User user) {
-
-        Session session = new Configuration().configure().buildSessionFactory().openSession();
-
-        Transaction transaction=session.beginTransaction();
-        session.persist(user);
-        transaction.commit();
-        session.close();
-
-        System.out.println(user.getFirstName());
+    public String submitForm(@ModelAttribute("User") UserDetails userDetails) {
+        userDetailsService.saveUserDetails(userDetails);
         return "redirect:/success";
     }
 

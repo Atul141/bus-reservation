@@ -1,7 +1,7 @@
-CREATE TABLE userDetails
+CREATE TABLE UserDetails
 (
 id int PRIMARY KEY ,
-firstName VARCHAR NOT NULL ,
+firstName VARCHAR(100) NOT NULL ,
 lastName VARCHAR(100) NOT NULL ,
 email VARCHAR(100) NOT NULL ,
 phone VARCHAR(100) NOT NULL ,

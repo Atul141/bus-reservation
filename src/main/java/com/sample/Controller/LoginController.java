@@ -1,9 +1,8 @@
 package com.sample.Controller;
 
-import Models.User;
+import Models.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,14 +12,14 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String Login(Model model) {
-        User user = new User();
-        model.addAttribute("User", user);
+        UserDetails userDetails = new UserDetails();
+        model.addAttribute("UserDetails", userDetails);
         return "login";
     }
 
     @RequestMapping(value = "/loginValidation", method = RequestMethod.POST)
-    public String validateLogin(@ModelAttribute("User") User user) {
-        System.out.println("User"+user.getPassword());
+    public String validateLogin(@ModelAttribute("User") UserDetails userDetails) {
+        System.out.println("UserDetails"+ userDetails.getPassword());
         return "redirect:/Home";
     }
 
