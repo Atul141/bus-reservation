@@ -7,9 +7,9 @@ public class RegistrationFormValidator {
     private EmailValidator emailValidator;
     private PhoneValidators phoneValidators;
 
-    public RegistrationFormValidator(){
-        emailValidator=new EmailValidator();
-        phoneValidators=new PhoneValidators();
+    public RegistrationFormValidator() {
+        emailValidator = new EmailValidator();
+        phoneValidators = new PhoneValidators();
     }
 
     public String validateAllFields(UserDetails userDetails) {
@@ -23,14 +23,14 @@ public class RegistrationFormValidator {
         if (userDetails.getEmail().replaceAll("\\s+", "").equals(""))
             return "Email is Compulsory field";
         else {
-            if(!emailValidator.validate(userDetails.getEmail()))
+            if (!emailValidator.validate(userDetails.getEmail()))
                 return "Invalid Email";
         }
 
         if (userDetails.getPhone().replaceAll("\\s+", "").equals(""))
             return "Phone Number is Compulsory field";
         else {
-            if(!phoneValidators.validate(userDetails.getPhone()))
+            if (!phoneValidators.validate(userDetails.getPhone()))
                 return "Phone Number is Invalid";
         }
 
@@ -39,7 +39,7 @@ public class RegistrationFormValidator {
         }
 
 
-             return null;
+        return null;
 
     }
 

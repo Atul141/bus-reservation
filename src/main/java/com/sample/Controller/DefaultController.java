@@ -11,7 +11,7 @@ public class DefaultController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String homePage(Model model) {
-        model.addAttribute("UserDetails",new UserDetails());
+        model.addAttribute("UserDetails", new UserDetails());
         return "index";
     }
 

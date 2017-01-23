@@ -1,6 +1,9 @@
 package com.sample.Controller;
 
+import Models.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -8,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 
     @RequestMapping(value = "/Home", method = RequestMethod.GET)
-    public String successLogin() {
+    public String successLogin(@ModelAttribute("userName")String userName, Model model) {
+        model.addAttribute("userName",userName);
         return "home";
     }
 }

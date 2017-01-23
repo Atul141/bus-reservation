@@ -35,6 +35,7 @@ Registration form
         </tr>
     </table>
 </form:form>
+${registrationError}<br><br>
 <a href="/">Home</a>
 </body>
 </html>

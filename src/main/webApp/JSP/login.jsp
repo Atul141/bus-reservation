@@ -22,6 +22,7 @@ Login
         </tr>
     </table>
 </form:form>
+${loginError}<br><br>
 <a href="/">Home</a>
 </body>
 </html>

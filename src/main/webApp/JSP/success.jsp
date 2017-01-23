@@ -4,7 +4,8 @@
     <title>Success</title>
 </head>
 <body>
-<h3>User has been successfully registered.</h3>
+
+<h3>${userName},You have been successfully registered.</h3>
 <a href="/">Home</a><br>
 
 
