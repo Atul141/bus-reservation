@@ -3,6 +3,7 @@ package com.sample.Controller;
 import Dao.UserDetailsDao;
 import Models.UserDetails;
 import Services.LoginService;
+import Validators.LoginValidator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,9 +15,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class LoginController {
 
     private LoginService loginService;
+    private LoginValidator loginValidator;
 
     public LoginController() {
         loginService = new LoginService();
+        loginValidator = new LoginValidator();
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -29,15 +32,20 @@ public class LoginController {
 
     @RequestMapping(value = "/loginValidation", method = RequestMethod.POST)
     public String validateLogin(@ModelAttribute("User") UserDetails userDetails, RedirectAttributes redirectAttributes) {
-        UserDetailsDao loggedInUser = loginService.validateLogin(userDetails);
-        if (loggedInUser == null) {
-            String loginError="Invalid Credentials";
-            redirectAttributes.addAttribute("Error",loginError);
-            return "redirect:/login";
+        String loginError = loginValidator.validate(userDetails);
+        if (loginError == null) {
+            UserDetailsDao loggedInUser = loginService.validateLogin(userDetails);
+            if (loggedInUser == null) {
+                loginError = "Invalid Credentials";
+                redirectAttributes.addAttribute("Error", loginError);
+                return "redirect:/login";
+            }
+            redirectAttributes.addAttribute("userName", loggedInUser.getFirstName());
+            return "redirect:/Home";
         }
-        redirectAttributes.addAttribute("userName",loggedInUser.getFirstName());
-        return "redirect:/Home";
+
+        redirectAttributes.addAttribute("Error", "ERROR!!:"+loginError);
+        return "redirect:/login";
+
     }
-
-
 }

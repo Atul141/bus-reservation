@@ -21,7 +21,7 @@ public class HomeControllerTest {
 
     @Test
     public void shouldReturnToHomePage(){
-//        assertEquals("home",homeController.successLogin());
+        assertEquals("home",homeController.successLogin("abcd",model));
     }
 
 
