@@ -3,9 +3,6 @@ package Services;
 import Dao.UserDetailsDao;
 import Models.UserDetails;
 import ServiceImpl.UserDetailsImpl;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 public class UserDetailsService {
 
