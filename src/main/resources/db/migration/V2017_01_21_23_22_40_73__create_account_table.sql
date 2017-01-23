@@ -1,4 +1,4 @@
-CREATE TABLE UserDetails
+CREATE TABLE userdetails
 (
 id int PRIMARY KEY ,
 firstName VARCHAR(100) NOT NULL ,

@@ -5,22 +5,13 @@ import javax.persistence.Id;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
-@Table(name = "userdetails")
 public class UserDetails implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Column( columnDefinition = "INTEGER")
     private int id;
-    @Column(columnDefinition = "VARCHAR(100)")
     private String firstName;
-    @Column(columnDefinition = "VARCHAR(100)")
     private String lastName;
-    @Column(columnDefinition = "VARCHAR(100)")
     private String email;
-    @Column(columnDefinition = "VARCHAR(100)")
     private String phone;
-    @Column(columnDefinition = "VARCHAR(100)")
     private String password;
 
 
