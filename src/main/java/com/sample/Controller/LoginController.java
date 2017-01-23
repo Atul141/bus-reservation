@@ -1,5 +1,6 @@
 package com.sample.Controller;
 
+import Dao.UserDetailsDao;
 import Models.UserDetails;
 import Services.LoginService;
 import org.springframework.stereotype.Controller;
@@ -13,9 +14,10 @@ public class LoginController {
 
     private LoginService loginService;
 
-    public LoginController(){
-    loginService=new LoginService();
+    public LoginController() {
+        loginService = new LoginService();
     }
+
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String Login(Model model) {
         UserDetails userDetails = new UserDetails();
@@ -25,17 +27,14 @@ public class LoginController {
 
     @RequestMapping(value = "/loginValidation", method = RequestMethod.POST)
     public String validateLogin(@ModelAttribute("User") UserDetails userDetails) {
-        System.out.println("UserDetails"+ userDetails.getPassword());
-        boolean isValideCredentials=loginService.validateLogin(userDetails);
-       if(isValideCredentials)
-           System.out.println("true");
-       else            System.out.println("false");
-
+        System.out.println("UserDetails" + userDetails.getPassword());
+        UserDetailsDao loggedInUser = loginService.validateLogin(userDetails);
+        if (loggedInUser == null) {
+            return "redirect:/login";
+        }
+        System.out.println("Password"+loggedInUser.getPassword());
         return "redirect:/Home";
     }
 
-    @RequestMapping(value = "/Home", method = RequestMethod.GET)
-    public String successLogin() {
-        return "home";
-    }
+
 }

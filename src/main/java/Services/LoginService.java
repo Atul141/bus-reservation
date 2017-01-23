@@ -1,6 +1,7 @@
 package Services;
 
 import Dao.LoginDao;
+import Dao.UserDetailsDao;
 import Models.UserDetails;
 import ServiceImpl.LoginImpl;
 
@@ -14,7 +15,7 @@ public LoginService(){
     loginImpl=new LoginImpl();
 }
 
-public boolean validateLogin(UserDetails userDetails){
+public UserDetailsDao validateLogin(UserDetails userDetails){
 
     loginDao.setPassword(userDetails.getPassword());
     loginDao.setEmail(userDetails.getEmail());

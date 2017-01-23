@@ -5,6 +5,7 @@
     <title>Home</title>
 </head>
 <body>
-<h3>Welcome to Bus Reservation System</h3>
+<h3>Welcome to Bus Reservation System</h3><br>
+<a href="/">Logout</a>
 </body>
 </html>
