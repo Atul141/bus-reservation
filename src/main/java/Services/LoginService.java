@@ -11,9 +11,10 @@ private LoginImpl loginImpl;
 
 public LoginService(){
     loginDao=new LoginDao();
+    loginImpl=new LoginImpl();
 }
 
-public boolean validatelogin(UserDetails userDetails){
+public boolean validateLogin(UserDetails userDetails){
 
     loginDao.setPassword(userDetails.getPassword());
     loginDao.setEmail(userDetails.getEmail());
