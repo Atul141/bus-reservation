@@ -13,10 +13,10 @@ public class LoginImpl {
         public UserDetailsDao validateLogin(LoginDao loginDao){
             Session session = new Configuration().configure().buildSessionFactory().openSession();
             Transaction transaction = session.beginTransaction();
-            String qeury="FROM UserDetailsDao  user where user.email="+"'"+loginDao.getEmail()+"'";
+            String query="FROM UserDetailsDao  user where user.email="+"'"+loginDao.getEmail()+"'";
             UserDetailsDao userDetails;
             try {
-                userDetails = (UserDetailsDao) session.createQuery(qeury).uniqueResult();
+                userDetails = (UserDetailsDao) session.createQuery(query).uniqueResult();
 
             transaction.commit();
             session.close();
