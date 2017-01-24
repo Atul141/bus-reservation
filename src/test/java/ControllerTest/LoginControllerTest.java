@@ -4,10 +4,13 @@ import Models.UserDetails;
 import com.sample.Controller.LoginController;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ExtendedModelMap;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap;
+
+import javax.servlet.http.HttpServletRequest;
 
 import static junit.framework.Assert.assertEquals;
 
@@ -17,6 +20,8 @@ public class LoginControllerTest {
     RedirectAttributes redirectAttributes;
     private LoginController loginController;
     private UserDetails userDetails;
+    @Autowired
+    private HttpServletRequest request;
 
     @Before
     public void setup(){
@@ -34,6 +39,6 @@ public class LoginControllerTest {
     public void shouldReturnToHomeAfterSuccessfullValidation(){
         userDetails.setEmail("abcd@gmail.com");
         userDetails.setPassword("mysore");
-        assertEquals("redirect:/Home",loginController.validateLogin(userDetails,redirectAttributes));
+        assertEquals("redirect:/Home",loginController.validateLogin(userDetails,redirectAttributes,request));
 }
 }

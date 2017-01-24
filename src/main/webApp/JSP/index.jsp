@@ -4,7 +4,8 @@
     <title>Home</title>
 </head>
 <body>
-<a href="/login">Login</a>
-<a href="/Registration">Registration</a>
+<a href="/login">Login</a><br><br>
+<a href="/Registration">Registration</a><br><br>
+${userDetails}
 </body>
 </html>

@@ -1,6 +1,9 @@
 package com.sample.Controller;
 
 import Dao.UserDetailsDao;
+
+import javax.servlet.http.*;
+
 import Models.UserDetails;
 import Services.LoginService;
 import Validators.LoginValidator;
@@ -23,15 +26,15 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String Login(@ModelAttribute("Error")String error, Model model) {
+    public String Login(@ModelAttribute("Error") String error, Model model) {
         UserDetails userDetails = new UserDetails();
         model.addAttribute("UserDetails", userDetails);
-        model.addAttribute("loginError",error);
+        model.addAttribute("loginError", error);
         return "login";
     }
 
     @RequestMapping(value = "/loginValidation", method = RequestMethod.POST)
-    public String validateLogin(@ModelAttribute("User") UserDetails userDetails, RedirectAttributes redirectAttributes) {
+    public String validateLogin(@ModelAttribute("User") UserDetails userDetails, RedirectAttributes redirectAttributes, HttpServletRequest request) {
         String loginError = loginValidator.validate(userDetails);
         if (loginError == null) {
             UserDetailsDao loggedInUser = loginService.validateLogin(userDetails);
@@ -40,11 +43,14 @@ public class LoginController {
                 redirectAttributes.addAttribute("Error", loginError);
                 return "redirect:/login";
             }
+            userDetails.setEmail(userDetails.getEmail());
+            HttpSession httpSession = request.getSession();
+            httpSession.setAttribute("userDetails", userDetails);
             redirectAttributes.addAttribute("userName", loggedInUser.getFirstName());
             return "redirect:/Home";
         }
 
-        redirectAttributes.addAttribute("Error", "ERROR!!:"+loginError);
+        redirectAttributes.addAttribute("Error", "ERROR!!:" + loginError);
         return "redirect:/login";
 
     }

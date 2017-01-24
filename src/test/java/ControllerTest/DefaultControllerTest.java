@@ -22,7 +22,7 @@ public class DefaultControllerTest {
 
     @Test
     public void shouldReturnIndexForDefaultPage(){
-        assertEquals("index",defaultController.homePage(model));
+        assertEquals("index",defaultController.homePage());
     }
 
 

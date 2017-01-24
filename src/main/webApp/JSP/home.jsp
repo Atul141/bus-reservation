@@ -6,6 +6,6 @@
 </head>
 <body>
 <h3>${userName} ,Welcome to Bus Reservation System</h3><br>
-<a href="/">Logout</a>
+<a href="/default">Logout</a>
 </body>
 </html>
