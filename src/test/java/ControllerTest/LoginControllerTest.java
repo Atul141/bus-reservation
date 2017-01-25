@@ -11,6 +11,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import static junit.framework.Assert.assertEquals;
 
@@ -22,6 +23,8 @@ public class LoginControllerTest {
     private UserDetails userDetails;
     @Autowired
     private HttpServletRequest request;
+    @Autowired
+    private HttpServletResponse response;
 
     @Before
     public void setup(){
@@ -39,6 +42,6 @@ public class LoginControllerTest {
     public void shouldReturnToHomeAfterSuccessfullValidation(){
         userDetails.setEmail("abcd@gmail.com");
         userDetails.setPassword("mysore");
-        assertEquals("redirect:/Home",loginController.validateLogin(userDetails,redirectAttributes,request));
+        assertEquals("redirect:/Home",loginController.validateLogin(userDetails,redirectAttributes,request,response));
 }
 }

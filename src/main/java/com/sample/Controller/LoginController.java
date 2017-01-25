@@ -33,7 +33,7 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/loginValidation", method = RequestMethod.POST)
-    public String validateLogin(@ModelAttribute("User") UserDetails userDetails, RedirectAttributes redirectAttributes, HttpServletRequest request) {
+    public String validateLogin(@ModelAttribute("User") UserDetails userDetails, RedirectAttributes redirectAttributes, HttpServletRequest request,HttpServletResponse response) {
         String loginError = loginValidator.validate(userDetails);
         if (loginError == null) {
             boolean isUserLoggedIn = loginService.validateLogin(userDetails);
@@ -46,6 +46,8 @@ public class LoginController {
             HttpSession httpSession = request.getSession();
             httpSession.setAttribute("userDetails", userDetails);
             redirectAttributes.addAttribute("userName", userDetails.getEmail());
+            Cookie cookie= new Cookie("userEmail",userDetails.getEmail());
+            response.addCookie(cookie);
             return "redirect:/Home";
         }
 
