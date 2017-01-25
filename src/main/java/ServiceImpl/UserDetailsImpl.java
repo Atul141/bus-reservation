@@ -8,7 +8,7 @@ public class UserDetailsImpl {
     public UserDetailsImpl(){
         saveToDb =new SaveToDb();
     }
-    public void saveUserDetails(UserDetailsDao userDetails) {
+    public void saveToDb(UserDetailsDao userDetails) {
         saveToDb.saveToDb(userDetails);
 
 

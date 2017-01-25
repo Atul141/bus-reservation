@@ -15,7 +15,7 @@ public LoginService(){
     loginImpl=new LoginImpl();
 }
 
-public UserDetailsDao validateLogin(UserDetails userDetails){
+public boolean validateLogin(UserDetails userDetails){
 
     loginDao.setPassword(userDetails.getPassword());
     loginDao.setEmail(userDetails.getEmail());

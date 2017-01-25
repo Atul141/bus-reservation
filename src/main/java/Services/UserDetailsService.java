@@ -20,7 +20,7 @@ public class UserDetailsService {
         userDetailsDao.setEmail(userDetails.getEmail());
         userDetailsDao.setFirstName(userDetails.getFirstName());
         userDetailsDao.setPhone(userDetails.getPhone());
-        userDetailsImpl.saveUserDetails(userDetailsDao);
+        userDetailsImpl.saveToDb(userDetailsDao);
 
     }
 }

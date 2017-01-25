@@ -10,7 +10,7 @@ import org.hibernate.cfg.Configuration;
 
 public class LoginImpl {
 
-        public UserDetailsDao validateLogin(LoginDao loginDao){
+        public boolean validateLogin(LoginDao loginDao){
             Session session = new Configuration().configure().buildSessionFactory().openSession();
             Transaction transaction = session.beginTransaction();
             String query="FROM UserDetailsDao  user where user.email="+"'"+loginDao.getEmail()+"'";
@@ -22,7 +22,7 @@ public class LoginImpl {
                 session.close();
                 if (userDetails != null) {
                     if (userDetails.getPassword().equals(loginDao.getPassword()))
-                        return userDetails;
+                        return true;
 
                 }
             }
@@ -30,6 +30,6 @@ public class LoginImpl {
                     System.out.println("error creating session " + ex);
                 }
 
-                return null;
+                return false;
         }
 }

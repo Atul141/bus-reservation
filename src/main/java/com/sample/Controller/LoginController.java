@@ -1,6 +1,5 @@
 package com.sample.Controller;
 
-import Dao.UserDetailsDao;
 
 import javax.servlet.http.*;
 
@@ -37,8 +36,8 @@ public class LoginController {
     public String validateLogin(@ModelAttribute("User") UserDetails userDetails, RedirectAttributes redirectAttributes, HttpServletRequest request) {
         String loginError = loginValidator.validate(userDetails);
         if (loginError == null) {
-            UserDetailsDao loggedInUser = loginService.validateLogin(userDetails);
-            if (loggedInUser == null) {
+            boolean isUserLoggedIn = loginService.validateLogin(userDetails);
+            if (isUserLoggedIn == false) {
                 loginError = "Invalid Credentials";
                 redirectAttributes.addAttribute("Error", loginError);
                 return "redirect:/login";
@@ -46,7 +45,7 @@ public class LoginController {
             userDetails.setEmail(userDetails.getEmail());
             HttpSession httpSession = request.getSession();
             httpSession.setAttribute("userDetails", userDetails);
-            redirectAttributes.addAttribute("userName", loggedInUser.getFirstName());
+            redirectAttributes.addAttribute("userName", userDetails.getEmail());
             return "redirect:/Home";
         }
 
