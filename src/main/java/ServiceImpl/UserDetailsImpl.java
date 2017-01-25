@@ -16,7 +16,7 @@ public class UserDetailsImpl {
             Session session = new Configuration().configure().buildSessionFactory().openSession();
 
             Transaction transaction = session.beginTransaction();
-            session.save(userDetails);
+            session.persist(userDetails);
             session.flush();
             transaction.commit();
             session.close();
