@@ -18,15 +18,18 @@ public class LoginImpl {
             try {
                 userDetails = (UserDetailsDao) session.createQuery(query).uniqueResult();
 
-            transaction.commit();
-            session.close();
-                if(userDetails!=null) {
+                transaction.commit();
+                session.close();
+                if (userDetails != null) {
                     if (userDetails.getPassword().equals(loginDao.getPassword()))
                         return userDetails;
 
                 }
             }
-            catch (org.hibernate.NonUniqueResultException e){}
+            catch (Throwable ex){
+                    System.out.println("error creating session " + ex);
+                }
+
                 return null;
         }
 }

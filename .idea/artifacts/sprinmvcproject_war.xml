@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="sprinmvcproject:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="sprinmvcproject-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="sprinmvcproject:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,1 @@
+Migration:mvn compile flyway:migrate

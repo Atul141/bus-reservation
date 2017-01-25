@@ -29,27 +29,31 @@
             <version>4.2.1.RELEASE</version>
         </dependency>
         <dependency>
-            <groupId>postgresql</groupId>
+            <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>9.1-901-1.jdbc4</version>
+            <version>9.4-1203-jdbc42</version>
         </dependency>
-        <dependency>
-            <groupId>com.googlecode.flyway</groupId>
-            <artifactId>flyway-maven-plugin</artifactId>
-            <version>2.3</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-jdk14</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.googlecode.flyway</groupId>-->
+            <!--<artifactId>flyway-maven-plugin</artifactId>-->
+            <!--<version>2.3</version>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>org.slf4j</groupId>-->
+                    <!--<artifactId>slf4j-jdk14</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.2.6.Final</version>
+            <version>5.2.3.Final</version>
         </dependency>
-
+        <!--<dependency>-->
+            <!--<groupId>org.hibernate</groupId>-->
+            <!--<artifactId>hibernate-envers</artifactId>-->
+            <!--<version>3.5.6-Final</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>com.github.the-alchemist</groupId>
             <artifactId>hibernate-postresql</artifactId>
@@ -87,11 +91,11 @@
 
         <!--Javax-->
 
-        <dependency>
-            <groupId>javax.persistence</groupId>
-            <artifactId>persistence-api</artifactId>
-            <version>1.0.2</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>javax.persistence</groupId>-->
+            <!--<artifactId>persistence-api</artifactId>-->
+            <!--<version>1.0.2</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>jstl</groupId>
@@ -104,10 +108,10 @@
             <version>1.1.0.Final</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>3.6.9.Final</version>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>5.2.6.Final</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
@@ -117,7 +121,7 @@
         </dependency>
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
-            <artifactId>hibernate-jpa-2.0-api</artifactId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
             <version>1.0.0.Final</version>
         </dependency>
         <dependency>
@@ -128,14 +132,8 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.6.6</version>
+            <version>1.7.12</version>
         </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-nop</artifactId>
-            <version>1.6.6</version>
-        </dependency>
-
 
     </dependencies>
 
@@ -155,7 +153,7 @@
             </plugin>
                 <plugin>
                     <artifactId>maven-war-plugin</artifactId>
-                    <version>2.6</version>
+                    <version>3.0.0</version>
                     <configuration>
                         <packagingIncludes>WEB-INF/lib/hibernate-core*.jar,WEB-INF/lib/someOther*.jar</packagingIncludes>
                     </configuration>

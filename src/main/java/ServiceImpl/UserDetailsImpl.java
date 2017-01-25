@@ -14,15 +14,16 @@ public class UserDetailsImpl {
         try {
 
             Session session = new Configuration().configure().buildSessionFactory().openSession();
+
             Transaction transaction = session.beginTransaction();
-            session.persist(userDetails);
+            session.save(userDetails);
             session.flush();
             transaction.commit();
             session.close();
-        } catch (javax.persistence.PersistenceException e) {
+        } catch (Throwable ex) {
+            System.out.println("error creating session "+ex);
 
         }
-
     }
 
 }

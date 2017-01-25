@@ -1,16 +1,17 @@
 package Dao;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 
 
 @Entity
 @Table(name = "userdetails")
-@SequenceGenerator(name="seq", initialValue=2, allocationSize=1)
 
 public class UserDetailsDao {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "INTEGER")
     private int id;
     @Column(columnDefinition = "VARCHAR(100)")
