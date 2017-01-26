@@ -46,7 +46,7 @@ public class GetRoutes {
         routes.setSource("Bangalore");
         routes.setPrice(600);
         routes.setBus_no("KA-05 G-9000");
-        routes.setDistance(150);
+        routes.setDistance(300);
         routes.setId(2);
         routeList.add(route);
         routeList.add(routes);
