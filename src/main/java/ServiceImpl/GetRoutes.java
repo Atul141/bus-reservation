@@ -13,12 +13,12 @@ public class GetRoutes {
     private Route routes;
     private List<Route> routeList;
 
-    public GetRoutes(){
-        routeList=new ArrayList<Route>();
-        routes=new Route();
+    public GetRoutes() {
+        routeList = new ArrayList<Route>();
+        routes = new Route();
     }
 
-    public List<Route> getRoutes(Route route){
+    public List<Route> getRoutes(Route route) {
         route.setArrivalTime(new Time(1230));
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.YEAR, 2015);
@@ -32,6 +32,7 @@ public class GetRoutes {
         route.setPrice(300);
         route.setBus_no("KA-09 G-9000");
         route.setDistance(150);
+        route.setId(1);
 
         routes.setArrivalTime(new Time(0530));
         Calendar calendar1 = Calendar.getInstance();
@@ -46,11 +47,11 @@ public class GetRoutes {
         routes.setPrice(600);
         routes.setBus_no("KA-05 G-9000");
         routes.setDistance(150);
-         routeList.add(route);
-         routeList.add(routes);
+        routes.setId(2);
+        routeList.add(route);
+        routeList.add(routes);
         return routeList;
     }
-
 
 
 }

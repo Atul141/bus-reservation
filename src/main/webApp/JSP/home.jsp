@@ -21,17 +21,27 @@
         </tr>
         <c:forEach var="routes" items="${routesList}">
             <tr>
-                <td><c:out value="${routes.bus_no}" /></td>
-                <td><c:out value="${routes.source}" /></td>
-                <td><c:out value="${routes.destination}" /></td>
-                <td><c:out value="${routes.departureTime}" /></td>
-                <td><c:out value="${routes.arrivalTime}" /></td>
-                <td><c:out value="${routes.price}" /></td>
-                <td><c:out value="${routes.distance}" /></td>
+                <td><c:out value="${routes.bus_no}"/></td>
+                <td><c:out value="${routes.source}"/></td>
+                <td><c:out value="${routes.destination}"/></td>
+                <td><c:out value="${routes.departureTime}"/></td>
+                <td><c:out value="${routes.arrivalTime}"/></td>
+                <td><c:out value="${routes.price}"/></td>
+                <td><c:out value="${routes.distance}"/></td>
+                <td>
+                    <button type="button" onclick="select(${routes.id})">Select-Seat</button>
+                </td>
             </tr>
         </c:forEach>
     </table>
 </div>
 <a href="/default">Logout</a>
+
+<script type="text/javascript">
+    function select(id) {
+        window.location="/booking";
+//        alert(id);
+    }
+</script>
 </body>
 </html>
