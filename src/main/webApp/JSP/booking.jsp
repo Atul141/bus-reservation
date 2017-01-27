@@ -11,6 +11,7 @@
     <table border="1" cellpadding="5">
         <caption><h2>Enter Passenger Details</h2></caption>
         <tr>
+            <th>Passenger No.</th>
             <th>Name</th>
             <th>Gender</th>
             <th>Age</th>
@@ -19,11 +20,12 @@
         <form:form method="post" modelAttribute="passengerWrapper" action="confirmation">
         <c:forEach varStatus="i" items="${passengerWrapper.passengerList}">
         <tr>
+            <th>${i.index+1}</th>
             <th><form:input path="passengerList[${i.index}].name" type="text" /></th>
             <th><form:input path="passengerList[${i.index}].gender" type="text"/></th>
             <th><form:input path="passengerList[${i.index}].age" type="text"/></th>
             <th><form:input path="passengerList[${i.index}].seat" type="text"/></th>
-        </tr>
+            </tr>
         </c:forEach>
         <button >Confirmation</button>
         </form:form>

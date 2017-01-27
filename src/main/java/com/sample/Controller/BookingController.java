@@ -1,6 +1,7 @@
 package com.sample.Controller;
 
 
+import Models.NumberOfSeats;
 import Models.Passenger;
 import Models.PassengerWrapper;
 import Services.PassengerService;
@@ -15,18 +16,23 @@ import java.util.List;
 @Controller
 public class BookingController {
 
-    @RequestMapping(value = "/booking", method = RequestMethod.GET)
-    public String bookTickets(Model model) {
+    @RequestMapping(value = "/booking", method = RequestMethod.POST)
+    public String bookTickets(Model model,@ModelAttribute("numberOfSeats") NumberOfSeats numberOfSeats) {
         PassengerService passengerService = new PassengerService();
-        PassengerWrapper passengerWrapper=new PassengerWrapper();
-        passengerWrapper.setPassengerList( passengerService.getPassengerList());
+        PassengerWrapper passengerWrapper = new PassengerWrapper();
+        passengerWrapper.setPassengerList(passengerService.getPassengerList(numberOfSeats.getNumber()));
         model.addAttribute("passengerWrapper", passengerWrapper);
+        System.out.println(numberOfSeats.getNumber());
+        System.out.println(numberOfSeats.getRoute_id());
+
         return "/booking";
     }
 
     @RequestMapping(value = "/confirmation", method = RequestMethod.POST)
-    public String confirmation(Model model, @ModelAttribute("passengerWrapper") PassengerWrapper passengerWrapper) {
+    public String confirmation(Model model, @ModelAttribute("passengerWrapper") PassengerWrapper passengerWrapper, @ModelAttribute("numberOfSeats") NumberOfSeats numberOfSeats) {
+//        model.addAttribute("numberOfSeats", numberOfSeats);
         model.addAttribute("passengerWrapper", passengerWrapper);
+        System.out.println(numberOfSeats.getNumber());
         return "/confirmation";
     }
 }

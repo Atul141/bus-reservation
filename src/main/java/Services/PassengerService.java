@@ -8,19 +8,13 @@ import java.util.List;
 
 public class PassengerService {
 
-    public List<Passenger> getPassengerList() {
-        Passenger passenger1 = new Passenger();
-        Passenger passenger2 = new Passenger();
-        Passenger passenger3 = new Passenger();
-        Passenger passenger4 = new Passenger();
-        Passenger passenger5 = new Passenger();
-        passenger1.setSeat("D1");
+    public List<Passenger> getPassengerList(int number) {
+        Passenger[] passengers = new Passenger[number];
         List<Passenger> passengerList = new ArrayList<Passenger>();
-        passengerList.add(passenger1);
-        passengerList.add(passenger2);
-        passengerList.add(passenger3);
-        passengerList.add(passenger4);
-        passengerList.add(passenger5);
+        for (int index = 0; index < number; index++) {
+            passengers[index] = new Passenger();
+            passengerList.add(passengers[index]);
+        }
         return passengerList;
     }
 }

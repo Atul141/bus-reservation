@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -18,6 +19,7 @@
             <th>Arrival-Time</th>
             <th>Price</th>
             <th>Distance</th>
+            <th>Select To Continue</th>
         </tr>
         <c:forEach var="routes" items="${routesList}">
             <tr>
@@ -29,19 +31,16 @@
                 <td><c:out value="${routes.price}"/></td>
                 <td><c:out value="${routes.distance}"/></td>
                 <td>
-                    <button type="button" onclick="select(${routes.id})">Select-Seat</button>
+                    <form:form method="POST" modelAttribute="numberOfSeats" name="numberOfSeats" action="/booking">
+                        <form:select path="number" items="${seatNumbers}"/><br><br>
+                        <form:hidden path="route_id" value="${routes.id}"/>
+                        <form:button type="submit">SeatNumber</form:button>
+                    </form:form>
                 </td>
             </tr>
         </c:forEach>
     </table>
 </div>
 <a href="/default">Logout</a>
-
-<script type="text/javascript">
-    function select(id) {
-        window.location="/booking";
-//        alert(id);
-    }
-</script>
 </body>
 </html>
