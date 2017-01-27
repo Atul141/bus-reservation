@@ -4,8 +4,9 @@
     <title>Home</title>
 </head>
 <body>
+<div align="center" >
 <a href="/login">Login</a><br><br>
 <a href="/Registration">Registration</a><br><br>
-${userDetails}
+</div>
 </body>
 </html>

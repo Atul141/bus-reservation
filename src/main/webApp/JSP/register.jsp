@@ -7,9 +7,10 @@
     <title>Registration Form</title>
 </head>
 <body>
-Registration form
+<div align="left">
+    <caption><h2>Registration form</h2></caption><br>
 <form:form method="post" modelAttribute="UserDetails" action="RegisterUserDetails">
-    <table>
+    <table cellpadding="5">
         <tr>
             <td>First Name</td>
             <td><form:input path="firstName"/></td>
@@ -30,11 +31,11 @@ Registration form
             <td>Phone Number</td>
             <td><form:input path="phone"/></td>
         </tr>
-        <tr>
-            <td colspan="2"><input type="submit" value="registration"/></td>
-        </tr>
+            <td colspan="5" align="right"><input type="submit" value="registration" align="right"/></td>
     </table>
+
 </form:form>
+    </div>
 ${registrationError}<br><br>
 <a href="/">Home</a>
 </body>

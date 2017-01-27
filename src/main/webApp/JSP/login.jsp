@@ -6,9 +6,10 @@
     <title>Login</title>
 </head>
 <body>
-Login
+<caption><h2>Login</h2></caption>
+
 <form:form method="post" modelAttribute="UserDetails" action="loginValidation">
-    <table>
+    <table cellpadding="10">
         <tr>
             <td>Email</td>
             <td><form:input path="email"/></td>

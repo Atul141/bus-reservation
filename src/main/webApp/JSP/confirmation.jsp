@@ -21,19 +21,26 @@
         </tr>
         <form:form method="post" modelAttribute="passengerWrapper" action="confirmation">
         <c:forEach varStatus="i" items="${passengerWrapper.passengerList}">
-        <tr>
-            <th>${i.index+1}</th>
-            <th><form:input path="passengerList[${i.index}].name" type="text" readonly="true"/></th>
-            <th><form:input path="passengerList[${i.index}].gender" type="text" readonly="true"/></th>
-            <th><form:input path="passengerList[${i.index}].age" type="text" readonly="true"/></th>
-            <th><form:input path="passengerList[${i.index}].seat" type="text" readonly="true"/></th>
-            <th><form:checkbox path="passengerList[${i.index}].isSeniorCitizen" readonly="true" disabled="true"/></th>
-            <th><form:checkbox path="passengerList[${i.index}].isDisabled" readonly="true" disabled="true"/></th>
+            <tr>
+                <th>${i.index+1}</th>
+                <th><form:input path="passengerList[${i.index}].name" type="text" readonly="true"/></th>
+                <th><form:input path="passengerList[${i.index}].gender" type="text" readonly="true"/></th>
+                <th><form:input path="passengerList[${i.index}].age" type="text" readonly="true"/></th>
+                <th><form:input path="passengerList[${i.index}].seat" type="text" readonly="true"/></th>
+                <th><form:checkbox path="passengerList[${i.index}].isSeniorCitizen" readonly="true"
+                                   disabled="true"/></th>
+                <th><form:checkbox path="passengerList[${i.index}].isDisabled" readonly="true" disabled="true"/></th>
 
-        </tr>
+            </tr>
         </c:forEach>
-        <button>Pay</button>
-        </form:form>
+    </table>
+    <br><br>
+    <button>Pay</button>
+    </form:form>
+
 </div>
+
+</div>
+
 </body>
 </html>

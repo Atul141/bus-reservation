@@ -8,8 +8,8 @@
 </head>
 <body>
 <h3>${userName} ,Welcome to Bus Reservation System</h3><br>
-<div align="center">
-    <table border="1" cellpadding="5">
+    <div align="center">
+    <table border="2" cellpadding="5">
         <caption><h2>List of Routes</h2></caption>
         <tr>
             <th>Bus-No</th>
