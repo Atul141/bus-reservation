@@ -22,7 +22,6 @@ public class GetRoutes {
     public List<Route> getRoutes(Route route3) {
         Route route1 = new Route();
         Route route2 = new Route();
-
         route1.setArrivalTime(new Time(1230));
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.YEAR, 2015);

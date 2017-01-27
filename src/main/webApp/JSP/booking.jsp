@@ -21,11 +21,11 @@
         <c:forEach varStatus="i" items="${passengerWrapper.passengerList}">
         <tr>
             <th>${i.index+1}</th>
-            <th><form:input path="passengerList[${i.index}].name" type="text" /></th>
-            <th><form:input path="passengerList[${i.index}].gender" type="text"/></th>
+            <th><form:input path="passengerList[${i.index}].name" type="text"/></th>
+            <th><form:select path="passengerList[${i.index}].gender" items="${passengerWrapper.genderList}"/></th>
             <th><form:input path="passengerList[${i.index}].age" type="text"/></th>
             <th><form:input path="passengerList[${i.index}].seat" type="text"/></th>
-            </tr>
+        </tr>
         </c:forEach>
         <button type="submit">Confirmation</button>
         </form:form>
