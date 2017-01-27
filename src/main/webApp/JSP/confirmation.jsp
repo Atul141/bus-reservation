@@ -16,6 +16,8 @@
             <th>Gender</th>
             <th>Age</th>
             <th>Seat</th>
+            <th>Is Senior Citizen</th>
+            <th>Is Disabled</th>
         </tr>
         <form:form method="post" modelAttribute="passengerWrapper" action="confirmation">
         <c:forEach varStatus="i" items="${passengerWrapper.passengerList}">
@@ -25,6 +27,9 @@
             <th><form:input path="passengerList[${i.index}].gender" type="text" readonly="true"/></th>
             <th><form:input path="passengerList[${i.index}].age" type="text" readonly="true"/></th>
             <th><form:input path="passengerList[${i.index}].seat" type="text" readonly="true"/></th>
+            <th><form:checkbox path="passengerList[${i.index}].isSeniorCitizen" readonly="true" disabled="true"/></th>
+            <th><form:checkbox path="passengerList[${i.index}].isDisabled" readonly="true" disabled="true"/></th>
+
         </tr>
         </c:forEach>
         <button>Pay</button>

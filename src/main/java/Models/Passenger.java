@@ -7,6 +7,8 @@ private String name;
 private String gender;
 private int age;
 private String seat;
+private boolean isSeniorCitizen;
+private boolean isDisabled;
 
 
     public String getName() {
@@ -39,5 +41,21 @@ private String seat;
 
     public void setSeat(String seat) {
         this.seat = seat;
+    }
+
+    public boolean getIsSeniorCitizen() {
+        return isSeniorCitizen;
+    }
+
+    public void setIsSeniorCitizen(boolean seniorCitizen) {
+        isSeniorCitizen = seniorCitizen;
+    }
+
+    public boolean getIsDisabled() {
+        return isDisabled;
+    }
+
+    public void setIsDisabled(boolean disabled) {
+        isDisabled = disabled;
     }
 }
