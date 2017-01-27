@@ -2,6 +2,7 @@ package Models;
 
 import java.util.Date;
 import java.sql.Time;
+import java.util.List;
 
 public class Route {
     private long id;
@@ -13,6 +14,9 @@ public class Route {
     private int price;
     private String bus_no;
     private int distance;
+    private int availableNoSeats;
+    private List<Integer> availableSeat;
+
 
     public long getId() {
         return id;
@@ -84,5 +88,21 @@ public class Route {
 
     public void setDistance(int distance) {
         this.distance = distance;
+    }
+
+    public int getAvailableNoSeats() {
+        return availableNoSeats;
+    }
+
+    public void setAvailableNoSeats(int availableNoSeats) {
+        this.availableNoSeats = availableNoSeats;
+    }
+
+    public List<Integer> getAvailableSeat() {
+        return availableSeat;
+    }
+
+    public void setAvailableSeat(List<Integer> availableSeat) {
+        this.availableSeat = availableSeat;
     }
 }

@@ -27,7 +27,7 @@
             <th><form:input path="passengerList[${i.index}].seat" type="text"/></th>
             </tr>
         </c:forEach>
-        <button >Confirmation</button>
+        <button type="submit">Confirmation</button>
         </form:form>
 </div>
 

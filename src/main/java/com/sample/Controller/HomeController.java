@@ -15,7 +15,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class HomeController {
@@ -30,9 +29,6 @@ public class HomeController {
         RouteService routeService = new RouteService();
         List<Route> routeList;
         routeList = routeService.getRouteList(route);
-        NumberOfSeatService numberOfSeatService = new NumberOfSeatService();
-        Map<Integer, Integer> seatNumbers = numberOfSeatService.getSeatNumber();
-        model.addAttribute("seatNumbers", seatNumbers);
         model.addAttribute("routesList", routeList);
         model.addAttribute("numberOfSeats", new NumberOfSeats());
         return "home";

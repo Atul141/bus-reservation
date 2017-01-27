@@ -19,6 +19,8 @@
             <th>Arrival-Time</th>
             <th>Price</th>
             <th>Distance</th>
+            <th>Available Seats</th>
+            <th>Select Number Of Seats</th>
             <th>Select To Continue</th>
         </tr>
         <c:forEach var="routes" items="${routesList}">
@@ -30,12 +32,16 @@
                 <td><c:out value="${routes.arrivalTime}"/></td>
                 <td><c:out value="${routes.price}"/></td>
                 <td><c:out value="${routes.distance}"/></td>
-                <td>
-                    <form:form method="POST" modelAttribute="numberOfSeats" name="numberOfSeats" action="/booking">
-                        <form:select path="number" items="${seatNumbers}"/><br><br>
-                        <form:hidden path="route_id" value="${routes.id}"/>
-                        <form:button type="submit">SeatNumber</form:button>
+                <td><c:out value="${routes.availableNoSeats}"/></td>
+                <td align="center" border="1" cellpadding="5">
+                    <form:form method="POST" action="/booking" modelAttribute="numberOfSeats">
+                    <form:select path="number" items="${routes.availableSeat}"/>
+                    <form:hidden path="route_id" value="${routes.id}"/>
+                </td>
+                <td align="center" border="1" cellpadding="5">
+                    <form:button type="submit">Select-Seat</form:button>
                     </form:form>
+
                 </td>
             </tr>
         </c:forEach>
