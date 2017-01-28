@@ -42,6 +42,8 @@ public class HomeController {
 
         RouteService routeService = new RouteService();
         List<Route> routeList = routeService.getRouteList(route);
+        if (routeList.isEmpty())
+            return "NoRouteFound";
         model.addAttribute("selectedRoute", route);
         model.addAttribute("userName", cookie[2].getValue());
         model.addAttribute("routesList", routeList);
