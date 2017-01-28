@@ -9,12 +9,8 @@ public class SaveToDb {
 
 
     public void saveToDb(Object object) {
-
-
         try {
-
             Session session = new Configuration().configure().buildSessionFactory().openSession();
-
             Transaction transaction = session.beginTransaction();
             session.persist(object);
             session.flush();

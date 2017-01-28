@@ -6,14 +6,11 @@ import java.util.List;
 
 public class NumberOfSeatService {
 
-    private List<Integer> seatNumber;
-
-    public NumberOfSeatService(){
-        seatNumber=new ArrayList<Integer>();
-    }
-    public List<Integer> getSeatNumber(int number){
-        for(int index=1;index<=number;index++) {
+    public List<Integer> getSeatNumber(int number) {
+        List<Integer> seatNumber = new ArrayList<Integer>();
+        for (int index = 1; index <= number; index++) {
             seatNumber.add(index);
-        }return seatNumber;
+        }
+        return seatNumber;
     }
 }

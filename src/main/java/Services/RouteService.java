@@ -3,39 +3,31 @@ package Services;
 
 import Dao.RouteDao;
 import Models.Route;
-import ServiceImpl.GetRoutes;
+import ServiceImpl.RoutesImpl;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class RouteService {
 
-    private Route route;
-    private RouteDao routeDao;
-    private GetRoutes getRoutes;
-    private List<Route> routesList;
-    private List<RouteDao> routesDaoList;
-
-    public RouteService() {
-        route = new Route();
-        routesList = new ArrayList<Route>();
-        getRoutes = new GetRoutes();
-        routeDao = new RouteDao();
-    }
 
     public List<Route> getRouteList(Route routeDetails) {
+        RoutesImpl routesImpl = new RoutesImpl();
         routeDetails.setSource(routeDetails.getSource().toUpperCase());
         routeDetails.setDestination(routeDetails.getDestination().toUpperCase());
-        routesDaoList = getRoutes.getRoutes(routeDetails);
+        return mapRoutes(routesImpl.getRoutes(routeDetails));
+    }
+
+    public List<Route> mapRoutes(List<RouteDao> routesDaoList) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        List<Route> routesList = new ArrayList<Route>();
         NumberOfSeatService[] numberOfSeatService = new NumberOfSeatService[routesDaoList.size()];
+
         for (int index = 0; index < routesDaoList.size(); index++) {
-            route = new Route();
+            Route route = new Route();
             numberOfSeatService[index] = new NumberOfSeatService();
-            routeDao = routesDaoList.get(index);
+            RouteDao routeDao = routesDaoList.get(index);
             route.setSelectedDate(formatter.format(routeDao.getDate()));
             route.setId(routeDao.getId());
             route.setDate(routeDao.getDate());

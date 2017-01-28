@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GetRoutes {
+public class RoutesImpl {
 
     public List<RouteDao> getRoutes(Route routes) {
         Session session = new Configuration().configure().buildSessionFactory().openSession();

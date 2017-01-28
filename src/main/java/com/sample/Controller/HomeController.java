@@ -1,10 +1,8 @@
 package com.sample.Controller;
 
-import Dao.RouteDao;
 import Models.NumberOfSeats;
 import Models.Route;
 import Models.UserDetails;
-import Services.NumberOfSeatService;
 import Services.RouteService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +17,6 @@ import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 @Controller
 public class HomeController {
@@ -29,19 +26,10 @@ public class HomeController {
         HttpSession httpSession = request.getSession();
         UserDetails userDetails = (UserDetails) httpSession.getAttribute("userDetails");
         Cookie[] cookie = request.getCookies();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        Date selectedDate = null;
-        try {
-            selectedDate = formatter.parse(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        route.setSelectedDate(formatter.format(selectedDate));
-        route.setDate(selectedDate);
+        route = mapDate(date, route);
         RouteService routeService = new RouteService();
-        List<Route> routeList = routeService.getRouteList(route);
         model.addAttribute("userName", cookie[2].getValue());
-        model.addAttribute("routesList", routeList);
+        model.addAttribute("routesList", routeService.getRouteList(route));
         model.addAttribute("numberOfSeats", new NumberOfSeats());
         return "home";
     }
@@ -54,5 +42,18 @@ public class HomeController {
         model.addAttribute("userName", cookie[2].getValue());
         return "searchRoutes";
 
+    }
+
+    public Route mapDate(String date, Route route) {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date selectedDate = null;
+        try {
+            selectedDate = formatter.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        route.setSelectedDate(formatter.format(selectedDate));
+        route.setDate(selectedDate);
+        return route;
     }
 }

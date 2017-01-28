@@ -1,8 +1,5 @@
 package Models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.*;
 import java.io.Serializable;
 
 public class UserDetails implements Serializable {
