@@ -19,6 +19,13 @@ public class RouteService {
         return mapRoutes(routesImpl.getRoutes(routeDetails));
     }
 
+    public Route getRouteBasedOnId(long id) {
+        RoutesImpl routesImpl = new RoutesImpl();
+        List<RouteDao> routeDaoList = new ArrayList<RouteDao>();
+        routeDaoList.add(routesImpl.getRoutesBasedOnId(id));
+        return mapRoutes(routeDaoList).get(0);
+    }
+
     public List<Route> mapRoutes(List<RouteDao> routesDaoList) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         List<Route> routesList = new ArrayList<Route>();

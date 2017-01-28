@@ -7,11 +7,12 @@
     <title>Home</title>
 </head>
 <body>
-<h3>${userName} ,Welcome to Bus Reservation System</h3><br>
-    <div align="center">
-    <table border="2" cellpadding="5">
-        <caption><h2>List of Routes</h2></caption>
-        <tr>
+<br><br>
+<h3>You are seeing travel routes between ${selectedRoute.source} and ${selectedRoute.destination} on ${selectedRoute.selectedDate}</h3><br>
+<div align="center">
+        <table border="2" cellpadding="5">
+            <caption><h2>List of Routes</h2></caption>
+            <tr>
             <th>Bus-No</th>
             <th>Journey Date</th>
             <th>Source</th>

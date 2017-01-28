@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class HomeController {
@@ -28,8 +29,10 @@ public class HomeController {
         Cookie[] cookie = request.getCookies();
         route = mapDate(date, route);
         RouteService routeService = new RouteService();
+        List<Route> routeList=routeService.getRouteList(route);
+        model.addAttribute("selectedRoute",route);
         model.addAttribute("userName", cookie[2].getValue());
-        model.addAttribute("routesList", routeService.getRouteList(route));
+        model.addAttribute("routesList", routeList);
         model.addAttribute("numberOfSeats", new NumberOfSeats());
         return "home";
     }

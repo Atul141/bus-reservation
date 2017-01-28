@@ -33,4 +33,20 @@ public class RoutesImpl {
     }
 
 
+    public RouteDao getRoutesBasedOnId(long id) {
+        Session session = new Configuration().configure().buildSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        String query = "FROM RouteDao route where route.id=" + "'" + id + "'";
+        RouteDao routeDao = new RouteDao();
+        try {
+            routeDao = (RouteDao) session.createQuery(query).uniqueResult();
+            transaction.commit();
+            session.close();
+        } catch (Throwable ex) {
+            System.out.println("error creating session " + ex);
+        }
+
+        return routeDao;
+
+    }
 }

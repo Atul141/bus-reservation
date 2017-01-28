@@ -8,6 +8,29 @@
 </head>
 <body>
 <div align="center">
+    <h2>Your selected Route is</h2>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>Bus-No</th>
+            <th>Journey Date</th>
+            <th>Source</th>
+            <th>Destination</th>
+            <th>Departure-Time</th>
+            <th>Arrival-Time</th>
+            <th>Price</th>
+            <th>Distance</th>
+        </tr>
+        <tr>
+            <td><c:out value="${route.bus_no}"/></td>
+            <td><c:out value="${route.selectedDate}"/></td>
+            <td><c:out value="${route.source}"/></td>
+            <td><c:out value="${route.destination}"/></td>
+            <td><c:out value="${route.departureTime}"/></td>
+            <td><c:out value="${route.arrivalTime}"/></td>
+            <td><c:out value="${route.price}"/></td>
+            <td><c:out value="${route.distance}"/></td>
+        </tr>
+    </table>
     <table border="1" cellpadding="5">
         <caption><h2>Enter Passenger Details</h2></caption>
         <tr>
