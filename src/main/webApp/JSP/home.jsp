@@ -48,6 +48,7 @@
                 </td>
             </tr>
         </c:forEach>
+
     </table>
 </div>
 <a href="/default">Logout</a>

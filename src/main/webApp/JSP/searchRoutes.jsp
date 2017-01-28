@@ -26,8 +26,10 @@
             </tr>
             <br>
             <td colspan="5" align="right"><input type="submit" value="Search"/></td>
+            <br>
+            ${error}
+            <br>
         </form:form>
-
     </table>
 </div>
 </body>
