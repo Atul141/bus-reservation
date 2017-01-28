@@ -13,6 +13,7 @@
         <caption><h2>List of Routes</h2></caption>
         <tr>
             <th>Bus-No</th>
+            <th>Journey Date</th>
             <th>Source</th>
             <th>Destination</th>
             <th>Departure-Time</th>
@@ -26,6 +27,7 @@
         <c:forEach var="routes" items="${routesList}">
             <tr>
                 <td><c:out value="${routes.bus_no}"/></td>
+                <td><c:out value="${routes.selectedDate}"/></td>
                 <td><c:out value="${routes.source}"/></td>
                 <td><c:out value="${routes.destination}"/></td>
                 <td><c:out value="${routes.departureTime}"/></td>

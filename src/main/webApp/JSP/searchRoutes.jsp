@@ -19,6 +19,11 @@
                 <td>Destination</td>
                 <td><form:input path="destination"/></td>
             </tr>
+            <tr>
+                <td>Route Date</td>
+                <%--<td><form:input path="bus_no" /></td>--%>
+                <td><input type="date" name ="selectedDate" value="date" /></td>
+            </tr>
             <br>
             <td colspan="5" align="right"><input type="submit" value="Search"/></td>
         </form:form>

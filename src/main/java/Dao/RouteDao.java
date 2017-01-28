@@ -1,18 +1,33 @@
 package Dao;
 
-import javax.persistence.Entity;
-import java.sql.Date;
+import javax.persistence.*;
 import java.sql.Time;
 
-
+@Entity
+@Table(name = "routedetails")
 public class RouteDao {
 
-private long id;
-private String source;
-private String destination;
-private Date date;
-private Time arrivalTime;
-private Time departureTime;
+    @Id
+    private long id;
+    @Column(columnDefinition = "VARCHAR(100)")
+    private String source;
+    @Column(columnDefinition = "VARCHAR(100)")
+    private String destination;
+    @Column(columnDefinition = "DATE")
+    private java.util.Date date;
+    @Column(columnDefinition = "TIME")
+    private Time arrivalTime;
+    @Column(columnDefinition = "TIME")
+    private Time departureTime;
+    @Column(columnDefinition = "INTEGER")
+    private int price;
+    @Column(columnDefinition = "VARCHAR(100)")
+    private String bus_no;
+    @Column(columnDefinition = "INTEGER")
+    private int distance;
+    @Column(columnDefinition = "INTEGER")
+    private int availableNoSeats;
+
 
     public long getId() {
         return id;
@@ -38,11 +53,11 @@ private Time departureTime;
         this.destination = destination;
     }
 
-    public Date getDate() {
+    public java.util.Date getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(java.util.Date date) {
         this.date = date;
     }
 
@@ -61,4 +76,37 @@ private Time departureTime;
     public void setDepartureTime(Time departureTime) {
         this.departureTime = departureTime;
     }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public String getBus_no() {
+        return bus_no;
+    }
+
+    public void setBus_no(String bus_no) {
+        this.bus_no = bus_no;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
+    }
+
+    public int getAvailableNoSeats() {
+        return availableNoSeats;
+    }
+
+    public void setAvailableNoSeats(int availableNoSeats) {
+        this.availableNoSeats = availableNoSeats;
+    }
+
 }

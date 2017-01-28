@@ -9,6 +9,7 @@ public class Route {
     private String source;
     private String destination;
     private Date date;
+    private String selectedDate;
     private Time arrivalTime;
     private Time departureTime;
     private int price;
@@ -104,5 +105,13 @@ public class Route {
 
     public void setAvailableSeat(List<Integer> availableSeat) {
         this.availableSeat = availableSeat;
+    }
+
+    public String getSelectedDate() {
+        return selectedDate;
+    }
+
+    public void setSelectedDate(String selectedDate) {
+        this.selectedDate = selectedDate;
     }
 }
