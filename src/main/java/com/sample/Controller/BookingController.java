@@ -41,13 +41,16 @@ public class BookingController {
 
     @RequestMapping(value = "/confirmation", method = RequestMethod.POST)
     public String confirmation(Model model, @ModelAttribute("passengerWrapper") PassengerWrapper passengerWrapper, HttpServletRequest request) {
+        try {
 
-        SelectedSeatWrapper selectedSeatWrapper = new SelectedSeatWrapper();
-        selectedSeatWrapper.setSelectedSeatWomen(Arrays.asList(request.getParameterValues("selectedSeatWomen")));
-        selectedSeatWrapper.setSelectedSeatSeniorCitizen(Arrays.asList(request.getParameterValues("selectedSeatSeniorCitizen")));
-        selectedSeatWrapper.setSelectedSeatDisabled(Arrays.asList(request.getParameterValues("selectedSeatDisabled")));
-        selectedSeatWrapper.setSelectedSeatGeneral(Arrays.asList(request.getParameterValues("selectedSeatGeneral")));
+            SelectedSeatWrapper selectedSeatWrapper = new SelectedSeatWrapper();
+            selectedSeatWrapper.setSelectedSeatWomen(Arrays.asList(request.getParameterValues("selectedSeatWomen")));
+            selectedSeatWrapper.setSelectedSeatSeniorCitizen(Arrays.asList(request.getParameterValues("selectedSeatSeniorCitizen")));
+            selectedSeatWrapper.setSelectedSeatDisabled(Arrays.asList(request.getParameterValues("selectedSeatDisabled")));
+            selectedSeatWrapper.setSelectedSeatGeneral(Arrays.asList(request.getParameterValues("selectedSeatGeneral")));
+        }catch (NullPointerException ex){
 
+        }
         HttpSession httpSession = request.getSession();
         Route route = (Route) httpSession.getAttribute("route");
         model.addAttribute("route", route);
