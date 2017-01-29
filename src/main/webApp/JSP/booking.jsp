@@ -54,8 +54,9 @@
             </tr>
         </c:forEach>
     </table>
-
+    <br>
     <table border="1" cellpadding="5" align="center">
+        <caption><h2>Please Select Your Seat</h2></caption>
         <tr>
             <th>Seats Reserved For women</th>
             <th>Seats Reserved For Senior Citizens</th>
@@ -65,22 +66,27 @@
         <tr>
             <td valign="top" align="center">
                 <c:forEach var="availableSeatWrapper" varStatus="i" items="${availableSeatWrapper.womenReservation}">
-                    <br>      ${availableSeatWrapper} <input type="checkbox" name="selectedSeatWomen" value="${availableSeatWrapper}"/>
+                    <br>      ${availableSeatWrapper} <input type="checkbox" name="selectedSeatWomen"
+                                                             value="${availableSeatWrapper}"/>
                 </c:forEach>
             </td>
             <td valign="top" align="center">
-                <c:forEach var="availableSeatWrapper" varStatus="i" items="${availableSeatWrapper.seniorCitizenReserved}">
-                    <br>    ${availableSeatWrapper} <input type="checkbox" name="selectedSeatSeniorCitizen" value="${availableSeatWrapper}"/>
+                <c:forEach var="availableSeatWrapper" varStatus="i"
+                           items="${availableSeatWrapper.seniorCitizenReserved}">
+                    <br>    ${availableSeatWrapper} <input type="checkbox" name="selectedSeatSeniorCitizen"
+                                                           value="${availableSeatWrapper}"/>
                 </c:forEach>
             </td>
             <td valign="top" align="center">
                 <c:forEach var="availableSeatWrapper" varStatus="i" items="${availableSeatWrapper.disabledReserved}">
-                    <br>   ${availableSeatWrapper}<input type="checkbox" name="selectedSeatDisabled" value="${availableSeatWrapper}"/>
+                    <br>   ${availableSeatWrapper}<input type="checkbox" name="selectedSeatDisabled"
+                                                         value="${availableSeatWrapper}"/>
                 </c:forEach>
             </td>
             <td valign="top" align="center">
                 <c:forEach var="availableSeatWrapper" varStatus="i" items="${availableSeatWrapper.general}">
-                    <br>  ${availableSeatWrapper} <input type="checkbox" name="selectedSeatGeneral" value="${availableSeatWrapper}"/>
+                    <br>  ${availableSeatWrapper} <input type="checkbox" name="selectedSeatGeneral"
+                                                         value="${availableSeatWrapper}"/>
                 </c:forEach>
             </td>
         </tr>

@@ -1,8 +1,11 @@
 package ServiceImpl;
 
-import Dao.SeatDao;
+import Dao.SeatsDao;
 import Models.AvailableSeatWrapper;
-
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import javax.persistence.Query;
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,12 +18,11 @@ public class SeatSelectionImpl {
 
     public AvailableSeatWrapper getAvailableSeats(String bus_no, long routeId) {
         AvailableSeatWrapper availableSeatWrapper = new AvailableSeatWrapper();
-        SeatDao seatDao = new SeatDao();
-        seatDao = fetchAvailableSeats(bus_no,routeId);
-        availableSeatWrapper.setDisabledReserved(getSeatList(seatDao.getDisabledReserved()));
-        availableSeatWrapper.setSeniorCitizenReserved(getSeatList(seatDao.getSeniorCitizenReserved()));
-        availableSeatWrapper.setWomenReservation(getSeatList(seatDao.getWomenReservation()));
-        availableSeatWrapper.setGeneral(getSeatList(seatDao.getGeneral()));
+        SeatsDao seatsDao = fetchAvailableSeats(bus_no, routeId);
+        availableSeatWrapper.setDisabledReserved(getSeatList(seatsDao.getDisabledReserved()));
+        availableSeatWrapper.setSeniorCitizenReserved(getSeatList(seatsDao.getSeniorCitizenReserved()));
+        availableSeatWrapper.setWomenReservation(getSeatList(seatsDao.getWomenReservation()));
+        availableSeatWrapper.setGeneral(getSeatList(seatsDao.getGeneral()));
         return availableSeatWrapper;
 
     }
@@ -32,14 +34,20 @@ public class SeatSelectionImpl {
 
     }
 
-    private SeatDao fetchAvailableSeats(String bus_no,long routeId) {
+    private SeatsDao fetchAvailableSeats(String bus_no, long routeId) {
 
-        SeatDao seatDao = new SeatDao();
-        seatDao.setDisabledReserved("B1-B2");
-        seatDao.setId(1);
-        seatDao.setSeniorCitizenReserved("B3-B4");
-        seatDao.setWomenReservation("A1-A2-A3-A4");
-        seatDao.setGeneral("C1-C2-C3-C4-D1-D2-D3-D4");
-        return seatDao;
+        SeatsDao seatsDao = new SeatsDao();
+        Session session = new Configuration().configure().buildSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            Query subQuery = session.createQuery("Select bus.seat_no From BusDao bus WHERE bus.routeid=" + routeId + " and bus.number=" + "'" + bus_no + "'");
+            Query query = session.createQuery("FROM  SeatsDao seat WHERE seat.id IN(:ids)").setParameterList("ids", subQuery.getResultList());
+            seatsDao = (SeatsDao) query.getResultList().get(0);
+            transaction.commit();
+            session.close();
+        } catch (Throwable ex) {
+            System.out.println("error creating session " + ex);
+        }
+        return seatsDao;
     }
 }

@@ -1,33 +1,23 @@
 package Models;
 
-
 public class Bus {
 
-   private String number;
-   private int seat_no;
-   private int route_no;
+    private String bus_no;
+    private int seat;
 
-    public String getNumber() {
-        return number;
+    public String getBus_no() {
+        return bus_no;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public int getSeat() {
+        return seat;
     }
 
-    public int getSeat_no() {
-        return seat_no;
+    public void setSeat(int seat) {
+        this.seat = seat;
     }
 
-    public void setSeat_no(int seat_no) {
-        this.seat_no = seat_no;
-    }
-
-    public int getRoute_no() {
-        return route_no;
-    }
-
-    public void setRoute_no(int route_no) {
-        this.route_no = route_no;
+    public void setBus_no(String bus_no) {
+        this.bus_no = bus_no;
     }
 }

@@ -1,8 +1,14 @@
 package Dao;
 
-public class SeatDao {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "seats")
+public class SeatsDao {
 
+    @Id
     private int id;
     private String womenReservation;
     private String seniorCitizenReserved;
