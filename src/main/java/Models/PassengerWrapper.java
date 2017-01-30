@@ -8,11 +8,13 @@ public class PassengerWrapper {
 
     private List<Passenger> passengerList;
     private List<String> genderList;
+    private List<Integer> ageList;
 
     public PassengerWrapper() {
 
         passengerList = new ArrayList<Passenger>();
         genderList = new ArrayList<String>();
+        ageList = new ArrayList<Integer>();
 
     }
 
@@ -28,11 +30,21 @@ public class PassengerWrapper {
         passengerList.add(passenger);
     }
 
+
+
+    public List<Integer> getAgeList() {
+        return ageList;
+    }
+
+    public void setAgeList(List<Integer> ageList) {
+        this.ageList = ageList;
+    }
+
     public List<String> getGenderList() {
-        genderList.clear();
-        genderList.add("Female");
-        genderList.add("Male");
         return genderList;
     }
 
+    public void setGenderList(List<String> genderList) {
+        this.genderList = genderList;
+    }
 }

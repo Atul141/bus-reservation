@@ -48,7 +48,7 @@
                 <th>${i.index+1}</th>
                 <th><form:input path="passengerList[${i.index}].name" type="text"/></th>
                 <th><form:select path="passengerList[${i.index}].gender" items="${passengerWrapper.genderList}"/></th>
-                <th><form:input path="passengerList[${i.index}].age" type="text"/></th>
+                <th><form:select path="passengerList[${i.index}].age" items="${passengerWrapper.ageList}"/></th>
                 <th><form:checkbox path="passengerList[${i.index}].isSeniorCitizen"/></th>
                 <th><form:checkbox path="passengerList[${i.index}].isDisabled"/></th>
             </tr>
@@ -88,7 +88,7 @@
             <td valign="top" align="center">
                 <c:forEach var="availableSeatWrapper" varStatus="i" items="${availableSeatWrapper.general}">
                     <br>  ${availableSeatWrapper} <input type="checkbox" name="selectedSeatGeneral"
-                                                         value="${availableSeatWrapper}" />
+                                                         value="${availableSeatWrapper}"/>
                 </c:forEach>
             </td>
         </tr>

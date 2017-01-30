@@ -8,6 +8,8 @@ import java.util.List;
 
 public class PassengerService {
 
+    private int maxAge = 125;
+
     public List<Passenger> getPassengerList(int number) {
         Passenger[] passengers = new Passenger[number];
         List<Passenger> passengerList = new ArrayList<Passenger>();
@@ -17,4 +19,20 @@ public class PassengerService {
         }
         return passengerList;
     }
+
+    public List<Integer> getAgeList() {
+        List<Integer> ageList = new ArrayList<Integer>();
+        for (int index = 1; index <= maxAge; index++) {
+            ageList.add(index);
+        }
+        return ageList;
+    }
+
+    public List<String> getGenderList() {
+        List<String> genderList = new ArrayList<String>();
+        genderList.add("Female");
+        genderList.add("Male");
+        return genderList;
+    }
+
 }

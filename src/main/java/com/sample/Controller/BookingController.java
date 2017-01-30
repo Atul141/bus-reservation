@@ -26,6 +26,9 @@ public class BookingController {
     public String bookTickets(Model model, @ModelAttribute("numberOfSeats") NumberOfSeats numberOfSeats, HttpServletRequest request) {
         PassengerService passengerService = new PassengerService();
         PassengerWrapper passengerWrapper = new PassengerWrapper();
+
+        passengerWrapper.setAgeList(passengerService.getAgeList());
+        passengerWrapper.setGenderList(passengerService.getGenderList());
         passengerWrapper.setPassengerList(passengerService.getPassengerList(numberOfSeats.getNumber()));
 
         RouteService routeService = new RouteService();
@@ -90,6 +93,10 @@ public class BookingController {
 
         SeatSelectionService seatSelectionService = new SeatSelectionService();
         AvailableSeatWrapper availableSeatWrapper = seatSelectionService.getAvailableSeat(route.getBus_no(), route.getId());
+
+        PassengerService passengerService = new PassengerService();
+        passengerWrapper.setAgeList(passengerService.getAgeList());
+        passengerWrapper.setGenderList(passengerService.getGenderList());
 
         model.addAttribute("error", error);
         model.addAttribute("availableSeatWrapper", availableSeatWrapper);
