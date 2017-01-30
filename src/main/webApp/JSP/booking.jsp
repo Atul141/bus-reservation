@@ -56,6 +56,8 @@
     </table>
     <br>
     <table border="1" cellpadding="5" align="center">
+        <br><br>
+            ${error}
         <caption><h2>Please Select Your Seat</h2></caption>
         <tr>
             <th>Seats Reserved For women</th>
@@ -86,13 +88,14 @@
             <td valign="top" align="center">
                 <c:forEach var="availableSeatWrapper" varStatus="i" items="${availableSeatWrapper.general}">
                     <br>  ${availableSeatWrapper} <input type="checkbox" name="selectedSeatGeneral"
-                                                         value="${availableSeatWrapper}"/>
+                                                         value="${availableSeatWrapper}" />
                 </c:forEach>
             </td>
         </tr>
     </table>
     <br><br>
     <button type="submit">Confirmation</button>
+
 </div>
 </form:form>
 
