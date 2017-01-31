@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d4ffd9f-eac1-4ed3-8f9a-5d085a839ec6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sample/Controller/ConfirmationController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Services/PassengerService.java" afterPath="$PROJECT_DIR$/src/main/java/Services/PassengerService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Services/RouteService.java" afterPath="$PROJECT_DIR$/src/main/java/Services/RouteService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sample/Controller/BookingController.java" afterPath="$PROJECT_DIR$/src/main/java/com/sample/Controller/BookingController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/Database/ConfigTest.java" afterPath="$PROJECT_DIR$/src/test/java/Database/ConfigTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/ServiceImplTest/RouteImplTest.java" afterPath="$PROJECT_DIR$/src/test/java/ServiceImplTest/RouteImplTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/ServiceTest/PassengerServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/ServiceTest/PassengerServiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/ServiceTest/RouteServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/ServiceTest/RouteServiceTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sample/Controller/ConfirmationController.java" afterPath="$PROJECT_DIR$/src/main/java/com/sample/Controller/ConfirmationController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webApp/JSP/confirmation.jsp" afterPath="$PROJECT_DIR$/src/main/webApp/JSP/confirmation.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webApp/JSP/home.jsp" afterPath="$PROJECT_DIR$/src/main/webApp/JSP/home.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -84,8 +79,8 @@
       <file leaf-file-name="ConfirmationController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sample/Controller/ConfirmationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="48" column="26" lean-forward="false" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+            <state relative-caret-position="320">
+              <caret line="51" column="42" lean-forward="false" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -96,18 +91,18 @@
       <file leaf-file-name="PassengerService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Services/PassengerService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="148">
+              <caret line="49" column="4" lean-forward="true" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PassengerServiceTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PassengerServiceTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/ServiceTest/PassengerServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-22">
-              <caret line="34" column="22" lean-forward="false" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+            <state relative-caret-position="-155">
+              <caret line="49" column="17" lean-forward="true" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
               <folding>
                 <element signature="e#3048#3056#0" expanded="true" />
                 <element signature="e#3154#3162#0" expanded="true" />
@@ -119,8 +114,18 @@
       <file leaf-file-name="confirmation.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webApp/JSP/confirmation.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="34" column="53" lean-forward="false" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
+            <state relative-caret-position="324">
+              <caret line="68" column="7" lean-forward="true" selection-start-line="68" selection-start-column="7" selection-end-line="68" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webApp/JSP/home.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-131">
+              <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -132,18 +137,6 @@
             <state relative-caret-position="-820">
               <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RouteServiceTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/ServiceTest/RouteServiceTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="793">
-              <caret line="57" column="28" lean-forward="false" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="28" />
-              <folding>
-                <element signature="e#1606#1616#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -163,8 +156,8 @@
       <file leaf-file-name="PassengersValidatorTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/Validators/PassengersValidatorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="156" column="0" lean-forward="true" selection-start-line="153" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+            <state relative-caret-position="902">
+              <caret line="150" column="22" lean-forward="true" selection-start-line="150" selection-start-column="22" selection-end-line="150" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2306#2314#0" expanded="true" />
@@ -247,7 +240,6 @@
         <option value="$PROJECT_DIR$/src/main/java/ServiceImpl/GetRoutes.java" />
         <option value="$PROJECT_DIR$/src/main/java/Models/UserDetails.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sample/Controller/DefaultController.java" />
-        <option value="$PROJECT_DIR$/src/main/webApp/JSP/home.jsp" />
         <option value="$PROJECT_DIR$/src/main/webApp/JSP/searchRoutes.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/Validators/SearchRoutesValidator.java" />
         <option value="$PROJECT_DIR$/src/test/java/Validators/SearchRoutesValidatorTest.java" />
@@ -278,7 +270,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/db/migration/V2017_01_28_00_01_35_44__create_route_Table.sql" />
         <option value="$PROJECT_DIR$/src/main/java/ServiceImpl/RoutesImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServiceImpl/SeatSelectionImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webApp/JSP/confirmation.jsp" />
         <option value="$PROJECT_DIR$/src/test/java/ServiceImplTest/UserRegistrationTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Validators/PassengerValidators.java" />
         <option value="$PROJECT_DIR$/src/test/java/Validators/PassengersValidatorTest.java" />
@@ -292,8 +283,10 @@
         <option value="$PROJECT_DIR$/src/test/java/ServiceTest/RouteServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sample/Controller/BookingController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Services/PassengerService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sample/Controller/ConfirmationController.java" />
         <option value="$PROJECT_DIR$/src/test/java/ServiceTest/PassengerServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sample/Controller/ConfirmationController.java" />
+        <option value="$PROJECT_DIR$/src/main/webApp/JSP/confirmation.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webApp/JSP/home.jsp" />
       </list>
     </option>
   </component>
@@ -789,7 +782,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PassengerServiceTest">
+  <component name="RunManager" selected="Tomcat Server.Atul">
     <configuration default="false" name="PassengersValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1566,11 +1559,11 @@
     <history-entry file="PassengerServiceTest - 2017.01.31 at 14h 28m 40s.xml">
       <configuration name="PassengerServiceTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RouteServiceTest - 2017.01.31 at 12h 43m 34s.xml">
-      <configuration name="RouteServiceTest" configurationId="JUnit" />
+    <history-entry file="PassengerServiceTest - 2017.01.31 at 14h 29m 27s.xml">
+      <configuration name="PassengerServiceTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RouteServiceTest - 2017.01.31 at 12h 49m 39s.xml">
-      <configuration name="RouteServiceTest" configurationId="JUnit" />
+    <history-entry file="PassengerServiceTest - 2017.01.31 at 14h 31m 34s.xml">
+      <configuration name="PassengerServiceTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="RouteServiceTest - 2017.01.31 at 12h 50m 39s.xml">
       <configuration name="RouteServiceTest" configurationId="JUnit" />
@@ -1583,7 +1576,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167028000" />
+    <option name="totallyTimeSpent" value="167924000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1596,7 +1589,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1611,7 +1604,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32650602" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1621,7 +1614,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32650602" sideWeight="0.49284694" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.49427754" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32891566" sideWeight="0.49427754" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27825466" sideWeight="0.50628364" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2932761" sideWeight="0.49371633" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1703,14 +1696,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webApp/JSP/booking.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="96" column="47" lean-forward="true" selection-start-line="96" selection-start-column="47" selection-end-line="96" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Services/LoginService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -2079,26 +2064,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sample/Controller/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-820">
-          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sample/Controller/BookingController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1320">
           <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webApp/JSP/confirmation.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="34" column="53" lean-forward="false" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
           <folding />
         </state>
       </provider>
@@ -2121,20 +2090,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sample/Controller/ConfirmationController.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ServiceTest/PassengerServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="48" column="26" lean-forward="false" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+        <state relative-caret-position="-155">
+          <caret line="49" column="17" lean-forward="true" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#3048#3056#0" expanded="true" />
+            <element signature="e#3154#3162#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Services/PassengerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="49" column="4" lean-forward="true" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Validators/PassengersValidatorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="156" column="0" lean-forward="true" selection-start-line="153" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+        <state relative-caret-position="902">
+          <caret line="150" column="22" lean-forward="true" selection-start-line="150" selection-start-column="22" selection-end-line="150" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2306#2314#0" expanded="true" />
@@ -2154,22 +2132,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Services/PassengerService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sample/Controller/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state relative-caret-position="-820">
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ServiceTest/PassengerServiceTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sample/Controller/ConfirmationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-22">
-          <caret line="34" column="22" lean-forward="false" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+        <state relative-caret-position="320">
+          <caret line="51" column="42" lean-forward="false" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
           <folding>
-            <element signature="e#3048#3056#0" expanded="true" />
-            <element signature="e#3154#3162#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webApp/JSP/confirmation.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="68" column="7" lean-forward="true" selection-start-line="68" selection-start-column="7" selection-end-line="68" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webApp/JSP/home.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-131">
+          <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>

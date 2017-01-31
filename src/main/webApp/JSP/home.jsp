@@ -8,11 +8,12 @@
 </head>
 <body>
 <br><br>
-<h3>You are seeing travel routes between ${selectedRoute.source} and ${selectedRoute.destination} on ${selectedRoute.selectedDate}</h3><br>
+<h3>You are seeing travel routes between ${selectedRoute.source} and ${selectedRoute.destination}
+    on ${selectedRoute.selectedDate}</h3><br>
 <div align="center">
-        <table border="2" cellpadding="5">
-            <caption><h2>List of Routes</h2></caption>
-            <tr>
+    <table border="2" cellpadding="5">
+        <caption><h2>List of Routes</h2></caption>
+        <tr>
             <th>Bus-No</th>
             <th>Journey Date</th>
             <th>Source</th>
@@ -33,7 +34,7 @@
                 <td><c:out value="${routes.destination}"/></td>
                 <td><c:out value="${routes.departureTime}"/></td>
                 <td><c:out value="${routes.arrivalTime}"/></td>
-                <td><c:out value="${routes.price}"/></td>
+                <td>&#8377;<c:out value="${routes.price}"/></td>
                 <td><c:out value="${routes.distance}"/></td>
                 <td><c:out value="${routes.availableNoSeats}"/></td>
                 <td align="center" border="1" cellpadding="5">

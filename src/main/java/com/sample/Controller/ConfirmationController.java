@@ -47,7 +47,11 @@ public class ConfirmationController {
         }
         PassengerService passengerService = new PassengerService();
         passengerWrapper = passengerService.allocateSeats(passengerWrapper, selectedSeatWrapper);
+        int price=route.getPrice()*passengerWrapper.getPassengerList().size();
+
+        model.addAttribute("price",price);
         model.addAttribute("passengerWrapper", passengerWrapper);
+
         return "/confirmation";
     }
 

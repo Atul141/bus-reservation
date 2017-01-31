@@ -57,7 +57,8 @@
             </tr>
         </c:forEach>
     </table>
-    <br><br>
+    <br><br><br>
+    <caption><h3>You Are paying a Total Of  &#8377;${price} for this Journey</h3></caption>
     <button>Pay</button>
     </form:form>
 
