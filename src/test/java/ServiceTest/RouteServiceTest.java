@@ -15,6 +15,5 @@ public class RouteServiceTest {
     @Test
     public void getRoutesList(){
         initMocks(this);
-
     }
 }

@@ -7,10 +7,10 @@ import Models.Route;
 import ServiceImpl.RoutesImpl;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.sql.Time;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -22,12 +22,13 @@ public class RouteImplTest {
     private Session session = null;
     private RoutesImpl routes;
     private RouteDao routeDao;
+
     @Before
-    public void setup(){
-        routes=new RoutesImpl();
+    public void setup() {
+        routes = new RoutesImpl();
         ConfigTest configTest = new ConfigTest();
         session = configTest.getTestSession();
-        routeDao=configTest.getRouteDetails();
+        routeDao = configTest.getRouteDetails();
         Transaction transaction = session.beginTransaction();
         session.save(routeDao);
         session.flush();
@@ -35,12 +36,13 @@ public class RouteImplTest {
     }
 
     @Test
-    public void shouldReturnRouteDetailsForTheGivenRouteID(){
-        assertEquals("KA-01 G-2020",routes.getRoutesBasedOnId(1).getBus_no());
+    public void shouldReturnRouteDetailsForTheGivenRouteID() {
+        assertEquals("KA-01 G-2020", routes.getRoutesBasedOnId(1).getBus_no());
     }
+
     @Test
-    public void shouldReturnRouteDetailsForTheGivenRoute(){
-        Route route=new Route();
+    public void shouldReturnRouteDetailsForTheGivenRoute() {
+        Route route = new Route();
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.YEAR, 2017);
         calendar.set(Calendar.MONTH, 1);
@@ -49,6 +51,15 @@ public class RouteImplTest {
         route.setDate(date);
         route.setDestination("BANGALORE");
         route.setSource("MYSORE");
-        assertEquals(1,routes.getRoutes(route).size());
+        assertEquals(1, routes.getRoutes(route).size());
     }
+
+    @After
+    public void delete() {
+        Transaction delete = session.beginTransaction();
+        session.delete(routeDao);
+        delete.commit();
+        session.close();
+    }
+
 }

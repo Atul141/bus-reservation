@@ -6,6 +6,7 @@ import Database.ConfigTest;
 import ServiceImpl.LoginImpl;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -43,5 +44,13 @@ public class LoginImplTest {
         loginDao.setEmail("sample@gmail.com ");
         loginDao.setPassword("password");
         assertFalse(login.validateLogin(loginDao));
+    }
+
+    @After
+    public void delete(){
+        Transaction delete = session.beginTransaction();
+        session.delete(userDetailsDao);
+        delete.commit();
+        session.close();
     }
 }

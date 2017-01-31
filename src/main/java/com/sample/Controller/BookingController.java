@@ -53,15 +53,15 @@ public class BookingController {
         SelectedSeatWrapper selectedSeatWrapper = getSelectedSeatWrapper(request);
         HttpSession httpSession = request.getSession();
         Route route = (Route) httpSession.getAttribute("route");
+
         httpSession.setAttribute("selectedSeatWrapper", selectedSeatWrapper);
         httpSession.setAttribute("passengerWrapper", passengerWrapper);
+
         model.addAttribute("route", route);
         model.addAttribute("numberOfSeats");
 
         PassengerValidators passengerValidators = new PassengerValidators();
-
         String error = passengerValidators.validatePassengers(passengerWrapper);
-        System.out.println("error=" + error);
 
         if (error != null) {
             redirectAttributes.addAttribute("error", error);
@@ -70,7 +70,6 @@ public class BookingController {
 
         }
         error = passengerValidators.validateSelectedSeatsWithPassengers(passengerWrapper, selectedSeatWrapper);
-        System.out.println("error=" + error);
         if (error != null) {
             redirectAttributes.addAttribute("error", error);
             return "redirect:/reBooking";

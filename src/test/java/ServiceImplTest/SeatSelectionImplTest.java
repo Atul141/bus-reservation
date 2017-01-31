@@ -2,14 +2,12 @@ package ServiceImplTest;
 
 
 import Dao.BusDao;
-import Dao.RouteDao;
 import Dao.SeatsDao;
 import Database.ConfigTest;
-import Models.AvailableSeatWrapper;
-import ServiceImpl.RoutesImpl;
 import ServiceImpl.SeatSelectionImpl;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -51,4 +49,11 @@ public class SeatSelectionImplTest {
         assertEquals(1, seatSelection.getAvailableSeats("KA 09 G-9000", 2).getId());
     }
 
+    @After
+    public void delete(){
+        Transaction delete = session.beginTransaction();
+        session.delete(seatsDao);
+        delete.commit();
+        session.close();
+    }
 }
