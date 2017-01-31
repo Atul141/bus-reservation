@@ -48,34 +48,6 @@ public class BookingController {
         return "/booking";
     }
 
-    @RequestMapping(value = "/confirmation", method = RequestMethod.POST)
-    public String confirmation(Model model, @ModelAttribute("passengerWrapper") PassengerWrapper passengerWrapper, HttpServletRequest request, RedirectAttributes redirectAttributes) {
-        SelectedSeatWrapper selectedSeatWrapper = getSelectedSeatWrapper(request);
-        HttpSession httpSession = request.getSession();
-        Route route = (Route) httpSession.getAttribute("route");
-
-        httpSession.setAttribute("selectedSeatWrapper", selectedSeatWrapper);
-        httpSession.setAttribute("passengerWrapper", passengerWrapper);
-
-        model.addAttribute("route", route);
-        model.addAttribute("numberOfSeats");
-
-        PassengerValidators passengerValidators = new PassengerValidators();
-        String error = passengerValidators.validatePassengers(passengerWrapper);
-
-        if (error != null) {
-            redirectAttributes.addAttribute("error", error);
-
-            return "redirect:/reBooking";
-
-        }
-        error = passengerValidators.validateSelectedSeatsWithPassengers(passengerWrapper, selectedSeatWrapper);
-        if (error != null) {
-            redirectAttributes.addAttribute("error", error);
-            return "redirect:/reBooking";
-        }
-        return "/confirmation";
-    }
 
     @RequestMapping(value = "/reBooking", method = RequestMethod.GET)
     public String reBooking(Model model, HttpServletRequest request, @ModelAttribute("error") String error, HttpServletResponse response) {
@@ -102,27 +74,6 @@ public class BookingController {
         return "booking";
     }
 
-    public SelectedSeatWrapper getSelectedSeatWrapper(HttpServletRequest request) {
-        SelectedSeatWrapper selectedSeatWrapper = new SelectedSeatWrapper();
-        try {
-            selectedSeatWrapper.setSelectedSeatWomen(Arrays.asList(request.getParameterValues("selectedSeatWomen")));
-        } catch (NullPointerException ex) {
-        }
-        try {
-            selectedSeatWrapper.setSelectedSeatSeniorCitizen(Arrays.asList(request.getParameterValues("selectedSeatSeniorCitizen")));
-        } catch (NullPointerException ex) {
 
-        }
-        try {
-            selectedSeatWrapper.setSelectedSeatDisabled(Arrays.asList(request.getParameterValues("selectedSeatDisabled")));
-        } catch (NullPointerException ex) {
-        }
-        try {
-            selectedSeatWrapper.setSelectedSeatGeneral(Arrays.asList(request.getParameterValues("selectedSeatGeneral")));
-        } catch (NullPointerException ex) {
-
-        }
-        return selectedSeatWrapper;
-    }
 
 }

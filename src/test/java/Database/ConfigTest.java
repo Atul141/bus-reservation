@@ -5,6 +5,7 @@ import Dao.RouteDao;
 import Dao.SeatsDao;
 import Dao.UserDetailsDao;
 import Models.BusWrapper;
+import Models.Route;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -44,7 +45,7 @@ public class ConfigTest {
         return userDetailsDao;
     }
 
-    public RouteDao getRouteDetails() {
+    public RouteDao getRouteDaoDetails() {
         RouteDao route = new RouteDao();
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.YEAR, 2017);
@@ -77,6 +78,24 @@ public class ConfigTest {
         busDao.setSeat_no(1);
         busDao.setRoute_no(2);
         return busDao;
+    }
+
+    public Route getRouteDetails(){
+        Route route = new Route();
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, 2017);
+        calendar.set(Calendar.MONTH, 1);
+        calendar.set(Calendar.DATE, 15);
+        Date date = calendar.getTime();
+        route.setDate(date);
+        route.setDepartureTime(new Time(1730));
+        route.setDestination("BANGALORE");
+        route.setSource("MYSORE");
+        route.setPrice(300);
+        route.setBus_no("KA-01 G-2020");
+        route.setDistance(150);
+        route.setId(1);
+        return route;
     }
 
 }

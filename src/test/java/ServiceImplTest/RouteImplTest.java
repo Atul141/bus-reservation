@@ -28,7 +28,7 @@ public class RouteImplTest {
         routes = new RoutesImpl();
         ConfigTest configTest = new ConfigTest();
         session = configTest.getTestSession();
-        routeDao = configTest.getRouteDetails();
+        routeDao = configTest.getRouteDaoDetails();
         Transaction transaction = session.beginTransaction();
         session.save(routeDao);
         session.flush();
