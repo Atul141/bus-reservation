@@ -45,6 +45,8 @@ public class LoginController {
             userDetails.setEmail(userDetails.getEmail());
             HttpSession httpSession = request.getSession();
             httpSession.setAttribute("userDetails", userDetails);
+            httpSession.setAttribute("email", userDetails.getEmail());
+
             redirectAttributes.addAttribute("userName", userDetails.getEmail());
             Cookie cookie = new Cookie("userEmail", userDetails.getEmail());
             response.addCookie(cookie);

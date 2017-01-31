@@ -1,11 +1,13 @@
 package Models;
 
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PassengerWrapper {
 
+    private Timestamp timestamp;
     private List<Passenger> passengerList;
     private List<String> genderList;
     private List<Integer> ageList;
@@ -46,5 +48,13 @@ public class PassengerWrapper {
 
     public void setGenderList(List<String> genderList) {
         this.genderList = genderList;
+    }
+
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
     }
 }

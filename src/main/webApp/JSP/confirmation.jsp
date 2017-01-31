@@ -42,7 +42,7 @@
             <th>Is Senior Citizen</th>
             <th>Is Disabled</th>
         </tr>
-        <form:form method="post" modelAttribute="passengerWrapper" >
+        <form:form method="post" modelAttribute="passengerWrapper" action="saveOrder" >
         <c:forEach varStatus="i" items="${passengerWrapper.passengerList}">
             <tr>
                 <th>${i.index+1}</th>
@@ -57,7 +57,7 @@
             </tr>
         </c:forEach>
     </table>
-    <br><br><br>
+    <br><br>
     <caption><h3>You Are paying a Total Of  &#8377;${price} for this Journey</h3></caption>
     <button>Pay</button>
     </form:form>
