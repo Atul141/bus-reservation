@@ -8,7 +8,7 @@ arrivalTime TIME NOT NULL ,
 departureTime TIME NOT NULL ,
 price int NOT NULL ,
 distance int NOT NULL ,
-availableNoSeats int NOT NULL
-
+availableNoSeats int NOT NULL,
+bus_no VARCHAR (50) NOT NULL
 );
 

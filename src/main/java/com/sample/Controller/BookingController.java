@@ -50,17 +50,7 @@ public class BookingController {
 
     @RequestMapping(value = "/confirmation", method = RequestMethod.POST)
     public String confirmation(Model model, @ModelAttribute("passengerWrapper") PassengerWrapper passengerWrapper, HttpServletRequest request, RedirectAttributes redirectAttributes) {
-        SelectedSeatWrapper selectedSeatWrapper = new SelectedSeatWrapper();
-        try {
-
-            selectedSeatWrapper.setSelectedSeatWomen(Arrays.asList(request.getParameterValues("selectedSeatWomen")));
-            selectedSeatWrapper.setSelectedSeatSeniorCitizen(Arrays.asList(request.getParameterValues("selectedSeatSeniorCitizen")));
-            selectedSeatWrapper.setSelectedSeatDisabled(Arrays.asList(request.getParameterValues("selectedSeatDisabled")));
-            selectedSeatWrapper.setSelectedSeatGeneral(Arrays.asList(request.getParameterValues("selectedSeatGeneral")));
-        } catch (NullPointerException ex) {
-
-        }
-
+        SelectedSeatWrapper selectedSeatWrapper = getSelectedSeatWrapper(request);
         HttpSession httpSession = request.getSession();
         Route route = (Route) httpSession.getAttribute("route");
         httpSession.setAttribute("selectedSeatWrapper", selectedSeatWrapper);
@@ -71,11 +61,19 @@ public class BookingController {
         PassengerValidators passengerValidators = new PassengerValidators();
 
         String error = passengerValidators.validatePassengers(passengerWrapper);
-        redirectAttributes.addAttribute("error", error);
+        System.out.println("error=" + error);
 
         if (error != null) {
+            redirectAttributes.addAttribute("error", error);
+
             return "redirect:/reBooking";
 
+        }
+        error = passengerValidators.validateSelectedSeatsWithPassengers(passengerWrapper, selectedSeatWrapper);
+        System.out.println("error=" + error);
+        if (error != null) {
+            redirectAttributes.addAttribute("error", error);
+            return "redirect:/reBooking";
         }
         return "/confirmation";
     }
@@ -104,4 +102,28 @@ public class BookingController {
         model.addAttribute("route", route);
         return "booking";
     }
+
+    public SelectedSeatWrapper getSelectedSeatWrapper(HttpServletRequest request) {
+        SelectedSeatWrapper selectedSeatWrapper = new SelectedSeatWrapper();
+        try {
+            selectedSeatWrapper.setSelectedSeatWomen(Arrays.asList(request.getParameterValues("selectedSeatWomen")));
+        } catch (NullPointerException ex) {
+        }
+        try {
+            selectedSeatWrapper.setSelectedSeatSeniorCitizen(Arrays.asList(request.getParameterValues("selectedSeatSeniorCitizen")));
+        } catch (NullPointerException ex) {
+
+        }
+        try {
+            selectedSeatWrapper.setSelectedSeatDisabled(Arrays.asList(request.getParameterValues("selectedSeatDisabled")));
+        } catch (NullPointerException ex) {
+        }
+        try {
+            selectedSeatWrapper.setSelectedSeatGeneral(Arrays.asList(request.getParameterValues("selectedSeatGeneral")));
+        } catch (NullPointerException ex) {
+
+        }
+        return selectedSeatWrapper;
+    }
+
 }

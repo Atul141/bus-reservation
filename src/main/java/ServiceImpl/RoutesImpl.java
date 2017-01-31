@@ -21,6 +21,7 @@ public class RoutesImpl {
         Transaction transaction = session.beginTransaction();
         String query = "FROM RouteDao route where route.source=" + "'" + routes.getSource() + "'" + "and route.destination=" + "'" + routes.getDestination() + "'" + "and route.date=" + "'" + routes.getDate() + "'";
         List<RouteDao> routeDaoList = new ArrayList<RouteDao>();
+       System.out.println(query);
         try {
             routeDaoList = (List<RouteDao>) session.createQuery(query).list();
             transaction.commit();

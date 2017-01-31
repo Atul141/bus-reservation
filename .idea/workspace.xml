@@ -2,10 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d4ffd9f-eac1-4ed3-8f9a-5d085a839ec6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Models/PassengerWrapper.java" afterPath="$PROJECT_DIR$/src/main/java/Models/PassengerWrapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_1_9_5.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_1_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/Database/ConfigTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/ServiceImplTest/LoginImplTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/ServiceImplTest/RouteImplTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/ServiceImplTest/SeatSelectionImplTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/ServiceImplTest/UserRegistrationTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/ServiceTest/NumberOfSeatServiceTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/ServiceTest/PassengerServiceTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/ServiceTest/RouteServiceTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/e4af6414-463f-425c-a676-2cc4924ce1c8/_metadata_/metadata.values.at" afterPath="$PROJECT_DIR$/.idea/dataSources/e4af6414-463f-425c-a676-2cc4924ce1c8/_metadata_/metadata.values.at" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/e4af6414-463f-425c-a676-2cc4924ce1c8.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/e4af6414-463f-425c-a676-2cc4924ce1c8.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sprinmvcproject.iml" afterPath="$PROJECT_DIR$/sprinmvcproject.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ServiceImpl/RoutesImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ServiceImpl/RoutesImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ServiceImpl/SeatSelectionImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ServiceImpl/SeatSelectionImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Services/PassengerService.java" afterPath="$PROJECT_DIR$/src/main/java/Services/PassengerService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Validators/PassengerValidators.java" afterPath="$PROJECT_DIR$/src/main/java/Validators/PassengerValidators.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sample/Controller/BookingController.java" afterPath="$PROJECT_DIR$/src/main/java/com/sample/Controller/BookingController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webApp/JSP/booking.jsp" afterPath="$PROJECT_DIR$/src/main/webApp/JSP/booking.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V2017_01_28_00_01_35_44__create_route_Table.sql" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V2017_01_28_00_01_35_44__create_route_Table.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webApp/JSP/confirmation.jsp" afterPath="$PROJECT_DIR$/src/main/webApp/JSP/confirmation.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/Database/SaveToDb.java" afterPath="$PROJECT_DIR$/src/test/java/Database/SaveToDb.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/Validators/PassengersValidatorTest.java" afterPath="$PROJECT_DIR$/src/test/java/Validators/PassengersValidatorTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,11 +87,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PassengerValidators.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Validators/PassengerValidators.java">
+      <file leaf-file-name="SeatSelectionImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ServiceImpl/SeatSelectionImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="16" column="42" lean-forward="false" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+            <state relative-caret-position="-30">
+              <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,24 +99,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PassengersValidatorTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/Validators/PassengersValidatorTest.java">
+      <file leaf-file-name="AvailableSeatWrapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Models/AvailableSeatWrapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="46" column="4" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
+            <state relative-caret-position="-316">
+              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SeatSelectionImplTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ServiceImplTest/SeatSelectionImplTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="24" lean-forward="true" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#770#781#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SeatSelectionService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Services/SeatSelectionService.java">
+      <file leaf-file-name="confirmation.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webApp/JSP/confirmation.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+            <state relative-caret-position="154">
+              <caret line="34" column="21" lean-forward="false" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -104,81 +134,76 @@
       <file leaf-file-name="PassengerService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Services/PassengerService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="32" column="27" lean-forward="false" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
+            <state relative-caret-position="419">
+              <caret line="32" column="23" lean-forward="false" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PassengerValidators.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Validators/PassengerValidators.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="20" column="54" lean-forward="false" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserRegistrationTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ServiceImplTest/UserRegistrationTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PassengersValidatorTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/Validators/PassengersValidatorTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="82" column="39" lean-forward="false" selection-start-line="82" selection-start-column="39" selection-end-line="82" selection-end-column="39" />
               <folding>
-                <element signature="e#630#639#0" expanded="true" />
-                <element signature="e#861#869#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#2306#2314#0" expanded="true" />
+                <element signature="e#2805#2813#0" expanded="true" />
+                <element signature="e#3360#3368#0" expanded="true" />
+                <element signature="e#3465#3473#0" expanded="true" />
+                <element signature="e#3966#3974#0" expanded="true" />
+                <element signature="e#4071#4079#0" expanded="true" />
+                <element signature="e#4178#4186#0" expanded="true" />
+                <element signature="e#4719#4727#0" expanded="true" />
+                <element signature="e#4826#4834#0" expanded="true" />
+                <element signature="e#5435#5443#0" expanded="true" />
+                <element signature="e#5540#5548#0" expanded="true" />
+                <element signature="e#6153#6161#0" expanded="true" />
+                <element signature="e#6259#6267#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PassengerWrapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Models/PassengerWrapper.java">
+      <file leaf-file-name="SearchRoutesValidatorTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/Validators/SearchRoutesValidatorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="9" column="30" lean-forward="false" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+            <state relative-caret-position="110">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConfigTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/Database/ConfigTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="77" column="28" lean-forward="false" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
               <folding>
-                <element signature="e#732#733#0" expanded="true" />
-                <element signature="e#762#763#0" expanded="true" />
-                <element signature="e#815#816#0" expanded="true" />
-                <element signature="e#853#854#0" expanded="true" />
-                <element signature="e#896#897#0" expanded="true" />
-                <element signature="e#929#930#0" expanded="true" />
-                <element signature="e#987#988#0" expanded="true" />
-                <element signature="e#1031#1032#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="booking.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webApp/JSP/booking.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
-              <caret line="42" column="32" lean-forward="true" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NumberOfSeatService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Services/NumberOfSeatService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BookingController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sample/Controller/BookingController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1980">
-              <caret line="106" column="1" lean-forward="false" selection-start-line="106" selection-start-column="1" selection-end-line="106" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RoutesImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ServiceImpl/RoutesImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="26" column="28" lean-forward="false" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Services/LoginService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="17" column="14" lean-forward="false" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -215,6 +240,8 @@
       <find>persi</find>
       <find>hiberna</find>
       <find>table</find>
+      <find>er</find>
+      <find>error</find>
       <find>err</find>
     </findStrings>
   </component>
@@ -229,18 +256,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/ControllerTest/LoginControllerTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/Database/SaveToDb.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Dao/Route.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ServiceImpl/getRoutes.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Models/NumberOfSeats.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Models/Passenger.java" />
-        <option value="$PROJECT_DIR$/src/main/webApp/JSP/register.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webApp/JSP/login.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webApp/JSP/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/db/migration/V2017_01_28_00_01_35_44__create_route_Table.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/Dao/UserDetailsDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Dao/RouteDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/Models/Route.java" />
         <option value="$PROJECT_DIR$/src/main/java/Services/NumberOfSeatService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServiceImpl/SaveToDb.java" />
@@ -248,7 +263,6 @@
         <option value="$PROJECT_DIR$/src/main/java/ServiceImpl/GetRoutes.java" />
         <option value="$PROJECT_DIR$/src/main/java/Models/UserDetails.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sample/Controller/DefaultController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ServiceImpl/RoutesImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/Services/RouteService.java" />
         <option value="$PROJECT_DIR$/src/main/webApp/JSP/home.jsp" />
         <option value="$PROJECT_DIR$/src/main/webApp/JSP/searchRoutes.jsp" />
@@ -257,7 +271,6 @@
         <option value="$PROJECT_DIR$/src/main/webApp/JSP/NoRouteFound.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/Services/SeatSelectionService.java" />
         <option value="$PROJECT_DIR$/src/main/java/Models/Seat.java" />
-        <option value="$PROJECT_DIR$/src/main/webApp/JSP/confirmation.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/Models/SeatWrapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/Models/AvailableSeatWrapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/Models/SelectedSeatWrapper.java" />
@@ -267,19 +280,33 @@
         <option value="$PROJECT_DIR$/src/main/resources/db/migration/V2017_01_29_12_39_58_29__create_bus_table.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/db/migration/V2017_01_29_12_43_58_25__create_seats_table.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/db/migration/V2017_01_29_12_47_39_15__create_bus_table.sql" />
-        <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Dao/SeatsDao.java" />
         <option value="$PROJECT_DIR$/readMe.txt" />
         <option value="$PROJECT_DIR$/src/main/java/Dao/BusDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ServiceImpl/SeatSelectionImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sample/Controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sample/Controller/HomeController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Validators/PassengerValidators.java" />
-        <option value="$PROJECT_DIR$/src/test/java/Validators/PassengersValidatorTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Services/PassengerService.java" />
         <option value="$PROJECT_DIR$/src/main/java/Models/PassengerWrapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/webApp/JSP/booking.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/sample/Controller/BookingController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ServicesTest/LoginServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ServiceTest/NumberOfSeatServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Models/Passenger.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ServiceTest/PassengerServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ServiceTest/RouteServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Database/SaveToDb.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ServiceImplTest/LoginImplTest.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/db/migration/V2017_01_28_00_01_35_44__create_route_Table.sql" />
+        <option value="$PROJECT_DIR$/src/test/java/ServiceImplTest/RouteImplTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ServiceImpl/RoutesImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ServiceImpl/SeatSelectionImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Database/ConfigTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ServiceImplTest/SeatSelectionImplTest.java" />
+        <option value="$PROJECT_DIR$/src/main/webApp/JSP/confirmation.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/Services/PassengerService.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ServiceImplTest/UserRegistrationTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Validators/PassengerValidators.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Validators/PassengersValidatorTest.java" />
       </list>
     </option>
   </component>
@@ -362,32 +389,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="tw-bus-reservation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sprinmvcproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tw-bus-reservation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Validators" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -698,45 +699,19 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Atul">
-    <configuration default="false" name="UserDetailsRegistrationControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="PassengersValidatorTest.shouldReturnErrorIfSeatSelectedForDisabledIsNotCorrect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="ControllerTest.*" />
+          <option name="PATTERN" value="Validators.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="sprinmvcproject" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ControllerTest" />
-      <option name="MAIN_CLASS_NAME" value="ControllerTest.UserDetailsRegistrationControllerTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="HomeControllerTest.shouldReturnToHomePage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ControllerTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="sprinmvcproject" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ControllerTest" />
-      <option name="MAIN_CLASS_NAME" value="ControllerTest.HomeControllerTest" />
-      <option name="METHOD_NAME" value="shouldReturnToHomePage" />
+      <option name="PACKAGE_NAME" value="Validators" />
+      <option name="MAIN_CLASS_NAME" value="Validators.PassengersValidatorTest" />
+      <option name="METHOD_NAME" value="shouldReturnErrorIfSeatSelectedForDisabledIsNotCorrect" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -750,20 +725,20 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="SaveToDb" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="PassengersValidatorTest.shouldNotReturnErrorIfSeatSelectedForDisabledIsCorrect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="Database.*" />
+          <option name="PATTERN" value="Validators.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="sprinmvcproject" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="Database" />
-      <option name="MAIN_CLASS_NAME" value="Database.SaveToDb" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="Validators" />
+      <option name="MAIN_CLASS_NAME" value="Validators.PassengersValidatorTest" />
+      <option name="METHOD_NAME" value="shouldNotReturnErrorIfSeatSelectedForDisabledIsCorrect" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -776,7 +751,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="SearchRoutesValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="PassengersValidatorTest.shouldReturnErrorIfSeatSelectedForSeniorCitizenIsNotCorrect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="Validators.*" />
@@ -787,9 +762,35 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="Validators" />
-      <option name="MAIN_CLASS_NAME" value="Validators.SearchRoutesValidatorTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="Validators.PassengersValidatorTest" />
+      <option name="METHOD_NAME" value="shouldReturnErrorIfSeatSelectedForSeniorCitizenIsNotCorrect" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="PassengersValidatorTest.shouldReturnNotErrorIfSeatSelectedForSeniorCitizenIsCorrect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Validators.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="sprinmvcproject" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="Validators" />
+      <option name="MAIN_CLASS_NAME" value="Validators.PassengersValidatorTest" />
+      <option name="METHOD_NAME" value="shouldReturnNotErrorIfSeatSelectedForSeniorCitizenIsCorrect" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -1416,19 +1417,19 @@
       <item index="0" class="java.lang.String" itemvalue="JUnit.DefaultControllerTest" />
       <item index="1" class="java.lang.String" itemvalue="Tomcat Server.Unnamed" />
       <item index="2" class="java.lang.String" itemvalue="Tomcat Server.Atul" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.UserDetailsRegistrationControllerTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.HomeControllerTest.shouldReturnToHomePage" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.SaveToDb" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.SearchRoutesValidatorTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.PassengersValidatorTest.shouldReturnErrorIfSeatSelectedForDisabledIsNotCorrect" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.PassengersValidatorTest.shouldNotReturnErrorIfSeatSelectedForDisabledIsCorrect" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.PassengersValidatorTest.shouldReturnErrorIfSeatSelectedForSeniorCitizenIsNotCorrect" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.PassengersValidatorTest.shouldReturnNotErrorIfSeatSelectedForSeniorCitizenIsCorrect" />
       <item index="7" class="java.lang.String" itemvalue="JUnit.PassengersValidatorTest" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JUnit.PassengersValidatorTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.SearchRoutesValidatorTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.SaveToDb" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.HomeControllerTest.shouldReturnToHomePage" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.UserDetailsRegistrationControllerTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.PassengersValidatorTest.shouldReturnNotErrorIfSeatSelectedForSeniorCitizenIsCorrect" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.PassengersValidatorTest.shouldReturnErrorIfSeatSelectedForSeniorCitizenIsNotCorrect" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.PassengersValidatorTest.shouldReturnErrorIfSeatSelectedForDisabledIsNotCorrect" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.PassengersValidatorTest.shouldNotReturnErrorIfSeatSelectedForDisabledIsCorrect" />
       </list>
     </recent_temporary>
   </component>
@@ -1459,39 +1460,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PassengersValidatorTest - 2017.01.30 at 14h 11m 35s.xml">
+    <history-entry file="PassengersValidatorTest - 2017.01.31 at 10h 50m 12s.xml">
       <configuration name="PassengersValidatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PassengersValidatorTest - 2017.01.30 at 14h 12m 01s.xml">
+    <history-entry file="PassengersValidatorTest - 2017.01.31 at 10h 51m 47s.xml">
       <configuration name="PassengersValidatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PassengersValidatorTest - 2017.01.30 at 14h 12m 58s.xml">
+    <history-entry file="PassengersValidatorTest - 2017.01.31 at 10h 53m 27s.xml">
       <configuration name="PassengersValidatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PassengersValidatorTest - 2017.01.30 at 14h 13m 46s.xml">
+    <history-entry file="PassengersValidatorTest - 2017.01.31 at 10h 54m 32s.xml">
       <configuration name="PassengersValidatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PassengersValidatorTest - 2017.01.30 at 14h 14m 37s.xml">
+    <history-entry file="PassengersValidatorTest - 2017.01.31 at 10h 55m 05s.xml">
       <configuration name="PassengersValidatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PassengersValidatorTest - 2017.01.30 at 14h 16m 29s.xml">
+    <history-entry file="PassengersValidatorTest - 2017.01.31 at 10h 55m 23s.xml">
       <configuration name="PassengersValidatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PassengersValidatorTest - 2017.01.30 at 14h 16m 37s.xml">
+    <history-entry file="PassengersValidatorTest - 2017.01.31 at 10h 55m 42s.xml">
       <configuration name="PassengersValidatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PassengersValidatorTest - 2017.01.30 at 14h 17m 08s.xml">
-      <configuration name="PassengersValidatorTest" configurationId="JUnit" />
+    <history-entry file="PassengersValidatorTest_shouldReturnErrorIfSeatSelectedForSeniorCitizenIsNotCorrect - 2017.01.31 at 10h 47m 56s.xml">
+      <configuration name="PassengersValidatorTest.shouldReturnErrorIfSeatSelectedForSeniorCitizenIsNotCorrect" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PassengersValidatorTest - 2017.01.30 at 14h 17m 17s.xml">
-      <configuration name="PassengersValidatorTest" configurationId="JUnit" />
+    <history-entry file="PassengersValidatorTest_shouldReturnErrorIfSeatSelectedForSeniorCitizenIsNotCorrect - 2017.01.31 at 10h 48m 20s.xml">
+      <configuration name="PassengersValidatorTest.shouldReturnErrorIfSeatSelectedForSeniorCitizenIsNotCorrect" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PassengersValidatorTest - 2017.01.30 at 14h 23m 59s.xml">
-      <configuration name="PassengersValidatorTest" configurationId="JUnit" />
+    <history-entry file="PassengersValidatorTest_shouldReturnNotErrorIfSeatSelectedForSeniorCitizenIsCorrect - 2017.01.31 at 10h 50m 08s.xml">
+      <configuration name="PassengersValidatorTest.shouldReturnNotErrorIfSeatSelectedForSeniorCitizenIsCorrect" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146095000" />
+    <option name="totallyTimeSpent" value="160046000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1504,7 +1505,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1594,7 +1595,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/ServiceImplTest/LoginImplTest.java</url>
+          <line>14</line>
+          <properties />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1603,129 +1612,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webApp/JSP/register.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-44">
-          <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Services/UserDetailsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ServiceImpl/UserDetailsImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ServiceImpl/SaveToDb.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="10" column="41" lean-forward="false" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ServiceImpl/LoginImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="18" column="85" lean-forward="false" selection-start-line="18" selection-start-column="85" selection-end-line="18" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Models/UserDetails.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Dao/UserDetailsDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Dao/LoginDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sample/Controller/DefaultController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="7" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Models/Passenger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Models/NumberOfSeats.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="20" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Services/RouteService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="25" column="45" lean-forward="false" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#689#699#0" expanded="false" />
-            <element signature="e#1002#1009#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Validators/RegistrationFormValidator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webApp/JSP/searchRoutes.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="30" column="16" lean-forward="false" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sample/Controller/UserRegistration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Validators/RegistrationFormValidatorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webApp/JSP/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -1746,46 +1632,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webApp/JSP/confirmation.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-175">
-          <caret line="35" column="12" lean-forward="false" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
           <folding>
-            <marker date="1485700990000" expanded="true" signature="1247:1473" ph="..." />
-            <marker date="1485700990000" expanded="true" signature="1639:2431" ph="..." />
-            <marker date="1485700990000" expanded="true" signature="1656:2410" ph="..." />
-            <marker date="1485700990000" expanded="true" signature="2136:2273" ph="..." />
-            <marker date="1485700990000" expanded="true" signature="2216:2268" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Models/AvailableSeatWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="e#290#291#0" expanded="false" />
-            <element signature="e#315#316#0" expanded="false" />
-            <element signature="e#348#349#0" expanded="false" />
-            <element signature="e#376#377#0" expanded="false" />
-            <element signature="e#425#426#0" expanded="false" />
-            <element signature="e#464#465#0" expanded="false" />
-            <element signature="e#534#535#0" expanded="false" />
-            <element signature="e#590#591#0" expanded="false" />
-            <element signature="e#644#645#0" expanded="false" />
-            <element signature="e#688#689#0" expanded="false" />
-            <element signature="e#883#884#0" expanded="false" />
-            <element signature="e#922#923#0" expanded="false" />
-            <element signature="e#992#993#0" expanded="false" />
-            <element signature="e#1048#1049#0" expanded="false" />
-            <element signature="e#1088#1089#0" expanded="false" />
-            <element signature="e#1118#1119#0" expanded="false" />
-            <element signature="e#1170#1171#0" expanded="false" />
-            <element signature="e#1208#1209#0" expanded="false" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1838,13 +1686,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/db/migration/V2017_01_28_00_01_35_44__create_route_Table.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/db/migration/V2017_01_21_23_22_40_73__create_account_table.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -1853,109 +1694,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/db/migration/V2017_01_29_12_39_58_29__create_bus_table.sql" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="41" lean-forward="false" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Dao/RouteDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="e#831#832#0" expanded="false" />
-            <element signature="e#856#857#0" expanded="false" />
-            <element signature="e#890#891#0" expanded="false" />
-            <element signature="e#918#919#0" expanded="false" />
-            <element signature="e#951#952#0" expanded="false" />
-            <element signature="e#980#981#0" expanded="false" />
-            <element signature="e#1024#1025#0" expanded="false" />
-            <element signature="e#1060#1061#0" expanded="false" />
-            <element signature="e#1098#1099#0" expanded="false" />
-            <element signature="e#1132#1133#0" expanded="false" />
-            <element signature="e#1186#1187#0" expanded="false" />
-            <element signature="e#1232#1233#0" expanded="false" />
-            <element signature="e#1271#1272#0" expanded="false" />
-            <element signature="e#1298#1299#0" expanded="false" />
-            <element signature="e#1346#1347#0" expanded="false" />
-            <element signature="e#1378#1379#0" expanded="false" />
-            <element signature="e#1414#1415#0" expanded="false" />
-            <element signature="e#1448#1449#0" expanded="false" />
-            <element signature="e#1500#1501#0" expanded="false" />
-            <element signature="e#1546#1547#0" expanded="false" />
-            <element signature="e#1584#1585#0" expanded="false" />
-            <element signature="e#1620#1621#0" expanded="false" />
-            <element signature="e#1676#1677#0" expanded="false" />
-            <element signature="e#1726#1727#0" expanded="false" />
-            <element signature="e#1755#1756#0" expanded="false" />
-            <element signature="e#1783#1784#0" expanded="false" />
-            <element signature="e#1822#1823#0" expanded="false" />
-            <element signature="e#1856#1857#0" expanded="false" />
-            <element signature="e#1889#1890#0" expanded="false" />
-            <element signature="e#1918#1919#0" expanded="false" />
-            <element signature="e#1962#1963#0" expanded="false" />
-            <element signature="e#1998#1999#0" expanded="false" />
-            <element signature="e#2030#2031#0" expanded="false" />
-            <element signature="e#2061#2062#0" expanded="false" />
-            <element signature="e#2106#2107#0" expanded="false" />
-            <element signature="e#2146#2147#0" expanded="false" />
-            <element signature="e#2186#2187#0" expanded="false" />
-            <element signature="e#2225#2226#0" expanded="false" />
-            <element signature="e#2286#2287#0" expanded="false" />
-            <element signature="e#2342#2343#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/readMe.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/db/migration/V2017_01_29_12_47_39_15__create_bus_table.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="7" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/db/migration/V2017_01_29_12_43_58_25__create_seats_table.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <marker date="1485675410000" expanded="true" signature="0:169" ph="CREATE TABLE... seats" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Dao/SeatsDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="10" column="7" lean-forward="false" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-          <folding>
-            <element signature="e#361#362#0" expanded="false" />
-            <element signature="e#386#387#0" expanded="false" />
-            <element signature="e#419#420#0" expanded="false" />
-            <element signature="e#447#448#0" expanded="false" />
-            <element signature="e#490#491#0" expanded="false" />
-            <element signature="e#529#530#0" expanded="false" />
-            <element signature="e#593#594#0" expanded="false" />
-            <element signature="e#649#650#0" expanded="false" />
-            <element signature="e#697#698#0" expanded="false" />
-            <element signature="e#741#742#0" expanded="false" />
-            <element signature="e#924#925#0" expanded="false" />
-            <element signature="e#963#964#0" expanded="false" />
-            <element signature="e#1027#1028#0" expanded="false" />
-            <element signature="e#1083#1084#0" expanded="false" />
-            <element signature="e#1117#1118#0" expanded="false" />
-            <element signature="e#1147#1148#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1977,14 +1719,6 @@
             <element signature="e#855#856#0" expanded="false" />
             <element signature="e#894#895#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ServiceImpl/SeatSelectionImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2028,80 +1762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Validators/SearchRoutesValidatorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ServiceImpl/RoutesImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="26" column="28" lean-forward="false" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Services/LoginService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="17" column="14" lean-forward="false" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Services/SeatSelectionService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Services/NumberOfSeatService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Validators/PassengerValidators.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="16" column="42" lean-forward="false" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Validators/PassengersValidatorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="46" column="4" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#770#781#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Services/PassengerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="32" column="27" lean-forward="false" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
-          <folding>
-            <element signature="e#630#639#0" expanded="true" />
-            <element signature="e#861#869#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Models/PassengerWrapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -2119,19 +1779,350 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="16" column="47" lean-forward="false" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webApp/JSP/booking.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="42" column="32" lean-forward="true" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
+        <state relative-caret-position="551">
+          <caret line="96" column="47" lean-forward="true" selection-start-line="96" selection-start-column="47" selection-end-line="96" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sample/Controller/BookingController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1980">
-          <caret line="106" column="1" lean-forward="false" selection-start-line="106" selection-start-column="1" selection-end-line="106" selection-end-column="1" />
+        <state relative-caret-position="485">
+          <caret line="122" column="0" lean-forward="false" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Services/LoginService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ServicesTest/LoginServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Services/NumberOfSeatService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#209#218#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ServiceTest/NumberOfSeatServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="25" column="69" lean-forward="false" selection-start-line="25" selection-start-column="69" selection-end-line="25" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Models/Passenger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+          <folding>
+            <element signature="e#217#218#0" expanded="false" />
+            <element signature="e#244#245#0" expanded="false" />
+            <element signature="e#284#285#0" expanded="false" />
+            <element signature="e#316#317#0" expanded="false" />
+            <element signature="e#349#350#0" expanded="false" />
+            <element signature="e#378#379#0" expanded="false" />
+            <element signature="e#422#423#0" expanded="false" />
+            <element signature="e#458#459#0" expanded="false" />
+            <element signature="e#485#486#0" expanded="false" />
+            <element signature="e#511#512#0" expanded="false" />
+            <element signature="e#546#547#0" expanded="false" />
+            <element signature="e#576#577#0" expanded="false" />
+            <element signature="e#607#608#0" expanded="false" />
+            <element signature="e#634#635#0" expanded="false" />
+            <element signature="e#674#675#0" expanded="false" />
+            <element signature="e#706#707#0" expanded="false" />
+            <element signature="e#749#750#0" expanded="false" />
+            <element signature="e#787#788#0" expanded="false" />
+            <element signature="e#848#849#0" expanded="false" />
+            <element signature="e#895#896#0" expanded="false" />
+            <element signature="e#933#934#0" expanded="false" />
+            <element signature="e#966#967#0" expanded="false" />
+            <element signature="e#1017#1018#0" expanded="false" />
+            <element signature="e#1054#1055#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ServiceTest/PassengerServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1078">
+          <caret line="49" column="65" lean-forward="false" selection-start-line="49" selection-start-column="65" selection-end-line="49" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ServiceTest/RouteServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Services/RouteService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-132">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#689#699#0" expanded="false" />
+            <element signature="e#1002#1009#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Services/SeatSelectionService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Services/UserDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ServiceImpl/LoginImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ServiceImplTest/LoginImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="28" column="24" lean-forward="false" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Database/SaveToDb.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="29" column="29" lean-forward="true" selection-start-line="24" selection-start-column="7" selection-end-line="29" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Dao/RouteDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-66">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/db/migration/V2017_01_28_00_01_35_44__create_route_Table.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="30" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <marker date="1485794647000" expanded="true" signature="0:301" ph="CREATE TABLE... routeDetails" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/src.zip!/java/util/Calendar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="312" column="22" lean-forward="false" selection-start-line="312" selection-start-column="22" selection-end-line="312" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ServiceImpl/RoutesImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="21" column="163" lean-forward="false" selection-start-line="21" selection-start-column="163" selection-end-line="21" selection-end-column="163" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ServiceImpl/UserDetailsImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ServiceImplTest/RouteImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="47" column="24" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Dao/SeatsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="10" column="7" lean-forward="false" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/db/migration/V2017_01_29_12_43_58_25__create_seats_table.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <marker date="1485675410000" expanded="true" signature="0:169" ph="CREATE TABLE... seats" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/db/migration/V2017_01_29_12_47_39_15__create_bus_table.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ServiceImpl/SeatSelectionImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30">
+          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Database/ConfigTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="77" column="28" lean-forward="false" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Models/AvailableSeatWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-316">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ServiceImplTest/SeatSelectionImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="24" lean-forward="true" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webApp/JSP/confirmation.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="34" column="21" lean-forward="false" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ServiceImplTest/UserRegistrationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Validators/SearchRoutesValidatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Services/PassengerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="32" column="23" lean-forward="false" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Validators/PassengerValidators.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="20" column="54" lean-forward="false" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Validators/PassengersValidatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="82" column="39" lean-forward="false" selection-start-line="82" selection-start-column="39" selection-end-line="82" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2306#2314#0" expanded="true" />
+            <element signature="e#2805#2813#0" expanded="true" />
+            <element signature="e#3360#3368#0" expanded="true" />
+            <element signature="e#3465#3473#0" expanded="true" />
+            <element signature="e#3966#3974#0" expanded="true" />
+            <element signature="e#4071#4079#0" expanded="true" />
+            <element signature="e#4178#4186#0" expanded="true" />
+            <element signature="e#4719#4727#0" expanded="true" />
+            <element signature="e#4826#4834#0" expanded="true" />
+            <element signature="e#5435#5443#0" expanded="true" />
+            <element signature="e#5540#5548#0" expanded="true" />
+            <element signature="e#6153#6161#0" expanded="true" />
+            <element signature="e#6259#6267#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

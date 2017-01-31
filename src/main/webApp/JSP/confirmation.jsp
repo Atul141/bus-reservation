@@ -32,7 +32,7 @@
         </tr>
     </table>
     <table border="1" cellpadding="5">
-        <caption><h2>Enter Passenger Details</h2></caption>
+        <caption><h2>Passenger Details</h2></caption>
         <tr>
             <th>Passenger No.</th>
             <th>Name</th>

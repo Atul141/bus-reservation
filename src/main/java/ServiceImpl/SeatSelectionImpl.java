@@ -5,6 +5,7 @@ import Models.AvailableSeatWrapper;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+
 import javax.persistence.Query;
 import java.util.Arrays;
 import java.util.List;
@@ -19,10 +20,12 @@ public class SeatSelectionImpl {
     public AvailableSeatWrapper getAvailableSeats(String bus_no, long routeId) {
         AvailableSeatWrapper availableSeatWrapper = new AvailableSeatWrapper();
         SeatsDao seatsDao = fetchAvailableSeats(bus_no, routeId);
+        availableSeatWrapper.setId(seatsDao.getId());
         availableSeatWrapper.setDisabledReserved(getSeatList(seatsDao.getDisabledReserved()));
         availableSeatWrapper.setSeniorCitizenReserved(getSeatList(seatsDao.getSeniorCitizenReserved()));
         availableSeatWrapper.setWomenReservation(getSeatList(seatsDao.getWomenReservation()));
         availableSeatWrapper.setGeneral(getSeatList(seatsDao.getGeneral()));
+        System.out.println("hello");
         return availableSeatWrapper;
 
     }
