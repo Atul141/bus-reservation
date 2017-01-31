@@ -2,7 +2,6 @@ package ServiceImplTest;
 
 
 import Dao.UserDetailsDao;
-import Database.ConfigTest;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.Before;

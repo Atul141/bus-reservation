@@ -3,7 +3,6 @@ package ServiceImplTest;
 
 import Dao.BusDao;
 import Dao.SeatsDao;
-import Database.ConfigTest;
 import ServiceImpl.SeatSelectionImpl;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

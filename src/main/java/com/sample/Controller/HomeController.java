@@ -28,6 +28,7 @@ public class HomeController {
     public String successLogin(@ModelAttribute("route") Route route, Model model, HttpServletRequest request, @RequestParam("selectedDate") String date, RedirectAttributes redirectAttribute) {
         SearchRoutesValidator searchRoutesValidator = new SearchRoutesValidator();
         String error = searchRoutesValidator.validateAllFields(route, date);
+
         redirectAttribute.addAttribute("error", error);
         if (error != null) {
 

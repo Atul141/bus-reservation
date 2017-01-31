@@ -2,7 +2,6 @@ package ServiceImplTest;
 
 
 import Dao.RouteDao;
-import Database.ConfigTest;
 import Models.Route;
 import ServiceImpl.RoutesImpl;
 import org.hibernate.Session;
@@ -11,8 +10,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import static org.junit.Assert.assertEquals;
 
@@ -43,12 +42,12 @@ public class RouteImplTest {
     @Test
     public void shouldReturnRouteDetailsForTheGivenRoute() {
         Route route = new Route();
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.YEAR, 2017);
-        calendar.set(Calendar.MONTH, 1);
-        calendar.set(Calendar.DATE, 15);
-        Date date = calendar.getTime();
-        route.setDate(date);
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            route.setDate(formatter.parse("2017-1-18"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         route.setDestination("BANGALORE");
         route.setSource("MYSORE");
         assertEquals(1, routes.getRoutes(route).size());

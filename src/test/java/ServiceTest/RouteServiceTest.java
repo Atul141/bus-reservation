@@ -2,15 +2,12 @@ package ServiceTest;
 
 
 import Dao.RouteDao;
-import Database.ConfigTest;
+import ServiceImplTest.ConfigTest;
 import Models.Route;
 import ServiceImpl.RoutesImpl;
 import Services.RouteService;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
-
-import javax.enterprise.inject.New;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -18,34 +15,42 @@ import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 public class RouteServiceTest {
 
     private ConfigTest configTest;
     private RouteService routeService;
+    private RoutesImpl routesImpl;
 
     @Before
-    public void setup(){
-        configTest=new ConfigTest();
-        routeService=new RouteService();
+    public void setup() {
+        configTest = new ConfigTest();
+//        routeService=mock(RouteService.class);
+        routesImpl = mock(RoutesImpl.class);
+        routeService = new RouteService();
     }
-    @Mock
-    RoutesImpl routesImpl;
+//    @Mock
+//    RoutesImpl routesImpl;
+
+//    @InjectMocks
+//   RouteService routeService =new RouteService();
+
 
     @Test
-    public void getRoutesBaseOnId(){
-        RouteDao routeDao=configTest.getRouteDaoDetails();
+    public void getRoutesBaseOnId() {
+        RouteDao routeDao = configTest.getRouteDaoDetails();
         initMocks(this);
         when(routesImpl.getRoutesBasedOnId(1)).thenReturn(routeDao);
-        assertEquals(1,routeService.getRouteBasedOnId(1).getId());
+        assertEquals(1, routeService.getRouteBasedOnId(1).getId());
     }
+
     @Test
-    public void getRoutesList(){
-        RouteDao routeDao=configTest.getRouteDaoDetails();
+    public void getRoutesList() {
+        RouteDao routeDao = configTest.getRouteDaoDetails();
         initMocks(this);
-        Route route= new Route();
+        Route route = new Route();
         route.setId(1);
         route.setSource("BANGALORE");
         route.setDestination("MYSORE");
@@ -57,9 +62,10 @@ public class RouteServiceTest {
         Date date = calendar.getTime();
         route.setDate(date);
 
-        List<RouteDao> routeList=new ArrayList<RouteDao>();
+        List<RouteDao> routeList = new ArrayList<RouteDao>();
         routeList.add(configTest.getRouteDaoDetails());
         when(routesImpl.getRoutes(route)).thenReturn(routeList);
-        assertEquals(1,routeService.getRouteList(route).size());
+        routeService.getRouteList(route);
+        verify(routesImpl, times(1)).getRoutes(route);
     }
 }

@@ -16,6 +16,7 @@ public class RouteService {
         RoutesImpl routesImpl = new RoutesImpl();
         routeDetails.setSource(routeDetails.getSource().toUpperCase());
         routeDetails.setDestination(routeDetails.getDestination().toUpperCase());
+
         return mapRoutes(routesImpl.getRoutes(routeDetails));
     }
 

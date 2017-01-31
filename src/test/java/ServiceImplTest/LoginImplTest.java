@@ -2,7 +2,6 @@ package ServiceImplTest;
 
 import Dao.LoginDao;
 import Dao.UserDetailsDao;
-import Database.ConfigTest;
 import ServiceImpl.LoginImpl;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

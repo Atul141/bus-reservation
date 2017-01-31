@@ -1,16 +1,17 @@
-package Database;
+package ServiceImplTest;
 
 import Dao.BusDao;
 import Dao.RouteDao;
 import Dao.SeatsDao;
 import Dao.UserDetailsDao;
-import Models.BusWrapper;
 import Models.Route;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -47,12 +48,12 @@ public class ConfigTest {
 
     public RouteDao getRouteDaoDetails() {
         RouteDao route = new RouteDao();
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.YEAR, 2017);
-        calendar.set(Calendar.MONTH, 1);
-        calendar.set(Calendar.DATE, 15);
-        Date date = calendar.getTime();
-        route.setDate(date);
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            route.setDate(formatter.parse("2017-1-18"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         route.setDepartureTime(new Time(1730));
         route.setDestination("BANGALORE");
         route.setSource("MYSORE");
@@ -72,15 +73,16 @@ public class ConfigTest {
         seatDao.setGeneral("C1-C2-C3-C4-D1-D2-D3-D4");
         return seatDao;
     }
-    public BusDao getBusWrapper(){
-        BusDao busDao=new BusDao();
+
+    public BusDao getBusWrapper() {
+        BusDao busDao = new BusDao();
         busDao.setNumber(" KA 09 G-9000 ");
         busDao.setSeat_no(1);
         busDao.setRoute_no(2);
         return busDao;
     }
 
-    public Route getRouteDetails(){
+    public Route getRouteDetails() {
         Route route = new Route();
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.YEAR, 2017);
