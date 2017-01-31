@@ -9,8 +9,10 @@ import Services.RouteService;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -27,15 +29,9 @@ public class RouteServiceTest {
     @Before
     public void setup() {
         configTest = new ConfigTest();
-//        routeService=mock(RouteService.class);
         routesImpl = mock(RoutesImpl.class);
         routeService = new RouteService();
     }
-//    @Mock
-//    RoutesImpl routesImpl;
-
-//    @InjectMocks
-//   RouteService routeService =new RouteService();
 
 
     @Test
@@ -48,6 +44,7 @@ public class RouteServiceTest {
 
     @Test
     public void getRoutesList() {
+        initMocks(this);
         RouteDao routeDao = configTest.getRouteDaoDetails();
         initMocks(this);
         Route route = new Route();
@@ -55,17 +52,16 @@ public class RouteServiceTest {
         route.setSource("BANGALORE");
         route.setDestination("MYSORE");
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.YEAR, 2017);
-        calendar.set(Calendar.MONTH, 1);
-        calendar.set(Calendar.DATE, 15);
-        Date date = calendar.getTime();
-        route.setDate(date);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date date = dateFormat.parse("2017-1-18");
+            route.setDate(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         List<RouteDao> routeList = new ArrayList<RouteDao>();
-        routeList.add(configTest.getRouteDaoDetails());
-        when(routesImpl.getRoutes(route)).thenReturn(routeList);
-        routeService.getRouteList(route);
-        verify(routesImpl, times(1)).getRoutes(route);
+        when(routesImpl.getRoutes(any(Route.class))).thenReturn(routeList);
+        assertEquals(routeList, routeService.getRouteList(route));
     }
 }

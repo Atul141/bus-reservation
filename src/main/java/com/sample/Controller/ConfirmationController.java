@@ -4,6 +4,7 @@ import Models.PassengerWrapper;
 import Models.Route;
 import Models.SelectedSeatWrapper;
 import Services.PassengerService;
+import Services.PriceCalculation;
 import Validators.PassengerValidators;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +29,6 @@ public class ConfirmationController {
         httpSession.setAttribute("selectedSeatWrapper", selectedSeatWrapper);
         httpSession.setAttribute("passengerWrapper", passengerWrapper);
 
-
         model.addAttribute("route", route);
         model.addAttribute("numberOfSeats");
 
@@ -47,9 +47,10 @@ public class ConfirmationController {
         }
         PassengerService passengerService = new PassengerService();
         passengerWrapper = passengerService.allocateSeats(passengerWrapper, selectedSeatWrapper);
-        int price=route.getPrice()*passengerWrapper.getPassengerList().size();
+        PriceCalculation priceCalculation = new PriceCalculation();
+        int price = priceCalculation.calculateprice(route.getPrice(), passengerWrapper.getPassengerList().size());
 
-        model.addAttribute("price",price);
+        model.addAttribute("price", price);
         model.addAttribute("passengerWrapper", passengerWrapper);
 
         return "/confirmation";

@@ -28,8 +28,8 @@
             <td><c:out value="${route.destination}"/></td>
             <td><c:out value="${route.departureTime}"/></td>
             <td><c:out value="${route.arrivalTime}"/></td>
-            <td><c:out value="${route.price}"/></td>
-            <td><c:out value="${route.distance}"/></td>
+            <td>&#8377;<c:out value="${route.price}"/></td>
+            <td><c:out value="${route.distance}"/>Km</td>
         </tr>
     </table>
     <table border="1" cellpadding="5">

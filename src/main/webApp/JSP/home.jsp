@@ -35,7 +35,7 @@
                 <td><c:out value="${routes.departureTime}"/></td>
                 <td><c:out value="${routes.arrivalTime}"/></td>
                 <td>&#8377;<c:out value="${routes.price}"/></td>
-                <td><c:out value="${routes.distance}"/></td>
+                <td><c:out value="${routes.distance}"/>Km</td>
                 <td><c:out value="${routes.availableNoSeats}"/></td>
                 <td align="center" border="1" cellpadding="5">
                     <form:form method="POST" action="/booking" modelAttribute="numberOfSeats">

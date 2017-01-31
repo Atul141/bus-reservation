@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import java.sql.Time;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -84,12 +85,13 @@ public class ConfigTest {
 
     public Route getRouteDetails() {
         Route route = new Route();
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.YEAR, 2017);
-        calendar.set(Calendar.MONTH, 1);
-        calendar.set(Calendar.DATE, 15);
-        Date date = calendar.getTime();
-        route.setDate(date);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date date=dateFormat.parse("2017-1-15");
+            route.setDate(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         route.setDepartureTime(new Time(1730));
         route.setDestination("BANGALORE");
         route.setSource("MYSORE");
