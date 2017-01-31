@@ -11,9 +11,13 @@ import java.util.List;
 
 public class RouteService {
 
+    private RoutesImpl routesImpl;
+
+    public RouteService() {
+        routesImpl = new RoutesImpl();
+    }
 
     public List<Route> getRouteList(Route routeDetails) {
-        RoutesImpl routesImpl = new RoutesImpl();
         routeDetails.setSource(routeDetails.getSource().toUpperCase());
         routeDetails.setDestination(routeDetails.getDestination().toUpperCase());
 
@@ -21,7 +25,6 @@ public class RouteService {
     }
 
     public Route getRouteBasedOnId(long id) {
-        RoutesImpl routesImpl = new RoutesImpl();
         List<RouteDao> routeDaoList = new ArrayList<RouteDao>();
         routeDaoList.add(routesImpl.getRoutesBasedOnId(id));
         return mapRoutes(routeDaoList).get(0);
@@ -54,4 +57,26 @@ public class RouteService {
         return routesList;
     }
 
+    public void updateRoute(Route route) {
+        RouteDao routeDao = mapRouteDao(route);
+        routesImpl.updateRoute(routeDao);
+    }
+
+    private RouteDao mapRouteDao(Route route) {
+        RouteDao routeDao = new RouteDao();
+        routeDao.setAvailableNoSeats(route.getAvailableNoSeats());
+        routeDao.setPrice(route.getPrice());
+        routeDao.setDestination(route.getDestination());
+        routeDao.setArrivalTime(route.getArrivalTime());
+        routeDao.setDate(route.getDate());
+        routeDao.setSource(route.getSource());
+        routeDao.setId(route.getId());
+        routeDao.setDepartureTime(route.getDepartureTime());
+        routeDao.setDistance(route.getDistance());
+        routeDao.setArrivalTime(route.getArrivalTime());
+        routeDao.setBus_no(route.getBus_no());
+        return routeDao;
+    }
 }
+
+

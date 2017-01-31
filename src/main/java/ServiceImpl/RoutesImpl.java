@@ -21,7 +21,7 @@ public class RoutesImpl {
         Transaction transaction = session.beginTransaction();
         String query = "FROM RouteDao route where route.source=" + "'" + routes.getSource() + "'" + "and route.destination=" + "'" + routes.getDestination() + "'" + "and route.date=" + "'" + routes.getDate() + "'";
         List<RouteDao> routeDaoList = new ArrayList<RouteDao>();
-       System.out.println(query);
+        System.out.println(query);
         try {
             routeDaoList = (List<RouteDao>) session.createQuery(query).list();
             transaction.commit();
@@ -48,6 +48,19 @@ public class RoutesImpl {
         }
 
         return routeDao;
+
+    }
+
+    public void updateRoute(RouteDao routeDao) {
+        Session session = new Configuration().configure().buildSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.update(routeDao);
+            transaction.commit();
+            session.close();
+        } catch (Throwable ex) {
+            System.out.println("error creating session " + ex);
+        }
 
     }
 }

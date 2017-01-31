@@ -6,6 +6,7 @@ import Models.PassengerWrapper;
 import Models.Route;
 import Services.OrderDetailsService;
 import Services.PassengerService;
+import Services.RouteService;
 import com.sun.javafx.sg.prism.NGShape;
 import com.sun.org.apache.xpath.internal.operations.Or;
 import org.springframework.stereotype.Controller;
@@ -28,16 +29,24 @@ public class OrderDetailsController {
         PassengerWrapper passengerWrapper = (PassengerWrapper) httpSession.getAttribute("passengerWrapper");
         Route route = (Route) httpSession.getAttribute("route");
         String email = (String) httpSession.getAttribute("email");
+
         OrderDetails orderDetails = new OrderDetails();
         OrderDetailsService orderDetailsService = new OrderDetailsService();
         orderDetails.setPrice((Integer) httpSession.getAttribute("price"));
         orderDetails.setRoute_id(route.getId());
         orderDetails.setEmail(email);
         orderDetails.setStatus("Confirm");
+
+
+        route=orderDetailsService.updateRoute(route,passengerWrapper.getPassengerList().size());
+
+        RouteService routeService =new RouteService();
+        routeService.updateRoute(route);
         java.util.Date today = new java.util.Date();
         Timestamp timestamp = new java.sql.Timestamp(today.getTime());
         orderDetails.setTime(timestamp);
         passengerWrapper.setTimestamp(timestamp);
+
 
         httpSession.setAttribute("orderDetails", orderDetails);
 
