@@ -3,6 +3,9 @@ package ServiceImpl;
 
 import Dao.*;
 import org.hibernate.Session;
+import java.io.*;
+import java.nio.file.*;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -23,7 +26,7 @@ public class ConfigDB {
             Session session = new Configuration().configure().buildSessionFactory().openSession();
             return session;
         }
-        Session session = getTestSession();
+        Session session = new Configuration().configure("hibernateTest.cfg.xml").buildSessionFactory().openSession();
         return session;
 
     }
@@ -46,7 +49,7 @@ public class ConfigDB {
         configuration.setProperty("hibernate.connection.driver_class",
                 "org.postgresql.Driver");
         configuration.setProperty("hibernate.connection.url", "jdbc:postgresql://localhost:5432/testdb");
-        configuration.setProperty("hibernate.hbm2ddl.auto", "create");
+//        configuration.setProperty("hibernate.hbm2ddl.auto", "create");
         sessionFactory = configuration.buildSessionFactory();
         Session session = sessionFactory.openSession();
         return session;

@@ -21,9 +21,10 @@ public class SeatSelectionImpl {
     public AvailableSeatWrapper getAvailableSeats(String bus_no, long routeId) {
         AvailableSeatWrapper availableSeatWrapper = new AvailableSeatWrapper();
         SeatsDao seatsDao = fetchAvailableSeats(bus_no, routeId);
+      System.out.println(seatsDao.getId());
         availableSeatWrapper.setId(seatsDao.getId());
-        availableSeatWrapper.setDisabledReserved(getSeatList(seatsDao.getDisabledReserved()));
         availableSeatWrapper.setSeniorCitizenReserved(getSeatList(seatsDao.getSeniorCitizenReserved()));
+        availableSeatWrapper.setDisabledReserved(getSeatList(seatsDao.getDisabledReserved()));
         availableSeatWrapper.setWomenReservation(getSeatList(seatsDao.getWomenReservation()));
         availableSeatWrapper.setGeneral(getSeatList(seatsDao.getGeneral()));
         return availableSeatWrapper;

@@ -3,9 +3,8 @@ package ServiceImplTest;
 
 import Dao.BusDao;
 import Dao.SeatsDao;
-import ServiceImpl.ConfigDB;
-import ServiceImpl.SeatSelectionImpl;
-import ServiceImpl.SyntaxSugar;
+import ServiceImpl.*;
+import ServiceImpl.SaveToDb;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.After;
@@ -30,28 +29,18 @@ public class SeatSelectionImplTest {
         configDB.setEnvironment(SyntaxSugar.TEST_ENV);
         seatSelection = new SeatSelectionImpl(configDB);
         ConfigTest configTest = new ConfigTest();
-        session = configTest.getTestSession();
+        session = configDB.getSession();
         seatsDao = configTest.getSeatDetails();
         BusDao busDao = configTest.getBusWrapper();
-        Transaction transaction = session.beginTransaction();
-        session.save(seatsDao);
-        session.save(busDao);
-        session.flush();
-        transaction.commit();
-    }
 
-    private List<String> getSeatList(String disabledReserved) {
-        String[] array = disabledReserved.split("-");
-        List<String> list = Arrays.asList(array);
-        return list;
-
+        ServiceImpl.SaveToDb saveToDb=new SaveToDb(configDB);
+        saveToDb.saveToDb(seatsDao);
+        saveToDb.saveToDb(busDao);
     }
 
     @Test
     public void shouldReturnAvailableSeats() {
-        SeatsDao seatsDao = new SeatsDao();
-        seatsDao.setId(1);
-        assertEquals(1, seatSelection.getAvailableSeats("KA 09 G-9000", 2).getId());
+        assertEquals(1, seatSelection.getAvailableSeats("KA 09 G-9000", 2).getId()  );
     }
 
     @After

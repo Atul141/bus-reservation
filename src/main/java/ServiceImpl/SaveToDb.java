@@ -22,7 +22,7 @@ public class SaveToDb {
             session.close();
         } catch (Throwable ex) {
             System.out.println("error creating session " + ex);
-
         }
+
     }
 }

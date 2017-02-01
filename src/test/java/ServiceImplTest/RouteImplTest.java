@@ -3,9 +3,8 @@ package ServiceImplTest;
 
 import Dao.RouteDao;
 import Models.Route;
-import ServiceImpl.ConfigDB;
-import ServiceImpl.RoutesImpl;
-import ServiceImpl.SyntaxSugar;
+import ServiceImpl.*;
+import ServiceImpl.SaveToDb;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.After;
@@ -20,7 +19,7 @@ import static org.junit.Assert.assertEquals;
 
 public class RouteImplTest {
 
-    private Session session = null;
+    private Session session ;
     private RoutesImpl routes;
     private RouteDao routeDao;
     private ConfigDB configDB;
@@ -30,18 +29,16 @@ public class RouteImplTest {
         configDB=new ConfigDB();
         configDB.setEnvironment(SyntaxSugar.TEST_ENV);
         routes = new RoutesImpl(configDB);
+        session=configDB.getSession();
         ConfigTest configTest = new ConfigTest();
-        session = configTest.getTestSession();
         routeDao = configTest.getRouteDaoDetails();
-        Transaction transaction = session.beginTransaction();
-        session.save(routeDao);
-        session.flush();
-        transaction.commit();
+        ServiceImpl.SaveToDb saveToDb=new SaveToDb(configDB);
+        saveToDb.saveToDb(routeDao);
     }
 
     @Test
     public void shouldReturnRouteDetailsForTheGivenRouteID() {
-        assertEquals("KA-01 G-2020", routes.getRoutesBasedOnId(1).getBus_no());
+        assertEquals("MYSORE", routes.getRoutesBasedOnId(1).getSource());
     }
 
     @Test

@@ -41,9 +41,9 @@ public class ConfigTest {
         UserDetailsDao userDetailsDao = new UserDetailsDao();
         userDetailsDao.setFirstName("abc");
         userDetailsDao.setLastName("def");
-        userDetailsDao.setEmail("test@gmail.com");
-        userDetailsDao.setPassword("password");
-        userDetailsDao.setPhone("1123456789");
+        userDetailsDao.setEmail("test5@gmail.com");
+        userDetailsDao.setPassword("pass");
+        userDetailsDao.setPhone("1123456");
         return userDetailsDao;
     }
 
@@ -77,7 +77,7 @@ public class ConfigTest {
 
     public BusDao getBusWrapper() {
         BusDao busDao = new BusDao();
-        busDao.setNumber(" KA 09 G-9000 ");
+        busDao.setNumber("KA 09 G-9000");
         busDao.setSeat_no(1);
         busDao.setRoute_no(2);
         return busDao;
