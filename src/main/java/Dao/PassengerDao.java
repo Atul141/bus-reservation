@@ -6,12 +6,8 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name = "passenger")
-@SequenceGenerator(name = "seq", initialValue = 2, allocationSize = 1)
 public class PassengerDao {
-
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "seq")
     private long id;
     private Timestamp timestamp;
     private String name;

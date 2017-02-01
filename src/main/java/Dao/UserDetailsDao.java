@@ -5,14 +5,12 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "userdetails")
-@SequenceGenerator(name="seq", initialValue=2, allocationSize=1)
 
 public class UserDetailsDao {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "seq")
     @Column(columnDefinition = "INTEGER")
-    private int id;
+    private long id;
     @Column(columnDefinition = "VARCHAR(100)")
     private String firstName;
     @Column(columnDefinition = "VARCHAR(100)")
@@ -65,11 +63,11 @@ public class UserDetailsDao {
         this.password = password;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 }

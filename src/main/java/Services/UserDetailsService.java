@@ -2,6 +2,7 @@ package Services;
 
 import Dao.UserDetailsDao;
 import Models.UserDetails;
+import ServiceImpl.SequenceGenerator;
 import ServiceImpl.UserDetailsImpl;
 
 public class UserDetailsService {
@@ -9,18 +10,24 @@ public class UserDetailsService {
 
     private UserDetailsImpl userDetailsImpl;
     private UserDetailsDao userDetailsDao;
-    public UserDetailsService(){
-        userDetailsDao=new UserDetailsDao();
-        userDetailsImpl=new UserDetailsImpl();
+    private SequenceGenerator sequenceGenerator;
+
+    public UserDetailsService() {
+        userDetailsDao = new UserDetailsDao();
+        userDetailsImpl = new UserDetailsImpl();
+        sequenceGenerator = new SequenceGenerator();
     }
 
-    public void saveUserDetails(UserDetails userDetails){
+    public void saveUserDetails(UserDetails userDetails) {
         userDetailsDao.setPassword(userDetails.getPassword());
         userDetailsDao.setLastName(userDetails.getLastName());
         userDetailsDao.setEmail(userDetails.getEmail());
         userDetailsDao.setFirstName(userDetails.getFirstName());
         userDetailsDao.setPhone(userDetails.getPhone());
+        userDetailsDao.setId(sequenceGenerator.generateSequenceUserDetails());
+
         userDetailsImpl.saveToDb(userDetailsDao);
+
 
     }
 }
