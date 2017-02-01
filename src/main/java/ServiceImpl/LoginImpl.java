@@ -10,8 +10,14 @@ import org.hibernate.cfg.Configuration;
 
 public class LoginImpl {
 
+    private ConfigDB configDB;
+
+    public LoginImpl() {
+        configDB = new ConfigDB();
+    }
+
     public boolean validateLogin(LoginDao loginDao) {
-        Session session = new Configuration().configure().buildSessionFactory().openSession();
+        Session session = configDB.getSession();
         Transaction transaction = session.beginTransaction();
         String query = "FROM UserDetailsDao  user where user.email=" + "'" + loginDao.getEmail() + "'";
         UserDetailsDao userDetails;

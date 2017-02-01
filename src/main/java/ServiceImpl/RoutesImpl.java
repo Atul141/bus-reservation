@@ -16,12 +16,17 @@ import java.util.List;
 
 public class RoutesImpl {
 
+    private ConfigDB configDB;
+
+    public RoutesImpl() {
+        configDB = new ConfigDB();
+    }
+
     public List<RouteDao> getRoutes(Route routes) {
-        Session session = new Configuration().configure().buildSessionFactory().openSession();
+        Session session = configDB.getSession();
         Transaction transaction = session.beginTransaction();
         String query = "FROM RouteDao route where route.source=" + "'" + routes.getSource() + "'" + "and route.destination=" + "'" + routes.getDestination() + "'" + "and route.date=" + "'" + routes.getDate() + "'";
         List<RouteDao> routeDaoList = new ArrayList<RouteDao>();
-        System.out.println(query);
         try {
             routeDaoList = (List<RouteDao>) session.createQuery(query).list();
             transaction.commit();
@@ -29,13 +34,12 @@ public class RoutesImpl {
         } catch (Throwable ex) {
             System.out.println("error creating session " + ex);
         }
-        System.out.println("Hello");
         return routeDaoList;
     }
 
 
     public RouteDao getRoutesBasedOnId(long id) {
-        Session session = new Configuration().configure().buildSessionFactory().openSession();
+        Session session = configDB.getSession();
         Transaction transaction = session.beginTransaction();
         String query = "FROM RouteDao route where route.id=" + "'" + id + "'";
         RouteDao routeDao = new RouteDao();

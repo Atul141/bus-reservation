@@ -13,8 +13,10 @@ import java.util.List;
 public class SeatSelectionImpl {
 
 
-    public SeatSelectionImpl() {
+    private ConfigDB configDB;
 
+    public SeatSelectionImpl() {
+        configDB = new ConfigDB();
     }
 
     public AvailableSeatWrapper getAvailableSeats(String bus_no, long routeId) {
@@ -39,7 +41,7 @@ public class SeatSelectionImpl {
     private SeatsDao fetchAvailableSeats(String bus_no, long routeId) {
 
         SeatsDao seatsDao = new SeatsDao();
-        Session session = new Configuration().configure().buildSessionFactory().openSession();
+        Session session = configDB.getSession();
         Transaction transaction = session.beginTransaction();
         try {
             Query subQuery = session.createQuery("Select bus.seat_no From BusDao bus WHERE bus.routeid=" + routeId + " and bus.number=" + "'" + bus_no + "'");

@@ -7,8 +7,14 @@ import org.hibernate.cfg.Configuration;
 
 public class UpdateImpl {
 
-    public void UpdateDb(Object object){
-        Session session = new Configuration().configure().buildSessionFactory().openSession();
+    private ConfigDB configDB;
+
+    public UpdateImpl() {
+        configDB = new ConfigDB();
+    }
+
+    public void UpdateDb(Object object) {
+        Session session = configDB.getSession();
         Transaction transaction = session.beginTransaction();
         try {
             session.update(object);
