@@ -1,8 +1,8 @@
 package com.sample.Controller;
 
 import Models.*;
-import ServiceImpl.SeatSelectionImpl;
 import Services.OrderDetailsService;
+import Services.PassengerDetailsService;
 import Services.RouteService;
 import Services.SeatSelectionService;
 import org.springframework.stereotype.Controller;
@@ -48,6 +48,8 @@ public class OrderDetailsController {
         orderDetails.setTime(timestamp);
         passengerWrapper.setTimestamp(timestamp);
 
+        PassengerDetailsService passengerDetailsService=new PassengerDetailsService();
+        passengerDetailsService.savePassengerDetails(passengerWrapper);
 
         httpSession.setAttribute("orderDetails", orderDetails);
 

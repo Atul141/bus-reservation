@@ -66,7 +66,7 @@
             <th>Total Amount</th>
             <th>Status</th>
         </tr>
-        <form:form method="post" modelAttribute="orderDetails" action="Home">
+        <form:form method="post" modelAttribute="orderDetails" action="searchRoutes">
         <tr>
             <td><c:out value="${orderDetails.time}"/></td>
             <td align="center">&#8377;<c:out value="${orderDetails.price}"/></td>

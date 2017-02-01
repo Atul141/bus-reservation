@@ -19,6 +19,7 @@
         <mapping class="Dao.RouteDao"/>
         <mapping class="Dao.SeatsDao"/>
         <mapping class="Dao.BusDao"/>
+        <mapping class="Dao.PassengerDao"/>
     </session-factory>
 </hibernate-configuration>
 
