@@ -49,7 +49,7 @@ public class RoutesImpl {
     }
 
     public void updateRoute(RouteDao routeDao) {
-        UpdateImpl update = new UpdateImpl();
+        UpdateImpl update = new UpdateImpl(configDB);
         update.UpdateDb(routeDao);
 
     }

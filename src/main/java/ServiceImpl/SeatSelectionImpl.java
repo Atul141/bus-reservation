@@ -57,7 +57,7 @@ public class SeatSelectionImpl {
 
     public void updateAvailableSeats(SeatsDao seatsDao) {
 
-        UpdateImpl update = new UpdateImpl();
+        UpdateImpl update = new UpdateImpl(configDB);
         update.UpdateDb(seatsDao);
     }
 }

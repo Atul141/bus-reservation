@@ -41,9 +41,6 @@ public class SaveToDb {
 
     @After
     public void delete() {
-        Transaction delete = session.beginTransaction();
-        session.delete(userDetailsDao);
-        delete.commit();
-        session.close();
+        configTest.delete(userDetailsDao);
     }
 }

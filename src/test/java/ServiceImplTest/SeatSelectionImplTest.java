@@ -21,33 +21,33 @@ public class SeatSelectionImplTest {
     private SeatSelectionImpl seatSelection;
     private SeatsDao seatsDao;
     private ConfigDB configDB;
+    private ConfigTest configTest;
+    private BusDao busDao;
 
 
     @Before
     public void setup() {
-        configDB=new ConfigDB();
+        configDB = new ConfigDB();
         configDB.setEnvironment(SyntaxSugar.TEST_ENV);
         seatSelection = new SeatSelectionImpl(configDB);
-        ConfigTest configTest = new ConfigTest();
+        configTest = new ConfigTest();
         session = configDB.getSession();
         seatsDao = configTest.getSeatDetails();
-        BusDao busDao = configTest.getBusWrapper();
+        busDao = configTest.getBusWrapper();
 
-        ServiceImpl.SaveToDb saveToDb=new SaveToDb(configDB);
+        ServiceImpl.SaveToDb saveToDb = new SaveToDb(configDB);
         saveToDb.saveToDb(seatsDao);
         saveToDb.saveToDb(busDao);
     }
 
     @Test
     public void shouldReturnAvailableSeats() {
-        assertEquals(1, seatSelection.getAvailableSeats("KA 09 G-9000", 2).getId()  );
+        assertEquals(1, seatSelection.getAvailableSeats("KA 09 G-9000", 2).getId());
     }
 
     @After
-    public void delete(){
-        Transaction delete = session.beginTransaction();
-        session.delete(seatsDao);
-        delete.commit();
-        session.close();
+    public void delete() {
+        configTest.delete(seatsDao);
+        configTest.delete(busDao);
     }
 }

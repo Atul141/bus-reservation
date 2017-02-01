@@ -19,18 +19,17 @@ import static org.junit.Assert.assertEquals;
 
 public class RouteImplTest {
 
-    private Session session ;
     private RoutesImpl routes;
     private RouteDao routeDao;
     private ConfigDB configDB;
+    private ConfigTest configTest;
 
     @Before
     public void setup() {
         configDB=new ConfigDB();
         configDB.setEnvironment(SyntaxSugar.TEST_ENV);
         routes = new RoutesImpl(configDB);
-        session=configDB.getSession();
-        ConfigTest configTest = new ConfigTest();
+        configTest = new ConfigTest();
         routeDao = configTest.getRouteDaoDetails();
         ServiceImpl.SaveToDb saveToDb=new SaveToDb(configDB);
         saveToDb.saveToDb(routeDao);
@@ -57,10 +56,7 @@ public class RouteImplTest {
 
     @After
     public void delete() {
-        Transaction delete = session.beginTransaction();
-        session.delete(routeDao);
-        delete.commit();
-        session.close();
+        configTest.delete(routeDao);
     }
 
 }

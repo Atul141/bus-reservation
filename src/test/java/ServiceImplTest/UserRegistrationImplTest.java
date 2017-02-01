@@ -19,11 +19,12 @@ public class UserRegistrationImplTest {
     private Session session;
     private ConfigDB configDB;
     private UserDetailsDao userDetailsDao;
+    private ConfigTest configTest;
 
     @Before
     public void before() {
         configDB = new ConfigDB();
-        ConfigTest configTest = new ConfigTest();
+       configTest = new ConfigTest();
         configDB.setEnvironment(SyntaxSugar.TEST_ENV);
         userDetailsDao = configTest.getUserDetailsinstance();
 
@@ -47,13 +48,7 @@ public class UserRegistrationImplTest {
     }
     @After
     public void delete(){
-        configDB= new ConfigDB();
-        configDB.setEnvironment(SyntaxSugar.TEST_ENV);
-        session=configDB.getSession();
-        Transaction delete = session.beginTransaction();
-        session.delete(userDetailsDao);
-        delete.commit();
-        session.close();
+        configTest.delete(userDetailsDao);
     }
 
 

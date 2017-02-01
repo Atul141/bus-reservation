@@ -19,10 +19,11 @@ public class LoginImplTest {
     private LoginImpl login;
     private UserDetailsDao userDetailsDao;
     private ConfigDB configDB;
+    private ConfigTest configTest;
 
     @Before
     public void before() {
-        ConfigTest configTest = new ConfigTest();
+        configTest = new ConfigTest();
         configDB = new ConfigDB();
         configDB.setEnvironment(SyntaxSugar.TEST_ENV);
         login = new LoginImpl(configDB);
@@ -50,9 +51,6 @@ public class LoginImplTest {
 
     @After
     public void delete() {
-        Transaction delete = session.beginTransaction();
-        session.delete(userDetailsDao);
-        delete.commit();
-        session.close();
+        configTest.delete(userDetailsDao);
     }
 }
