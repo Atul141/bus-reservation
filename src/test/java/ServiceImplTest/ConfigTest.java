@@ -19,24 +19,6 @@ import java.util.Date;
 
 public class ConfigTest {
 
-    public Session getTestSession() {
-        SessionFactory sessionFactory;
-        Configuration configuration = new Configuration();
-        configuration.addAnnotatedClass(UserDetailsDao.class);
-        configuration.addAnnotatedClass(RouteDao.class);
-        configuration.addAnnotatedClass(SeatsDao.class);
-        configuration.addAnnotatedClass(BusDao.class);
-        configuration.setProperty("hibernate.dialect",
-                "org.hibernate.dialect.PostgreSQL94Dialect");
-        configuration.setProperty("hibernate.connection.driver_class",
-                "org.postgresql.Driver");
-        configuration.setProperty("hibernate.connection.url", "jdbc:postgresql://localhost:5432/testdb");
-        configuration.setProperty("hibernate.hbm2ddl.auto", "create");
-        sessionFactory = configuration.buildSessionFactory();
-        Session session = sessionFactory.openSession();
-        return session;
-    }
-
     public UserDetailsDao getUserDetailsinstance() {
         UserDetailsDao userDetailsDao = new UserDetailsDao();
         userDetailsDao.setFirstName("abc");

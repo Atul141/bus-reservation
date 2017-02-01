@@ -23,11 +23,11 @@ public class LoginImplTest {
     @Before
     public void before() {
         ConfigTest configTest = new ConfigTest();
-        configDB=new ConfigDB();
+        configDB = new ConfigDB();
         configDB.setEnvironment(SyntaxSugar.TEST_ENV);
         login = new LoginImpl(configDB);
-        session = configTest.getTestSession();
-        SaveToDb saveToDb=new SaveToDb(configDB);
+        session = configDB.getSession();
+        SaveToDb saveToDb = new SaveToDb(configDB);
         userDetailsDao = configTest.getUserDetailsinstance();
         saveToDb.saveToDb(userDetailsDao);
     }
@@ -39,6 +39,7 @@ public class LoginImplTest {
         loginDao.setPassword(userDetailsDao.getPassword());
         assertTrue(login.validateLogin(loginDao));
     }
+
     @Test
     public void shouldValidateLoginIfCredentialsAreInCorrect() {
         LoginDao loginDao = new LoginDao();
@@ -48,7 +49,7 @@ public class LoginImplTest {
     }
 
     @After
-    public void delete(){
+    public void delete() {
         Transaction delete = session.beginTransaction();
         session.delete(userDetailsDao);
         delete.commit();
