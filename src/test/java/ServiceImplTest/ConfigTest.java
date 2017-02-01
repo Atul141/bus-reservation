@@ -42,7 +42,7 @@ public class ConfigTest {
         userDetailsDao.setFirstName("abc");
         userDetailsDao.setLastName("def");
         userDetailsDao.setEmail("test@gmail.com");
-        userDetailsDao.setPassword("pass");
+        userDetailsDao.setPassword("password");
         userDetailsDao.setPhone("1123456789");
         return userDetailsDao;
     }

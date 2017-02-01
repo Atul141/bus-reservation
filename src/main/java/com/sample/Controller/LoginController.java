@@ -4,6 +4,7 @@ package com.sample.Controller;
 import javax.servlet.http.*;
 
 import Models.UserDetails;
+import ServiceImpl.ConfigDB;
 import Services.LoginService;
 import Validators.LoginValidator;
 import org.springframework.stereotype.Controller;
@@ -18,9 +19,11 @@ public class LoginController {
 
     private LoginService loginService;
     private LoginValidator loginValidator;
+    private ConfigDB configDB;
 
     public LoginController() {
-        loginService = new LoginService();
+        configDB=new ConfigDB();
+        loginService = new LoginService(configDB);
         loginValidator = new LoginValidator();
     }
 
@@ -46,6 +49,7 @@ public class LoginController {
             HttpSession httpSession = request.getSession();
             httpSession.setAttribute("userDetails", userDetails);
             httpSession.setAttribute("email", userDetails.getEmail());
+            httpSession.setAttribute("configDB",configDB);
 
             redirectAttributes.addAttribute("userName", userDetails.getEmail());
             Cookie cookie = new Cookie("userEmail", userDetails.getEmail());

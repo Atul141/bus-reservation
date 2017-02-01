@@ -4,6 +4,8 @@ package ServiceTest;
 import Models.AvailableSeatWrapper;
 import Models.Route;
 import Models.SelectedSeatWrapper;
+import ServiceImpl.ConfigDB;
+import ServiceImpl.SyntaxSugar;
 import Services.OrderDetailsService;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,10 +18,13 @@ import static org.junit.Assert.assertEquals;
 public class OrderDetailsTest {
 
     private OrderDetailsService orderDetailsService;
+    private ConfigDB configDB;
 
     @Before
     public void setup() {
-        orderDetailsService = new OrderDetailsService();
+        configDB=new ConfigDB();
+        configDB.setEnvironment(SyntaxSugar.TEST_ENV);
+        orderDetailsService = new OrderDetailsService(configDB);
     }
 
     @Test

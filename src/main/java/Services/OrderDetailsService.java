@@ -6,6 +6,7 @@ import Models.AvailableSeatWrapper;
 import Models.OrderDetails;
 import Models.Route;
 import Models.SelectedSeatWrapper;
+import ServiceImpl.ConfigDB;
 import ServiceImpl.OrderDetailsImpl;
 import ServiceImpl.SequenceGenerator;
 
@@ -14,6 +15,11 @@ import java.util.List;
 
 public class OrderDetailsService {
 
+    private ConfigDB configDB;
+
+    public OrderDetailsService(ConfigDB configDB) {
+        this.configDB = configDB;
+    }
 
     public Route updateRoute(Route route, int size) {
         route.setAvailableNoSeats(route.getAvailableNoSeats() - size);
@@ -51,7 +57,7 @@ public class OrderDetailsService {
 
 
     public void saveOrder(OrderDetails orderDetails) {
-        OrderDetailsImpl orderDetailsImpl = new OrderDetailsImpl();
+        OrderDetailsImpl orderDetailsImpl = new OrderDetailsImpl(configDB);
         SequenceGenerator sequenceGenerator = new SequenceGenerator();
 
         orderDetails.setId(sequenceGenerator.generateSequenceOrderDetails());

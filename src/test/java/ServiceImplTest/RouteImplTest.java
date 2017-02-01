@@ -3,7 +3,9 @@ package ServiceImplTest;
 
 import Dao.RouteDao;
 import Models.Route;
+import ServiceImpl.ConfigDB;
 import ServiceImpl.RoutesImpl;
+import ServiceImpl.SyntaxSugar;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.After;
@@ -21,10 +23,13 @@ public class RouteImplTest {
     private Session session = null;
     private RoutesImpl routes;
     private RouteDao routeDao;
+    private ConfigDB configDB;
 
     @Before
     public void setup() {
-        routes = new RoutesImpl();
+        configDB=new ConfigDB();
+        configDB.setEnvironment(SyntaxSugar.TEST_ENV);
+        routes = new RoutesImpl(configDB);
         ConfigTest configTest = new ConfigTest();
         session = configTest.getTestSession();
         routeDao = configTest.getRouteDaoDetails();

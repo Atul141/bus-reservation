@@ -3,7 +3,9 @@ package ServiceTest;
 
 import Dao.LoginDao;
 import Models.UserDetails;
+import ServiceImpl.ConfigDB;
 import ServiceImpl.LoginImpl;
+import ServiceImpl.SyntaxSugar;
 import Services.LoginService;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,13 +23,17 @@ public class LoginServiceTest {
     private LoginDao loginDao;
     private LoginImpl login;
     private LoginService loginService;
+    private ConfigDB configDB;
+
 
     @Before
     public void setup() {
+        configDB=new ConfigDB();
+        configDB.setEnvironment(SyntaxSugar.TEST_ENV);
         initMocks(this);
         loginDao = new LoginDao();
         login = mock(LoginImpl.class);
-        loginService = new LoginService();
+        loginService = new LoginService(configDB);
     }
 
 

@@ -3,6 +3,7 @@ package Services;
 
 import Dao.RouteDao;
 import Models.Route;
+import ServiceImpl.ConfigDB;
 import ServiceImpl.RoutesImpl;
 
 import java.text.SimpleDateFormat;
@@ -12,9 +13,11 @@ import java.util.List;
 public class RouteService {
 
     private RoutesImpl routesImpl;
+    private ConfigDB configDB;
 
-    public RouteService() {
-        routesImpl = new RoutesImpl();
+    public RouteService(ConfigDB configDB) {
+        this.configDB=configDB;
+        routesImpl = new RoutesImpl(configDB);
     }
 
     public List<Route> getRouteList(Route routeDetails) {

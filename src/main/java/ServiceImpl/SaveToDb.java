@@ -8,8 +8,8 @@ public class SaveToDb {
 
 
     private ConfigDB configDB;
-    public SaveToDb(){
-        configDB=new ConfigDB();
+    public SaveToDb(ConfigDB configDB){
+        this.configDB =configDB;
     }
 
     public void saveToDb(Object object) {

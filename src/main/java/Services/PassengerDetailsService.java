@@ -4,6 +4,7 @@ package Services;
 import Dao.PassengerDao;
 import Models.Passenger;
 import Models.PassengerWrapper;
+import ServiceImpl.ConfigDB;
 import ServiceImpl.PassengerDetailsImpl;
 import ServiceImpl.SequenceGenerator;
 
@@ -15,9 +16,9 @@ public class PassengerDetailsService {
     private PassengerDetailsImpl passengerDetailsImpl;
     private SequenceGenerator sequenceGenerator;
 
-    public PassengerDetailsService() {
+    public PassengerDetailsService(ConfigDB configDB) {
         sequenceGenerator = new SequenceGenerator();
-        passengerDetailsImpl = new PassengerDetailsImpl();
+        passengerDetailsImpl = new PassengerDetailsImpl(configDB);
     }
 
     public void savePassengerDetails(PassengerWrapper passengerWrapper) {

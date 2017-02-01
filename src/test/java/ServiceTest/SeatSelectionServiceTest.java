@@ -2,7 +2,9 @@ package ServiceTest;
 
 
 import Models.AvailableSeatWrapper;
+import ServiceImpl.ConfigDB;
 import ServiceImpl.SeatSelectionImpl;
+import ServiceImpl.SyntaxSugar;
 import Services.SeatSelectionService;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,11 +24,15 @@ public class SeatSelectionServiceTest {
 
     private SeatSelectionImpl seatSelection;
     private SeatSelectionService seatSelectionService;
+    private ConfigDB configDB;
+
     @Before
     public void setup() {
+        configDB=new ConfigDB();
+        configDB.setEnvironment(SyntaxSugar.TEST_ENV);
         initMocks(this);
         seatSelection=mock(SeatSelectionImpl.class);
-        seatSelectionService=new SeatSelectionService();
+        seatSelectionService=new SeatSelectionService(configDB);
     }
 
 

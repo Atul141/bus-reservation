@@ -1,6 +1,7 @@
 package com.sample.Controller;
 
 import Models.UserDetails;
+import ServiceImpl.ConfigDB;
 import Services.UserDetailsService;
 import Validators.RegistrationFormValidator;
 import org.springframework.stereotype.Controller;
@@ -18,10 +19,11 @@ public class UserRegistration {
 
     private UserDetailsService userDetailsService;
     private RegistrationFormValidator validator;
+    private ConfigDB configDB;
 
     public UserRegistration() {
-
-        userDetailsService = new UserDetailsService();
+        configDB=new ConfigDB();
+        userDetailsService = new UserDetailsService(configDB);
         validator = new RegistrationFormValidator();
     }
 

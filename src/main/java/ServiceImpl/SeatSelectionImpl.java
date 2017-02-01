@@ -4,7 +4,6 @@ import Dao.SeatsDao;
 import Models.AvailableSeatWrapper;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 import javax.persistence.Query;
 import java.util.Arrays;
@@ -15,8 +14,8 @@ public class SeatSelectionImpl {
 
     private ConfigDB configDB;
 
-    public SeatSelectionImpl() {
-        configDB = new ConfigDB();
+    public SeatSelectionImpl(ConfigDB configDB) {
+        this.configDB = configDB;
     }
 
     public AvailableSeatWrapper getAvailableSeats(String bus_no, long routeId) {

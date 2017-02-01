@@ -3,6 +3,7 @@ package Services;
 
 import Dao.SeatsDao;
 import Models.AvailableSeatWrapper;
+import ServiceImpl.ConfigDB;
 import ServiceImpl.SeatSelectionImpl;
 
 import java.util.List;
@@ -10,8 +11,11 @@ import java.util.List;
 public class SeatSelectionService {
 
     private SeatSelectionImpl seatSelection;
-    public SeatSelectionService(){
-        seatSelection=new SeatSelectionImpl();
+    private ConfigDB configDB;
+
+    public SeatSelectionService(ConfigDB configDB){
+        this.configDB=configDB;
+        seatSelection=new SeatSelectionImpl(configDB);
     }
 
     public AvailableSeatWrapper getAvailableSeat(String bus_no, long routeId) {

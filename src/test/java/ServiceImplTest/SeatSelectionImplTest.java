@@ -3,7 +3,9 @@ package ServiceImplTest;
 
 import Dao.BusDao;
 import Dao.SeatsDao;
+import ServiceImpl.ConfigDB;
 import ServiceImpl.SeatSelectionImpl;
+import ServiceImpl.SyntaxSugar;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.After;
@@ -19,10 +21,14 @@ public class SeatSelectionImplTest {
     private Session session = null;
     private SeatSelectionImpl seatSelection;
     private SeatsDao seatsDao;
+    private ConfigDB configDB;
+
 
     @Before
     public void setup() {
-        seatSelection = new SeatSelectionImpl();
+        configDB=new ConfigDB();
+        configDB.setEnvironment(SyntaxSugar.TEST_ENV);
+        seatSelection = new SeatSelectionImpl(configDB);
         ConfigTest configTest = new ConfigTest();
         session = configTest.getTestSession();
         seatsDao = configTest.getSeatDetails();

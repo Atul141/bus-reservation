@@ -40,6 +40,7 @@ public class ConfigDB {
         configuration.addAnnotatedClass(SeatsDao.class);
         configuration.addAnnotatedClass(BusDao.class);
         configuration.addAnnotatedClass(PassengerDao.class);
+        configuration.addAnnotatedClass(OrderDetailsDao.class);
         configuration.setProperty("hibernate.dialect",
                 "org.hibernate.dialect.PostgreSQL94Dialect");
         configuration.setProperty("hibernate.connection.driver_class",

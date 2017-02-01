@@ -3,6 +3,7 @@ package com.sample.Controller;
 import Models.PassengerWrapper;
 import Models.Route;
 import Models.SelectedSeatWrapper;
+import ServiceImpl.ConfigDB;
 import Services.PassengerService;
 import Services.PriceCalculation;
 import Validators.PassengerValidators;
@@ -20,10 +21,12 @@ import java.util.Arrays;
 @Controller
 public class ConfirmationController {
 
+
     @RequestMapping(value = "/confirmation", method = RequestMethod.POST)
     public String confirmation(Model model, @ModelAttribute("passengerWrapper") PassengerWrapper passengerWrapper, HttpServletRequest request, RedirectAttributes redirectAttributes) {
         SelectedSeatWrapper selectedSeatWrapper = getSelectedSeatWrapper(request);
         HttpSession httpSession = request.getSession();
+
         Route route = (Route) httpSession.getAttribute("route");
 
         httpSession.setAttribute("selectedSeatWrapper", selectedSeatWrapper);

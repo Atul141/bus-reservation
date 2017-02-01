@@ -1,6 +1,7 @@
 package com.sample.Controller;
 
 import Models.*;
+import ServiceImpl.ConfigDB;
 import Services.OrderDetailsService;
 import Services.PassengerDetailsService;
 import Services.RouteService;
@@ -24,9 +25,10 @@ public class OrderDetailsController {
         PassengerWrapper passengerWrapper = (PassengerWrapper) httpSession.getAttribute("passengerWrapper");
         Route route = (Route) httpSession.getAttribute("route");
         String email = (String) httpSession.getAttribute("email");
+        ConfigDB configDB=(ConfigDB)httpSession.getAttribute("configDB");
 
         OrderDetails orderDetails = new OrderDetails();
-        OrderDetailsService orderDetailsService = new OrderDetailsService();
+        OrderDetailsService orderDetailsService = new OrderDetailsService(configDB);
         orderDetails.setPrice((Integer) httpSession.getAttribute("price"));
         orderDetails.setRoute_id(route.getId());
         orderDetails.setEmail(email);
@@ -36,19 +38,19 @@ public class OrderDetailsController {
         SelectedSeatWrapper selectedSeatWrapper = (SelectedSeatWrapper) httpSession.getAttribute("selectedSeatWrapper");
 
         availableSeatWrapper = orderDetailsService.updateAvailableSeats(availableSeatWrapper, selectedSeatWrapper);
-        SeatSelectionService seatSelectionService = new SeatSelectionService();
+        SeatSelectionService seatSelectionService = new SeatSelectionService(configDB);
         seatSelectionService.updateAvailableSeats(availableSeatWrapper);
 
         route = orderDetailsService.updateRoute(route, passengerWrapper.getPassengerList().size());
 
-        RouteService routeService = new RouteService();
+        RouteService routeService = new RouteService(configDB);
         routeService.updateRoute(route);
         java.util.Date today = new java.util.Date();
         Timestamp timestamp = new java.sql.Timestamp(today.getTime());
         orderDetails.setTime(timestamp);
         passengerWrapper.setTimestamp(timestamp);
 
-        PassengerDetailsService passengerDetailsService=new PassengerDetailsService();
+        PassengerDetailsService passengerDetailsService=new PassengerDetailsService(configDB);
         passengerDetailsService.savePassengerDetails(passengerWrapper);
 
 

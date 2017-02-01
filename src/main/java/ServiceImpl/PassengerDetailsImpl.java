@@ -7,8 +7,8 @@ public class PassengerDetailsImpl {
 
     private SaveToDb saveToDb;
 
-    public PassengerDetailsImpl() {
-        this.saveToDb = new SaveToDb();
+    public PassengerDetailsImpl(ConfigDB configDB) {
+        this.saveToDb = new SaveToDb(configDB);
     }
     public void savePassengerDetails(PassengerDao passenger){
         saveToDb.saveToDb(passenger);

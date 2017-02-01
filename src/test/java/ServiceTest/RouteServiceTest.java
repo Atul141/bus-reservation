@@ -2,6 +2,8 @@ package ServiceTest;
 
 
 import Dao.RouteDao;
+import ServiceImpl.ConfigDB;
+import ServiceImpl.SyntaxSugar;
 import ServiceImplTest.ConfigTest;
 import Models.Route;
 import ServiceImpl.RoutesImpl;
@@ -25,12 +27,16 @@ public class RouteServiceTest {
     private ConfigTest configTest;
     private RouteService routeService;
     private RoutesImpl routesImpl;
+    private ConfigDB configDB;
+
 
     @Before
     public void setup() {
+        configDB=new ConfigDB();
+        configDB.setEnvironment(SyntaxSugar.TEST_ENV);
         configTest = new ConfigTest();
         routesImpl = mock(RoutesImpl.class);
-        routeService = new RouteService();
+        routeService = new RouteService(configDB);
     }
 
 

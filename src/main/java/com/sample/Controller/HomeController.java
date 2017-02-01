@@ -3,6 +3,7 @@ package com.sample.Controller;
 import Models.NumberOfSeats;
 import Models.Route;
 import Models.UserDetails;
+import ServiceImpl.ConfigDB;
 import Services.RouteService;
 import Validators.SearchRoutesValidator;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,7 @@ import java.util.List;
 @Controller
 public class HomeController {
 
+    private ConfigDB configDB;
     @RequestMapping(value = "/Home", method = RequestMethod.POST)
     public String successLogin(@ModelAttribute("route") Route route, Model model, HttpServletRequest request, @RequestParam("selectedDate") String date, RedirectAttributes redirectAttribute) {
         SearchRoutesValidator searchRoutesValidator = new SearchRoutesValidator();
@@ -36,12 +38,13 @@ public class HomeController {
         }
 
         HttpSession httpSession = request.getSession();
+        configDB=(ConfigDB)httpSession.getAttribute("configDB");
         UserDetails userDetails = (UserDetails) httpSession.getAttribute("userDetails");
         Cookie[] cookie = request.getCookies();
         route = mapDate(date, route);
 
 
-        RouteService routeService = new RouteService();
+        RouteService routeService = new RouteService(configDB);
         List<Route> routeList = routeService.getRouteList(route);
         if (routeList.isEmpty())
             return "NoRouteFound";

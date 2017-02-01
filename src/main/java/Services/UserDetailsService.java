@@ -2,6 +2,7 @@ package Services;
 
 import Dao.UserDetailsDao;
 import Models.UserDetails;
+import ServiceImpl.ConfigDB;
 import ServiceImpl.SequenceGenerator;
 import ServiceImpl.UserDetailsImpl;
 
@@ -12,9 +13,9 @@ public class UserDetailsService {
     private UserDetailsDao userDetailsDao;
     private SequenceGenerator sequenceGenerator;
 
-    public UserDetailsService() {
+    public UserDetailsService(ConfigDB configDB) {
         userDetailsDao = new UserDetailsDao();
-        userDetailsImpl = new UserDetailsImpl();
+        userDetailsImpl = new UserDetailsImpl(configDB);
         sequenceGenerator = new SequenceGenerator();
     }
 

@@ -2,45 +2,45 @@ package com.sample.Controller;
 
 
 import Models.*;
-import Services.NumberOfSeatService;
+import ServiceImpl.ConfigDB;
 import Services.PassengerService;
 import Services.RouteService;
 import Services.SeatSelectionService;
-import Validators.PassengerValidators;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.Arrays;
 
 @Controller
 public class BookingController {
+
+    private ConfigDB configDB;
 
     @RequestMapping(value = "/booking", method = RequestMethod.POST)
     public String bookTickets(Model model, @ModelAttribute("numberOfSeats") NumberOfSeats numberOfSeats, HttpServletRequest request) {
         PassengerService passengerService = new PassengerService();
         PassengerWrapper passengerWrapper = new PassengerWrapper();
+        HttpSession httpSession = request.getSession();
 
         passengerWrapper.setAgeList(passengerService.getAgeList());
         passengerWrapper.setGenderList(passengerService.getGenderList());
         passengerWrapper.setPassengerList(passengerService.getPassengerList(numberOfSeats.getNumber()));
 
-        RouteService routeService = new RouteService();
+        configDB = (ConfigDB) httpSession.getAttribute("configDB");
+        RouteService routeService = new RouteService(configDB);
         Route route = routeService.getRouteBasedOnId(numberOfSeats.getRoute_id());
 
-        SeatSelectionService seatSelectionService = new SeatSelectionService();
+        SeatSelectionService seatSelectionService = new SeatSelectionService(configDB);
         AvailableSeatWrapper availableSeatWrapper = seatSelectionService.getAvailableSeat(route.getBus_no(), route.getId());
 
-        HttpSession httpSession = request.getSession();
         httpSession.setAttribute("route", route);
         httpSession.setAttribute("numberOfSeats", numberOfSeats);
-        httpSession.setAttribute("availableSeatWrapper",availableSeatWrapper);
+        httpSession.setAttribute("availableSeatWrapper", availableSeatWrapper);
 
         model.addAttribute("availableSeatWrapper", availableSeatWrapper);
         model.addAttribute("passengerWrapper", passengerWrapper);
@@ -54,13 +54,15 @@ public class BookingController {
 
 
         HttpSession httpSession = request.getSession();
+        configDB = (ConfigDB) httpSession.getAttribute("configDB");
+
         NumberOfSeats numberOfSeats = (NumberOfSeats) httpSession.getAttribute("numberOfSeats");
         PassengerWrapper passengerWrapper = (PassengerWrapper) httpSession.getAttribute("passengerWrapper");
-        RouteService routeService = new RouteService();
+        RouteService routeService = new RouteService(configDB);
         Route route = routeService.getRouteBasedOnId(numberOfSeats.getRoute_id());
 
 
-        SeatSelectionService seatSelectionService = new SeatSelectionService();
+        SeatSelectionService seatSelectionService = new SeatSelectionService(configDB);
         AvailableSeatWrapper availableSeatWrapper = seatSelectionService.getAvailableSeat(route.getBus_no(), route.getId());
 
         PassengerService passengerService = new PassengerService();
@@ -73,7 +75,6 @@ public class BookingController {
         model.addAttribute("route", route);
         return "booking";
     }
-
 
 
 }

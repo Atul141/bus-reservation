@@ -5,15 +5,14 @@ import Dao.LoginDao;
 import Dao.UserDetailsDao;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 
 public class LoginImpl {
 
     private ConfigDB configDB;
 
-    public LoginImpl() {
-        configDB = new ConfigDB();
+    public LoginImpl(ConfigDB configDB) {
+        this.configDB = configDB;
     }
 
     public boolean validateLogin(LoginDao loginDao) {

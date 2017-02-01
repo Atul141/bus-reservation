@@ -2,7 +2,9 @@ package ServiceImplTest;
 
 import Dao.LoginDao;
 import Dao.UserDetailsDao;
+import ServiceImpl.ConfigDB;
 import ServiceImpl.LoginImpl;
+import ServiceImpl.SyntaxSugar;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.After;
@@ -17,12 +19,15 @@ public class LoginImplTest {
     private Session session = null;
     private LoginImpl login;
     private UserDetailsDao userDetailsDao;
+    private ConfigDB configDB;
 
     @Before
     public void before() {
-        login = new LoginImpl();
+        login = new LoginImpl(configDB);
         ConfigTest configTest = new ConfigTest();
-        session = configTest.getTestSession();
+        ConfigDB configDB=new ConfigDB();
+        configDB.setEnvironment(SyntaxSugar.TEST_ENV);
+        session = configDB.getSession();
         userDetailsDao = configTest.getUserDetailsinstance();
         Transaction transaction = session.beginTransaction();
         session.persist(userDetailsDao);

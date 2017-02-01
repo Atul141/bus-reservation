@@ -2,15 +2,10 @@ package ServiceImpl;
 
 
 import Dao.RouteDao;
-import Dao.UserDetailsDao;
 import Models.Route;
-import Services.NumberOfSeatService;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
-import java.sql.Time;
-import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,8 +13,8 @@ public class RoutesImpl {
 
     private ConfigDB configDB;
 
-    public RoutesImpl() {
-        configDB = new ConfigDB();
+    public RoutesImpl(ConfigDB configDB) {
+        this.configDB = configDB;
     }
 
     public List<RouteDao> getRoutes(Route routes) {
