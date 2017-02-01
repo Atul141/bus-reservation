@@ -1,10 +1,13 @@
 package Services;
 
 
+import Dao.OrderDetailsDao;
 import Models.AvailableSeatWrapper;
 import Models.OrderDetails;
 import Models.Route;
 import Models.SelectedSeatWrapper;
+import ServiceImpl.OrderDetailsImpl;
+import ServiceImpl.SequenceGenerator;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -47,4 +50,22 @@ public class OrderDetailsService {
     }
 
 
+    public void saveOrder(OrderDetails orderDetails) {
+        OrderDetailsImpl orderDetailsImpl = new OrderDetailsImpl();
+        SequenceGenerator sequenceGenerator = new SequenceGenerator();
+
+        orderDetails.setId(sequenceGenerator.generateSequenceOrderDetails());
+        orderDetailsImpl.saveOrderDetails(mapOrderDetails(orderDetails));
+    }
+
+    public OrderDetailsDao mapOrderDetails(OrderDetails orderDetails) {
+        OrderDetailsDao orderDetailsDao = new OrderDetailsDao();
+        orderDetailsDao.setId(orderDetails.getId());
+        orderDetailsDao.setEmail(orderDetails.getEmail());
+        orderDetailsDao.setPrice(orderDetails.getPrice());
+        orderDetailsDao.setRoute_id(orderDetails.getRoute_id());
+        orderDetailsDao.setStatus(orderDetails.getStatus());
+        orderDetailsDao.setTime(orderDetails.getTime());
+        return orderDetailsDao;
+    }
 }

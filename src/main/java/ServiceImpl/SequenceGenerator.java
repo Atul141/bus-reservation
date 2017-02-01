@@ -37,4 +37,18 @@ public class SequenceGenerator {
         return maxId;
     }
 
+    public Long generateSequenceOrderDetails() {
+        Session session = configDB.getSession();
+        long maxId;
+        try {
+            String query = "SELECT MAX(orders.id) from OrderDetailsDao orders";
+            maxId = (Long) session.createQuery(query).uniqueResult();
+        } catch (NullPointerException ex) {
+            maxId = 1;
+            return maxId;
+        }
+        maxId++;
+        return maxId;
+    }
+
 }

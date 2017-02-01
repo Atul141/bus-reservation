@@ -51,6 +51,8 @@ public class OrderDetailsController {
         PassengerDetailsService passengerDetailsService=new PassengerDetailsService();
         passengerDetailsService.savePassengerDetails(passengerWrapper);
 
+
+        orderDetailsService.saveOrder(orderDetails);
         httpSession.setAttribute("orderDetails", orderDetails);
 
 
