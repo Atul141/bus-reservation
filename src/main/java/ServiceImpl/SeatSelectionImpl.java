@@ -25,7 +25,6 @@ public class SeatSelectionImpl {
         availableSeatWrapper.setSeniorCitizenReserved(getSeatList(seatsDao.getSeniorCitizenReserved()));
         availableSeatWrapper.setWomenReservation(getSeatList(seatsDao.getWomenReservation()));
         availableSeatWrapper.setGeneral(getSeatList(seatsDao.getGeneral()));
-        System.out.println("hello");
         return availableSeatWrapper;
 
     }
@@ -52,5 +51,11 @@ public class SeatSelectionImpl {
             System.out.println("error creating session " + ex);
         }
         return seatsDao;
+    }
+
+    public void updateAvailableSeats(SeatsDao seatsDao) {
+
+        UpdateImpl update = new UpdateImpl();
+        update.UpdateDb(seatsDao);
     }
 }

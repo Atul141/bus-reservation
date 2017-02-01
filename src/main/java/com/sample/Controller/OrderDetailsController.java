@@ -1,14 +1,10 @@
 package com.sample.Controller;
 
-import Models.OrderDetails;
-import Models.Passenger;
-import Models.PassengerWrapper;
-import Models.Route;
+import Models.*;
+import ServiceImpl.SeatSelectionImpl;
 import Services.OrderDetailsService;
-import Services.PassengerService;
 import Services.RouteService;
-import com.sun.javafx.sg.prism.NGShape;
-import com.sun.org.apache.xpath.internal.operations.Or;
+import Services.SeatSelectionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.awt.image.RasterOp;
 import java.sql.Timestamp;
 
 @Controller
@@ -37,10 +32,16 @@ public class OrderDetailsController {
         orderDetails.setEmail(email);
         orderDetails.setStatus("Confirm");
 
+        AvailableSeatWrapper availableSeatWrapper = (AvailableSeatWrapper) httpSession.getAttribute("availableSeatWrapper");
+        SelectedSeatWrapper selectedSeatWrapper = (SelectedSeatWrapper) httpSession.getAttribute("selectedSeatWrapper");
 
-        route=orderDetailsService.updateRoute(route,passengerWrapper.getPassengerList().size());
+        availableSeatWrapper = orderDetailsService.updateAvailableSeats(availableSeatWrapper, selectedSeatWrapper);
+        SeatSelectionService seatSelectionService = new SeatSelectionService();
+        seatSelectionService.updateAvailableSeats(availableSeatWrapper);
 
-        RouteService routeService =new RouteService();
+        route = orderDetailsService.updateRoute(route, passengerWrapper.getPassengerList().size());
+
+        RouteService routeService = new RouteService();
         routeService.updateRoute(route);
         java.util.Date today = new java.util.Date();
         Timestamp timestamp = new java.sql.Timestamp(today.getTime());

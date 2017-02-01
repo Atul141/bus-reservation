@@ -40,7 +40,7 @@ public class BookingController {
         HttpSession httpSession = request.getSession();
         httpSession.setAttribute("route", route);
         httpSession.setAttribute("numberOfSeats", numberOfSeats);
-
+        httpSession.setAttribute("availableSeatWrapper",availableSeatWrapper);
 
         model.addAttribute("availableSeatWrapper", availableSeatWrapper);
         model.addAttribute("passengerWrapper", passengerWrapper);

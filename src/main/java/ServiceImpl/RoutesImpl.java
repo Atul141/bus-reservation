@@ -46,21 +46,12 @@ public class RoutesImpl {
         } catch (Throwable ex) {
             System.out.println("error creating session " + ex);
         }
-
         return routeDao;
-
     }
 
     public void updateRoute(RouteDao routeDao) {
-        Session session = new Configuration().configure().buildSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
-        try {
-            session.update(routeDao);
-            transaction.commit();
-            session.close();
-        } catch (Throwable ex) {
-            System.out.println("error creating session " + ex);
-        }
+        UpdateImpl update = new UpdateImpl();
+        update.UpdateDb(routeDao);
 
     }
 }
