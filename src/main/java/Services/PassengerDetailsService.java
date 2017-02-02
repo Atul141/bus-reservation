@@ -2,6 +2,7 @@ package Services;
 
 
 import Dao.PassengerDao;
+import Models.OrderDetails;
 import Models.Passenger;
 import Models.PassengerWrapper;
 import ServiceImpl.ConfigDB;
@@ -21,17 +22,17 @@ public class PassengerDetailsService {
         passengerDetailsImpl = new PassengerDetailsImpl(configDB);
     }
 
-    public void savePassengerDetails(PassengerWrapper passengerWrapper) {
+    public void savePassengerDetails(PassengerWrapper passengerWrapper, long orderDetails) {
         PassengerDao passengerDao;
         List<Passenger> passengerList = passengerWrapper.getPassengerList();
         for (Passenger passenger : passengerList) {
-            passengerDao = mapPassenger(passenger, passengerWrapper.getTimestamp());
+            passengerDao = mapPassenger(passenger, orderDetails);
             passengerDao.setId(sequenceGenerator.generateSequencePassengers());
             passengerDetailsImpl.savePassengerDetails(passengerDao);
         }
     }
 
-    private PassengerDao mapPassenger(Passenger passenger, Timestamp timestamp) {
+    private PassengerDao mapPassenger(Passenger passenger, long orderDetails) {
         PassengerDao passengerDao = new PassengerDao();
         passengerDao.setAge(passenger.getAge());
         passengerDao.setGender(passenger.getGender());
@@ -39,7 +40,7 @@ public class PassengerDetailsService {
         passengerDao.setIsSeniorCitizen(passenger.getIsSeniorCitizen() ? 'Y' : 'N');
         passengerDao.setName(passenger.getName());
         passengerDao.setSeat(passenger.getSeat());
-        passengerDao.setTimestamp(timestamp);
+        passengerDao.setOrderId(orderDetails);
         return passengerDao;
 
     }

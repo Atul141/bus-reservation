@@ -21,7 +21,6 @@ import java.util.Date;
 
 public class ConfigTest {
 
-    private OrderDetailsDao orderDetails;
 
     public UserDetailsDao getUserDetailsinstance() {
         UserDetailsDao userDetailsDao = new UserDetailsDao();
@@ -94,7 +93,7 @@ public class ConfigTest {
         passengerDao.setId(1);
         java.util.Date today = new java.util.Date();
         Timestamp timestamp = new java.sql.Timestamp(today.getTime());
-        passengerDao.setTimestamp(timestamp);
+        passengerDao.setOrderId(1);
         passengerDao.setSeat("A1");
         passengerDao.setAge(22);
         passengerDao.setGender("Male");

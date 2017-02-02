@@ -4,11 +4,11 @@ package ServiceImpl;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class SaveToDb {
+public class SaveImpl {
 
 
     private ConfigDB configDB;
-    public SaveToDb(ConfigDB configDB){
+    public SaveImpl(ConfigDB configDB){
         this.configDB =configDB;
     }
 

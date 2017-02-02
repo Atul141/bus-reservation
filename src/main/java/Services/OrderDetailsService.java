@@ -56,12 +56,13 @@ public class OrderDetailsService {
     }
 
 
-    public void saveOrder(OrderDetails orderDetails) {
+    public long saveOrder(OrderDetails orderDetails) {
         OrderDetailsImpl orderDetailsImpl = new OrderDetailsImpl(configDB);
         SequenceGenerator sequenceGenerator = new SequenceGenerator();
-
-        orderDetails.setId(sequenceGenerator.generateSequenceOrderDetails());
+        Long id=sequenceGenerator.generateSequenceOrderDetails();
+        orderDetails.setId(id);
         orderDetailsImpl.saveOrderDetails(mapOrderDetails(orderDetails));
+        return id;
     }
 
     public OrderDetailsDao mapOrderDetails(OrderDetails orderDetails) {

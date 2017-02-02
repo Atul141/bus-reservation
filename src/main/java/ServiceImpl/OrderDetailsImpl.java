@@ -5,15 +5,15 @@ import Dao.OrderDetailsDao;
 
 public class OrderDetailsImpl {
 
-    private SaveToDb saveToDb;
+    private SaveImpl saveImpl;
     private ConfigDB configDB;
 
     public OrderDetailsImpl(ConfigDB configDB) {
         this.configDB=configDB;
-        saveToDb = new SaveToDb(configDB);
+        saveImpl = new SaveImpl(configDB);
     }
 
     public void saveOrderDetails(OrderDetailsDao orderDetails) {
-        saveToDb.saveToDb(orderDetails);
+        saveImpl.saveToDb(orderDetails);
     }
 }

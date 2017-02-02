@@ -3,16 +3,16 @@ package ServiceImplTest;
 
 import Dao.UserDetailsDao;
 import ServiceImpl.ConfigDB;
+import ServiceImpl.SaveImpl;
 import ServiceImpl.SyntaxSugar;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
 
-public class SaveToDb {
+public class SaveImplImplTest {
     private Session session;
     private ConfigTest configTest;
     private ConfigDB configDB;
@@ -30,9 +30,8 @@ public class SaveToDb {
     @Test
     public void shouldSaveToDatabase() {
         userDetailsDao = configTest.getUserDetailsinstance();
-        UserDetailsDao userDetails;
-        ServiceImpl.SaveToDb saveToDb = new ServiceImpl.SaveToDb(configDB);
-        saveToDb.saveToDb(userDetailsDao);
+        SaveImpl saveImpl = new SaveImpl(configDB);
+        saveImpl.saveToDb(userDetailsDao);
         configDB=new ConfigDB();
         configDB.setEnvironment(SyntaxSugar.TEST_ENV);
         session=configDB.getSession();

@@ -1,13 +1,12 @@
 package ServiceImplTest;
 
 
-import Dao.OrderDetailsDao;
 import Dao.UserDetailsDao;
-import Models.UserDetails;
 import ServiceImpl.*;
-import ServiceImpl.SaveToDb;
+import ServiceImpl.SaveImpl;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -31,8 +30,8 @@ public class UpdateImplTest {
 
     @Test
     public void shouldAbleToUpdate() {
-        ServiceImpl.SaveToDb saveToDb = new SaveToDb(configDB);
-        saveToDb.saveToDb(userDetailsDao);
+        SaveImpl saveImpl = new SaveImpl(configDB);
+        saveImpl.saveToDb(userDetailsDao);
 
         userDetailsDao.setEmail("abcd@gmail.com");
         updateImpl.UpdateDb(userDetailsDao);
@@ -46,5 +45,10 @@ public class UpdateImplTest {
 
         assertEquals("abcd@gmail.com", userDetailsDao1.getEmail());
 
+    }
+
+    @After
+    public void delete(){
+        configTest.delete(userDetailsDao);
     }
 }

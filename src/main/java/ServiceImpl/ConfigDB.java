@@ -19,11 +19,9 @@ public class ConfigDB {
 
         if (environment == PROD_ENV) {
 
-            Session session = new Configuration().configure().buildSessionFactory().openSession();
-            return session;
+            return new Configuration().configure().buildSessionFactory().openSession();
         }
-        Session session = new Configuration().configure("hibernateTest.cfg.xml").buildSessionFactory().openSession();
-        return session;
+        return new Configuration().configure("hibernateTest.cfg.xml").buildSessionFactory().openSession();
 
     }
 

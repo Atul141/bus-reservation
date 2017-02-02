@@ -3,9 +3,8 @@ package ServiceImplTest;
 import Dao.LoginDao;
 import Dao.UserDetailsDao;
 import ServiceImpl.*;
-import ServiceImpl.SaveToDb;
+import ServiceImpl.SaveImpl;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,9 +27,9 @@ public class LoginImplTest {
         configDB.setEnvironment(SyntaxSugar.TEST_ENV);
         login = new LoginImpl(configDB);
         session = configDB.getSession();
-        SaveToDb saveToDb = new SaveToDb(configDB);
+        SaveImpl saveImpl = new SaveImpl(configDB);
         userDetailsDao = configTest.getUserDetailsinstance();
-        saveToDb.saveToDb(userDetailsDao);
+        saveImpl.saveToDb(userDetailsDao);
     }
 
     @Test

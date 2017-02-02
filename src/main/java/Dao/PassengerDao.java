@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 public class PassengerDao {
     @Id
     private long id;
-    private Timestamp timestamp;
+    private long orderId;
     private String name;
     private String gender;
     private int age;
@@ -50,15 +50,6 @@ public class PassengerDao {
         this.seat = seat;
     }
 
-
-    public Timestamp getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Timestamp timestamp) {
-        this.timestamp = timestamp;
-    }
-
     public char getIsSeniorCitizen() {
         return isSeniorCitizen;
     }
@@ -81,5 +72,13 @@ public class PassengerDao {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(long orderId) {
+        this.orderId = orderId;
     }
 }

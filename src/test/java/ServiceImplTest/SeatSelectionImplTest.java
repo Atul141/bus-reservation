@@ -4,15 +4,11 @@ package ServiceImplTest;
 import Dao.BusDao;
 import Dao.SeatsDao;
 import ServiceImpl.*;
-import ServiceImpl.SaveToDb;
+import ServiceImpl.SaveImpl;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -35,9 +31,9 @@ public class SeatSelectionImplTest {
         seatsDao = configTest.getSeatDetails();
         busDao = configTest.getBusWrapper();
 
-        ServiceImpl.SaveToDb saveToDb = new SaveToDb(configDB);
-        saveToDb.saveToDb(seatsDao);
-        saveToDb.saveToDb(busDao);
+        SaveImpl saveImpl = new SaveImpl(configDB);
+        saveImpl.saveToDb(seatsDao);
+        saveImpl.saveToDb(busDao);
     }
 
     @Test

@@ -50,11 +50,12 @@ public class OrderDetailsController {
         orderDetails.setTime(timestamp);
         passengerWrapper.setTimestamp(timestamp);
 
+        long orderId=orderDetailsService.saveOrder(orderDetails);
+
         PassengerDetailsService passengerDetailsService=new PassengerDetailsService(configDB);
-        passengerDetailsService.savePassengerDetails(passengerWrapper);
+        passengerDetailsService.savePassengerDetails(passengerWrapper,orderId);
 
 
-        orderDetailsService.saveOrder(orderDetails);
         httpSession.setAttribute("orderDetails", orderDetails);
 
 

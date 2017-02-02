@@ -4,12 +4,12 @@ import Dao.UserDetailsDao;
 
 public class UserDetailsImpl {
 
-    private SaveToDb saveToDb;
+    private SaveImpl saveImpl;
     public UserDetailsImpl(ConfigDB configDB){
-        saveToDb =new SaveToDb(configDB);
+        saveImpl =new SaveImpl(configDB);
     }
     public void saveToDb(UserDetailsDao userDetails) {
-        saveToDb.saveToDb(userDetails);
+        saveImpl.saveToDb(userDetails);
 
 
     }

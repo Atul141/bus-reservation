@@ -4,9 +4,7 @@ package ServiceImplTest;
 import Dao.RouteDao;
 import Models.Route;
 import ServiceImpl.*;
-import ServiceImpl.SaveToDb;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import ServiceImpl.SaveImpl;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,8 +29,8 @@ public class RouteImplTest {
         routes = new RoutesImpl(configDB);
         configTest = new ConfigTest();
         routeDao = configTest.getRouteDaoDetails();
-        ServiceImpl.SaveToDb saveToDb=new SaveToDb(configDB);
-        saveToDb.saveToDb(routeDao);
+        SaveImpl saveImpl =new SaveImpl(configDB);
+        saveImpl.saveToDb(routeDao);
     }
 
     @Test

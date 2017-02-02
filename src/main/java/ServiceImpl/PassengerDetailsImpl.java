@@ -5,13 +5,13 @@ import Dao.PassengerDao;
 
 public class PassengerDetailsImpl {
 
-    private SaveToDb saveToDb;
+    private SaveImpl saveImpl;
 
     public PassengerDetailsImpl(ConfigDB configDB) {
-        this.saveToDb = new SaveToDb(configDB);
+        this.saveImpl = new SaveImpl(configDB);
     }
     public void savePassengerDetails(PassengerDao passenger){
-        saveToDb.saveToDb(passenger);
+        saveImpl.saveToDb(passenger);
     }
 
 }
