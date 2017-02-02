@@ -1,27 +1,27 @@
 package ServiceImpl;
 
+
 import Dao.SeatsDao;
+import Dao.TotalSeatsDao;
 import Models.AvailableSeatWrapper;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import javax.persistence.Query;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class SeatSelectionImpl {
-
+public class TotalSeatSelectionImpl {
 
     private ConfigDB configDB;
 
-    public SeatSelectionImpl(ConfigDB configDB) {
+    public TotalSeatSelectionImpl(ConfigDB configDB) {
         this.configDB = configDB;
     }
 
     public AvailableSeatWrapper getAvailableSeats(String bus_no, long routeId) {
         AvailableSeatWrapper availableSeatWrapper = new AvailableSeatWrapper();
-        SeatsDao seatsDao = fetchAvailableSeats(bus_no, routeId);
+        TotalSeatsDao seatsDao = fetchAvailableSeats(bus_no, routeId);
         availableSeatWrapper.setId(seatsDao.getId());
         availableSeatWrapper.setSeniorCitizenReserved(getSeatList(seatsDao.getSeniorCitizenReserved()));
         availableSeatWrapper.setDisabledReserved(getSeatList(seatsDao.getDisabledReserved()));
@@ -32,22 +32,22 @@ public class SeatSelectionImpl {
     }
 
     private List<String> getSeatList(String disabledReserved) {
-        List<String> list = new ArrayList<String>();
-            String[] array = disabledReserved.split("-");
-            list = Arrays.asList(array);
+        System.out.println(disabledReserved);
+        String[] array = disabledReserved.split("-");
+        List<String> list = Arrays.asList(array);
         return list;
 
     }
 
-    private SeatsDao fetchAvailableSeats(String bus_no, long routeId) {
+    private TotalSeatsDao fetchAvailableSeats(String bus_no, long routeId) {
 
-        SeatsDao seatsDao = new SeatsDao();
+        TotalSeatsDao seatsDao = new TotalSeatsDao();
         Session session = configDB.getSession();
         Transaction transaction = session.beginTransaction();
         try {
             Query subQuery = session.createQuery("Select bus.seat_no From BusDao bus WHERE bus.routeid=" + routeId + " and bus.number=" + "'" + bus_no + "'");
-            Query query = session.createQuery("FROM  SeatsDao seat WHERE seat.id IN(:ids)").setParameterList("ids", subQuery.getResultList());
-            seatsDao = (SeatsDao) query.getResultList().get(0);
+            Query query = session.createQuery("FROM  TotalSeatsDao seat WHERE seat.id IN(:ids)").setParameterList("ids", subQuery.getResultList());
+            seatsDao = (TotalSeatsDao) query.getResultList().get(0);
             transaction.commit();
             session.close();
         } catch (Throwable ex) {
@@ -56,9 +56,4 @@ public class SeatSelectionImpl {
         return seatsDao;
     }
 
-    public void updateAvailableSeats(SeatsDao seatsDao) {
-
-        UpdateImpl update = new UpdateImpl(configDB);
-        update.UpdateDb(seatsDao);
-    }
 }

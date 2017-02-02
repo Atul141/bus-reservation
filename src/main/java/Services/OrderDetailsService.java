@@ -93,4 +93,8 @@ public class OrderDetailsService {
         OrderDetailsDao orderDetailsDao = orderDetailsImpl.getOrderDetailsBasedOnId(id);
         return mapOrderDetailsDao(orderDetailsDao);
     }
+
+    public void deleteOrder(OrderDetails orderDetails) {
+        orderDetailsImpl.deleteOrder(mapOrderDetails(orderDetails));
+    }
 }

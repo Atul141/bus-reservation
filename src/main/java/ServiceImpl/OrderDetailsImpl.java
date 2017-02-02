@@ -2,6 +2,7 @@ package ServiceImpl;
 
 
 import Dao.OrderDetailsDao;
+import Models.OrderDetails;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -41,8 +42,8 @@ public class OrderDetailsImpl {
     public OrderDetailsDao getOrderDetailsBasedOnId(long id) {
         Session session = configDB.getSession();
         Transaction transaction = session.beginTransaction();
-        String query = "FROM OrderDetailsDao orders where orders.id="  + id + " ";
-        OrderDetailsDao orderDetailsDao=new OrderDetailsDao();
+        String query = "FROM OrderDetailsDao orders where orders.id=" + id + " ";
+        OrderDetailsDao orderDetailsDao = new OrderDetailsDao();
         try {
             orderDetailsDao = (OrderDetailsDao) session.createQuery(query).uniqueResult();
             transaction.commit();
@@ -50,6 +51,13 @@ public class OrderDetailsImpl {
         } catch (Throwable ex) {
             System.out.println("error creating session " + ex);
         }
-    return orderDetailsDao;
+        return orderDetailsDao;
+    }
+
+    public void deleteOrder(OrderDetailsDao orderDetails) {
+
+        orderDetails.setStatus("cancelled");
+        UpdateImpl update =new UpdateImpl(configDB);
+        update.UpdateDb(orderDetails);
     }
 }

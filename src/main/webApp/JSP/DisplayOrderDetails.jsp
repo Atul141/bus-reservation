@@ -74,9 +74,9 @@
         </tr>
     </table>
     <br><br>
-    <button type="submit">Home</button>
+    <%--<button type="submit">Home</button>--%>
     </form:form>
-
+<a href="/searchRoutes">Home</a>
 </div>
 </body>
 </html>

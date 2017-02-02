@@ -21,6 +21,8 @@
         <mapping class="Dao.BusDao"/>
         <mapping class="Dao.PassengerDao"/>
         <mapping class="Dao.OrderDetailsDao"/>
+        <mapping class="Dao.TotalSeatsDao"/>
+
     </session-factory>
 </hibernate-configuration>
 

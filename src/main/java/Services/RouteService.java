@@ -28,6 +28,7 @@ public class RouteService {
     }
 
     public Route getRouteBasedOnId(long id) {
+        System.out.println("route"+id);
         List<RouteDao> routeDaoList = new ArrayList<RouteDao>();
         routeDaoList.add(routesImpl.getRoutesBasedOnId(id));
         return mapRoutes(routeDaoList).get(0);

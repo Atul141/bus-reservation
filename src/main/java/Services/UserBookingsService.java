@@ -30,7 +30,7 @@ public class UserBookingsService {
     public List<OrderDetails> getOrderDetailsList(String email) {
 
         List<OrderDetailsDao> orderDetailsDaoList = orderDetailsImpl.getOrderDetails(email);
-        List<OrderDetails>   orderDetailsList = mapOrderDetailsDao(orderDetailsDaoList);
+        List<OrderDetails> orderDetailsList = mapOrderDetailsDao(orderDetailsDaoList);
         orderDetailsList = addRouteDetails(orderDetailsList);
         return orderDetailsList;
     }
@@ -67,7 +67,11 @@ public class UserBookingsService {
             orderDetails = new OrderDetails();
             orderDetails.setId(orderDetailsDao.getId());
             orderDetails.setEmail(orderDetailsDao.getEmail());
-            orderDetails.setStatus(orderDetailsDao.getStatus());
+            if (orderDetailsDao.getStatus().compareTo("cancelled") != 0) {
+                orderDetails.setStatus(orderDetailsDao.getStatus());
+            } else {
+                continue;
+            }
             orderDetails.setPrice(orderDetailsDao.getPrice());
             orderDetails.setTime(orderDetails.getTime());
             orderDetails.setRoute_id(orderDetailsDao.getRoute_id());

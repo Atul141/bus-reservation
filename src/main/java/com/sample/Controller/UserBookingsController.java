@@ -48,12 +48,17 @@ public class UserBookingsController {
 
         RouteService routeService = new RouteService(configDB);
         OrderDetailsService orderDetailsService = new OrderDetailsService(configDB);
-        Route route = routeService.getRouteBasedOnId(orderWrapper.getId());
         OrderDetails orderDetails = orderDetailsService.getOrderBasedOnId(orderWrapper.getId());
+        Route route = routeService.getRouteBasedOnId(orderDetails.getRoute_id());
+
 
         PassengerDetailsService passengerDetailsService = new PassengerDetailsService(configDB);
         PassengerWrapper passengerWrapper = passengerDetailsService.getPassengerDetails(orderWrapper.getId());
-        System.out.println(passengerWrapper.getPassengerList());
+
+        httpSession.setAttribute("cancelRoute",route);
+        httpSession.setAttribute("passengerWrapper",passengerWrapper);
+        httpSession.setAttribute("cancelOrderDetails",orderDetails);
+
 
         model.addAttribute("number", orderWrapper.getId());
         model.addAttribute("orderDetails", orderDetails);

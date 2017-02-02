@@ -36,6 +36,8 @@
             </tr>
         </c:forEach>
     </table>
+    <br><br>
+    <a href="/searchRoutes">Back</a>
 </div>
 
 </body>
