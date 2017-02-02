@@ -33,7 +33,7 @@ public class RouteService {
         return mapRoutes(routeDaoList).get(0);
     }
 
-    private List<Route> mapRoutes(List<RouteDao> routesDaoList) {
+    public List<Route> mapRoutes(List<RouteDao> routesDaoList) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         List<Route> routesList = new ArrayList<Route>();
         NumberOfSeatService[] numberOfSeatService = new NumberOfSeatService[routesDaoList.size()];

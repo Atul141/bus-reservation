@@ -2,6 +2,11 @@ package ServiceImpl;
 
 
 import Dao.OrderDetailsDao;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrderDetailsImpl {
 
@@ -9,11 +14,27 @@ public class OrderDetailsImpl {
     private ConfigDB configDB;
 
     public OrderDetailsImpl(ConfigDB configDB) {
-        this.configDB=configDB;
+        this.configDB = configDB;
         saveImpl = new SaveImpl(configDB);
     }
 
     public void saveOrderDetails(OrderDetailsDao orderDetails) {
         saveImpl.saveToDb(orderDetails);
+    }
+
+    public List<OrderDetailsDao> getOrderDetails(String email) {
+        Session session = configDB.getSession();
+        Transaction transaction = session.beginTransaction();
+        String query = "FROM OrderDetailsDao orders where orders.email=" + "'" + email + "'";
+        List<OrderDetailsDao> orderDetailsDaoList = new ArrayList<OrderDetailsDao>();
+        try {
+            orderDetailsDaoList = (List<OrderDetailsDao>) session.createQuery(query).list();
+            transaction.commit();
+            session.close();
+        } catch (Throwable ex) {
+            System.out.println("error creating session " + ex);
+        }
+        return orderDetailsDaoList;
+
     }
 }

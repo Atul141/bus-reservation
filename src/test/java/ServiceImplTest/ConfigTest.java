@@ -91,8 +91,6 @@ public class ConfigTest {
     public PassengerDao getPassengerDetails() {
         PassengerDao passengerDao = new PassengerDao();
         passengerDao.setId(1);
-        java.util.Date today = new java.util.Date();
-        Timestamp timestamp = new java.sql.Timestamp(today.getTime());
         passengerDao.setOrderId(1);
         passengerDao.setSeat("A1");
         passengerDao.setAge(22);
