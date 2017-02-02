@@ -8,7 +8,8 @@
 </head>
 <body>
 <div align="center">
-    <table align="center" cellpadding="5" border="1">
+    <br><br><br>
+    <table align="center" cellpadding="5" border="1" valign="middle">
         <tr>
             <th>Order Id</th>
             <th>Date</th>
@@ -27,14 +28,11 @@
                 <td>&#8377;<c:out value="${order.price}"/></td>
                 <td><c:out value="${order.status}"/></td>
                 <td align="center" border="1" cellpadding="5">
-                        <%--<form:form method="POST" action="/booking" modelAttribute="numberOfSeats">--%>
-                        <%--<form:hidden path="orderId" value="${order.id}"/>--%>
+                    <form:form method="POST" action="/savedOrderDetails" modelAttribute="orderWrapper">
+                        <form:hidden path="Id" value="${order.id}"/>
+                        <form:button type="submit">Select-Seat</form:button>
+                    </form:form>
                 </td>
-                    <%--<td align="center" border="1" cellpadding="5">--%>
-                    <%--<form:button type="submit">Select-Seat</form:button>--%>
-                    <%--</form:form>--%>
-
-                    <%--</td>--%>
             </tr>
         </c:forEach>
     </table>

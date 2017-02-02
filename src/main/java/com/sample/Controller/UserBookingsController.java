@@ -2,7 +2,13 @@ package com.sample.Controller;
 
 
 import Models.OrderDetails;
+import Models.OrderWrapper;
+import Models.PassengerWrapper;
+import Models.Route;
 import ServiceImpl.ConfigDB;
+import Services.OrderDetailsService;
+import Services.PassengerDetailsService;
+import Services.RouteService;
 import Services.UserBookingsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,10 +31,35 @@ public class UserBookingsController {
         String email = (String) httpSession.getAttribute("email");
 
         UserBookingsService userBookingsService = new UserBookingsService(configDB);
-        List<OrderDetails> orderDetailsList=userBookingsService.getOrderDetailsList(email);
+        List<OrderDetails> orderDetailsList = userBookingsService.getOrderDetailsList(email);
 
-        model.addAttribute("orderDetailsList",orderDetailsList);
+        OrderWrapper orderWrapper = new OrderWrapper();
+        model.addAttribute("orderWrapper", orderWrapper);
+        model.addAttribute("orderDetailsList", orderDetailsList);
         return "UserBookings";
+
+    }
+
+    @RequestMapping(name = "/savedOrderDetails", method = RequestMethod.POST)
+    public String displaySavedOrderDetails(@ModelAttribute("orderWrapper") OrderWrapper orderWrapper, Model model, HttpServletRequest request) {
+
+        HttpSession httpSession = request.getSession();
+        ConfigDB configDB = (ConfigDB) httpSession.getAttribute("configDB");
+
+        RouteService routeService = new RouteService(configDB);
+        OrderDetailsService orderDetailsService = new OrderDetailsService(configDB);
+        Route route = routeService.getRouteBasedOnId(orderWrapper.getId());
+        OrderDetails orderDetails = orderDetailsService.getOrderBasedOnId(orderWrapper.getId());
+
+        PassengerDetailsService passengerDetailsService = new PassengerDetailsService(configDB);
+        PassengerWrapper passengerWrapper = passengerDetailsService.getPassengerDetails(orderWrapper.getId());
+        System.out.println(passengerWrapper.getPassengerList());
+
+        model.addAttribute("number", orderWrapper.getId());
+        model.addAttribute("orderDetails", orderDetails);
+        model.addAttribute("route", route);
+        model.addAttribute("passengerWrapper", passengerWrapper);
+        return "/savedOrderDetails";
 
     }
 

@@ -1,10 +1,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Order Details</title>
+    <title>Orders</title>
 </head>
 <body>
 <div align="center">
@@ -66,7 +67,7 @@
             <th>Total Amount</th>
             <th>Status</th>
         </tr>
-        <form:form method="post" modelAttribute="orderDetails" action="searchRoutes">
+        <form:form method="post" modelAttribute="orderDetails" action="cancelOrder">
         <tr>
             <td><c:out value="${orderDetails.id}"/></td>
             <td align="center">&#8377;<c:out value="${orderDetails.price}"/></td>
@@ -74,7 +75,7 @@
         </tr>
     </table>
     <br><br>
-    <button type="submit">Home</button>
+    <button type="submit">cancel</button>
     </form:form>
 
 </div>

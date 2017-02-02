@@ -10,6 +10,7 @@ import ServiceImpl.PassengerDetailsImpl;
 import ServiceImpl.SequenceGenerator;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PassengerDetailsService {
@@ -43,5 +44,37 @@ public class PassengerDetailsService {
         passengerDao.setOrderId(orderDetails);
         return passengerDao;
 
+
+    }
+
+    private List<Passenger> mapPassengerDao(List<PassengerDao> passengerDaoList) {
+        Passenger passenger;
+        List<Passenger> passengerList = new ArrayList<Passenger>();
+        for (PassengerDao passengerDao : passengerDaoList) {
+            passenger = new Passenger();
+
+            passenger.setAge(passengerDao.getAge());
+            passenger.setGender(passengerDao.getGender());
+            if (passengerDao.getIsDisabled() == 'Y')
+                passenger.setIsDisabled(true);
+            else
+                passenger.setIsDisabled(false);
+            if (passengerDao.getIsSeniorCitizen() == 'Y')
+                passenger.setIsSeniorCitizen(true);
+            else
+                passenger.setIsSeniorCitizen(false);
+            passenger.setName(passengerDao.getName());
+            passenger.setSeat(passengerDao.getSeat());
+            passengerList.add(passenger);
+        }
+        return passengerList;
+    }
+
+    public PassengerWrapper getPassengerDetails(long id) {
+        PassengerWrapper passengerWrapper = new PassengerWrapper();
+        List<PassengerDao> passengerDaoList = passengerDetailsImpl.getPassengerListBasedOnId(id);
+        List<Passenger> passengerList = mapPassengerDao(passengerDaoList);
+        passengerWrapper.setPassengerList(passengerList);
+        return passengerWrapper;
     }
 }

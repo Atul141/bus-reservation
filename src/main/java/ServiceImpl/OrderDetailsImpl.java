@@ -37,4 +37,19 @@ public class OrderDetailsImpl {
         return orderDetailsDaoList;
 
     }
+
+    public OrderDetailsDao getOrderDetailsBasedOnId(long id) {
+        Session session = configDB.getSession();
+        Transaction transaction = session.beginTransaction();
+        String query = "FROM OrderDetailsDao orders where orders.id="  + id + " ";
+        OrderDetailsDao orderDetailsDao=new OrderDetailsDao();
+        try {
+            orderDetailsDao = (OrderDetailsDao) session.createQuery(query).uniqueResult();
+            transaction.commit();
+            session.close();
+        } catch (Throwable ex) {
+            System.out.println("error creating session " + ex);
+        }
+    return orderDetailsDao;
+    }
 }

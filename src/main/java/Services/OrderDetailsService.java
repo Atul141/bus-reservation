@@ -16,9 +16,12 @@ import java.util.List;
 public class OrderDetailsService {
 
     private ConfigDB configDB;
+    private OrderDetailsImpl orderDetailsImpl;
 
     public OrderDetailsService(ConfigDB configDB) {
+
         this.configDB = configDB;
+        orderDetailsImpl = new OrderDetailsImpl(configDB);
     }
 
     public Route updateRoute(Route route, int size) {
@@ -57,9 +60,8 @@ public class OrderDetailsService {
 
 
     public long saveOrder(OrderDetails orderDetails) {
-        OrderDetailsImpl orderDetailsImpl = new OrderDetailsImpl(configDB);
         SequenceGenerator sequenceGenerator = new SequenceGenerator();
-        Long id=sequenceGenerator.generateSequenceOrderDetails();
+        Long id = sequenceGenerator.generateSequenceOrderDetails();
         orderDetails.setId(id);
         orderDetailsImpl.saveOrderDetails(mapOrderDetails(orderDetails));
         return id;
@@ -74,5 +76,21 @@ public class OrderDetailsService {
         orderDetailsDao.setStatus(orderDetails.getStatus());
         orderDetailsDao.setTime(orderDetails.getTime());
         return orderDetailsDao;
+    }
+
+    public OrderDetails mapOrderDetailsDao(OrderDetailsDao orderDetailsDao) {
+        OrderDetails orderDetails = new OrderDetails();
+        orderDetails.setId(orderDetailsDao.getId());
+        orderDetails.setEmail(orderDetailsDao.getEmail());
+        orderDetails.setPrice(orderDetailsDao.getPrice());
+        orderDetails.setRoute_id(orderDetailsDao.getRoute_id());
+        orderDetails.setStatus(orderDetailsDao.getStatus());
+        orderDetails.setTime(orderDetailsDao.getTime());
+        return orderDetails;
+    }
+
+    public OrderDetails getOrderBasedOnId(long id) {
+        OrderDetailsDao orderDetailsDao = orderDetailsImpl.getOrderDetailsBasedOnId(id);
+        return mapOrderDetailsDao(orderDetailsDao);
     }
 }
