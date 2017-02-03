@@ -60,11 +60,21 @@ public class ConfigTest {
         seatDao.setWomenReservation("A1-A2-A3-A4");
         seatDao.setGeneral("C1-C2-C3-C4-D1-D2-D3-D4");
         return seatDao;
+
+
+    }public SeatsDao getSeatDetailsExpected() {
+        SeatsDao seatDao = new SeatsDao();
+        seatDao.setDisabledReserved("B1-B2");
+        seatDao.setId(1);
+        seatDao.setSeniorCitizenReserved("B3-B4");
+        seatDao.setWomenReservation("A1-A2-A3-A4");
+        seatDao.setGeneral("C3-C4");
+        return seatDao;
     }
 
     public BusDao getBusWrapper() {
         BusDao busDao = new BusDao();
-        busDao.setNumber("KA 09 G-9000");
+        busDao.setNumber("KA-09 G-2222");
         busDao.setSeat_no(1);
         busDao.setRoute_no(2);
         return busDao;
@@ -158,7 +168,6 @@ public class ConfigTest {
 
         List<String> availableSenior = new ArrayList<String>();
         availableSenior.add("B3");
-        availableSenior.add("B$");
 
         availableSeatWrapper.setGeneral(availableGeneral);
         availableSeatWrapper.setSeniorCitizenReserved(availableSenior);
@@ -169,7 +178,7 @@ public class ConfigTest {
 
     public AvailableSeatWrapper getAvailableSeatwrapperAfterUpdate() {
         AvailableSeatWrapper availableSeatWrapper = new AvailableSeatWrapper();
-
+        availableSeatWrapper.setId(1);
         List<String> availableGeneral = new ArrayList<String>();
         availableGeneral.add("C3");
         availableGeneral.add("C4");

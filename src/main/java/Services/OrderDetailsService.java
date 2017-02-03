@@ -67,7 +67,7 @@ public class OrderDetailsService {
         return id;
     }
 
-    public OrderDetailsDao mapOrderDetails(OrderDetails orderDetails) {
+    private OrderDetailsDao mapOrderDetails(OrderDetails orderDetails) {
         OrderDetailsDao orderDetailsDao = new OrderDetailsDao();
         orderDetailsDao.setId(orderDetails.getId());
         orderDetailsDao.setEmail(orderDetails.getEmail());

@@ -3,6 +3,7 @@ package ServiceTest;
 
 import Dao.RouteDao;
 import ServiceImpl.ConfigDB;
+import ServiceImpl.SaveImpl;
 import ServiceImpl.SyntaxSugar;
 import ServiceImplTest.ConfigTest;
 import Models.Route;
@@ -10,6 +11,7 @@ import ServiceImpl.RoutesImpl;
 import Services.RouteService;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.InjectMocks;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -32,26 +34,25 @@ public class RouteServiceTest {
 
     @Before
     public void setup() {
-        configDB=new ConfigDB();
+        initMocks(this);
+        configDB = new ConfigDB();
         configDB.setEnvironment(SyntaxSugar.TEST_ENV);
         configTest = new ConfigTest();
         routesImpl = mock(RoutesImpl.class);
         routeService = new RouteService(configDB);
+        SaveImpl save = new SaveImpl(configDB);
+        RouteDao route = configTest.getRouteDaoDetails();
+        save.saveToDb(route);
     }
 
-
     @Test
-    public void getRoutesBaseOnId() {
-        RouteDao routeDao = configTest.getRouteDaoDetails();
-        initMocks(this);
-        when(routesImpl.getRoutesBasedOnId(1)).thenReturn(routeDao);
+    public void shouldGetRoutesBaseOnId() {
         assertEquals(1, routeService.getRouteBasedOnId(1).getId());
+
     }
 
     @Test
-    public void getRoutesList() {
-        initMocks(this);
-        RouteDao routeDao = configTest.getRouteDaoDetails();
+    public void shouldGetRoutesList() {
         initMocks(this);
         Route route = new Route();
         route.setId(1);

@@ -27,13 +27,13 @@ public class UserDetailsImpl {
         UserDetailsDao userDetails = null;
         try {
             userDetails = (UserDetailsDao) session.createQuery(query).uniqueResult();
-            session.contains(email,userDetails);
+            session.contains(email, userDetails);
             transaction.commit();
             session.close();
 
         } catch (Throwable ex) {
             System.out.println("error creating session " + ex);
-
+            return true;
         }
         if (userDetails == null)
             return false;

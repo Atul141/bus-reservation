@@ -2,38 +2,38 @@ package ServiceTest;
 
 
 import Dao.LoginDao;
+import Dao.UserDetailsDao;
 import Models.UserDetails;
 import ServiceImpl.ConfigDB;
-import ServiceImpl.LoginImpl;
+import ServiceImpl.SaveImpl;
 import ServiceImpl.SyntaxSugar;
+import ServiceImplTest.ConfigTest;
 import Services.LoginService;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.initMocks;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LoginServiceTest {
 
-    private LoginDao loginDao;
-    private LoginImpl login;
     private LoginService loginService;
     private ConfigDB configDB;
-
+    private ConfigTest configTest;
+    private UserDetailsDao userDetailsDao;
 
     @Before
     public void setup() {
-        configDB=new ConfigDB();
+        configDB = new ConfigDB();
         configDB.setEnvironment(SyntaxSugar.TEST_ENV);
-        initMocks(this);
-        loginDao = new LoginDao();
-        login = mock(LoginImpl.class);
+        configTest = new ConfigTest();
         loginService = new LoginService(configDB);
+        SaveImpl saveImpl = new SaveImpl(configDB);
+        userDetailsDao = configTest.getUserDetailsinstance();
+        saveImpl.saveToDb(userDetailsDao);
     }
 
 
@@ -41,13 +41,19 @@ public class LoginServiceTest {
     public void shouldCallValidateMethodOfLoginImpl() {
 
         UserDetails userDetails = new UserDetails();
-        userDetails.setEmail("abc@gmail.com");
+        userDetails.setEmail("test5@gmail.com");
         userDetails.setPassword("pass");
-        loginDao.setEmail("abc@gmail.com");
+        LoginDao loginDao = new LoginDao();
         loginDao.setPassword("pass");
-        when(login.validateLogin(loginDao)).thenReturn(false);
+        loginDao.setEmail("test5@gmail.com");
         assertTrue(loginService.validateLogin(userDetails));
 
+    }
+
+
+    @After
+    public void delete() {
+        configTest.delete(userDetailsDao);
     }
 
 }

@@ -49,11 +49,12 @@ public class CancelBookingServiceTest {
 
         AvailableSeatWrapper availableSeatWrapperTotal = configTest.getAvailableSeatwrapper();
         AvailableSeatWrapper availableSeatWrapperUpdate = configTest.getAvailableSeatwrapperAfterUpdate();
-        AvailableSeatWrapper availableSeatWrapperresult = cancelBookingService.updateAvailableSeats(passengerWrapper, availableSeatWrapperUpdate, availableSeatWrapperTotal);
-         assertEquals(availableSeatWrapperUpdate.getWomenReservation(),availableSeatWrapperresult.getWomenReservation());
-         assertEquals(availableSeatWrapperUpdate.getGeneral(),availableSeatWrapperresult.getGeneral());
-         assertEquals(availableSeatWrapperUpdate.getSeniorCitizenReserved(),availableSeatWrapperresult.getSeniorCitizenReserved());
-         assertEquals(availableSeatWrapperUpdate.getDisabledReserved(),availableSeatWrapperresult.getDisabledReserved());
+        AvailableSeatWrapper availableSeatWrapperResult = cancelBookingService.updateAvailableSeats(passengerWrapper, availableSeatWrapperUpdate, availableSeatWrapperTotal);
+
+        assertEquals(availableSeatWrapperUpdate.getWomenReservation(), availableSeatWrapperResult.getWomenReservation());
+        assertEquals(availableSeatWrapperUpdate.getGeneral(), availableSeatWrapperResult.getGeneral());
+        assertEquals(availableSeatWrapperUpdate.getSeniorCitizenReserved(), availableSeatWrapperResult.getSeniorCitizenReserved());
+        assertEquals(availableSeatWrapperUpdate.getDisabledReserved(), availableSeatWrapperResult.getDisabledReserved());
     }
 
 }
