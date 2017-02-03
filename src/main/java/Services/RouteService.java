@@ -16,7 +16,7 @@ public class RouteService {
     private ConfigDB configDB;
 
     public RouteService(ConfigDB configDB) {
-        this.configDB=configDB;
+        this.configDB = configDB;
         routesImpl = new RoutesImpl(configDB);
     }
 
@@ -28,7 +28,7 @@ public class RouteService {
     }
 
     public Route getRouteBasedOnId(long id) {
-        System.out.println("route"+id);
+        System.out.println("route" + id);
         List<RouteDao> routeDaoList = new ArrayList<RouteDao>();
         routeDaoList.add(routesImpl.getRoutesBasedOnId(id));
         return mapRoutes(routeDaoList).get(0);
@@ -43,6 +43,8 @@ public class RouteService {
             Route route = new Route();
             numberOfSeatService[index] = new NumberOfSeatService();
             RouteDao routeDao = routesDaoList.get(index);
+            if (routeDao.getAvailableNoSeats() == 0)
+                continue;
             route.setSelectedDate(formatter.format(routeDao.getDate()));
             route.setId(routeDao.getId());
             route.setDate(routeDao.getDate());

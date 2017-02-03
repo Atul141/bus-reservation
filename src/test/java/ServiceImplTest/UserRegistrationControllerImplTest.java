@@ -13,7 +13,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class UserRegistrationImplTest {
+public class UserRegistrationControllerImplTest {
 
 
     private Session session;

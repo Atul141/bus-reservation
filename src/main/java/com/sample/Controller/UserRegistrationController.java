@@ -15,14 +15,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
-public class UserRegistration {
+public class UserRegistrationController {
 
     private UserDetailsService userDetailsService;
     private RegistrationFormValidator validator;
     private ConfigDB configDB;
 
-    public UserRegistration() {
-        configDB=new ConfigDB();
+    public UserRegistrationController() {
+        configDB = new ConfigDB();
         userDetailsService = new UserDetailsService(configDB);
         validator = new RegistrationFormValidator();
     }
@@ -50,15 +50,21 @@ public class UserRegistration {
     public String submitForm(@ModelAttribute("User") UserDetails userDetails, RedirectAttributes redirectAttributes, HttpServletRequest request) {
         String error = validator.validateAllFields(userDetails);
         if (error == null) {
-            userDetailsService.saveUserDetails(userDetails);
-            redirectAttributes.addAttribute("userName", userDetails.getFirstName());
-            return "redirect:/success";
+            if (userDetailsService.checkIfUserExists(userDetails.getEmail()) == false) {
+                userDetailsService.saveUserDetails(userDetails);
+                redirectAttributes.addAttribute("userName", userDetails.getFirstName());
+                return "redirect:/success";
+            } else {
+                error = "Error!!:Email already registered";
+            }
+        } else {
+            error = "Error!!:" + error;
         }
-        error = "Error!!:" + error;
         redirectAttributes.addAttribute("registrationError", error);
         HttpSession httpSession = request.getSession();
         httpSession.setAttribute("formDetails", userDetails);
         return "redirect:/ReRegistration";
+
     }
 
     @RequestMapping(value = "/success", method = RequestMethod.GET)

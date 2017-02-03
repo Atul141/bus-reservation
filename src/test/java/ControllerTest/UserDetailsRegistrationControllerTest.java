@@ -1,7 +1,7 @@
 package ControllerTest;
 
 import Models.UserDetails;
-import com.sample.Controller.UserRegistration;
+import com.sample.Controller.UserRegistrationController;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class UserDetailsRegistrationControllerTest {
 
     Model model;
     private RedirectAttributes redirectAttributes;
-    private UserRegistration userRegistration;
+    private UserRegistrationController userRegistrationController;
     private UserDetails user;
     @Autowired
     HttpServletRequest request;
@@ -26,7 +26,7 @@ public class UserDetailsRegistrationControllerTest {
     @Before
     public void setup(){
      model=new ExtendedModelMap();
-     userRegistration=new UserRegistration();
+     userRegistrationController =new UserRegistrationController();
      redirectAttributes=new RedirectAttributesModelMap();
      user =new UserDetails();
         user.setFirstName("abc");
@@ -37,10 +37,10 @@ public class UserDetailsRegistrationControllerTest {
     }
     @Test
     public void shouldReturnRegisterWhenRegistrationFormIsSubmitted(){
-        assertEquals("register",userRegistration.setupForm("error",model,request));
+        assertEquals("register", userRegistrationController.setupForm("error",model,request));
     }
     @Test
     public void shouldReturnSuccessWhenRegistrationFormIsSubmittedSuccessfully(){
-        assertEquals("redirect:/success",userRegistration.submitForm(user,redirectAttributes,request));
+        assertEquals("redirect:/success", userRegistrationController.submitForm(user,redirectAttributes,request));
     }
 }

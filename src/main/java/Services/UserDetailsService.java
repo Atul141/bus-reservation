@@ -31,4 +31,8 @@ public class UserDetailsService {
 
 
     }
+
+    public Boolean checkIfUserExists(String email) {
+        return userDetailsImpl.checkIfUserExist(email);
+    }
 }
