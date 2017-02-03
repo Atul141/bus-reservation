@@ -13,13 +13,16 @@ public class PassengerDetailsImpl {
 
     private SaveImpl saveImpl;
     private ConfigDB configDB;
+    private DeleteImpl deleteImpl;
 
     public PassengerDetailsImpl(ConfigDB configDB) {
         this.configDB = configDB;
-        this.saveImpl = new SaveImpl(configDB);
+        saveImpl = new SaveImpl(configDB);
+        deleteImpl = new DeleteImpl(configDB);
     }
 
     public void savePassengerDetails(PassengerDao passenger) {
+
         saveImpl.saveToDb(passenger);
     }
 
@@ -38,5 +41,9 @@ public class PassengerDetailsImpl {
         System.out.println(passengerDaoList);
 
         return passengerDaoList;
+    }
+
+    public void deletePassengerDetails(PassengerDao passengerDao) {
+        deleteImpl.deleteDb(passengerDao);
     }
 }

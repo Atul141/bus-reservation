@@ -6,9 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import javax.persistence.Query;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class SeatSelectionImpl {
 
@@ -32,9 +30,11 @@ public class SeatSelectionImpl {
     }
 
     private List<String> getSeatList(String disabledReserved) {
-        List<String> list = new ArrayList<String>();
-            String[] array = disabledReserved.split("-");
-            list = Arrays.asList(array);
+        String[] array = disabledReserved.split("-");
+        List<String> list = Arrays.asList(array);
+        Set<String> set = new LinkedHashSet<String>(list);
+        list = new ArrayList<String>();
+        list.addAll(set);
         return list;
 
     }

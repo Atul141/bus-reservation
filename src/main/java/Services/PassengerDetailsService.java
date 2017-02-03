@@ -63,6 +63,7 @@ public class PassengerDetailsService {
                 passenger.setIsSeniorCitizen(true);
             else
                 passenger.setIsSeniorCitizen(false);
+            passenger.setId(passengerDao.getId());
             passenger.setName(passengerDao.getName());
             passenger.setSeat(passengerDao.getSeat());
             passengerList.add(passenger);
@@ -76,5 +77,15 @@ public class PassengerDetailsService {
         List<Passenger> passengerList = mapPassengerDao(passengerDaoList);
         passengerWrapper.setPassengerList(passengerList);
         return passengerWrapper;
+    }
+
+    public void deletePassengerList(PassengerWrapper passengerWrapper, long id) {
+        PassengerDao passengerDao;
+        List<Passenger> passengerList = passengerWrapper.getPassengerList();
+        for (Passenger passenger : passengerList) {
+            passengerDao = mapPassenger(passenger, id);
+            passengerDao.setId(passenger.getId());
+            passengerDetailsImpl.deletePassengerDetails(passengerDao);
+        }
     }
 }

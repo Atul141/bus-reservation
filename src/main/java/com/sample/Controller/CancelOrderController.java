@@ -34,6 +34,8 @@ public class CancelOrderController {
         seatSelectionService.updateAvailableSeats(availableSeatWrapper);
 
         OrderDetails orderDetails=(OrderDetails)httpSession.getAttribute("cancelOrderDetails");
+        PassengerDetailsService passengerDetailsService=new PassengerDetailsService(configDB);
+        passengerDetailsService.deletePassengerList(passengerWrapper,orderDetails.getId());
 
         OrderDetailsService orderDetailsService = new OrderDetailsService(configDB);
         orderDetailsService.deleteOrder(orderDetails);

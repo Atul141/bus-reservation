@@ -3,6 +3,7 @@ package Models;
 
 public class Passenger {
 
+    private long id;
 private String name;
 private String gender;
 private int age;
@@ -57,5 +58,13 @@ private boolean isDisabled;
 
     public void setIsDisabled(boolean disabled) {
         isDisabled = disabled;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
