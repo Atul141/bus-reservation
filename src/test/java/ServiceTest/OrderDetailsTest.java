@@ -6,6 +6,7 @@ import Models.Route;
 import Models.SelectedSeatWrapper;
 import ServiceImpl.ConfigDB;
 import ServiceImpl.SyntaxSugar;
+import ServiceImplTest.ConfigTest;
 import Services.OrderDetailsService;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,10 +20,12 @@ public class OrderDetailsTest {
 
     private OrderDetailsService orderDetailsService;
     private ConfigDB configDB;
+    private ConfigTest configTest;
 
     @Before
     public void setup() {
-        configDB=new ConfigDB();
+        configTest = new ConfigTest();
+        configDB = new ConfigDB();
         configDB.setEnvironment(SyntaxSugar.TEST_ENV);
         orderDetailsService = new OrderDetailsService(configDB);
     }
@@ -37,66 +40,15 @@ public class OrderDetailsTest {
 
     @Test
     public void shouldUpdateAvailableSeat() {
-        AvailableSeatWrapper availableSeatWrapper = new AvailableSeatWrapper();
-        SelectedSeatWrapper selectedSeatWrapper = new SelectedSeatWrapper();
-
-        List<String> availableGeneral = new ArrayList<String>();
-        availableGeneral.add("C1");
-        availableGeneral.add("C2");
-        availableGeneral.add("C3");
-        availableGeneral.add("C4");
-        availableSeatWrapper.setGeneral(availableGeneral);
-
-        List<String> availableWomen = new ArrayList<String>();
-        availableWomen.add("A1");
-        availableWomen.add("A2");
-        availableWomen.add("A3");
-
-        List<String> availableDisabled = new ArrayList<String>();
-        availableDisabled.add("B1");
-        availableDisabled.add("B2");
-
-        List<String> availableSenior = new ArrayList<String>();
-        availableSenior.add("B3");
-        availableSenior.add("B$");
-
-        availableSeatWrapper.setGeneral(availableGeneral);
-        availableSeatWrapper.setSeniorCitizenReserved(availableSenior);
-        availableSeatWrapper.setDisabledReserved(availableDisabled);
-        availableSeatWrapper.setWomenReservation(availableWomen);
-
-        List<String> selectedSeatWomen = new ArrayList<String>();
-        selectedSeatWomen.add("A1");
-
-        List<String> selectedSeatGeneral = new ArrayList<String>();
-        selectedSeatGeneral.add("C1");
-        selectedSeatGeneral.add("C2");
-
-        List<String> selectedDisabled = new ArrayList<String>();
-        selectedDisabled.add("B2");
-
-        List<String> selectedSenior = new ArrayList<String>();
-        selectedSenior.add("B4");
-
-
-        selectedSeatWrapper.setSelectedSeatWomen(selectedSeatWomen);
-        selectedSeatWrapper.setSelectedSeatDisabled(selectedDisabled);
-        selectedSeatWrapper.setSelectedSeatSeniorCitizen(selectedSenior);
-        selectedSeatWrapper.setSelectedSeatGeneral(selectedSeatGeneral);
-
+        AvailableSeatWrapper availableSeatWrapper = configTest.getAvailableSeatwrapper();
+        AvailableSeatWrapper availableSeatWrapperUpdated = configTest.getAvailableSeatwrapperAfterUpdate();
+        SelectedSeatWrapper selectedSeatWrapper = configTest.getSeatSelectionWrapper();
         availableSeatWrapper = orderDetailsService.updateAvailableSeats(availableSeatWrapper, selectedSeatWrapper);
 
-        availableGeneral.remove("C1");
-        availableGeneral.remove("C2");
-
-        availableWomen.remove("A1");
-        availableDisabled.remove("B2");
-        availableSenior.remove("B4");
-
-        assertEquals(availableGeneral, availableSeatWrapper.getGeneral());
-        assertEquals(availableWomen, availableSeatWrapper.getWomenReservation());
-        assertEquals(availableSenior, availableSeatWrapper.getSeniorCitizenReserved());
-        assertEquals(availableDisabled, availableSeatWrapper.getDisabledReserved());
+        assertEquals(availableSeatWrapperUpdated.getGeneral(), availableSeatWrapper.getGeneral());
+        assertEquals(availableSeatWrapperUpdated.getWomenReservation(), availableSeatWrapper.getWomenReservation());
+        assertEquals(availableSeatWrapperUpdated.getSeniorCitizenReserved(), availableSeatWrapper.getSeniorCitizenReserved());
+        assertEquals(availableSeatWrapperUpdated.getDisabledReserved(), availableSeatWrapper.getDisabledReserved());
     }
 }
 

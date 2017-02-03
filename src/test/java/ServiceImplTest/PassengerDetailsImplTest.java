@@ -33,7 +33,7 @@ public class PassengerDetailsImplTest {
 
     @Test
     public void shouldSavePassengerDetails() {
-        passengerDao = configTest.getPassengerDetails();
+        passengerDao = configTest.getPassengerDaoDetails();
         passengerDetails.savePassengerDetails(passengerDao);
         configDB = new ConfigDB();
         configDB.setEnvironment(SyntaxSugar.TEST_ENV);

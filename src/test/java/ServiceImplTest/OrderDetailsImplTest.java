@@ -26,7 +26,7 @@ public class OrderDetailsImplTest {
         configDB.setEnvironment(SyntaxSugar.TEST_ENV);
         configTest = new ConfigTest();
         orderDetailsImpl = new OrderDetailsImpl(configDB);
-        orderDetailsDao = configTest.getOrderDetails();
+        orderDetailsDao = configTest.getOrderDetailsDao();
     }
 
     @Test

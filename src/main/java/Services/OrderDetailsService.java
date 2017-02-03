@@ -97,4 +97,9 @@ public class OrderDetailsService {
     public void deleteOrder(OrderDetails orderDetails) {
         orderDetailsImpl.deleteOrder(mapOrderDetails(orderDetails));
     }
+
+    public List<OrderDetailsDao> getOrderDetails(String email) {
+
+        return orderDetailsImpl.getOrderDetails(email);
+    }
 }

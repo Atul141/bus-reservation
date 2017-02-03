@@ -3,6 +3,7 @@ package ServiceTest;
 import Models.Passenger;
 import Models.PassengerWrapper;
 import Models.SelectedSeatWrapper;
+import ServiceImplTest.ConfigTest;
 import Services.PassengerService;
 import Validators.PassengerValidators;
 import org.junit.Before;
@@ -16,33 +17,16 @@ import static org.junit.Assert.assertEquals;
 public class PassengerServiceTest {
 
     private PassengerWrapper passengerWrapper;
-    private Passenger passenger;
     private SelectedSeatWrapper selectedSeatWrapper;
     private PassengerService passengerService;
+    private ConfigTest configTest;
 
     @Before
     public void setup() {
-        passengerWrapper = new PassengerWrapper();
-        passenger = new Passenger();
-        passenger.setName("abd");
-        passenger.setGender("Male");
-        passenger.setAge(22);
-        Passenger passenger1 = new Passenger();
-        passenger1.setName("abd");
-        passenger1.setGender("Female");
-        passenger1.setAge(34);
-        Passenger passenger2 = new Passenger();
-        passenger2.setName("Sample");
-        passenger2.setGender("Female");
-        passenger2.setAge(24);
-        passenger2.setIsDisabled(true);
-        List<Passenger> passengerList = new ArrayList<Passenger>();
-        passengerList.add(passenger1);
-        passengerList.add(passenger2);
-        passengerList.add(passenger);
-        passengerWrapper.setPassengerList(passengerList);
+        configTest = new ConfigTest();
+        passengerWrapper = configTest.getPassengerWrapper();
         passengerService = new PassengerService();
-        selectedSeatWrapper=new SelectedSeatWrapper();
+        selectedSeatWrapper = new SelectedSeatWrapper();
     }
 
     @Test
@@ -101,8 +85,8 @@ public class PassengerServiceTest {
 
         passengerWrapper = passengerService.allocateSeats(passengerWrapper, selectedSeatWrapper);
 
-        assertEquals("A1",passengerWrapper.getPassengerList().get(0).getSeat());
-        assertEquals("C1",passengerWrapper.getPassengerList().get(1).getSeat());
-        assertEquals("C2",passengerWrapper.getPassengerList().get(2).getSeat());
+        assertEquals("A1", passengerWrapper.getPassengerList().get(0).getSeat());
+        assertEquals("C1", passengerWrapper.getPassengerList().get(1).getSeat());
+        assertEquals("C2", passengerWrapper.getPassengerList().get(2).getSeat());
     }
 }

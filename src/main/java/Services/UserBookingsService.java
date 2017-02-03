@@ -6,8 +6,6 @@ import Dao.RouteDao;
 import Models.OrderDetails;
 import Models.Route;
 import ServiceImpl.ConfigDB;
-import ServiceImpl.OrderDetailsImpl;
-import ServiceImpl.PassengerDetailsImpl;
 import ServiceImpl.RoutesImpl;
 
 import java.text.SimpleDateFormat;
@@ -16,20 +14,14 @@ import java.util.List;
 
 public class UserBookingsService {
     private ConfigDB configDB;
-    private OrderDetailsImpl orderDetailsImpl;
-    private PassengerDetailsImpl passengerDetailsImpl;
-    private RoutesImpl routesImpl;
 
     public UserBookingsService(ConfigDB configDB) {
         this.configDB = configDB;
-        orderDetailsImpl = new OrderDetailsImpl(configDB);
-        passengerDetailsImpl = new PassengerDetailsImpl(configDB);
-        routesImpl = new RoutesImpl(configDB);
     }
 
     public List<OrderDetails> getOrderDetailsList(String email) {
-
-        List<OrderDetailsDao> orderDetailsDaoList = orderDetailsImpl.getOrderDetails(email);
+        OrderDetailsService orderDetailsService=new OrderDetailsService(configDB);
+        List<OrderDetailsDao> orderDetailsDaoList = orderDetailsService.getOrderDetails(email);
         List<OrderDetails> orderDetailsList = mapOrderDetailsDao(orderDetailsDaoList);
         orderDetailsList = addRouteDetails(orderDetailsList);
         return orderDetailsList;

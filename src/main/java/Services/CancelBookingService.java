@@ -2,8 +2,6 @@ package Services;
 
 import Models.*;
 import ServiceImpl.ConfigDB;
-import ServiceImpl.SeatSelectionImpl;
-import ServiceImpl.TotalSeatSelectionImpl;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -21,7 +19,7 @@ public class CancelBookingService {
     }
 
 
-    public AvailableSeatWrapper updateAvailableSeats(PassengerWrapper passengerWrapper, Route route, AvailableSeatWrapper availableSeatWrapper, AvailableSeatWrapper totalAvailableSeats) {
+    public AvailableSeatWrapper updateAvailableSeats(PassengerWrapper passengerWrapper,  AvailableSeatWrapper availableSeatWrapper, AvailableSeatWrapper totalAvailableSeats) {
 
 
         for (Passenger passenger : passengerWrapper.getPassengerList()) {
