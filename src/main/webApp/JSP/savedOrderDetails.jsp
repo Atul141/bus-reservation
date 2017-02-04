@@ -22,14 +22,14 @@
             <th>Distance</th>
         </tr>
         <tr>
-            <td><c:out value="${route.bus_no}"/></td>
-            <td><c:out value="${route.selectedDate}"/></td>
-            <td><c:out value="${route.source}"/></td>
-            <td><c:out value="${route.destination}"/></td>
-            <td><c:out value="${route.departureTime}"/></td>
-            <td><c:out value="${route.arrivalTime}"/></td>
-            <td>&#8377;<c:out value="${route.price}"/></td>
-            <td><c:out value="${route.distance}"/>Km</td>
+            <td align="center"><c:out value="${route.bus_no}"/></td>
+            <td align="center"><c:out value="${route.selectedDate}"/></td>
+            <td align="center"><c:out value="${route.source}"/></td>
+            <td align="center"><c:out value="${route.destination}"/></td>
+            <td align="center"><c:out value="${route.departureTime}"/></td>
+            <td align="center"><c:out value="${route.arrivalTime}"/></td>
+            <td align="center">&#8377;<c:out value="${route.price}"/></td>
+            <td align="center"><c:out value="${route.distance}"/>Km</td>
         </tr>
     </table>
     <table border="1" cellpadding="5">

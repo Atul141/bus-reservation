@@ -27,7 +27,7 @@ public class UserBookingsController {
     public String displayUserBookings(Model model, HttpServletRequest request) {
 
         HttpSession httpSession = request.getSession();
-        ConfigDB configDB = (ConfigDB) httpSession.getAttribute("configDB");
+        ConfigDB configDB = new ConfigDB();
         String email = (String) httpSession.getAttribute("email");
 
         UserBookingsService userBookingsService = new UserBookingsService(configDB);
@@ -55,9 +55,9 @@ public class UserBookingsController {
         PassengerDetailsService passengerDetailsService = new PassengerDetailsService(configDB);
         PassengerWrapper passengerWrapper = passengerDetailsService.getPassengerDetails(orderWrapper.getId());
 
-        httpSession.setAttribute("cancelRoute",route);
-        httpSession.setAttribute("passengerWrapper",passengerWrapper);
-        httpSession.setAttribute("cancelOrderDetails",orderDetails);
+        httpSession.setAttribute("cancelRoute", route);
+        httpSession.setAttribute("passengerWrapper", passengerWrapper);
+        httpSession.setAttribute("cancelOrderDetails", orderDetails);
 
 
         model.addAttribute("number", orderWrapper.getId());

@@ -2,10 +2,7 @@ package com.sample.Controller;
 
 import Models.*;
 import ServiceImpl.ConfigDB;
-import Services.OrderDetailsService;
-import Services.PassengerDetailsService;
-import Services.RouteService;
-import Services.SeatSelectionService;
+import Services.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,8 +56,10 @@ public class OrderDetailsController {
         httpSession.setAttribute("orderDetails", orderDetails);
 
 
-        return "redirect:/DisplayOrderDetails";
+        return "redirect:/payment";
     }
+
+
 
     @RequestMapping(value = "DisplayOrderDetails", method = RequestMethod.GET)
     public String displayOrderDetails(Model model, HttpServletRequest request) {

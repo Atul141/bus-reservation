@@ -24,23 +24,25 @@ public class UserDetailsRegistrationControllerTest {
     HttpServletRequest request;
 
     @Before
-    public void setup(){
-     model=new ExtendedModelMap();
-     userRegistrationController =new UserRegistrationController();
-     redirectAttributes=new RedirectAttributesModelMap();
-     user =new UserDetails();
+    public void setup() {
+        model = new ExtendedModelMap();
+        userRegistrationController = new UserRegistrationController();
+        redirectAttributes = new RedirectAttributesModelMap();
+        user = new UserDetails();
         user.setFirstName("abc");
         user.setLastName("def");
         user.setEmail("abc@gmail.com");
         user.setPhone("1234567890");
         user.setPassword("pass");
     }
+
     @Test
-    public void shouldReturnRegisterWhenRegistrationFormIsSubmitted(){
-        assertEquals("register", userRegistrationController.setupForm("error",model,request));
+    public void shouldReturnRegisterWhenRegistrationFormIsSubmitted() {
+        assertEquals("register", userRegistrationController.setupForm("error", model, request));
     }
+
     @Test
-    public void shouldReturnSuccessWhenRegistrationFormIsSubmittedSuccessfully(){
-        assertEquals("redirect:/success", userRegistrationController.submitForm(user,redirectAttributes,request));
+    public void shouldReturnSuccessWhenRegistrationFormIsSubmittedSuccessfully() {
+        assertEquals("redirect:/success", userRegistrationController.submitForm(user, redirectAttributes, request));
     }
 }
