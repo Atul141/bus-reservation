@@ -34,11 +34,17 @@
                 <td align="center"><form:input path="cvvNumber" type="text"/></td>
             </tr>
             <tr>
+                <td align="center">Name On card</td>
+                <td align="center"><form:input path="name" type="text"/></td>
+            </tr>
+            <tr>
                 <td align="center">
                     <button type="submit">pay</button>
                 </td>
             </tr>
         </form:form>
+        <br><br>
+        <td>${error}</td>
     </table>
 </div>
 </body>

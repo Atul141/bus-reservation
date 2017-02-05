@@ -5,7 +5,7 @@ package Models;
 public class Payment {
 
     private String cardNumber;
-    private String getCardName;
+    private String name;
     private int year;
     private int month;
     private long cvvNumber;
@@ -19,12 +19,12 @@ public class Payment {
         this.cardNumber = cardNumber;
     }
 
-    public String getGetCardName() {
-        return getCardName;
+    public String getName() {
+        return name;
     }
 
-    public void setGetCardName(String getCardName) {
-        this.getCardName = getCardName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getYear() {
