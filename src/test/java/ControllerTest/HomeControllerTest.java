@@ -3,6 +3,7 @@ package ControllerTest;
 
 import Models.Route;
 import ServiceImpl.ConfigDB;
+import ServiceImpl.SyntaxSugar;
 import ServiceImplTest.ConfigTest;
 import Services.RouteService;
 import com.sample.Controller.HomeController;
@@ -26,12 +27,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyObject;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 @RunWith(value = SpringJUnit4ClassRunner.class)
@@ -84,7 +82,9 @@ public class HomeControllerTest {
     public void shouldReturnToNoRouteFoundIfValidationIsSuccessfullAndNoRoutesAreAvailable() throws Exception {
         Route route = configTest.getRouteDetails();
         when(routeService.getRouteList(route)).thenReturn(null);
-        mockMvc.perform(post("/Home").flashAttr("route", route).param("selectedDate", "2017-1-15").sessionAttr("configDB",new ConfigDB()))
+        ConfigDB configDB=new ConfigDB();
+        configDB.setEnvironment(SyntaxSugar.TEST_ENV);
+        mockMvc.perform(post("/Home").flashAttr("route", route).param("selectedDate", "2017-1-15").sessionAttr("configDB",configDB))
                 .andExpect(view().name("NoRouteFound"));
     }
     @Test

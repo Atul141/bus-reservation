@@ -33,6 +33,16 @@ public class ConfigTest {
         userDetailsDao.setId(1);
         return userDetailsDao;
     }
+    public UserDetails getUserDetails() {
+        UserDetails userDetailsDao = new UserDetails();
+        userDetailsDao.setFirstName("abc");
+        userDetailsDao.setLastName("def");
+        userDetailsDao.setEmail("test5@gmail.com");
+        userDetailsDao.setPassword("pass");
+        userDetailsDao.setPhone("1123456");
+        userDetailsDao.setId(1);
+        return userDetailsDao;
+    }
 
     public RouteDao getRouteDaoDetails() {
         RouteDao route = new RouteDao();

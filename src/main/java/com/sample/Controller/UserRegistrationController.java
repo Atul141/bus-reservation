@@ -29,7 +29,7 @@ public class UserRegistrationController {
 
 
     @RequestMapping(value = "/Registration", method = RequestMethod.GET)
-    public String setupForm(@ModelAttribute("registrationError") String error, Model model, HttpServletRequest request) {
+    public String setupForm(@ModelAttribute("registrationError") String error, Model model) {
         UserDetails userDetails = new UserDetails();
         model.addAttribute("UserDetails", userDetails);
         model.addAttribute("registrationError", error);
