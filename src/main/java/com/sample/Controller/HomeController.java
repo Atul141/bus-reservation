@@ -8,10 +8,7 @@ import Services.RouteService;
 import Validators.SearchRoutesValidator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.Cookie;
@@ -26,6 +23,7 @@ import java.util.List;
 public class HomeController {
 
     private ConfigDB configDB;
+
     @RequestMapping(value = "/Home", method = RequestMethod.POST)
     public String successLogin(@ModelAttribute("route") Route route, Model model, HttpServletRequest request, @RequestParam("selectedDate") String date, RedirectAttributes redirectAttribute) {
         SearchRoutesValidator searchRoutesValidator = new SearchRoutesValidator();
@@ -38,9 +36,10 @@ public class HomeController {
         }
 
         HttpSession httpSession = request.getSession();
-        configDB=(ConfigDB)httpSession.getAttribute("configDB");
+        configDB = (ConfigDB) httpSession.getAttribute("configDB");
         UserDetails userDetails = (UserDetails) httpSession.getAttribute("userDetails");
         Cookie[] cookie = request.getCookies();
+
         route = mapDate(date, route);
 
 
@@ -59,15 +58,20 @@ public class HomeController {
     public String searchRoutes(Model model, HttpServletRequest request, @ModelAttribute("error") String error) {
         Route route = new Route();
         Cookie[] cookie = request.getCookies();
+        String cookieValue = null;
+        for (Cookie aCookie : cookie) {
+            if (aCookie.getName().equals("userEmail"))
+            cookieValue = aCookie.getValue();
+        }
         model.addAttribute("error", error);
         model.addAttribute("route", route);
-        model.addAttribute("userName", cookie[2].getValue());
+        model.addAttribute("userName", cookieValue);
 
         return "searchRoutes";
 
     }
 
-    public Route mapDate(String date, Route route) {
+    private Route mapDate(String date, Route route) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date selectedDate = null;
         try {

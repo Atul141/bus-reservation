@@ -114,4 +114,22 @@ public class Route {
     public void setSelectedDate(String selectedDate) {
         this.selectedDate = selectedDate;
     }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+
+        Route route = (Route) object;
+
+        if (source != null ? !source.equals(route.source) : route.source != null) return false;
+        return destination != null ? destination.equals(route.destination) : route.destination == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = source != null ? source.hashCode() : 0;
+        result = 31 * result + (destination != null ? destination.hashCode() : 0);
+        return result;
+    }
 }
