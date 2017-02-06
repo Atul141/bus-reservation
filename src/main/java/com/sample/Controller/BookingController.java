@@ -36,6 +36,7 @@ public class BookingController {
         Route route = routeService.getRouteBasedOnId(numberOfSeats.getRoute_id());
 
         SeatSelectionService seatSelectionService = new SeatSelectionService(configDB);
+        System.out.println(route.getBus_no());
         AvailableSeatWrapper availableSeatWrapper = seatSelectionService.getAvailableSeat(route.getBus_no(), route.getId());
 
         httpSession.setAttribute("route", route);
@@ -45,12 +46,12 @@ public class BookingController {
         model.addAttribute("availableSeatWrapper", availableSeatWrapper);
         model.addAttribute("passengerWrapper", passengerWrapper);
         model.addAttribute("route", route);
-        return "/booking";
+        return "booking";
     }
 
 
     @RequestMapping(value = "/reBooking", method = RequestMethod.GET)
-    public String reBooking(Model model, HttpServletRequest request, @ModelAttribute("error") String error, HttpServletResponse response) {
+    public String reBooking(Model model, HttpServletRequest request, @ModelAttribute("error") String error) {
 
 
         HttpSession httpSession = request.getSession();

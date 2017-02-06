@@ -27,9 +27,7 @@ public class UserDetailsRegistrationControllerTest {
     @Before
     public void setup() {
         configTest = new ConfigTest();
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("/webApp/JSP/");
-        viewResolver.setSuffix(".jsp");
+        InternalResourceViewResolver viewResolver = configTest.getViewInstance();
 
         MockitoAnnotations.initMocks(this);
 

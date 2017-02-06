@@ -1,6 +1,7 @@
 package ControllerTest;
 
 import Models.UserDetails;
+import ServiceImplTest.ConfigTest;
 import Services.LoginService;
 import com.sample.Controller.LoginController;
 import org.junit.Before;
@@ -34,9 +35,8 @@ public class LoginControllerTest {
 
     @Before
     public void setup() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("/webApp/JSP/");
-        viewResolver.setSuffix(".jsp");
+        ConfigTest configTest=new ConfigTest();
+        InternalResourceViewResolver viewResolver =configTest.getViewInstance();
 
         userDetails = new UserDetails();
         MockitoAnnotations.initMocks(this);

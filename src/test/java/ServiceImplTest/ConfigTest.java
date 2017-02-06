@@ -323,4 +323,13 @@ public class ConfigTest {
         return payment;
 
     }
+
+    public NumberOfSeats getNumberOfSeat() {
+
+        NumberOfSeats numberOfSeats=new NumberOfSeats();
+        numberOfSeats.setNumber(5);
+        numberOfSeats.setRoute_id(1);
+        return numberOfSeats;
+
+    }
 }
