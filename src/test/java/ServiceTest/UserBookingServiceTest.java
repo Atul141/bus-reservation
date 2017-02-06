@@ -44,7 +44,9 @@ public class UserBookingServiceTest {
         orderDetailsDaoList.add(orderDetailsDao);
         when(orderDetailsService.getOrderDetails("abc@gmail.com")).thenReturn(orderDetailsDaoList);
         orderDetailsList = userBookingsService.getOrderDetailsList("abc@gmail.com");
-        List<OrderDetails> orderDetailsListExpected =configTest.getOrderDetails();
-        assertEquals(orderDetailsListExpected,orderDetailsList);
+
+        List<OrderDetails> orderDetailsListExpected = new ArrayList<OrderDetails>();
+        orderDetailsListExpected.add(configTest.getOrderDetails(0));
+        assertEquals(orderDetailsListExpected, orderDetailsList);
     }
 }

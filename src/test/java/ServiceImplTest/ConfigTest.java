@@ -62,7 +62,9 @@ public class ConfigTest {
         return seatDao;
 
 
-    }public SeatsDao getSeatDetailsExpected() {
+    }
+
+    public SeatsDao getSeatDetailsExpected() {
         SeatsDao seatDao = new SeatsDao();
         seatDao.setDisabledReserved("B1-B2");
         seatDao.setId(1);
@@ -84,12 +86,12 @@ public class ConfigTest {
         Route route = new Route();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         try {
-            Date date = dateFormat.parse("2017-1-15");
+            Date date = dateFormat.parse("2017-2-5");
             route.setDate(date);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        route.setDepartureTime(new Time(1730));
+        route.setDepartureTime(new Time(20,5,3));
         route.setDestination("BANGALORE");
         route.setSource("MYSORE");
         route.setPrice(300);
@@ -252,41 +254,43 @@ public class ConfigTest {
     }
 
 
-    public List<OrderDetails> getOrderDetails() {
-        List<OrderDetails> orderDetailsList = new ArrayList<OrderDetails>();
+    public OrderDetails getOrderDetails(long minutes) {
         OrderDetails orderDetailsDao = new OrderDetails();
-        java.util.Date today = new java.util.Date();
-        Timestamp timestamp = new java.sql.Timestamp(today.getTime());
+        Calendar cal = Calendar.getInstance();
+        Long time = cal.getTimeInMillis();
+        Long milliseconds = (minutes * 60000);
+        time -= milliseconds;
+        Timestamp timestamp = new Timestamp(time);
+
         orderDetailsDao.setTime(timestamp);
         orderDetailsDao.setStatus("confirm");
         orderDetailsDao.setRoute_id(1);
         orderDetailsDao.setId(1);
         orderDetailsDao.setPrice(600);
         orderDetailsDao.setEmail("abc@gmail.com");
-        orderDetailsList.add(orderDetailsDao);
-        return orderDetailsList;
+        return orderDetailsDao;
     }
 
     public List<Integer> getMonthsList() {
         List<Integer> monthsList = new ArrayList<Integer>();
-        for(int i=1;i<=12;i++){
+        for (int i = 1; i <= 12; i++) {
             monthsList.add(i);
         }
         return monthsList;
     }
 
     public List<String> getCardType() {
-        List<String > cardType= new ArrayList<String>();
+        List<String> cardType = new ArrayList<String>();
         cardType.add("Visa");
         cardType.add("American Express");
         cardType.add("MaterCard");
         return cardType;
     }
 
-    public List<Integer>   getYearsList() {
+    public List<Integer> getYearsList() {
         int year = Calendar.getInstance().get(Calendar.YEAR);
-        List<Integer> yearsList =new ArrayList<Integer>();
-        for(int i=year;i<=year+10;i++)
+        List<Integer> yearsList = new ArrayList<Integer>();
+        for (int i = year; i <= year + 10; i++)
             yearsList.add(i);
         return yearsList;
     }

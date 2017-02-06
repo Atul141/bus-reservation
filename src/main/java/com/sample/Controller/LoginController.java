@@ -22,7 +22,7 @@ public class LoginController {
     private ConfigDB configDB;
 
     public LoginController() {
-        configDB=new ConfigDB();
+        configDB = new ConfigDB();
         loginService = new LoginService(configDB);
         loginValidator = new LoginValidator();
     }
@@ -49,7 +49,7 @@ public class LoginController {
             HttpSession httpSession = request.getSession();
             httpSession.setAttribute("userDetails", userDetails);
             httpSession.setAttribute("email", userDetails.getEmail());
-            httpSession.setAttribute("configDB",configDB);
+            httpSession.setAttribute("configDB", configDB);
 
             redirectAttributes.addAttribute("userName", userDetails.getEmail());
             Cookie cookie = new Cookie("userEmail", userDetails.getEmail());

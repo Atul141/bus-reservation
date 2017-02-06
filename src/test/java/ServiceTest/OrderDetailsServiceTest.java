@@ -44,7 +44,7 @@ public class OrderDetailsServiceTest {
         configTest = new ConfigTest();
         configDB = new ConfigDB();
         configDB.setEnvironment(SyntaxSugar.TEST_ENV);
-        orderDetails = configTest.getOrderDetails().get(0);
+        orderDetails = configTest.getOrderDetails(0);
     }
 
     @InjectMocks

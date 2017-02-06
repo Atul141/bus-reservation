@@ -58,4 +58,22 @@ public class UserDetails implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+
+        UserDetails that = (UserDetails) object;
+
+        if (email != null ? !email.equals(that.email) : that.email != null) return false;
+        return password != null ? password.equals(that.password) : that.password == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = email != null ? email.hashCode() : 0;
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        return result;
+    }
 }
