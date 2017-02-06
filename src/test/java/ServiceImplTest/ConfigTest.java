@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -22,6 +23,12 @@ import java.util.List;
 
 public class ConfigTest {
 
+    public InternalResourceViewResolver getViewInstance(){
+        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+        viewResolver.setPrefix("/webApp/JSP/");
+        viewResolver.setSuffix(".jsp");
+        return viewResolver;
+    }
 
     public UserDetailsDao getUserDetailsinstance() {
         UserDetailsDao userDetailsDao = new UserDetailsDao();
@@ -303,5 +310,17 @@ public class ConfigTest {
         for (int i = year; i <= year + 10; i++)
             yearsList.add(i);
         return yearsList;
+    }
+
+    public Payment getPayment() {
+        Payment payment=new Payment();
+        payment.setName("abcd");
+        payment.setCardNumber("1234567890");
+        payment.setYear(2022);
+        payment.setMonth(10);
+        payment.setCvvNumber(111);
+        payment.setCardType("Visa");
+        return payment;
+
     }
 }
