@@ -1,28 +1,24 @@
 package ControllerTest;
 
 import Models.UserDetails;
+import Services.LoginService;
 import com.sample.Controller.LoginController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.ui.ExtendedModelMap;
-import org.springframework.ui.Model;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import static junit.framework.Assert.assertEquals;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
@@ -32,7 +28,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 public class LoginControllerTest {
 
-    private LoginController loginController;
     private UserDetails userDetails;
     private MockMvc mockMvc;
 
@@ -43,7 +38,6 @@ public class LoginControllerTest {
         viewResolver.setPrefix("/webApp/JSP/");
         viewResolver.setSuffix(".jsp");
 
-        loginController = new LoginController();
         userDetails = new UserDetails();
         MockitoAnnotations.initMocks(this);
 
@@ -51,6 +45,11 @@ public class LoginControllerTest {
                 .setViewResolvers(viewResolver)
                 .build();
     }
+
+    @Mock
+    LoginService loginService;
+    @InjectMocks
+    LoginController loginController;
 
     @Test
     public void shouldReturnLoginForSuccessfullLogin() throws Exception {
@@ -62,9 +61,22 @@ public class LoginControllerTest {
     }
 
     @Test
-    public void shouldReturnToHomeAfterSuccessfullValidation() {
+    public void shouldReturnToHomeAfterSuccessfullValidation() throws Exception {
         userDetails.setEmail("abcd@gmail.com");
-        userDetails.setPassword("mysore");
-//        assertEquals("redirect:/Home",loginController.validateLogin(userDetails,redirectAttributes,request,response));
+        userDetails.setPassword("pass");
+
+        when(loginService.validateLogin(userDetails)).thenReturn(true);
+        mockMvc.perform(post("/loginValidation").flashAttr("User", userDetails))
+                .andExpect(view().name("redirect:/searchRoutes"));
+    }
+
+    @Test
+    public void shouldReturnToLoginAfterUnSuccessfullValidation() throws Exception {
+        userDetails.setEmail("abcd@gmail.com");
+        userDetails.setPassword("pass");
+
+        when(loginService.validateLogin(userDetails)).thenReturn(false);
+        mockMvc.perform(post("/loginValidation").flashAttr("User", userDetails))
+                .andExpect(view().name("redirect:/login"));
     }
 }

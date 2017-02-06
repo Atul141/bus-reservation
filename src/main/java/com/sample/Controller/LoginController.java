@@ -18,13 +18,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class LoginController {
 
     private LoginService loginService;
-    private LoginValidator loginValidator;
     private ConfigDB configDB;
 
     public LoginController() {
         configDB = new ConfigDB();
         loginService = new LoginService(configDB);
-        loginValidator = new LoginValidator();
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -37,6 +35,7 @@ public class LoginController {
 
     @RequestMapping(value = "/loginValidation", method = RequestMethod.POST)
     public String validateLogin(@ModelAttribute("User") UserDetails userDetails, RedirectAttributes redirectAttributes, HttpServletRequest request, HttpServletResponse response) {
+        LoginValidator loginValidator = new LoginValidator();
         String loginError = loginValidator.validate(userDetails);
         if (loginError == null) {
             boolean isUserLoggedIn = loginService.validateLogin(userDetails);
