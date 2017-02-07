@@ -2,7 +2,9 @@ package ServiceImpl;
 
 
 import Dao.LoginDao;
+import Dao.OrderDetailsDao;
 import Dao.UserDetailsDao;
+import org.hibernate.LockMode;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -22,6 +24,7 @@ public class LoginImpl {
         UserDetailsDao userDetails;
         try {
             userDetails = (UserDetailsDao) session.createQuery(query).uniqueResult();
+            session.lock(userDetails, LockMode.READ);
             transaction.commit();
             session.close();
             if (userDetails != null) {

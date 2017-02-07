@@ -1,9 +1,11 @@
 package ServiceImpl;
 
 
+import Dao.OrderDetailsDao;
 import Dao.SeatsDao;
 import Dao.TotalSeatsDao;
 import Models.AvailableSeatWrapper;
+import org.hibernate.LockMode;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -48,6 +50,7 @@ public class TotalSeatSelectionImpl {
             Query subQuery = session.createQuery("Select bus.seat_no From BusDao bus WHERE bus.routeid=" + routeId + " and bus.number=" + "'" + bus_no + "'");
             Query query = session.createQuery("FROM  TotalSeatsDao seat WHERE seat.id IN(:ids)").setParameterList("ids", subQuery.getResultList());
             seatsDao = (TotalSeatsDao) query.getResultList().get(0);
+            session.lock(seatsDao, LockMode.READ);
             transaction.commit();
             session.close();
         } catch (Throwable ex) {

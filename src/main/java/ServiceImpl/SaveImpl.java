@@ -1,6 +1,8 @@
 package ServiceImpl;
 
 
+import Dao.OrderDetailsDao;
+import org.hibernate.LockMode;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -17,6 +19,7 @@ public class SaveImpl {
             Session session = configDB.getSession();
             Transaction transaction = session.beginTransaction();
             session.persist(object);
+            session.lock(object, LockMode.READ);
             session.flush();
             transaction.commit();
             session.close();

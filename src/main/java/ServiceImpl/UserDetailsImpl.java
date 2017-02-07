@@ -1,6 +1,7 @@
 package ServiceImpl;
 
 import Dao.UserDetailsDao;
+import org.hibernate.LockMode;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -28,6 +29,7 @@ public class UserDetailsImpl {
         try {
             userDetails = (UserDetailsDao) session.createQuery(query).uniqueResult();
             session.contains(email, userDetails);
+            session.lock(userDetails, LockMode.READ);
             transaction.commit();
             session.close();
 

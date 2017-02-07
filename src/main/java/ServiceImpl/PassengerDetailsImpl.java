@@ -3,6 +3,7 @@ package ServiceImpl;
 
 import Dao.OrderDetailsDao;
 import Dao.PassengerDao;
+import org.hibernate.LockMode;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -33,6 +34,7 @@ public class PassengerDetailsImpl {
         List<PassengerDao> passengerDaoList = new ArrayList<PassengerDao>();
         try {
             passengerDaoList = (List<PassengerDao>) session.createQuery(query).list();
+            session.lock(new PassengerDao(), LockMode.READ);
             transaction.commit();
             session.close();
         } catch (Throwable ex) {

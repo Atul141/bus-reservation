@@ -3,6 +3,7 @@ package ServiceImpl;
 
 import Dao.OrderDetailsDao;
 import Models.OrderDetails;
+import org.hibernate.LockMode;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -30,6 +31,7 @@ public class OrderDetailsImpl {
         List<OrderDetailsDao> orderDetailsDaoList = new ArrayList<OrderDetailsDao>();
         try {
             orderDetailsDaoList = (List<OrderDetailsDao>) session.createQuery(query).list();
+            session.load(new OrderDetailsDao(), LockMode.READ);
             transaction.commit();
             session.close();
         } catch (Throwable ex) {
@@ -46,6 +48,7 @@ public class OrderDetailsImpl {
         OrderDetailsDao orderDetailsDao = new OrderDetailsDao();
         try {
             orderDetailsDao = (OrderDetailsDao) session.createQuery(query).uniqueResult();
+            session.load(orderDetailsDao, LockMode.READ);
             transaction.commit();
             session.close();
         } catch (Throwable ex) {
@@ -68,6 +71,7 @@ public class OrderDetailsImpl {
         List<OrderDetailsDao> orderDetailsDaoList = new ArrayList<OrderDetailsDao>();
         try {
             orderDetailsDaoList = (List<OrderDetailsDao>) session.createQuery(query).list();
+            session.load(new OrderDetailsDao(), LockMode.READ);
             transaction.commit();
             session.close();
         } catch (Throwable ex) {

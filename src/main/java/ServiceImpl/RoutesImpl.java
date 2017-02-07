@@ -1,8 +1,10 @@
 package ServiceImpl;
 
 
+import Dao.OrderDetailsDao;
 import Dao.RouteDao;
 import Models.Route;
+import org.hibernate.LockMode;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -24,6 +26,7 @@ public class RoutesImpl {
         List<RouteDao> routeDaoList = new ArrayList<RouteDao>();
         try {
             routeDaoList = (List<RouteDao>) session.createQuery(query).list();
+            session.lock(new RouteDao(), LockMode.READ);
             transaction.commit();
             session.close();
         } catch (Throwable ex) {
@@ -41,6 +44,7 @@ public class RoutesImpl {
         RouteDao routeDao = new RouteDao();
         try {
             routeDao = (RouteDao) session.createQuery(query).uniqueResult();
+            session.lock(routeDao, LockMode.READ);
             transaction.commit();
             session.close();
         } catch (Throwable ex) {
