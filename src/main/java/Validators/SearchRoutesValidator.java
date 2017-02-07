@@ -31,8 +31,6 @@ public class SearchRoutesValidator {
 
             return "Error!:Date is Compulsory field";
         }
-        if(injectionValidator.validateInjection(route.getDate().toString()))
-            return injectionError;
         return null;
 
     }

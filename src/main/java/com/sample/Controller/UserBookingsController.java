@@ -27,7 +27,7 @@ public class UserBookingsController {
     public String displayUserBookings(Model model, HttpServletRequest request) {
 
         HttpSession httpSession = request.getSession();
-        ConfigDB configDB = new ConfigDB();
+        ConfigDB configDB =(ConfigDB) httpSession.getAttribute("configDB");
         String email = (String) httpSession.getAttribute("email");
 
         UserBookingsService userBookingsService = new UserBookingsService(configDB);

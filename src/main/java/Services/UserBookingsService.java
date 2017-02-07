@@ -7,6 +7,7 @@ import Models.OrderDetails;
 import Models.Route;
 import ServiceImpl.ConfigDB;
 import ServiceImpl.RoutesImpl;
+import ServiceImpl.SyntaxSugar;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class UserBookingsService {
     }
 
     public List<OrderDetails> getOrderDetailsList(String email) {
-        OrderDetailsService orderDetailsService=new OrderDetailsService(configDB);
+        OrderDetailsService orderDetailsService = new OrderDetailsService(configDB);
         List<OrderDetailsDao> orderDetailsDaoList = orderDetailsService.getOrderDetails(email);
         List<OrderDetails> orderDetailsList = mapOrderDetailsDao(orderDetailsDaoList);
         orderDetailsList = addRouteDetails(orderDetailsList);
@@ -59,7 +60,8 @@ public class UserBookingsService {
             orderDetails = new OrderDetails();
             orderDetails.setId(orderDetailsDao.getId());
             orderDetails.setEmail(orderDetailsDao.getEmail());
-            if (orderDetailsDao.getStatus().compareTo("cancelled") != 0) {
+            if (orderDetailsDao.getStatus().compareTo(SyntaxSugar.CONFIRM) == 0 ||
+                    orderDetailsDao.getStatus().compareTo(SyntaxSugar.PENDING) == 0) {
                 orderDetails.setStatus(orderDetailsDao.getStatus());
             } else {
                 continue;

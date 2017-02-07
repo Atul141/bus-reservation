@@ -19,7 +19,6 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class BookingController {
 
-    private ConfigDB configDB;
 
     @RequestMapping(value = "/booking", method = RequestMethod.POST)
     public String bookTickets(Model model, @ModelAttribute("numberOfSeats") NumberOfSeats numberOfSeats, HttpServletRequest request) {
@@ -31,7 +30,7 @@ public class BookingController {
         passengerWrapper.setGenderList(passengerService.getGenderList());
         passengerWrapper.setPassengerList(passengerService.getPassengerList(numberOfSeats.getNumber()));
 
-        configDB = (ConfigDB) httpSession.getAttribute("configDB");
+        ConfigDB configDB = (ConfigDB) httpSession.getAttribute("configDB");
         RouteService routeService = new RouteService(configDB);
         Route route = routeService.getRouteBasedOnId(numberOfSeats.getRoute_id());
 
@@ -55,7 +54,7 @@ public class BookingController {
 
 
         HttpSession httpSession = request.getSession();
-        configDB = (ConfigDB) httpSession.getAttribute("configDB");
+        ConfigDB configDB = (ConfigDB) httpSession.getAttribute("configDB");
 
         NumberOfSeats numberOfSeats = (NumberOfSeats) httpSession.getAttribute("numberOfSeats");
         PassengerWrapper passengerWrapper = (PassengerWrapper) httpSession.getAttribute("passengerWrapper");

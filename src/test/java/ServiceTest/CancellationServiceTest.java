@@ -40,7 +40,7 @@ public class CancellationServiceTest {
     }
 
     @Test
-    public void shouldReturnNotRefundAmountIfCancelledOneDayBefore() {
+    public void shouldReturnNotRefundAmountIfFCancelledOneDayBefore() {
         setRouteDate(3);
         orderDetails = configTest.getOrderDetails();
         assertEquals(0, cancellationService.getRefundAmount(orderDetails, route));

@@ -22,7 +22,6 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-    private ConfigDB configDB;
 
     @RequestMapping(value = "/Home", method = RequestMethod.POST)
     public String successLogin(@ModelAttribute("route") Route route, Model model, HttpServletRequest request, @RequestParam("selectedDate") String date, RedirectAttributes redirectAttribute) {
@@ -36,7 +35,7 @@ public class HomeController {
         }
 
         HttpSession httpSession = request.getSession();
-        configDB = (ConfigDB) httpSession.getAttribute("configDB");
+       ConfigDB configDB = (ConfigDB) httpSession.getAttribute("configDB");
         UserDetails userDetails = (UserDetails) httpSession.getAttribute("userDetails");
         Cookie[] cookie = request.getCookies();
 
