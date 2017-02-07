@@ -60,7 +60,6 @@ public class CancellationServiceTest {
         int month = start.getMonthOfYear();
         int day = start.getDayOfMonth();
         String routeDate = year + "-" + month + "-" + day;
-        System.out.println(routeDate);
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date dates = null;
         try {

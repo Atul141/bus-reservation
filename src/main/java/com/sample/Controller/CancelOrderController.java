@@ -5,6 +5,7 @@ import ServiceImpl.ConfigDB;
 import ServiceImpl.TotalSeatSelectionImpl;
 import Services.*;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -15,7 +16,7 @@ import javax.servlet.http.HttpSession;
 public class CancelOrderController {
 
     @RequestMapping(value = "/cancelOrder", method = RequestMethod.POST)
-    public String deleteOrder( HttpServletRequest request) {
+    public String deleteOrder(HttpServletRequest request, Model model) {
         HttpSession httpSession = request.getSession();
         ConfigDB configDB = (ConfigDB) httpSession.getAttribute("configDB");
         SeatSelectionService seatSelectionService = new SeatSelectionService(configDB);
@@ -30,16 +31,22 @@ public class CancelOrderController {
         TotalSeatSelectionImpl totalSeatSelection = new TotalSeatSelectionImpl(configDB);
         AvailableSeatWrapper totalAvailableSeats = totalSeatSelection.getAvailableSeats(route.getBus_no(), route.getId());
         AvailableSeatWrapper availableSeatWrapper = seatSelectionService.getAvailableSeat(route.getBus_no(), route.getId());
-        availableSeatWrapper = cancelBookingService.updateAvailableSeats(passengerWrapper,  availableSeatWrapper, totalAvailableSeats);
+        availableSeatWrapper = cancelBookingService.updateAvailableSeats(passengerWrapper, availableSeatWrapper, totalAvailableSeats);
         seatSelectionService.updateAvailableSeats(availableSeatWrapper);
 
-        OrderDetails orderDetails=(OrderDetails)httpSession.getAttribute("cancelOrderDetails");
-        PassengerDetailsService passengerDetailsService=new PassengerDetailsService(configDB);
-        passengerDetailsService.deletePassengerList(passengerWrapper,orderDetails.getId());
+        OrderDetails orderDetails = (OrderDetails) httpSession.getAttribute("cancelOrderDetails");
+        CancellationService cancellationService = new CancellationService();
+        int cancellationFee = cancellationService.getRefundAmount(orderDetails, route);
+        int refundAmount=orderDetails.getPrice()-cancellationFee;
+
+        PassengerDetailsService passengerDetailsService = new PassengerDetailsService(configDB);
+        passengerDetailsService.deletePassengerList(passengerWrapper, orderDetails.getId());
 
         OrderDetailsService orderDetailsService = new OrderDetailsService(configDB);
         orderDetailsService.deleteOrder(orderDetails);
 
+        model.addAttribute("refundAmount",refundAmount);
+        model.addAttribute("cancellationFee", cancellationFee);
         return "cancelOrder";
     }
 }
