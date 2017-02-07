@@ -6,20 +6,32 @@ import Models.SelectedSeatWrapper;
 
 public class PassengerValidators {
 
+    private InjectionValidator injectionValidator;
+
+    public PassengerValidators() {
+
+        injectionValidator=new InjectionValidator();
+    }
+
     public String validatePassengers(PassengerWrapper passengerWrapper) {
+        String injectionError = "Special symbols are not allowed";
 
         Passenger passenger;
         for (int index = 0; index < passengerWrapper.getPassengerList().size(); index++) {
             passenger = passengerWrapper.getPassengerList().get(index);
 
-            if (passenger.getName().replaceAll("\\s+", "").equals(""))
-                return "Error!:Name filed in empty in Passenger" + (index + 1) + " ";
+            if (passenger.getName().replaceAll("\\s+", "").equals("")) {
 
+                return "Error!:Name filed in empty in Passenger" + (index + 1) + " ";
+            }
             if (passenger.getAge() > 125 || passenger.getAge() <= 0)
                 return "Error!:Age filed in invalid in Passenger" + (index + 1) + " ";
 
             if (passenger.getGender().equals("-----"))
                 return "Error!:Please Enter Gender in Passenger" + (index + 1) + " ";
+
+            if(injectionValidator.validateInjection(passenger.getName()))
+                return injectionError;
         }
         return null;
     }

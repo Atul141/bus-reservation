@@ -2,6 +2,7 @@ package com.sample.Controller;
 
 import Models.*;
 import ServiceImpl.ConfigDB;
+import ServiceImpl.SyntaxSugar;
 import Services.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +30,7 @@ public class OrderDetailsController {
         orderDetails.setPrice((Integer) httpSession.getAttribute("price"));
         orderDetails.setRoute_id(route.getId());
         orderDetails.setEmail(email);
-        orderDetails.setStatus("Confirm");
+        orderDetails.setStatus(SyntaxSugar.PENDING);
 
         AvailableSeatWrapper availableSeatWrapper = (AvailableSeatWrapper) httpSession.getAttribute("availableSeatWrapper");
         SelectedSeatWrapper selectedSeatWrapper = (SelectedSeatWrapper) httpSession.getAttribute("selectedSeatWrapper");
@@ -68,6 +69,10 @@ public class OrderDetailsController {
         PassengerWrapper passengerWrapper = (PassengerWrapper) httpSession.getAttribute("passengerWrapper");
         OrderDetails orderDetails = (OrderDetails) httpSession.getAttribute("orderDetails");
         Route route = (Route) httpSession.getAttribute("route");
+        orderDetails.setStatus(SyntaxSugar.CONFIRM);
+        ConfigDB configDB=(ConfigDB)httpSession.getAttribute("configDB");
+        OrderDetailsService orderDetailsService=new OrderDetailsService(configDB);
+        orderDetailsService.updateOrderDetails(orderDetails);
 
         model.addAttribute("route", route);
         model.addAttribute("orderDetails", orderDetails);

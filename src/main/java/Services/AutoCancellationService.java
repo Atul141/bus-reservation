@@ -39,8 +39,6 @@ public class AutoCancellationService {
             shouldDelete = true;
         else if (hours > 0)
             shouldDelete = true;
-        System.out.println("Boolean="+shouldDelete);
-
         return shouldDelete;
     }
 }
