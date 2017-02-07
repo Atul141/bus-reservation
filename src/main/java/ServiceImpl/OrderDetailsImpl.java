@@ -56,8 +56,24 @@ public class OrderDetailsImpl {
 
     public void deleteOrder(OrderDetailsDao orderDetails) {
 
-        orderDetails.setStatus("cancelled");
-        UpdateImpl update =new UpdateImpl(configDB);
+        orderDetails.setStatus(SyntaxSugar.CANCEL);
+        UpdateImpl update = new UpdateImpl(configDB);
         update.UpdateDb(orderDetails);
+    }
+
+    public List<OrderDetailsDao> getOrderDetailsBaseOnStatus(String status) {
+        Session session = configDB.getSession();
+        Transaction transaction = session.beginTransaction();
+        String query = "FROM OrderDetailsDao orders where orders.status=" + "'" + status + "'";
+        List<OrderDetailsDao> orderDetailsDaoList = new ArrayList<OrderDetailsDao>();
+        try {
+            orderDetailsDaoList = (List<OrderDetailsDao>) session.createQuery(query).list();
+            transaction.commit();
+            session.close();
+        } catch (Throwable ex) {
+            System.out.println("error creating session " + ex);
+        }
+        return orderDetailsDaoList;
+
     }
 }

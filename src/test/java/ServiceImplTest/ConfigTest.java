@@ -284,9 +284,9 @@ public class ConfigTest {
         Timestamp timestamp = new Timestamp(time);
 
         orderDetailsDao.setTime(timestamp);
-        orderDetailsDao.setStatus("confirm");
+        orderDetailsDao.setStatus("pending");
         orderDetailsDao.setRoute_id(1);
-        orderDetailsDao.setId(1);
+        orderDetailsDao.setId(100);
         orderDetailsDao.setPrice(600);
         orderDetailsDao.setEmail("abc@gmail.com");
         return orderDetailsDao;

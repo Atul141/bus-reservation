@@ -9,7 +9,9 @@ import Models.SelectedSeatWrapper;
 import ServiceImpl.ConfigDB;
 import ServiceImpl.OrderDetailsImpl;
 import ServiceImpl.SequenceGenerator;
+import ServiceImpl.UpdateImpl;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -101,5 +103,20 @@ public class OrderDetailsService {
     public List<OrderDetailsDao> getOrderDetails(String email) {
 
         return orderDetailsImpl.getOrderDetails(email);
+    }
+
+    public List<OrderDetails> getOrderDetailsBasedOnStatus(String status) {
+
+        List<OrderDetailsDao> orderDetailsListDao = orderDetailsImpl.getOrderDetailsBaseOnStatus(status);
+        List<OrderDetails> orderDetailsList = new ArrayList<OrderDetails>();
+        for (OrderDetailsDao orderDetailsDao : orderDetailsListDao) {
+            orderDetailsList.add(mapOrderDetailsDao(orderDetailsDao));
+        }
+        return orderDetailsList;
+    }
+
+    public void updateOrderDetails(OrderDetails orderDetails) {
+        UpdateImpl update = new UpdateImpl(configDB);
+        update.UpdateDb(mapOrderDetails(orderDetails));
     }
 }
