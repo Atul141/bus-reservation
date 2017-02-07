@@ -23,7 +23,7 @@ import java.util.List;
 
 public class ConfigTest {
 
-    public InternalResourceViewResolver getViewInstance(){
+    public InternalResourceViewResolver getViewInstance() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setPrefix("/webApp/JSP/");
         viewResolver.setSuffix(".jsp");
@@ -40,6 +40,7 @@ public class ConfigTest {
         userDetailsDao.setId(1);
         return userDetailsDao;
     }
+
     public UserDetails getUserDetails() {
         UserDetails userDetailsDao = new UserDetails();
         userDetailsDao.setFirstName("abc");
@@ -100,15 +101,20 @@ public class ConfigTest {
     }
 
     public Route getRouteDetails() {
-        Route route = new Route();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = null;
         try {
-            Date date = dateFormat.parse("2017-2-5");
-            route.setDate(date);
+            date = dateFormat.parse("2017-1-28");
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        route.setDepartureTime(new Time(20,5,3));
+        return getRouteDetails(new Time(10, 5, 3), date);
+    }
+
+    public Route getRouteDetails(Time time, Date date) {
+        Route route = new Route();
+        route.setDate(date);
+        route.setDepartureTime(time);
         route.setDestination("BANGALORE");
         route.setSource("MYSORE");
         route.setPrice(300);
@@ -271,12 +277,10 @@ public class ConfigTest {
     }
 
 
-    public OrderDetails getOrderDetails(long minutes) {
+    public OrderDetails getOrderDetails() {
         OrderDetails orderDetailsDao = new OrderDetails();
         Calendar cal = Calendar.getInstance();
         Long time = cal.getTimeInMillis();
-        Long milliseconds = (minutes * 60000);
-        time -= milliseconds;
         Timestamp timestamp = new Timestamp(time);
 
         orderDetailsDao.setTime(timestamp);
@@ -313,7 +317,7 @@ public class ConfigTest {
     }
 
     public Payment getPayment() {
-        Payment payment=new Payment();
+        Payment payment = new Payment();
         payment.setName("abcd");
         payment.setCardNumber("1234567890");
         payment.setYear(2022);
@@ -326,7 +330,7 @@ public class ConfigTest {
 
     public NumberOfSeats getNumberOfSeat() {
 
-        NumberOfSeats numberOfSeats=new NumberOfSeats();
+        NumberOfSeats numberOfSeats = new NumberOfSeats();
         numberOfSeats.setNumber(5);
         numberOfSeats.setRoute_id(1);
         return numberOfSeats;

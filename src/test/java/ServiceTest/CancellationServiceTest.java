@@ -3,12 +3,17 @@ package ServiceTest;
 
 import Models.OrderDetails;
 import Models.Route;
-import ServiceImpl.ConfigDB;
 import ServiceImplTest.ConfigTest;
 import Services.CancellationService;
-import Services.OrderDetailsService;
+import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,21 +22,55 @@ public class CancellationServiceTest {
     private CancellationService cancellationService;
     private OrderDetails orderDetails;
     private ConfigTest configTest;
-    private ConfigDB configDB;
     private Route route;
+
     @Before
-    public void setup(){
-        configTest=new ConfigTest();
-        configDB=new ConfigDB();
-        route=configTest.getRouteDetails();
-        OrderDetailsService orderDetailsService=new OrderDetailsService(configDB);
-//        orderDetails=orderDetailsService.getOrderBasedOnId(1);
-        cancellationService= new CancellationService();
+    public void setup() {
+        configTest = new ConfigTest();
+        route = configTest.getRouteDetails();
+        cancellationService = new CancellationService();
 
     }
+
     @Test
-    public void shouldReturnRefundAmount(){
-        orderDetails=configTest.getOrderDetails(181L);
-        assertEquals(1,cancellationService.getRefundAmount(orderDetails,route));
+    public void shouldReturnRefundAmountIfCancelledBeforeOneDay() {
+        setRouteDate(30);
+        orderDetails = configTest.getOrderDetails();
+        assertEquals(300, cancellationService.getRefundAmount(orderDetails, route));
+    }
+
+    @Test
+    public void shouldReturnNotRefundAmountIfCancelledOneDayBefore() {
+        setRouteDate(3);
+        orderDetails = configTest.getOrderDetails();
+        assertEquals(0, cancellationService.getRefundAmount(orderDetails, route));
+    }
+
+    @Test
+    public void shouldReturnNRefundAmountIfCancelledTenDaysBefore() {
+        setRouteDate(242);
+        orderDetails = configTest.getOrderDetails();
+        assertEquals(480, cancellationService.getRefundAmount(orderDetails, route));
+    }
+
+    private void setRouteDate(int hours) {
+        DateTime start = new DateTime();
+        start = start.plusHours(hours);
+        int year = start.getYear();
+        int month = start.getMonthOfYear();
+        int day = start.getDayOfMonth();
+        String routeDate = year + "-" + month + "-" + day;
+        System.out.println(routeDate);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date dates = null;
+        try {
+            dates = dateFormat.parse(routeDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        int hour=start.getHourOfDay();
+        int minutes=start.getMinuteOfHour();
+        route.setDate(dates);
+        route.setDepartureTime(new Time(hour,minutes,00));
     }
 }

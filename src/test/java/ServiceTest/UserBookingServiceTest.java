@@ -46,7 +46,7 @@ public class UserBookingServiceTest {
         orderDetailsList = userBookingsService.getOrderDetailsList("abc@gmail.com");
 
         List<OrderDetails> orderDetailsListExpected = new ArrayList<OrderDetails>();
-        orderDetailsListExpected.add(configTest.getOrderDetails(0));
+        orderDetailsListExpected.add(configTest.getOrderDetails());
         assertEquals(orderDetailsListExpected, orderDetailsList);
     }
 }

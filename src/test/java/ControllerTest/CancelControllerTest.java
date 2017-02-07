@@ -38,7 +38,7 @@ public class CancelControllerTest {
     public void shouldReturnCancelOrderPage() throws Exception {
         Route route = configTest.getRouteDetails();
         ConfigDB configDB=new ConfigDB();
-        OrderDetails orderDetails=configTest.getOrderDetails(0);
+        OrderDetails orderDetails=configTest.getOrderDetails();
         PassengerWrapper passengerWrapper = configTest.getPassengerWrapper();
         mockMvc.perform(post("/cancelOrder")
                 .sessionAttr("cancelRoute", route)
