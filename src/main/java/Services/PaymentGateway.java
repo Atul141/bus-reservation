@@ -24,6 +24,7 @@ class PaymentGateway {
             output = encryptService.encryptString(output, key);
             out.writeUTF(output);
             String isValidString = in.readUTF();
+            isValidString = encryptService.decryptString(isValidString, key);
             if (isValidString.equals("true"))
                 isValid = true;
             else
