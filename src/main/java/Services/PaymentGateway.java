@@ -10,6 +10,8 @@ class PaymentGateway {
         int port = 6066;
         boolean isValid = false;
         String serverName = "localhost";
+        String key = "asdfqaqwsaerdqsw";
+
         try {
             Socket client = new Socket(serverName, port);
             OutputStream outToServer = client.getOutputStream();
@@ -17,7 +19,10 @@ class PaymentGateway {
 
             InputStream inFromServer = client.getInputStream();
             DataInputStream in = new DataInputStream(inFromServer);
-            out.writeUTF("" + payment.getCardNumber() + "-" + payment.getCvvNumber() + "-" + payment.getCardType() + "-" + payment.getMonth() + "-" + payment.getYear() + "-" + payment.getName() + "");
+            String output = "" + payment.getCardNumber() + "-" + payment.getCvvNumber() + "-" + payment.getCardType() + "-" + payment.getMonth() + "-" + payment.getYear() + "-" + payment.getName() + "";
+            EncryptService encryptService = new EncryptService();
+            output = encryptService.encryptString(output, key);
+            out.writeUTF(output);
             String isValidString = in.readUTF();
             if (isValidString.equals("true"))
                 isValid = true;
