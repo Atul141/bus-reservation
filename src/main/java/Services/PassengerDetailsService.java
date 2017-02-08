@@ -2,14 +2,12 @@ package Services;
 
 
 import Dao.PassengerDao;
-import Models.OrderDetails;
 import Models.Passenger;
 import Models.PassengerWrapper;
 import ServiceImpl.ConfigDB;
 import ServiceImpl.PassengerDetailsImpl;
 import ServiceImpl.SequenceGenerator;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +17,7 @@ public class PassengerDetailsService {
     private SequenceGenerator sequenceGenerator;
 
     public PassengerDetailsService(ConfigDB configDB) {
-        sequenceGenerator = new SequenceGenerator();
+        sequenceGenerator = new SequenceGenerator(configDB);
         passengerDetailsImpl = new PassengerDetailsImpl(configDB);
     }
 

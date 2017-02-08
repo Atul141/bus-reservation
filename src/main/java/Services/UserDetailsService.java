@@ -16,7 +16,7 @@ public class UserDetailsService {
     public UserDetailsService(ConfigDB configDB) {
         userDetailsDao = new UserDetailsDao();
         userDetailsImpl = new UserDetailsImpl(configDB);
-        sequenceGenerator = new SequenceGenerator();
+        sequenceGenerator = new SequenceGenerator(configDB);
     }
 
     public void saveUserDetails(UserDetails userDetails) {

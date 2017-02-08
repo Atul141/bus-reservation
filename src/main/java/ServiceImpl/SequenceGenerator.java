@@ -5,8 +5,8 @@ import org.hibernate.Session;
 public class SequenceGenerator {
     private ConfigDB configDB;
 
-    public SequenceGenerator() {
-        configDB = new ConfigDB();
+    public SequenceGenerator(ConfigDB configDB) {
+        this.configDB = configDB;
     }
 
     public Long generateSequencePassengers() {

@@ -62,7 +62,7 @@ public class OrderDetailsService {
 
 
     public long saveOrder(OrderDetails orderDetails) {
-        SequenceGenerator sequenceGenerator = new SequenceGenerator();
+        SequenceGenerator sequenceGenerator = new SequenceGenerator(configDB);
         Long id = sequenceGenerator.generateSequenceOrderDetails();
         orderDetails.setId(id);
         orderDetailsImpl.saveOrderDetails(mapOrderDetails(orderDetails));

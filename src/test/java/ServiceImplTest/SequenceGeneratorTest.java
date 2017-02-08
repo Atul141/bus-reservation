@@ -1,6 +1,7 @@
 package ServiceImplTest;
 
 
+import ServiceImpl.ConfigDB;
 import ServiceImpl.SequenceGenerator;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +12,7 @@ public class SequenceGeneratorTest {
 
     @Before
     public void setup() {
-        sequenceGenerator = new SequenceGenerator();
+        sequenceGenerator = new SequenceGenerator(new ConfigDB());
     }
 
     @Test

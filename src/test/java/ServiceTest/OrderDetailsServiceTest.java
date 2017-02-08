@@ -7,12 +7,10 @@ import Models.OrderDetails;
 import Models.Route;
 import Models.SelectedSeatWrapper;
 import ServiceImpl.ConfigDB;
-import ServiceImpl.SaveImpl;
 import ServiceImpl.SequenceGenerator;
 import ServiceImpl.SyntaxSugar;
 import ServiceImplTest.ConfigTest;
 import Services.OrderDetailsService;
-import jdk.nashorn.internal.runtime.regexp.joni.Syntax;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,9 +18,6 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -50,7 +45,7 @@ public class OrderDetailsServiceTest {
     @InjectMocks
     OrderDetailsService orderDetailsService=new OrderDetailsService(configDB);
     @Mock
-    SequenceGenerator sequenceGenerator=new SequenceGenerator();
+    SequenceGenerator sequenceGenerator=new SequenceGenerator(configDB);
     @Test
     public void shouldUpdateRoute() {
         Route route = new Route();
