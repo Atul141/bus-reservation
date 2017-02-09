@@ -40,8 +40,7 @@ public class EncryptService {
 
     private String unPad(String decrypted) {
 
-        String result = decrypted.replaceAll("\0", "");
-        return result;
+        return decrypted.replaceAll("\0", "");
     }
 
     private byte[] encrypt(String plainText, String encryptionKey) throws Exception {

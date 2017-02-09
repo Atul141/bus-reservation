@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d4ffd9f-eac1-4ed3-8f9a-5d085a839ec6" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/ServiceTest/EncryptionServiceTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/ServiceTest/PaymentGatewayTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Services/EncryptService.java" afterPath="$PROJECT_DIR$/src/main/java/Services/EncryptService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Services/PaymentGateway.java" afterPath="$PROJECT_DIR$/src/main/java/Services/PaymentGateway.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Services/PaymentService.java" afterPath="$PROJECT_DIR$/src/main/java/Services/PaymentService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sample/Controller/PaymentController.java" afterPath="$PROJECT_DIR$/src/main/java/com/sample/Controller/PaymentController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/ServiceImplTest/ConfigTest.java" afterPath="$PROJECT_DIR$/src/test/java/ServiceImplTest/ConfigTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,14 +73,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="PaymentGateway.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Services/PaymentGateway.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="38" column="18" lean-forward="true" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#186#187#0" expanded="true" />
+                <element signature="e#222#223#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookingControllerTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ControllerTest/BookingControllerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-206">
+              <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConfirmationControllerTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ControllerTest/ConfirmationControllerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-712">
+              <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="PaymentController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sample/Controller/PaymentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="770">
-              <caret line="45" column="58" lean-forward="false" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+            <state relative-caret-position="61">
+              <caret line="51" column="12" lean-forward="false" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConfigTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ServiceImplTest/ConfigTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="325">
+              <caret line="342" column="5" lean-forward="false" selection-start-line="342" selection-start-column="5" selection-end-line="342" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -82,18 +130,8 @@
       <file leaf-file-name="PaymentService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Services/PaymentService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PaymentGateway.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Services/PaymentGateway.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="770">
-              <caret line="35" column="23" lean-forward="true" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+            <state relative-caret-position="308">
+              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -101,76 +139,48 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrderDetailsImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ServiceImpl/OrderDetailsImpl.java">
+      <file leaf-file-name="OrderDetailsImplTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ServiceImplTest/OrderDetailsImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="74" column="33" lean-forward="true" selection-start-line="74" selection-start-column="33" selection-end-line="74" selection-end-column="33" />
+            <state relative-caret-position="198">
+              <caret line="19" column="29" lean-forward="false" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SaveImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ServiceImpl/SaveImpl.java">
+      <file leaf-file-name="EncryptionServiceTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ServiceTest/EncryptionServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="28" lean-forward="true" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-              <folding />
+            <state relative-caret-position="198">
+              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#272#273#0" expanded="true" />
+                <element signature="e#325#326#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SeatSelectionImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ServiceImpl/SeatSelectionImpl.java">
+      <file leaf-file-name="PaymentGatewayTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ServiceTest/PaymentGatewayTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14">
-              <caret line="52" column="33" lean-forward="true" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
-              <folding />
+            <state relative-caret-position="146">
+              <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UpdateImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ServiceImpl/UpdateImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="25" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrderDetailsController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sample/Controller/OrderDetailsController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1">
-              <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EncryptService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EncryptService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Services/EncryptService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-465">
-              <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+            <state relative-caret-position="264">
+              <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PaymentWrapperService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Services/PaymentWrapperService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#285#294#0" expanded="false" />
-                <element signature="e#485#494#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -229,10 +239,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/sample/Controller/UserRegistrationController.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ControllerTest/OrderDetailsControllerTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ControllerTest/HomeControllerTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ControllerTest/LoginControllerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/ControllerTest/PaymentControllerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/ControllerTest/UserBookingControllerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/ControllerTest/UserDetailsRegistrationControllerTest.java" />
@@ -245,7 +251,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sample/Controller/CancelOrderController.java" />
         <option value="$PROJECT_DIR$/src/main/webApp/JSP/cancelOrder.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/ServiceImpl/SyntaxSugar.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ServiceImplTest/ConfigTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Services/OrderDetailsService.java" />
         <option value="$PROJECT_DIR$/src/test/java/ServiceTest/AutoCancellationServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Services/AutoCancellationService.java" />
@@ -272,14 +277,19 @@
         <option value="$PROJECT_DIR$/src/main/java/ServiceImpl/SequenceGenerator.java" />
         <option value="$PROJECT_DIR$/src/test/java/ServiceImplTest/SequenceGeneratorTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Services/PaymentWrapperService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Services/PaymentService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sample/Controller/PaymentController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServiceImpl/OrderDetailsImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServiceImpl/SaveImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServiceImpl/UpdateImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sample/Controller/OrderDetailsController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Services/PaymentGateway.java" />
         <option value="$PROJECT_DIR$/src/main/java/Services/EncryptService.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ServiceImplTest/OrderDetailsImplTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ServiceTest/EncryptionServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ServiceTest/paymentGatewayTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ServiceImplTest/ConfigTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Services/PaymentService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sample/Controller/PaymentController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Services/PaymentGateway.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ServiceTest/PaymentGatewayTest.java" />
       </list>
     </option>
   </component>
@@ -637,6 +647,10 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -699,7 +713,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Atul">
-    <configuration default="false" name="AutoCancellationServiceTest.shouldNotAutoCancelAutoIfPaymentIsMadeBefore30min" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="EncryptionServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="ServiceTest.*" />
@@ -710,59 +724,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="ServiceTest" />
-      <option name="MAIN_CLASS_NAME" value="ServiceTest.AutoCancellationServiceTest" />
-      <option name="METHOD_NAME" value="shouldNotAutoCancelAutoIfPaymentIsMadeBefore30min" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="AutoCancellationServiceTest.shouldAutoCancelAutoIfPaymentIsNotMadeBefore30min" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ServiceTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="sprinmvcproject" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ServiceTest" />
-      <option name="MAIN_CLASS_NAME" value="ServiceTest.AutoCancellationServiceTest" />
-      <option name="METHOD_NAME" value="shouldAutoCancelAutoIfPaymentIsNotMadeBefore30min" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="AutoCancellationServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ServiceTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="sprinmvcproject" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ServiceTest" />
-      <option name="MAIN_CLASS_NAME" value="ServiceTest.AutoCancellationServiceTest" />
+      <option name="MAIN_CLASS_NAME" value="ServiceTest.EncryptionServiceTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -777,20 +739,20 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="InjectionvalidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="PaymentGatewayTest.shouldValidateCredentials" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="Validators.*" />
+          <option name="PATTERN" value="ServiceTest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="sprinmvcproject" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="Validators" />
-      <option name="MAIN_CLASS_NAME" value="Validators.InjectionvalidatorTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="ServiceTest" />
+      <option name="MAIN_CLASS_NAME" value="ServiceTest.PaymentGatewayTest" />
+      <option name="METHOD_NAME" value="shouldValidateCredentials" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -803,24 +765,82 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="PaymentGateway" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="PaymentGatewayTest.testSimplePayload" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="Services.*" />
+          <option name="PATTERN" value="ServiceTest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="Services.PaymentGateway" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <module name="sprinmvcproject" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="PACKAGE_NAME" value="ServiceTest" />
+      <option name="MAIN_CLASS_NAME" value="ServiceTest.PaymentGatewayTest" />
+      <option name="METHOD_NAME" value="testSimplePayload" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="sprinmvcproject" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
       <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="PaymentGatewayTest.testSend" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ServiceTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="sprinmvcproject" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="ServiceTest" />
+      <option name="MAIN_CLASS_NAME" value="ServiceTest.PaymentGatewayTest" />
+      <option name="METHOD_NAME" value="testSend" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="PaymentGatewayTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ServiceTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="sprinmvcproject" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="ServiceTest" />
+      <option name="MAIN_CLASS_NAME" value="ServiceTest.PaymentGatewayTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
@@ -1411,19 +1431,19 @@
       <item index="0" class="java.lang.String" itemvalue="JUnit.DefaultControllerTest" />
       <item index="1" class="java.lang.String" itemvalue="Tomcat Server.Unnamed" />
       <item index="2" class="java.lang.String" itemvalue="Tomcat Server.Atul" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.AutoCancellationServiceTest.shouldNotAutoCancelAutoIfPaymentIsMadeBefore30min" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.AutoCancellationServiceTest.shouldAutoCancelAutoIfPaymentIsNotMadeBefore30min" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.AutoCancellationServiceTest" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.InjectionvalidatorTest" />
-      <item index="7" class="java.lang.String" itemvalue="Application.PaymentGateway" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.EncryptionServiceTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.PaymentGatewayTest.shouldValidateCredentials" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.PaymentGatewayTest.testSimplePayload" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.PaymentGatewayTest.testSend" />
+      <item index="7" class="java.lang.String" itemvalue="JUnit.PaymentGatewayTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.PaymentGateway" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.InjectionvalidatorTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.AutoCancellationServiceTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.AutoCancellationServiceTest.shouldAutoCancelAutoIfPaymentIsNotMadeBefore30min" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.AutoCancellationServiceTest.shouldNotAutoCancelAutoIfPaymentIsMadeBefore30min" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.PaymentGatewayTest.shouldValidateCredentials" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.PaymentGatewayTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.PaymentGatewayTest.testSend" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.PaymentGatewayTest.testSimplePayload" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.EncryptionServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -1461,44 +1481,44 @@
       <workItem from="1486227068326" duration="1816000" />
       <workItem from="1486278166761" duration="152000" />
       <workItem from="1486278407545" duration="53495000" />
-      <workItem from="1486566479101" duration="2076000" />
+      <workItem from="1486566479101" duration="7504000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AutoCancellationServiceTest - 2017.02.07 at 16h 35m 00s.xml">
-      <configuration name="AutoCancellationServiceTest" configurationId="JUnit" />
+    <history-entry file="PaymentGatewayTest - 2017.02.09 at 12h 52m 00s.xml">
+      <configuration name="PaymentGatewayTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AutoCancellationServiceTest_shouldAutoCancelAutoIfPaymentIsNotMadeBefore30min - 2017.02.07 at 16h 31m 38s.xml">
-      <configuration name="AutoCancellationServiceTest.shouldAutoCancelAutoIfPaymentIsNotMadeBefore30min" configurationId="JUnit" />
+    <history-entry file="PaymentGatewayTest - 2017.02.09 at 12h 52m 26s.xml">
+      <configuration name="PaymentGatewayTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AutoCancellationServiceTest_shouldAutoCancelAutoIfPaymentIsNotMadeBefore30min - 2017.02.07 at 16h 32m 49s.xml">
-      <configuration name="AutoCancellationServiceTest.shouldAutoCancelAutoIfPaymentIsNotMadeBefore30min" configurationId="JUnit" />
+    <history-entry file="PaymentGatewayTest - 2017.02.09 at 12h 53m 20s.xml">
+      <configuration name="PaymentGatewayTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="InjectionvalidatorTest - 2017.02.07 at 17h 24m 45s.xml">
-      <configuration name="InjectionvalidatorTest" configurationId="JUnit" />
+    <history-entry file="PaymentGatewayTest_shouldValidateCredentials - 2017.02.09 at 12h 52m 30s.xml">
+      <configuration name="PaymentGatewayTest.shouldValidateCredentials" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="InjectionvalidatorTest - 2017.02.07 at 17h 25m 13s.xml">
-      <configuration name="InjectionvalidatorTest" configurationId="JUnit" />
+    <history-entry file="PaymentGatewayTest_shouldValidateCredentials - 2017.02.09 at 12h 52m 54s.xml">
+      <configuration name="PaymentGatewayTest.shouldValidateCredentials" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="InjectionvalidatorTest - 2017.02.07 at 17h 25m 25s.xml">
-      <configuration name="InjectionvalidatorTest" configurationId="JUnit" />
+    <history-entry file="PaymentGatewayTest_shouldValidateCredentials - 2017.02.09 at 12h 53m 31s.xml">
+      <configuration name="PaymentGatewayTest.shouldValidateCredentials" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="InjectionvalidatorTest - 2017.02.07 at 17h 27m 06s.xml">
-      <configuration name="InjectionvalidatorTest" configurationId="JUnit" />
+    <history-entry file="PaymentGatewayTest_testSend - 2017.02.09 at 12h 47m 50s.xml">
+      <configuration name="PaymentGatewayTest.testSend" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="InjectionvalidatorTest - 2017.02.07 at 17h 27m 53s.xml">
-      <configuration name="InjectionvalidatorTest" configurationId="JUnit" />
+    <history-entry file="PaymentGatewayTest_testSend - 2017.02.09 at 12h 48m 05s.xml">
+      <configuration name="PaymentGatewayTest.testSend" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="InjectionvalidatorTest - 2017.02.07 at 17h 28m 13s.xml">
-      <configuration name="InjectionvalidatorTest" configurationId="JUnit" />
+    <history-entry file="PaymentGatewayTest_testSend - 2017.02.09 at 12h 48m 38s.xml">
+      <configuration name="PaymentGatewayTest.testSend" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="InjectionvalidatorTest - 2017.02.07 at 17h 28m 38s.xml">
-      <configuration name="InjectionvalidatorTest" configurationId="JUnit" />
+    <history-entry file="PaymentGatewayTest_testSend - 2017.02.09 at 12h 49m 01s.xml">
+      <configuration name="PaymentGatewayTest.testSend" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="328324000" />
+    <option name="totallyTimeSpent" value="333752000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1511,7 +1531,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1601,7 +1621,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="15" />
+      <option name="time" value="16" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1610,42 +1630,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/ServiceTest/UserBookingServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="48" column="64" lean-forward="false" selection-start-line="48" selection-start-column="64" selection-end-line="48" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webApp/JSP/booking.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1147">
-          <caret line="80" column="17" lean-forward="true" selection-start-line="80" selection-start-column="17" selection-end-line="80" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webApp/JSP/DisplayOrderDetails.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="71" column="31" lean-forward="false" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webApp/JSP/cancelOrder.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="9" lean-forward="false" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ServiceImpl/SyntaxSugar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Services/CancellationService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -1656,26 +1640,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ServiceImplTest/OrderDetailsImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="41" column="29" lean-forward="true" selection-start-line="37" selection-start-column="8" selection-end-line="41" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ServiceImplTest/SaveImplImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-331">
           <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ServiceImplTest/ConfigTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="156" column="0" lean-forward="false" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1906,6 +1874,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#224#225#0" expanded="false" />
+            <element signature="e#262#263#0" expanded="false" />
+            <element signature="e#596#597#0" expanded="false" />
+            <element signature="e#629#630#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1993,24 +1968,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sample/Controller/PaymentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="770">
-          <caret line="45" column="58" lean-forward="false" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Services/PaymentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ServiceImpl/OrderDetailsImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
@@ -2051,21 +2008,103 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ControllerTest/CancelControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-338">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ControllerTest/BookingControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-206">
+          <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ServiceImplTest/OrderDetailsImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="19" column="29" lean-forward="false" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ServiceTest/EncryptionServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#272#273#0" expanded="true" />
+            <element signature="e#325#326#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ControllerTest/ConfirmationControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-712">
+          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ServiceImplTest/ConfigTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="342" column="5" lean-forward="false" selection-start-line="342" selection-start-column="5" selection-end-line="342" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sample/Controller/PaymentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="51" column="12" lean-forward="false" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Services/EncryptService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Services/PaymentGateway.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="770">
-          <caret line="35" column="23" lean-forward="true" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+        <state relative-caret-position="285">
+          <caret line="38" column="18" lean-forward="true" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#186#187#0" expanded="true" />
+            <element signature="e#222#223#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Services/PaymentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Services/EncryptService.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ServiceTest/PaymentGatewayTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-465">
-          <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
-          <folding />
+        <state relative-caret-position="146">
+          <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

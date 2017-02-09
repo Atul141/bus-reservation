@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.IOException;
+
 @Controller
 public class PaymentController {
 
@@ -43,7 +45,12 @@ public class PaymentController {
 
             return "redirect:/payment";
         }
-        boolean isCrreditCardValid = paymentService.validateCreditCard(payment);
+        boolean isCrreditCardValid = false;
+        try {
+            isCrreditCardValid = paymentService.validateCreditCard(payment);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         System.out.println(isCrreditCardValid);
         if (isCrreditCardValid == false) {
             redirectAttribute.addAttribute("paymentError", "Invalid Credit Card Details");

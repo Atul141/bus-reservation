@@ -10,6 +10,8 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import java.io.IOException;
+import java.net.Socket;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.DateFormat;
@@ -318,9 +320,9 @@ public class ConfigTest {
 
     public Payment getPayment() {
         Payment payment = new Payment();
-        payment.setName("abcd");
-        payment.setCardNumber("1234567890");
-        payment.setYear(2022);
+        payment.setName("abc");
+        payment.setCardNumber("1111111111");
+        payment.setYear(2017);
         payment.setMonth(10);
         payment.setCvvNumber(111);
         payment.setCardType("Visa");
@@ -335,5 +337,8 @@ public class ConfigTest {
         numberOfSeats.setRoute_id(1);
         return numberOfSeats;
 
+    }
+    public Socket getSocket(String serverName, int port) throws IOException {
+        return new Socket(serverName, port);
     }
 }
