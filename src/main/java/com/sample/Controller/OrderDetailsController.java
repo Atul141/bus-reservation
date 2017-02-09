@@ -75,6 +75,9 @@ public class OrderDetailsController {
         SMSService smsService = new SMSService();
         smsService.sendSMS(orderDetails);
 
+        EmailService emailService = new EmailService();
+        emailService.sendEmai(orderDetails);
+
         model.addAttribute("route", route);
         model.addAttribute("orderDetails", orderDetails);
         model.addAttribute("passengerWrapper", passengerWrapper);
