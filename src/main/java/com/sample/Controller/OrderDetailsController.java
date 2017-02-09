@@ -72,11 +72,6 @@ public class OrderDetailsController {
         ConfigDB configDB = (ConfigDB) httpSession.getAttribute("configDB");
         OrderDetailsService orderDetailsService = new OrderDetailsService(configDB);
         orderDetailsService.updateOrderDetails(orderDetails);
-//        SMSService smsService = new SMSService();
-//        smsService.sendSMS(orderDetails);
-//
-//        EmailService emailService = new EmailService();
-//        emailService.sendEmail(orderDetails);
 
         MessageService messageService = new MessageService(orderDetails, route);
         messageService.sendMessage();
