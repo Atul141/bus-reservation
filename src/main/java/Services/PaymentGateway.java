@@ -14,9 +14,7 @@ public class PaymentGateway {
     }
 
     public boolean ValidateCredentials(Payment payment) {
-        int port = 6066;
         boolean isValid = false;
-        String serverName = "localhost";
         String key = "asdfqaqwsaerdqsw";
 
         try {

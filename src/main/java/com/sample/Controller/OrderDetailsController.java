@@ -23,7 +23,7 @@ public class OrderDetailsController {
         PassengerWrapper passengerWrapper = (PassengerWrapper) httpSession.getAttribute("passengerWrapper");
         Route route = (Route) httpSession.getAttribute("route");
         String email = (String) httpSession.getAttribute("email");
-        ConfigDB configDB=(ConfigDB)httpSession.getAttribute("configDB");
+        ConfigDB configDB = (ConfigDB) httpSession.getAttribute("configDB");
 
         OrderDetails orderDetails = new OrderDetails();
         OrderDetailsService orderDetailsService = new OrderDetailsService(configDB);
@@ -48,10 +48,10 @@ public class OrderDetailsController {
         orderDetails.setTime(timestamp);
         passengerWrapper.setTimestamp(timestamp);
 
-        long orderId=orderDetailsService.saveOrder(orderDetails);
+        long orderId = orderDetailsService.saveOrder(orderDetails);
 
-        PassengerDetailsService passengerDetailsService=new PassengerDetailsService(configDB);
-        passengerDetailsService.savePassengerDetails(passengerWrapper,orderId);
+        PassengerDetailsService passengerDetailsService = new PassengerDetailsService(configDB);
+        passengerDetailsService.savePassengerDetails(passengerWrapper, orderId);
 
 
         httpSession.setAttribute("orderDetails", orderDetails);
@@ -59,7 +59,6 @@ public class OrderDetailsController {
 
         return "redirect:/payment";
     }
-
 
 
     @RequestMapping(value = "DisplayOrderDetails", method = RequestMethod.GET)
@@ -70,9 +69,11 @@ public class OrderDetailsController {
         OrderDetails orderDetails = (OrderDetails) httpSession.getAttribute("orderDetails");
         Route route = (Route) httpSession.getAttribute("route");
         orderDetails.setStatus(SyntaxSugar.CONFIRM);
-        ConfigDB configDB=(ConfigDB)httpSession.getAttribute("configDB");
-        OrderDetailsService orderDetailsService=new OrderDetailsService(configDB);
+        ConfigDB configDB = (ConfigDB) httpSession.getAttribute("configDB");
+        OrderDetailsService orderDetailsService = new OrderDetailsService(configDB);
         orderDetailsService.updateOrderDetails(orderDetails);
+        SMSService smsService = new SMSService();
+        smsService.sendSMS(orderDetails);
 
         model.addAttribute("route", route);
         model.addAttribute("orderDetails", orderDetails);
