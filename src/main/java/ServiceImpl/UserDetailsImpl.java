@@ -22,6 +22,18 @@ public class UserDetailsImpl {
     }
 
     public Boolean checkIfUserExist(String email) {
+        UserDetailsDao userDetailsDao = getUserdetails(email);
+        if (userDetailsDao == null)
+            return false;
+        return true;
+    }
+
+    public String getPhoneNumber(String email) {
+        UserDetailsDao userDetailsDao = getUserdetails(email);
+        return userDetailsDao.getPhone();
+    }
+
+    private UserDetailsDao getUserdetails(String email) {
         Session session = configDB.getSession();
         Transaction transaction = session.beginTransaction();
         String query = "FROM UserDetailsDao  user where user.email=" + "'" + email + "'";
@@ -35,10 +47,8 @@ public class UserDetailsImpl {
 
         } catch (Throwable ex) {
             System.out.println("error creating session " + ex);
-            return true;
+            return null;
         }
-        if (userDetails == null)
-            return false;
-        return true;
+        return userDetails;
     }
 }

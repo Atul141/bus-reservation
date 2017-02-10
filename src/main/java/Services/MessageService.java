@@ -19,12 +19,14 @@ public class MessageService {
         this.route = route;
     }
 
-    public void sendMessage() {
+    public void sendMessage(String phoneNumner, String email) {
         String message = createMessage(orderDetails, route);
         int portEmail = 6064;
         int portSMS = 6065;
-        send(message, portEmail);
-        send(message, portSMS);
+        String emailMessage = email + "%" + message;
+        String phoneMessage = phoneNumner + "%" + message;
+        send(emailMessage, portEmail);
+        send(phoneMessage, portSMS);
     }
 
     private String createMessage(OrderDetails orderDetails, Route route) {

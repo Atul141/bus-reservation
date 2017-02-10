@@ -32,6 +32,10 @@ public class UserDetailsService {
 
     }
 
+    public String getPhoneNumber(String email) {
+        return userDetailsImpl.getPhoneNumber(email);
+    }
+
     public Boolean checkIfUserExists(String email) {
         return userDetailsImpl.checkIfUserExist(email);
     }

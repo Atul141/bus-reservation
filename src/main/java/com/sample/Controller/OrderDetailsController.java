@@ -73,8 +73,11 @@ public class OrderDetailsController {
         OrderDetailsService orderDetailsService = new OrderDetailsService(configDB);
         orderDetailsService.updateOrderDetails(orderDetails);
 
+        String email = (String) httpSession.getAttribute("email");
+        UserDetailsService userDetailsService = new UserDetailsService(configDB);
+        String phoneNumber = userDetailsService.getPhoneNumber(email);
         MessageService messageService = new MessageService(orderDetails, route);
-        messageService.sendMessage();
+        messageService.sendMessage(phoneNumber, email);
 
         model.addAttribute("route", route);
         model.addAttribute("orderDetails", orderDetails);
