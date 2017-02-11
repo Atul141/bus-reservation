@@ -42,11 +42,7 @@ public class HomeController {
                 return "redirect:/searchRoutes";
             }
 
-            HttpSession httpSession = request.getSession();
-            ConfigDB configDB = (ConfigDB) httpSession.getAttribute("configDB");
-
-
-            UserDetails userDetails = (UserDetails) httpSession.getAttribute("userDetails");
+            ConfigDB configDB=new ConfigDB();
             Cookie[] cookie = request.getCookies();
 
             route = mapDate(date, route);

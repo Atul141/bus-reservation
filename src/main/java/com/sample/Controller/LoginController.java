@@ -36,31 +36,35 @@ public class LoginController {
 
     @RequestMapping(value = "/loginValidation", method = RequestMethod.POST)
     public String validateLogin(@ModelAttribute("User") UserDetails userDetails, RedirectAttributes redirectAttributes, HttpServletRequest request, HttpServletResponse response) {
-        LoginValidator loginValidator = new LoginValidator();
-        String loginError = loginValidator.validate(userDetails);
-        if (loginError == null) {
-            boolean isUserLoggedIn = loginService.validateLogin(userDetails);
-            if (isUserLoggedIn == false) {
-                loginError = "Invalid Credentials";
-                redirectAttributes.addAttribute("Error", loginError);
-                return "redirect:/login";
+        try {
+            LoginValidator loginValidator = new LoginValidator();
+            String loginError = loginValidator.validate(userDetails);
+            if (loginError == null) {
+                boolean isUserLoggedIn = loginService.validateLogin(userDetails);
+                if (isUserLoggedIn == false) {
+                    loginError = "Invalid Credentials";
+                    redirectAttributes.addAttribute("Error", loginError);
+                    return "redirect:/login";
+                }
+                userDetails.setEmail(userDetails.getEmail());
+                HttpSession httpSession = request.getSession();
+                httpSession.setAttribute("email", userDetails.getEmail());
+
+                httpSession.setAttribute("status", SyntaxSugar.LOGGED_IN);
+
+                redirectAttributes.addAttribute("userName", userDetails.getEmail());
+                Cookie cookie = new Cookie("userEmail", userDetails.getEmail());
+                response.addCookie(cookie);
+
+                return "redirect:/searchRoutes";
             }
-            userDetails.setEmail(userDetails.getEmail());
-            HttpSession httpSession = request.getSession();
-            httpSession.setAttribute("userDetails", userDetails);
-            httpSession.setAttribute("email", userDetails.getEmail());
-            httpSession.setAttribute("configDB", configDB);
 
-            httpSession.setAttribute("status", SyntaxSugar.LOGGED_IN);
-            redirectAttributes.addAttribute("userName", userDetails.getEmail());
-            Cookie cookie = new Cookie("userEmail", userDetails.getEmail());
-            response.addCookie(cookie);
+            redirectAttributes.addAttribute("Error", "ERROR!!:" + loginError);
+            return "redirect:/login";
 
-            return "redirect:/searchRoutes";
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return "errorDisplay";
         }
-
-        redirectAttributes.addAttribute("Error", "ERROR!!:" + loginError);
-        return "redirect:/login";
-
     }
 }

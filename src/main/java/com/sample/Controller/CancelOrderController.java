@@ -17,36 +17,49 @@ public class CancelOrderController {
 
     @RequestMapping(value = "/cancelOrder", method = RequestMethod.POST)
     public String deleteOrder(HttpServletRequest request, Model model) {
-        HttpSession httpSession = request.getSession();
-        ConfigDB configDB = (ConfigDB) httpSession.getAttribute("configDB");
-        SeatSelectionService seatSelectionService = new SeatSelectionService(configDB);
-        RouteService routeService = new RouteService(configDB);
-        CancelBookingService cancelBookingService = new CancelBookingService(configDB);
+        try {
+            HttpSession httpSession = request.getSession();
 
-        Route route = (Route) httpSession.getAttribute("cancelRoute");
-        PassengerWrapper passengerWrapper = (PassengerWrapper) httpSession.getAttribute("passengerWrapper");
-        route = cancelBookingService.updateRoute(route, passengerWrapper.getPassengerList().size());
-        routeService.updateRoute(route);
+            ConfigDB configDB=new ConfigDB();
+            httpSession.setAttribute("configDB",configDB);
+            SeatSelectionService seatSelectionService = new SeatSelectionService(configDB);
+            RouteService routeService = new RouteService(configDB);
+            CancelBookingService cancelBookingService = new CancelBookingService(configDB);
 
-        TotalSeatSelectionImpl totalSeatSelection = new TotalSeatSelectionImpl(configDB);
-        AvailableSeatWrapper totalAvailableSeats = totalSeatSelection.getAvailableSeats(route.getBus_no(), route.getId());
-        AvailableSeatWrapper availableSeatWrapper = seatSelectionService.getAvailableSeat(route.getBus_no(), route.getId());
-        availableSeatWrapper = cancelBookingService.updateAvailableSeats(passengerWrapper, availableSeatWrapper, totalAvailableSeats);
-        seatSelectionService.updateAvailableSeats(availableSeatWrapper);
+            Route route = (Route) httpSession.getAttribute("cancelRoute");
+            PassengerWrapper passengerWrapper = (PassengerWrapper) httpSession.getAttribute("passengerWrapper");
+            route = cancelBookingService.updateRoute(route, passengerWrapper.getPassengerList().size());
+            routeService.updateRoute(route);
 
-        OrderDetails orderDetails = (OrderDetails) httpSession.getAttribute("cancelOrderDetails");
-        CancellationService cancellationService = new CancellationService();
-        int cancellationFee = cancellationService.getRefundAmount(orderDetails, route);
-        int refundAmount=orderDetails.getPrice()-cancellationFee;
+            TotalSeatSelectionImpl totalSeatSelection = new TotalSeatSelectionImpl(configDB);
+            AvailableSeatWrapper totalAvailableSeats = totalSeatSelection.getAvailableSeats(route.getBus_no(), route.getId());
+            AvailableSeatWrapper availableSeatWrapper = seatSelectionService.getAvailableSeat(route.getBus_no(), route.getId());
+            availableSeatWrapper = cancelBookingService.updateAvailableSeats(passengerWrapper, availableSeatWrapper, totalAvailableSeats);
+            seatSelectionService.updateAvailableSeats(availableSeatWrapper);
 
-        PassengerDetailsService passengerDetailsService = new PassengerDetailsService(configDB);
-        passengerDetailsService.deletePassengerList(passengerWrapper, orderDetails.getId());
+            OrderDetails orderDetails = (OrderDetails) httpSession.getAttribute("cancelOrderDetails");
+            CancellationService cancellationService = new CancellationService();
+            int cancellationFee = cancellationService.getRefundAmount(orderDetails, route);
+            int refundAmount = orderDetails.getPrice() - cancellationFee;
 
-        OrderDetailsService orderDetailsService = new OrderDetailsService(configDB);
-        orderDetailsService.deleteOrder(orderDetails);
+            PassengerDetailsService passengerDetailsService = new PassengerDetailsService(configDB);
+            passengerDetailsService.deletePassengerList(passengerWrapper, orderDetails.getId());
 
-        model.addAttribute("refundAmount",refundAmount);
-        model.addAttribute("cancellationFee", cancellationFee);
-        return "cancelOrder";
+            OrderDetailsService orderDetailsService = new OrderDetailsService(configDB);
+            orderDetailsService.deleteOrder(orderDetails);
+
+            httpSession.removeAttribute("cancelRoute");
+            httpSession.removeAttribute("passengerWrapper");
+            httpSession.removeAttribute("cancelOrderDetails");
+
+            model.addAttribute("refundAmount", refundAmount);
+            model.addAttribute("cancellationFee", cancellationFee);
+            return "cancelOrder";
+        } catch (Exception ex) {
+            System.out.println(ex);
+            return "redirect:/searchRoutes";
+
+        }
+
     }
 }

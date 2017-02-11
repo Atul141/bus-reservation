@@ -21,55 +21,67 @@ import java.io.IOException;
 public class PaymentController {
 
     @RequestMapping(value = "/payment", method = RequestMethod.GET)
-    public String payment(Model model, @ModelAttribute("paymentError") String error, HttpServletRequest request)
-    {
-        HttpSession httpSession=request.getSession();
-        String status = (String) httpSession.getAttribute("status");
-        if ((status.compareTo(SyntaxSugar.LOGGED_IN)) != 0) {
-            return "redirect:/login";
+    public String payment(Model model, @ModelAttribute("paymentError") String error, HttpServletRequest request) {
+        try {
+
+            HttpSession httpSession = request.getSession();
+            String status = (String) httpSession.getAttribute("status");
+            if ((status.compareTo(SyntaxSugar.LOGGED_IN)) != 0) {
+                return "redirect:/login";
+            }
+
+            PaymentWrapper paymentWrapper = new PaymentWrapper();
+            PaymentWrapperService paymentWrapperService = new PaymentWrapperService();
+            paymentWrapper.setCardType(paymentWrapperService.getCardTypes());
+            paymentWrapper.setMonth(paymentWrapperService.getMonthsList());
+            paymentWrapper.setYear(paymentWrapperService.getYearsList());
+
+            Payment payment = new Payment();
+            model.addAttribute("error", error);
+            model.addAttribute("payment", payment);
+            model.addAttribute("paymentWrapper", paymentWrapper);
+            return "payment";
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return "redirect:/searchRoutes";
+
         }
-
-        PaymentWrapper paymentWrapper = new PaymentWrapper();
-        PaymentWrapperService paymentWrapperService = new PaymentWrapperService();
-        paymentWrapper.setCardType(paymentWrapperService.getCardTypes());
-        paymentWrapper.setMonth(paymentWrapperService.getMonthsList());
-        paymentWrapper.setYear(paymentWrapperService.getYearsList());
-
-        Payment payment = new Payment();
-        model.addAttribute("error", error);
-        model.addAttribute("payment", payment);
-        model.addAttribute("paymentWrapper", paymentWrapper);
-        return "payment";
-
     }
 
 
     @RequestMapping(value = "/validatePayment", method = RequestMethod.POST)
     public String validatePayment(@ModelAttribute("payment") Payment payment, RedirectAttributes redirectAttribute) {
-        PaymentService paymentService = new PaymentService();
-        PaymentValidator paymentValidator = new PaymentValidator();
-        String error = paymentValidator.validatePayment(payment);
-
-        if (error != null) {
-            redirectAttribute.addAttribute("paymentError", error);
-
-            return "redirect:/payment";
-        }
-        boolean isCrreditCardValid = false;
         try {
-            isCrreditCardValid = paymentService.validateCreditCard(payment);
-        } catch (IOException e) {
-            e.printStackTrace();
+
+            PaymentService paymentService = new PaymentService();
+            PaymentValidator paymentValidator = new PaymentValidator();
+            String error = paymentValidator.validatePayment(payment);
+
+            if (error != null) {
+                redirectAttribute.addAttribute("paymentError", error);
+
+                return "redirect:/payment";
+            }
+            boolean isCrreditCardValid = false;
+            try {
+                isCrreditCardValid = paymentService.validateCreditCard(payment);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            System.out.println(isCrreditCardValid);
+            if (isCrreditCardValid == false) {
+                redirectAttribute.addAttribute("paymentError", "Invalid Credit Card Details");
+
+                return "redirect:/payment";
+            }
+
+
+            return "redirect:/DisplayOrderDetails";
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return "redirect:/searchRoutes";
+
         }
-        System.out.println(isCrreditCardValid);
-        if (isCrreditCardValid == false) {
-            redirectAttribute.addAttribute("paymentError", "Invalid Credit Card Details");
-
-            return "redirect:/payment";
-        }
-
-
-        return "redirect:/DisplayOrderDetails";
     }
-
 }

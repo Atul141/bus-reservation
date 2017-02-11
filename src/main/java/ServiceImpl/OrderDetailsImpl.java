@@ -25,8 +25,18 @@ public class OrderDetailsImpl {
     }
 
     public List<OrderDetailsDao> getOrderDetails(String email) {
-        Session session = configDB.getSession();
+        Session session = null;
+        try {
+
+            session = configDB.getSession();
+        } catch (org.hibernate.service.spi.ServiceException ex) {
+            ex.printStackTrace();
+            ConfigDB configDB = new ConfigDB();
+            session = configDB.getSession();
+        }
+
         Transaction transaction = session.beginTransaction();
+
         String query = "FROM OrderDetailsDao orders where orders.email=" + "'" + email + "'";
         List<OrderDetailsDao> orderDetailsDaoList = new ArrayList<OrderDetailsDao>();
         try {
@@ -65,7 +75,17 @@ public class OrderDetailsImpl {
     }
 
     public List<OrderDetailsDao> getOrderDetailsBaseOnStatus(String status) {
-        Session session = configDB.getSession();
+        Session session = null;
+        try {
+
+            session = configDB.getSession();
+        } catch (org.hibernate.service.spi.ServiceException ex) {
+            ex.printStackTrace();
+            ConfigDB configDB = new ConfigDB();
+            session = configDB.getSession();
+        }
+
+
         Transaction transaction = session.beginTransaction();
         String query = "FROM OrderDetailsDao orders where orders.status=" + "'" + status + "'";
         List<OrderDetailsDao> orderDetailsDaoList = new ArrayList<OrderDetailsDao>();

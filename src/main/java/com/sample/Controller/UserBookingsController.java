@@ -6,6 +6,7 @@ import Models.OrderWrapper;
 import Models.PassengerWrapper;
 import Models.Route;
 import ServiceImpl.ConfigDB;
+import ServiceImpl.SyntaxSugar;
 import Services.OrderDetailsService;
 import Services.PassengerDetailsService;
 import Services.RouteService;
@@ -25,52 +26,63 @@ public class UserBookingsController {
 
     @RequestMapping(name = "/UserBookings", method = RequestMethod.GET)
     public String displayUserBookings(Model model, HttpServletRequest request) {
+        try {
+            HttpSession httpSession = request.getSession();
+            String status = (String) httpSession.getAttribute("status");
+            if ((status.compareTo(SyntaxSugar.LOGGED_IN) != 0)) {
+                return "redirect:/login";
+            }
 
-        HttpSession httpSession = request.getSession();
-        String status = (String) httpSession.getAttribute("status");
-        if ((status.compareTo("loggedIn")) != 0) {
-            return "redirect:/login";
+            ConfigDB configDB = new ConfigDB();
+            httpSession.setAttribute("configDB", configDB);
+            String email = (String) httpSession.getAttribute("email");
+
+            UserBookingsService userBookingsService = new UserBookingsService(configDB);
+            List<OrderDetails> orderDetailsList = userBookingsService.getOrderDetailsList(email);
+
+            OrderWrapper orderWrapper = new OrderWrapper();
+            model.addAttribute("orderWrapper", orderWrapper);
+            model.addAttribute("orderDetailsList", orderDetailsList);
+            return "UserBookings";
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return "redirect:/searchRoutes";
+
         }
-
-        ConfigDB configDB =(ConfigDB) httpSession.getAttribute("configDB");
-        String email = (String) httpSession.getAttribute("email");
-
-        UserBookingsService userBookingsService = new UserBookingsService(configDB);
-        List<OrderDetails> orderDetailsList = userBookingsService.getOrderDetailsList(email);
-
-        OrderWrapper orderWrapper = new OrderWrapper();
-        model.addAttribute("orderWrapper", orderWrapper);
-        model.addAttribute("orderDetailsList", orderDetailsList);
-        return "UserBookings";
-
     }
 
     @RequestMapping(name = "/savedOrderDetails", method = RequestMethod.POST)
     public String displaySavedOrderDetails(@ModelAttribute("orderWrapper") OrderWrapper orderWrapper, Model model, HttpServletRequest request) {
+        try {
+            HttpSession httpSession = request.getSession();
 
-        HttpSession httpSession = request.getSession();
-        ConfigDB configDB = (ConfigDB) httpSession.getAttribute("configDB");
-
-        RouteService routeService = new RouteService(configDB);
-        OrderDetailsService orderDetailsService = new OrderDetailsService(configDB);
-        OrderDetails orderDetails = orderDetailsService.getOrderBasedOnId(orderWrapper.getId());
-        Route route = routeService.getRouteBasedOnId(orderDetails.getRoute_id());
-
-
-        PassengerDetailsService passengerDetailsService = new PassengerDetailsService(configDB);
-        PassengerWrapper passengerWrapper = passengerDetailsService.getPassengerDetails(orderWrapper.getId());
-
-        httpSession.setAttribute("cancelRoute", route);
-        httpSession.setAttribute("passengerWrapper", passengerWrapper);
-        httpSession.setAttribute("cancelOrderDetails", orderDetails);
+            ConfigDB configDB = new ConfigDB();
+            RouteService routeService = new RouteService(configDB);
+            OrderDetailsService orderDetailsService = new OrderDetailsService(configDB);
+            OrderDetails orderDetails = orderDetailsService.getOrderBasedOnId(orderWrapper.getId());
+            Route route = routeService.getRouteBasedOnId(orderDetails.getRoute_id());
 
 
-        model.addAttribute("number", orderWrapper.getId());
-        model.addAttribute("orderDetails", orderDetails);
-        model.addAttribute("route", route);
-        model.addAttribute("passengerWrapper", passengerWrapper);
-        return "/savedOrderDetails";
+            PassengerDetailsService passengerDetailsService = new PassengerDetailsService(configDB);
+            PassengerWrapper passengerWrapper = passengerDetailsService.getPassengerDetails(orderWrapper.getId());
 
+            httpSession.setAttribute("cancelRoute", route);
+            httpSession.setAttribute("passengerWrapper", passengerWrapper);
+            httpSession.setAttribute("cancelOrderDetails", orderDetails);
+
+
+            model.addAttribute("number", orderWrapper.getId());
+            model.addAttribute("orderDetails", orderDetails);
+            model.addAttribute("route", route);
+            model.addAttribute("passengerWrapper", passengerWrapper);
+            return "/savedOrderDetails";
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return "redirect:/searchRoutes";
+
+        }
     }
 
 }

@@ -24,42 +24,48 @@ public class ConfirmationController {
 
     @RequestMapping(value = "/confirmation", method = RequestMethod.POST)
     public String confirmation(Model model, @ModelAttribute("passengerWrapper") PassengerWrapper passengerWrapper, HttpServletRequest request, RedirectAttributes redirectAttributes) {
-        SelectedSeatWrapper selectedSeatWrapper = getSelectedSeatWrapper(request);
-        HttpSession httpSession = request.getSession();
+        try {
+            SelectedSeatWrapper selectedSeatWrapper = getSelectedSeatWrapper(request);
+            HttpSession httpSession = request.getSession();
 
-        Route route = (Route) httpSession.getAttribute("route");
+            Route route = (Route) httpSession.getAttribute("route");
 
-        httpSession.setAttribute("selectedSeatWrapper", selectedSeatWrapper);
-        httpSession.setAttribute("passengerWrapper", passengerWrapper);
+            httpSession.setAttribute("selectedSeatWrapper", selectedSeatWrapper);
+            httpSession.setAttribute("passengerWrapper", passengerWrapper);
 
-        model.addAttribute("route", route);
-        model.addAttribute("numberOfSeats");
+            model.addAttribute("route", route);
+            model.addAttribute("numberOfSeats");
 
-        PassengerValidators passengerValidators = new PassengerValidators();
-        String error = passengerValidators.validatePassengers(passengerWrapper);
+            PassengerValidators passengerValidators = new PassengerValidators();
+            String error = passengerValidators.validatePassengers(passengerWrapper);
 
-        if (error != null) {
-            redirectAttributes.addAttribute("error", error);
+            if (error != null) {
+                redirectAttributes.addAttribute("error", error);
 
-            return "redirect:/reBooking";
+                return "redirect:/reBooking";
+            }
+            error = passengerValidators.validateSelectedSeatsWithPassengers(passengerWrapper, selectedSeatWrapper);
+            if (error != null) {
+                redirectAttributes.addAttribute("error", error);
+                return "redirect:/reBooking";
+            }
+            PassengerService passengerService = new PassengerService();
+            passengerWrapper = passengerService.allocateSeats(passengerWrapper, selectedSeatWrapper);
+            PriceCalculation priceCalculation = new PriceCalculation();
+            int price = priceCalculation.calculateprice(route.getPrice(), passengerWrapper.getPassengerList().size());
+
+            httpSession.setAttribute("passengerWrapper", passengerWrapper);
+            httpSession.setAttribute("price", price);
+            httpSession.setAttribute("selectedSeatWrapper", selectedSeatWrapper);
+            model.addAttribute("price", new Integer(price));
+            model.addAttribute("passengerWrapper", passengerWrapper);
+
+            return "/confirmation";
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return "redirect:/searchRoutes";
+
         }
-        error = passengerValidators.validateSelectedSeatsWithPassengers(passengerWrapper, selectedSeatWrapper);
-        if (error != null) {
-            redirectAttributes.addAttribute("error", error);
-            return "redirect:/reBooking";
-        }
-        PassengerService passengerService = new PassengerService();
-        passengerWrapper = passengerService.allocateSeats(passengerWrapper, selectedSeatWrapper);
-        PriceCalculation priceCalculation = new PriceCalculation();
-        int price = priceCalculation.calculateprice(route.getPrice(), passengerWrapper.getPassengerList().size());
-
-        httpSession.setAttribute("passengerWrapper",passengerWrapper);
-        httpSession.setAttribute("price",price);
-        httpSession.setAttribute("selectedSeatWrapper",selectedSeatWrapper);
-        model.addAttribute("price", new Integer(price));
-        model.addAttribute("passengerWrapper", passengerWrapper);
-
-        return "/confirmation";
     }
 
     public SelectedSeatWrapper getSelectedSeatWrapper(HttpServletRequest request) {
