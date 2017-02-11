@@ -2,6 +2,7 @@ package com.sample.Controller;
 
 import Models.Payment;
 import Models.PaymentWrapper;
+import ServiceImpl.SyntaxSugar;
 import Services.PaymentService;
 import Services.PaymentWrapperService;
 import Validators.PaymentValidator;
@@ -12,13 +13,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @Controller
 public class PaymentController {
 
     @RequestMapping(value = "/payment", method = RequestMethod.GET)
-    public String payment(Model model, @ModelAttribute("paymentError") String error) {
+    public String payment(Model model, @ModelAttribute("paymentError") String error, HttpServletRequest request)
+    {
+        HttpSession httpSession=request.getSession();
+        String status = (String) httpSession.getAttribute("status");
+        if ((status.compareTo(SyntaxSugar.LOGGED_IN)) != 0) {
+            return "redirect:/login";
+        }
+
         PaymentWrapper paymentWrapper = new PaymentWrapper();
         PaymentWrapperService paymentWrapperService = new PaymentWrapperService();
         paymentWrapper.setCardType(paymentWrapperService.getCardTypes());

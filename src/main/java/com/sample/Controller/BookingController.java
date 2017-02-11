@@ -3,6 +3,7 @@ package com.sample.Controller;
 
 import Models.*;
 import ServiceImpl.ConfigDB;
+import ServiceImpl.SyntaxSugar;
 import Services.PassengerService;
 import Services.RouteService;
 import Services.SeatSelectionService;
@@ -55,7 +56,10 @@ public class BookingController {
 
         HttpSession httpSession = request.getSession();
         ConfigDB configDB = (ConfigDB) httpSession.getAttribute("configDB");
-
+        String status = (String) httpSession.getAttribute("status");
+        if ((status.compareTo(SyntaxSugar.LOGGED_IN)) != 0) {
+            return "redirect:/login";
+        }
         NumberOfSeats numberOfSeats = (NumberOfSeats) httpSession.getAttribute("numberOfSeats");
         PassengerWrapper passengerWrapper = (PassengerWrapper) httpSession.getAttribute("passengerWrapper");
         RouteService routeService = new RouteService(configDB);

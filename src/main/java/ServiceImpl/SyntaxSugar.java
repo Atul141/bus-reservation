@@ -8,6 +8,8 @@ public class SyntaxSugar {
     public static final String PENDING = "pending";
     public static final String CONFIRM = "confirm";
     public static final String CANCEL = "cancel";
+    public static final String LOGGED_OUT = "LoggedOut";
+    public static final String LOGGED_IN = "LoggedIn";
 
 
 }

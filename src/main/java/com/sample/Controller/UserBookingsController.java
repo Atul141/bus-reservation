@@ -27,6 +27,11 @@ public class UserBookingsController {
     public String displayUserBookings(Model model, HttpServletRequest request) {
 
         HttpSession httpSession = request.getSession();
+        String status = (String) httpSession.getAttribute("status");
+        if ((status.compareTo("loggedIn")) != 0) {
+            return "redirect:/login";
+        }
+
         ConfigDB configDB =(ConfigDB) httpSession.getAttribute("configDB");
         String email = (String) httpSession.getAttribute("email");
 

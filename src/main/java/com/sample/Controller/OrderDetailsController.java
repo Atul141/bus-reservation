@@ -65,6 +65,11 @@ public class OrderDetailsController {
     public String displayOrderDetails(Model model, HttpServletRequest request) {
 
         HttpSession httpSession = request.getSession();
+
+        String status = (String) httpSession.getAttribute("status");
+        if ((status.compareTo(SyntaxSugar.LOGGED_IN)) != 0) {
+            return "redirect:/login";
+        }
         PassengerWrapper passengerWrapper = (PassengerWrapper) httpSession.getAttribute("passengerWrapper");
         OrderDetails orderDetails = (OrderDetails) httpSession.getAttribute("orderDetails");
         Route route = (Route) httpSession.getAttribute("route");

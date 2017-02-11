@@ -5,6 +5,7 @@ import javax.servlet.http.*;
 
 import Models.UserDetails;
 import ServiceImpl.ConfigDB;
+import ServiceImpl.SyntaxSugar;
 import Services.LoginService;
 import Validators.LoginValidator;
 import org.springframework.stereotype.Controller;
@@ -50,9 +51,11 @@ public class LoginController {
             httpSession.setAttribute("email", userDetails.getEmail());
             httpSession.setAttribute("configDB", configDB);
 
+            httpSession.setAttribute("status", SyntaxSugar.LOGGED_IN);
             redirectAttributes.addAttribute("userName", userDetails.getEmail());
             Cookie cookie = new Cookie("userEmail", userDetails.getEmail());
             response.addCookie(cookie);
+
             return "redirect:/searchRoutes";
         }
 
