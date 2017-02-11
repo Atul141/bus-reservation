@@ -20,33 +20,18 @@ public class CancelOrderController {
         try {
             HttpSession httpSession = request.getSession();
 
-            ConfigDB configDB=new ConfigDB();
-            httpSession.setAttribute("configDB",configDB);
-            SeatSelectionService seatSelectionService = new SeatSelectionService(configDB);
-            RouteService routeService = new RouteService(configDB);
+            ConfigDB configDB = new ConfigDB();
             CancelBookingService cancelBookingService = new CancelBookingService(configDB);
 
             Route route = (Route) httpSession.getAttribute("cancelRoute");
             PassengerWrapper passengerWrapper = (PassengerWrapper) httpSession.getAttribute("passengerWrapper");
-            route = cancelBookingService.updateRoute(route, passengerWrapper.getPassengerList().size());
-            routeService.updateRoute(route);
-
-            TotalSeatSelectionImpl totalSeatSelection = new TotalSeatSelectionImpl(configDB);
-            AvailableSeatWrapper totalAvailableSeats = totalSeatSelection.getAvailableSeats(route.getBus_no(), route.getId());
-            AvailableSeatWrapper availableSeatWrapper = seatSelectionService.getAvailableSeat(route.getBus_no(), route.getId());
-            availableSeatWrapper = cancelBookingService.updateAvailableSeats(passengerWrapper, availableSeatWrapper, totalAvailableSeats);
-            seatSelectionService.updateAvailableSeats(availableSeatWrapper);
 
             OrderDetails orderDetails = (OrderDetails) httpSession.getAttribute("cancelOrderDetails");
             CancellationService cancellationService = new CancellationService();
             int cancellationFee = cancellationService.getRefundAmount(orderDetails, route);
             int refundAmount = orderDetails.getPrice() - cancellationFee;
 
-            PassengerDetailsService passengerDetailsService = new PassengerDetailsService(configDB);
-            passengerDetailsService.deletePassengerList(passengerWrapper, orderDetails.getId());
-
-            OrderDetailsService orderDetailsService = new OrderDetailsService(configDB);
-            orderDetailsService.deleteOrder(orderDetails);
+            cancelBookingService.cancelBooking(route, passengerWrapper, orderDetails);
 
             httpSession.removeAttribute("cancelRoute");
             httpSession.removeAttribute("passengerWrapper");

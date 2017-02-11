@@ -2,6 +2,7 @@ package Services;
 
 import Models.*;
 import ServiceImpl.ConfigDB;
+import ServiceImpl.TotalSeatSelectionImpl;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -19,7 +20,7 @@ public class CancelBookingService {
     }
 
 
-    public AvailableSeatWrapper updateAvailableSeats(PassengerWrapper passengerWrapper,  AvailableSeatWrapper availableSeatWrapper, AvailableSeatWrapper totalAvailableSeats) {
+    public AvailableSeatWrapper updateAvailableSeats(PassengerWrapper passengerWrapper, AvailableSeatWrapper availableSeatWrapper, AvailableSeatWrapper totalAvailableSeats) {
 
 
         for (Passenger passenger : passengerWrapper.getPassengerList()) {
@@ -47,5 +48,26 @@ public class CancelBookingService {
         }
         return availableSeatWrapper;
 
+    }
+
+    public void cancelBooking(Route route, PassengerWrapper passengerWrapper, OrderDetails orderDetails) {
+
+        SeatSelectionService seatSelectionService = new SeatSelectionService(configDB);
+        RouteService routeService = new RouteService(configDB);
+
+        route = updateRoute(route, passengerWrapper.getPassengerList().size());
+        routeService.updateRoute(route);
+
+        TotalSeatSelectionImpl totalSeatSelection = new TotalSeatSelectionImpl(configDB);
+        AvailableSeatWrapper totalAvailableSeats = totalSeatSelection.getAvailableSeats(route.getBus_no(), route.getId());
+        AvailableSeatWrapper availableSeatWrapper = seatSelectionService.getAvailableSeat(route.getBus_no(), route.getId());
+        availableSeatWrapper = updateAvailableSeats(passengerWrapper, availableSeatWrapper, totalAvailableSeats);
+        seatSelectionService.updateAvailableSeats(availableSeatWrapper);
+
+        PassengerDetailsService passengerDetailsService = new PassengerDetailsService(configDB);
+        passengerDetailsService.deletePassengerList(passengerWrapper, orderDetails.getId());
+
+        OrderDetailsService orderDetailsService = new OrderDetailsService(configDB);
+        orderDetailsService.deleteOrder(orderDetails);
     }
 }

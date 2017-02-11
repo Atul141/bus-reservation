@@ -7,10 +7,7 @@ import Models.PassengerWrapper;
 import Models.Route;
 import ServiceImpl.ConfigDB;
 import ServiceImpl.SyntaxSugar;
-import Services.OrderDetailsService;
-import Services.PassengerDetailsService;
-import Services.RouteService;
-import Services.UserBookingsService;
+import Services.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -36,6 +33,9 @@ public class UserBookingsController {
             ConfigDB configDB = new ConfigDB();
             httpSession.setAttribute("configDB", configDB);
             String email = (String) httpSession.getAttribute("email");
+
+            AutoCancellationService autoCancellationService = new AutoCancellationService(configDB);
+            autoCancellationService.autoCancelOrder();
 
             UserBookingsService userBookingsService = new UserBookingsService(configDB);
             List<OrderDetails> orderDetailsList = userBookingsService.getOrderDetailsList(email);

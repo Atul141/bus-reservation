@@ -14,6 +14,7 @@ public class DefaultController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String homePage(HttpServletRequest request) {
         HttpSession httpSession = request.getSession();
+        System.out.println("Session" + httpSession.isNew());
         httpSession.setAttribute("status", SyntaxSugar.LOGGED_OUT);
         return "index";
     }
@@ -21,9 +22,10 @@ public class DefaultController {
     @RequestMapping(value = "/default", method = RequestMethod.GET)
     public String homePageAgain(HttpServletRequest request) {
         HttpSession httpSession = request.getSession();
+        httpSession.setAttribute("status", SyntaxSugar.LOGGED_OUT);
         httpSession.invalidate();
-        HttpSession httpSession1 = request.getSession(true);
-        httpSession1.setAttribute("status", SyntaxSugar.LOGGED_OUT);
+//        httpSession = request.getSession();
+//        System.out.println("Session" + httpSession.isNew());
 
         return "index";
     }

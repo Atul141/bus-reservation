@@ -1,10 +1,7 @@
 package ServiceTest;
 
 
-import Models.AvailableSeatWrapper;
-import Models.Passenger;
-import Models.PassengerWrapper;
-import Models.Route;
+import Models.*;
 import ServiceImpl.ConfigDB;
 import ServiceImpl.SyntaxSugar;
 import ServiceImplTest.ConfigTest;
@@ -19,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 
 public class CancelBookingServiceTest {
 
-    private CancelBookingService cancelBookingService;
+        private CancelBookingService cancelBookingService;
     private ConfigDB configDB;
     private ConfigTest configTest;
 
