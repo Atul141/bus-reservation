@@ -3,30 +3,29 @@ package Services;
 
 import Models.OrderDetails;
 import Models.Route;
+import ServiceImpl.MessageImpl;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.Socket;
+import static ServiceImpl.SyntaxSugar.portEmail;
+import static ServiceImpl.SyntaxSugar.portSMS;
 
 public class MessageService {
 
     private OrderDetails orderDetails;
     private Route route;
+    private MessageImpl messageImpl;
 
     public MessageService(OrderDetails orderDetails, Route route) {
         this.orderDetails = orderDetails;
         this.route = route;
+        messageImpl = new MessageImpl();
     }
 
     public void sendMessage(String phoneNumner, String email) {
         String message = createMessage(orderDetails, route);
-        int portEmail = 6064;
-        int portSMS = 6065;
         String emailMessage = email + "%" + message;
         String phoneMessage = phoneNumner + "%" + message;
-        send(emailMessage, portEmail);
-        send(phoneMessage, portSMS);
+        messageImpl.sendMessage(emailMessage, portEmail);
+        messageImpl.sendMessage(phoneMessage, portSMS);
     }
 
     private String createMessage(OrderDetails orderDetails, Route route) {
@@ -36,20 +35,5 @@ public class MessageService {
         return output;
     }
 
-    public void send(String message, int port) {
-        String key = "asdfqaqwsaerdqsw";
 
-        try {
-            Socket client = new Socket("localhost", port);
-            OutputStream outToServer = client.getOutputStream();
-            DataOutputStream out = new DataOutputStream(outToServer);
-
-            EncryptService encryptService = new EncryptService();
-            message = encryptService.encryptString(message, key);
-            out.writeUTF(message);
-            client.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }

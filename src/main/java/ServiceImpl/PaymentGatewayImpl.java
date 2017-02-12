@@ -1,15 +1,16 @@
-package Services;
+package ServiceImpl;
 
 import Models.Payment;
+import Services.EncryptService;
 
 import java.io.*;
 import java.net.Socket;
 
-public class PaymentGateway {
+public class PaymentGatewayImpl {
 
     private Socket socket;
 
-    public PaymentGateway(Socket socket) {
+    public PaymentGatewayImpl(Socket socket) {
         this.socket = socket;
     }
 
