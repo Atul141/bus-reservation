@@ -10,38 +10,24 @@ public class SequenceGenerator {
     }
 
     public Long generateSequencePassengers() {
-        Session session = configDB.getSession();
-        long maxId;
-        try {
-            String query = "SELECT MAX(passenger.id) from PassengerDao passenger";
-            maxId = (Long) session.createQuery(query).uniqueResult();
-        } catch (NullPointerException ex) {
-            maxId = 1;
-            return maxId;
-        }
-        maxId++;
-        return maxId;
+        String query = "SELECT MAX(passenger.id) from PassengerDao passenger";
+        return generateSequence(query);
     }
 
     public Long generateSequenceUserDetails() {
-        Session session = configDB.getSession();
-        long maxId;
-        try {
-            String query = "SELECT MAX(user.id) from UserDetailsDao user";
-            maxId = (Long) session.createQuery(query).uniqueResult();
-        } catch (NullPointerException ex) {
-            maxId = 1;
-            return maxId;
-        }
-        maxId++;
-        return maxId;
+        String query = "SELECT MAX(user.id) from UserDetailsDao user";
+        return generateSequence(query);
     }
 
     public Long generateSequenceOrderDetails() {
+        String query = "SELECT MAX(orders.id) from OrderDetailsDao orders";
+        return generateSequence(query);
+    }
+
+    private Long generateSequence(String query) {
         Session session = configDB.getSession();
         long maxId;
         try {
-            String query = "SELECT MAX(orders.id) from OrderDetailsDao orders";
             maxId = (Long) session.createQuery(query).uniqueResult();
         } catch (NullPointerException ex) {
             maxId = 1;
