@@ -1,6 +1,8 @@
 package com.sample.Controller;
 
+import ServiceImpl.ConfigDB;
 import ServiceImpl.SyntaxSugar;
+import Services.ExecuteAutoCancelService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,8 +16,10 @@ public class DefaultController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String homePage(HttpServletRequest request) {
         HttpSession httpSession = request.getSession();
-        System.out.println("Session" + httpSession.isNew());
         httpSession.setAttribute("status", SyntaxSugar.LOGGED_OUT);
+        ConfigDB configDB = new ConfigDB();
+        ExecuteAutoCancelService executeAutoCancelService = new ExecuteAutoCancelService(configDB);
+        executeAutoCancelService.start();
         return "index";
     }
 
@@ -24,8 +28,6 @@ public class DefaultController {
         HttpSession httpSession = request.getSession();
         httpSession.setAttribute("status", SyntaxSugar.LOGGED_OUT);
         httpSession.invalidate();
-//        httpSession = request.getSession();
-//        System.out.println("Session" + httpSession.isNew());
 
         return "index";
     }

@@ -34,9 +34,6 @@ public class UserBookingsController {
             httpSession.setAttribute("configDB", configDB);
             String email = (String) httpSession.getAttribute("email");
 
-            AutoCancellationService autoCancellationService = new AutoCancellationService(configDB);
-            autoCancellationService.autoCancelOrder();
-
             UserBookingsService userBookingsService = new UserBookingsService(configDB);
             List<OrderDetails> orderDetailsList = userBookingsService.getOrderDetailsList(email);
 

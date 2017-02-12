@@ -24,6 +24,7 @@ public class AutoCancellationService {
     }
 
     public void autoCancelOrder() {
+
         RouteService routeService = new RouteService(configDB);
         PassengerDetailsService passengerDetailsService = new PassengerDetailsService(configDB);
         OrderDetailsService orderDetailsService = new OrderDetailsService(configDB);
@@ -45,7 +46,9 @@ public class AutoCancellationService {
         DateTime end = new DateTime();
         int minutes = Minutes.minutesBetween(end, start).getMinutes();
         int hours = Hours.hoursBetween(start, end).getHours();
-        if (minutes > 30)
+        if (minutes < 0) minutes = -minutes;
+
+        if (minutes > 1)
             shouldDelete = true;
         else if (hours > 0)
             shouldDelete = true;
