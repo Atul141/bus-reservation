@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -76,6 +77,13 @@
     </table>
     <br><br>
     <button type="submit">cancel</button>
+    <c:set var="status" value="${orderDetails.status}"/>
+     <c:if test="${fn:substring(status, 0, 3) == 'pen'}"> 
+    <tr> 
+        <td> <a href="/payment">pay</a> </td>
+         
+    </tr>
+     </c:if>
     </form:form>
 
 </div>

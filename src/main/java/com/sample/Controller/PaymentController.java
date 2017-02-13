@@ -1,8 +1,11 @@
 package com.sample.Controller;
 
+import Models.OrderDetails;
 import Models.Payment;
 import Models.PaymentWrapper;
+import ServiceImpl.ConfigDB;
 import ServiceImpl.SyntaxSugar;
+import Services.OrderDetailsService;
 import Services.PaymentService;
 import Services.PaymentWrapperService;
 import Validators.PaymentValidator;
@@ -56,7 +59,7 @@ public class PaymentController {
 
 
     @RequestMapping(value = "/validatePayment", method = RequestMethod.POST)
-    public String validatePayment(@ModelAttribute("payment") Payment payment, RedirectAttributes redirectAttribute) {
+    public String validatePayment(@ModelAttribute("payment") Payment payment, RedirectAttributes redirectAttribute, HttpServletRequest request) {
         try {
 
             PaymentService paymentService = new PaymentService();
@@ -74,12 +77,18 @@ public class PaymentController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            System.out.println(isCrreditCardValid);
             if (isCrreditCardValid == false) {
                 redirectAttribute.addAttribute("paymentError", "Invalid Credit Card Details");
 
                 return "redirect:/payment";
             }
+            HttpSession httpSession = request.getSession();
+            OrderDetails orderDetails = (OrderDetails) httpSession.getAttribute("orderDetails");
+            orderDetails.setStatus(SyntaxSugar.CONFIRM);
+
+            ConfigDB configDB = new ConfigDB();
+            OrderDetailsService orderDetailsService = new OrderDetailsService(configDB);
+            orderDetailsService.updateOrderDetails(orderDetails);
 
 
             return "redirect:/DisplayOrderDetails";

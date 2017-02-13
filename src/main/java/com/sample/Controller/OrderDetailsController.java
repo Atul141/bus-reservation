@@ -84,12 +84,8 @@ public class OrderDetailsController {
             PassengerWrapper passengerWrapper = (PassengerWrapper) httpSession.getAttribute("passengerWrapper");
             OrderDetails orderDetails = (OrderDetails) httpSession.getAttribute("orderDetails");
             Route route = (Route) httpSession.getAttribute("route");
-            orderDetails.setStatus(SyntaxSugar.CONFIRM);
 
             ConfigDB configDB = new ConfigDB();
-            OrderDetailsService orderDetailsService = new OrderDetailsService(configDB);
-            orderDetailsService.updateOrderDetails(orderDetails);
-
             String email = (String) httpSession.getAttribute("email");
             UserDetailsService userDetailsService = new UserDetailsService(configDB);
             String phoneNumber = userDetailsService.getPhoneNumber(email);

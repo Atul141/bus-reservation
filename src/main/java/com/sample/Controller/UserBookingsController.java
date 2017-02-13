@@ -70,9 +70,9 @@ public class UserBookingsController {
             PassengerDetailsService passengerDetailsService = new PassengerDetailsService(configDB);
             PassengerWrapper passengerWrapper = passengerDetailsService.getPassengerDetails(orderWrapper.getId());
 
-            httpSession.setAttribute("cancelRoute", route);
+            httpSession.setAttribute("route", route);
             httpSession.setAttribute("passengerWrapper", passengerWrapper);
-            httpSession.setAttribute("cancelOrderDetails", orderDetails);
+            httpSession.setAttribute("orderDetails", orderDetails);
 
 
             model.addAttribute("number", orderWrapper.getId());

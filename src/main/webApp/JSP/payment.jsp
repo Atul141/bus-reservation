@@ -42,6 +42,11 @@
                     <button type="submit">pay</button>
                 </td>
             </tr>
+            <br>
+            <br>
+            <tr>
+                <td><a href="/searchRoutes">Pay Later</a> </td>
+            </tr>
         </form:form>
         <br><br>
         <td>${error}</td>
