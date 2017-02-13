@@ -46,6 +46,12 @@ public class UserRegistrationController {
         return "register";
     }
 
+    @RequestMapping(value = "/RegisterUserDetails", method = RequestMethod.GET)
+    public String submitForm() {
+        return "redirect:/searchRoutes";
+    }
+
+
     @RequestMapping(value = "/RegisterUserDetails", method = RequestMethod.POST)
     public String submitForm(@ModelAttribute("User") UserDetails userDetails, RedirectAttributes redirectAttributes, HttpServletRequest request) {
         String error = validator.validateAllFields(userDetails);

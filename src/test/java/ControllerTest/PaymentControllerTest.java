@@ -2,6 +2,7 @@ package ControllerTest;
 
 
 import Models.Payment;
+import ServiceImpl.SyntaxSugar;
 import ServiceImplTest.ConfigTest;
 import Validators.PaymentValidator;
 import com.sample.Controller.PaymentController;
@@ -39,25 +40,42 @@ public class PaymentControllerTest {
     PaymentController paymentController;
     @Mock
     PaymentValidator paymentValidator;
+
     @Test
     public void shouldReturnToPaymentPage() throws Exception {
-        mockMvc.perform(get("/payment"))
+        mockMvc.perform(get("/payment")
+                .sessionAttr("status", SyntaxSugar.LOGGED_IN))
                 .andExpect(view().name("payment"));
     }
+
     @Autowired
     Payment payment;
 
     @Test
     public void shouldReturnToPaymentPageIfValidationIsUnSuccessfull() throws Exception {
-    payment=configTest.getPayment();
-    payment.setName("  ");
-        mockMvc.perform(post("/validatePayment").flashAttr("payment",payment))
+        payment = configTest.getPayment();
+        payment.setName("  ");
+        mockMvc.perform(post("/validatePayment").flashAttr("payment", payment))
                 .andExpect(view().name("redirect:/payment"));
     }
+
     @Test
     public void shouldReturnToDisplayOrderDetailsPageIfValidationIsSuccessfull() throws Exception {
-    payment=configTest.getPayment();
-        mockMvc.perform(post("/validatePayment").flashAttr("payment",payment))
+        payment = configTest.getPayment();
+        mockMvc.perform(post("/validatePayment").flashAttr("payment", payment))
                 .andExpect(view().name("redirect:/DisplayOrderDetails"));
+    }
+
+    @Test
+    public void shouldRedirectToSearchRoutesIfDirectlyAccessed() throws Exception {
+        mockMvc.perform(get("/validatePayment"))
+                .andExpect(view().name("redirect:/searchRoutes"));
+    }
+
+    @Test
+    public void shouldRedirectToLoginIfNotLoggedIn() throws Exception {
+        mockMvc.perform(get("/payment")
+                .sessionAttr("status", SyntaxSugar.LOGGED_OUT))
+                .andExpect(view().name("redirect:/login"));
     }
 }

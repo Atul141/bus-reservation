@@ -12,7 +12,9 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 
@@ -32,13 +34,15 @@ public class CancelControllerTest {
                 .setViewResolvers(viewResolver)
                 .build();
     }
+
     @InjectMocks
     CancelOrderController cancelOrderController;
+
     @Test
     public void shouldReturnCancelOrderPage() throws Exception {
         Route route = configTest.getRouteDetails();
-        ConfigDB configDB=new ConfigDB();
-        OrderDetails orderDetails=configTest.getOrderDetails();
+        ConfigDB configDB = new ConfigDB();
+        OrderDetails orderDetails = configTest.getOrderDetails();
         PassengerWrapper passengerWrapper = configTest.getPassengerWrapper();
         mockMvc.perform(post("/cancelOrder")
                 .sessionAttr("cancelRoute", route)
@@ -46,5 +50,11 @@ public class CancelControllerTest {
                 .sessionAttr("configDB", configDB)
                 .sessionAttr("cancelOrderDetails", orderDetails))
                 .andExpect(view().name("cancelOrder"));
+    }
+
+    @Test
+    public void shouldRedirectToSearchRoutesIfCancelIsDirectlyAccessesed() throws Exception {
+        mockMvc.perform(get("/cancelOrder"))
+                .andExpect(view().name("redirect:/searchRoutes"));
     }
 }

@@ -48,7 +48,7 @@ public class AutoCancellationService {
         int hours = Hours.hoursBetween(start, end).getHours();
         if (minutes < 0) minutes = -minutes;
 
-        if (minutes > 1)
+        if (minutes > 30)
             shouldDelete = true;
         else if (hours > 0)
             shouldDelete = true;

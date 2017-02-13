@@ -20,6 +20,11 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class BookingController {
 
+    @RequestMapping(value = "/booking", method = RequestMethod.GET)
+    public String bookTickets() {
+        return "redirect:/searchRoutes";
+
+    }
 
     @RequestMapping(value = "/booking", method = RequestMethod.POST)
     public String bookTickets(Model model, @ModelAttribute("numberOfSeats") NumberOfSeats numberOfSeats, HttpServletRequest request) {

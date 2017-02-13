@@ -63,7 +63,8 @@ public class HomeControllerTest {
     @Test
     public void shouldReturnSearchRoutesPage() throws Exception {
         Cookie cookie = new Cookie("userEmail", "abcd@gmail.com");
-        mockMvc.perform(get("/searchRoutes").cookie(cookie))
+        mockMvc.perform(get("/searchRoutes").cookie(cookie)
+                .sessionAttr("status", SyntaxSugar.LOGGED_IN))
                 .andExpect(view().name("searchRoutes"));
 
     }
@@ -80,18 +81,33 @@ public class HomeControllerTest {
     public void shouldReturnToNoRouteFoundIfValidationIsSuccessfullAndNoRoutesAreAvailable() throws Exception {
         Route route = configTest.getRouteDetails();
         when(routeService.getRouteList(route)).thenReturn(null);
-        ConfigDB configDB=new ConfigDB();
+        ConfigDB configDB = new ConfigDB();
         configDB.setEnvironment(SyntaxSugar.TEST_ENV);
-        mockMvc.perform(post("/Home").flashAttr("route", route).param("selectedDate", "2017-1-15").sessionAttr("configDB",configDB))
+        mockMvc.perform(post("/Home").flashAttr("route", route).param("selectedDate", "2017-1-15").sessionAttr("configDB", configDB))
                 .andExpect(view().name("NoRouteFound"));
     }
+
+    @Test
+    public void shouldReturnToLoginIfNotLoggedIn() throws Exception {
+        mockMvc.perform(get("/searchRoutes")
+                .sessionAttr("status", SyntaxSugar.LOGGED_OUT))
+                .andExpect(view().name("redirect:/login"));
+    }
+
     @Test
     public void shouldReturnToHomeIfValidationIsSuccessfull() throws Exception {
         Route route = configTest.getRouteDetails();
-        List<Route> routeList=new ArrayList<Route>();
+        List<Route> routeList = new ArrayList<Route>();
         routeList.add(route);
         when(routeService.getRouteList(route)).thenReturn(routeList);
-        mockMvc.perform(post("/Home").flashAttr("route", route).param("selectedDate", "2017-1-15").sessionAttr("configDB",new ConfigDB()))
+        mockMvc.perform(post("/Home").flashAttr("route", route).param("selectedDate", "2017-1-28").sessionAttr("configDB", new ConfigDB())
+                .sessionAttr("status", SyntaxSugar.LOGGED_IN))
                 .andExpect(view().name("home"));
+    }
+
+    @Test
+    public void shouldRedirectToSearchroutesIfHomeIsDirectlyAccessed() throws Exception {
+        mockMvc.perform(get("/Home"))
+                .andExpect(view().name("redirect:/searchRoutes"));
     }
 }

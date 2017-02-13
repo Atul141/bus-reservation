@@ -21,6 +21,11 @@ import java.util.Arrays;
 @Controller
 public class ConfirmationController {
 
+    @RequestMapping(value = "/confirmation", method = RequestMethod.GET)
+    public String confirmation() {
+        return "redirect:/searchRoutes";
+
+    }
 
     @RequestMapping(value = "/confirmation", method = RequestMethod.POST)
     public String confirmation(Model model, @ModelAttribute("passengerWrapper") PassengerWrapper passengerWrapper, HttpServletRequest request, RedirectAttributes redirectAttributes) {
@@ -68,7 +73,7 @@ public class ConfirmationController {
         }
     }
 
-    public SelectedSeatWrapper getSelectedSeatWrapper(HttpServletRequest request) {
+    private SelectedSeatWrapper getSelectedSeatWrapper(HttpServletRequest request) {
         SelectedSeatWrapper selectedSeatWrapper = new SelectedSeatWrapper();
         try {
             selectedSeatWrapper.setSelectedSeatWomen(Arrays.asList(request.getParameterValues("selectedSeatWomen")));

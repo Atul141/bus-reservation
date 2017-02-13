@@ -19,6 +19,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
@@ -39,6 +40,7 @@ public class ConfirmationControllerTest {
                 .setViewResolvers(viewResolver)
                 .build();
     }
+
     @InjectMocks
     ConfirmationController confirmationController;
 
@@ -47,28 +49,36 @@ public class ConfirmationControllerTest {
 
     @Test
     public void shouldReturnBookingPageIfPassengerDetailsValidationIsUnSuccessfull() throws Exception {
-        PassengerWrapper passengerWrapper=configTest.getPassengerWrapper();
-        Route route=configTest.getRouteDetails();
+        PassengerWrapper passengerWrapper = configTest.getPassengerWrapper();
+        Route route = configTest.getRouteDetails();
         when(passengerValidators.validatePassengers(any(PassengerWrapper.class))).thenReturn("error");
-        mockMvc.perform(post("/confirmation").flashAttr("passengerWrapper",passengerWrapper).sessionAttr("route",route))
+        mockMvc.perform(post("/confirmation").flashAttr("passengerWrapper", passengerWrapper).sessionAttr("route", route))
                 .andExpect(view().name("redirect:/reBooking"));
     }
+
     @Test
     public void shouldReturnBookingPageIfSeatAllocationValidationIsUnSuccessfull() throws Exception {
-        PassengerWrapper passengerWrapper=configTest.getPassengerWrapper();
-        Route route=configTest.getRouteDetails();
+        PassengerWrapper passengerWrapper = configTest.getPassengerWrapper();
+        Route route = configTest.getRouteDetails();
         when(passengerValidators.validatePassengers(any(PassengerWrapper.class))).thenReturn(null);
-        when(passengerValidators.validateSelectedSeatsWithPassengers(any(PassengerWrapper.class),any(SelectedSeatWrapper.class))).thenReturn("error");
-        mockMvc.perform(post("/confirmation").flashAttr("passengerWrapper",passengerWrapper).sessionAttr("route",route))
+        when(passengerValidators.validateSelectedSeatsWithPassengers(any(PassengerWrapper.class), any(SelectedSeatWrapper.class))).thenReturn("error");
+        mockMvc.perform(post("/confirmation").flashAttr("passengerWrapper", passengerWrapper).sessionAttr("route", route))
                 .andExpect(view().name("redirect:/reBooking"));
     }
+
     @Test
     public void shouldReturnConfirmationPageIfSeatAllocationValidationIsSuccessfull() throws Exception {
-        PassengerWrapper passengerWrapper=configTest.getPassengerWrapper();
-        Route route=configTest.getRouteDetails();
+        PassengerWrapper passengerWrapper = configTest.getPassengerWrapper();
+        Route route = configTest.getRouteDetails();
         when(passengerValidators.validatePassengers(any(PassengerWrapper.class))).thenReturn(null);
-        when(passengerValidators.validateSelectedSeatsWithPassengers(any(PassengerWrapper.class),any(SelectedSeatWrapper.class))).thenReturn(null);
-        mockMvc.perform(post("/confirmation").flashAttr("passengerWrapper",passengerWrapper).sessionAttr("route",route))
+        when(passengerValidators.validateSelectedSeatsWithPassengers(any(PassengerWrapper.class), any(SelectedSeatWrapper.class))).thenReturn(null);
+        mockMvc.perform(post("/confirmation").flashAttr("passengerWrapper", passengerWrapper).sessionAttr("route", route))
                 .andExpect(view().name("/confirmation"));
+    }
+
+    @Test
+    public void shouldRedirectToSearchRoutesIfConfirmationIsDirectlyAccessed() throws Exception {
+        mockMvc.perform(get("/confirmation"))
+                .andExpect(view().name("redirect:/searchRoutes"));
     }
 }

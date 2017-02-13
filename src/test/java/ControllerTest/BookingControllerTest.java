@@ -4,6 +4,7 @@ package ControllerTest;
 import Models.NumberOfSeats;
 import Models.PassengerWrapper;
 import ServiceImpl.ConfigDB;
+import ServiceImpl.SyntaxSugar;
 import ServiceImplTest.ConfigTest;
 import Services.RouteService;
 import Services.SeatSelectionService;
@@ -74,9 +75,23 @@ public class BookingControllerTest {
         when(routeService.getRouteBasedOnId(1)).thenReturn(configTest.getRouteDetails());
         when(seatSelectionService.getAvailableSeat("KA-01 G-2020", 1)).thenReturn(configTest.getAvailableSeatwrapper());
         mockMvc.perform(get("/reBooking")
+                .sessionAttr("status", SyntaxSugar.LOGGED_IN)
                 .sessionAttr("numberOfSeats", numberOfSeats)
                 .sessionAttr("configDB", configDB)
                 .sessionAttr("passengerWrapper", passengerWrapper))
                 .andExpect(view().name("booking"));
+    }
+
+    @Test
+    public void shouldRedirectToLoginIfNotLoogedIt() throws Exception {
+        mockMvc.perform(get("/reBooking")
+                .sessionAttr("status", SyntaxSugar.LOGGED_OUT))
+                .andExpect(view().name("redirect:/login"));
+    }
+
+    @Test
+    public void shouldRedirectToSearchRoutesIfBookingIsDirectlyAccessed() throws Exception {
+        mockMvc.perform(get("/booking"))
+                .andExpect(view().name("redirect:/searchRoutes"));
     }
 }

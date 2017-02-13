@@ -1,6 +1,7 @@
 package ControllerTest;
 
 import Models.UserDetails;
+import ServiceImpl.SyntaxSugar;
 import ServiceImplTest.ConfigTest;
 import Services.LoginService;
 import com.sample.Controller.LoginController;
@@ -17,6 +18,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -35,8 +38,8 @@ public class LoginControllerTest {
 
     @Before
     public void setup() {
-        ConfigTest configTest=new ConfigTest();
-        InternalResourceViewResolver viewResolver =configTest.getViewInstance();
+        ConfigTest configTest = new ConfigTest();
+        InternalResourceViewResolver viewResolver = configTest.getViewInstance();
 
         userDetails = new UserDetails();
         MockitoAnnotations.initMocks(this);
@@ -65,9 +68,10 @@ public class LoginControllerTest {
         userDetails.setEmail("abcd@gmail.com");
         userDetails.setPassword("pass");
 
-        when(loginService.validateLogin(userDetails)).thenReturn(true);
-        mockMvc.perform(post("/loginValidation").flashAttr("User", userDetails))
-                .andExpect(view().name("redirect:/searchRoutes"));
+        when(loginService.validateLogin(any(UserDetails.class))).thenReturn(true);
+        mockMvc.perform(post("/loginValidation").flashAttr("User", userDetails)
+                .sessionAttr("status", SyntaxSugar.LOGGED_IN))
+        .andExpect(view().name("redirect:/searchRoutes"));
     }
 
     @Test
@@ -78,5 +82,11 @@ public class LoginControllerTest {
         when(loginService.validateLogin(userDetails)).thenReturn(false);
         mockMvc.perform(post("/loginValidation").flashAttr("User", userDetails))
                 .andExpect(view().name("redirect:/login"));
+    }
+
+    @Test
+    public void shouldRedirectToSearchRoutesIfDirectlyAccessed() throws Exception {
+        mockMvc.perform(get("/loginValidation"))
+                .andExpect(view().name("redirect:/searchRoutes"));
     }
 }

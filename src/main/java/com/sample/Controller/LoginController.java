@@ -27,6 +27,11 @@ public class LoginController {
         return "login";
     }
 
+    @RequestMapping(value = "/loginValidation", method = RequestMethod.GET)
+    public String validateLogin() {
+        return "redirect:/searchRoutes";
+    }
+
     @RequestMapping(value = "/loginValidation", method = RequestMethod.POST)
     public String validateLogin(@ModelAttribute("User") UserDetails userDetails, RedirectAttributes redirectAttributes, HttpServletRequest request, HttpServletResponse response) {
         try {

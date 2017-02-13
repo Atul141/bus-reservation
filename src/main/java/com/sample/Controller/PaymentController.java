@@ -49,6 +49,11 @@ public class PaymentController {
         }
     }
 
+    @RequestMapping(value = "/validatePayment", method = RequestMethod.GET)
+    public String validatePayment() {
+        return "redirect:/searchRoutes";
+    }
+
 
     @RequestMapping(value = "/validatePayment", method = RequestMethod.POST)
     public String validatePayment(@ModelAttribute("payment") Payment payment, RedirectAttributes redirectAttribute) {

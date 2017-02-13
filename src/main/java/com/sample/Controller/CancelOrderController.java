@@ -45,6 +45,13 @@ public class CancelOrderController {
             return "redirect:/searchRoutes";
 
         }
+    }
+
+    @RequestMapping(value = "/cancelOrder", method = RequestMethod.GET)
+    public String deleteOrder() {
+        return "redirect:/searchRoutes";
 
     }
+
+
 }

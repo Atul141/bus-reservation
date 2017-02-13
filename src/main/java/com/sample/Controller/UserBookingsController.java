@@ -49,6 +49,12 @@ public class UserBookingsController {
         }
     }
 
+    @RequestMapping(value = "/savedOrderDetails", method = RequestMethod.GET)
+    public String displaySavedOrderDetails() {
+        return "redirect:/searchRoutes";
+    }
+
+
     @RequestMapping(name = "/savedOrderDetails", method = RequestMethod.POST)
     public String displaySavedOrderDetails(@ModelAttribute("orderWrapper") OrderWrapper orderWrapper, Model model, HttpServletRequest request) {
         try {

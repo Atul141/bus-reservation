@@ -25,8 +25,7 @@ public class HomeController {
 
     @RequestMapping(value = "/Home", method = RequestMethod.GET)
     public String directToLogin() {
-        return "redirect:/login";
-
+        return "redirect:/searchRoutes";
     }
 
     @RequestMapping(value = "/Home", method = RequestMethod.POST)

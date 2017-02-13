@@ -16,6 +16,11 @@ import java.sql.Timestamp;
 @Controller
 public class OrderDetailsController {
 
+    @RequestMapping(value = "/saveOrder", method = RequestMethod.GET)
+    public String saveOrderDetails() {
+        return "redirect:/searchRoutes";
+    }
+
     @RequestMapping(value = "/saveOrder", method = RequestMethod.POST)
     public String saveOrderDetails(Model model, HttpServletRequest request) {
         try {
