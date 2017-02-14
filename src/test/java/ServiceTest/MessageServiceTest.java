@@ -7,6 +7,7 @@ import Services.MessageService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
+
 import java.io.IOException;
 import java.net.Socket;
 
@@ -26,14 +27,12 @@ public class MessageServiceTest {
     }
 
     @Mock
-    MessageImpl messageImpl ;
+    MessageImpl messageImpl;
 
     @Test
     public void shouldCallMessageImpl() throws IOException {
         messageService = new MessageService(configTest.getOrderDetails(), configTest.getRouteDetails(), messageImpl);
-
-        doReturn(true).when(messageImpl).sendMessage(anyString(), any(Socket.class));
-        doReturn(true).when(messageImpl).sendMessage(anyString(), any(Socket.class));
-        messageService.sendMessage("12345678", "abc@gmail.com");
+        when(messageImpl.sendMessage(anyString(), any(Socket.class)));
+        messageService.sendMessage("1234567899", "abc@gmail.com");
     }
 }
