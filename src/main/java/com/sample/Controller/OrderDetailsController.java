@@ -2,6 +2,7 @@ package com.sample.Controller;
 
 import Models.*;
 import ServiceImpl.ConfigDB;
+import ServiceImpl.MessageImpl;
 import ServiceImpl.SyntaxSugar;
 import Services.*;
 import org.springframework.stereotype.Controller;
@@ -89,7 +90,7 @@ public class OrderDetailsController {
             String email = (String) httpSession.getAttribute("email");
             UserDetailsService userDetailsService = new UserDetailsService(configDB);
             String phoneNumber = userDetailsService.getPhoneNumber(email);
-            MessageService messageService = new MessageService(orderDetails, route);
+            MessageService messageService = new MessageService(orderDetails, route, new MessageImpl());
             messageService.sendMessage(phoneNumber, email);
 
             httpSession.removeAttribute("passengerWrapper");

@@ -42,7 +42,7 @@ public class ConfirmationControllerTest {
     }
 
     @InjectMocks
-    ConfirmationController confirmationController;
+    ConfirmationController confirmationController = new ConfirmationController();
 
     @Mock
     PassengerValidators passengerValidators;

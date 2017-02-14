@@ -17,7 +17,7 @@ public class CancelOrderController {
 
     @RequestMapping(value = "/cancelOrder", method = RequestMethod.POST)
     public String deleteOrder(HttpServletRequest request, Model model) {
-//        try {
+        try {
             HttpSession httpSession = request.getSession();
 
             ConfigDB configDB = new ConfigDB();
@@ -40,11 +40,11 @@ public class CancelOrderController {
             model.addAttribute("refundAmount", refundAmount);
             model.addAttribute("cancellationFee", cancellationFee);
             return "cancelOrder";
-//        } catch (Exception ex) {
-//            System.out.println(ex);
-//            return "redirect:/searchRoutes";
-//
-//        }
+        } catch (Exception ex) {
+            System.out.println(ex);
+            return "redirect:/searchRoutes";
+
+        }
     }
 
     @RequestMapping(value = "/cancelOrder", method = RequestMethod.GET)

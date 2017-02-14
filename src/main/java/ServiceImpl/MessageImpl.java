@@ -10,11 +10,10 @@ import java.net.Socket;
 
 public class MessageImpl {
 
-    public void sendMessage(String message, int port) {
+    public boolean sendMessage(String message, Socket socket) {
         String key = "asdfqaqwsaerdqsw";
-
         try {
-            Socket client = new Socket("localhost", port);
+            Socket client = socket;
             OutputStream outToServer = client.getOutputStream();
             DataOutputStream out = new DataOutputStream(outToServer);
 
@@ -22,8 +21,10 @@ public class MessageImpl {
             message = encryptService.encryptString(message, key);
             out.writeUTF(message);
             client.close();
+            return true;
         } catch (IOException e) {
             e.printStackTrace();
+            return false;
         }
     }
 }

@@ -4,6 +4,10 @@ package Services;
 import Models.OrderDetails;
 import Models.Route;
 import ServiceImpl.MessageImpl;
+import ServiceImpl.SyntaxSugar;
+
+import java.io.IOException;
+import java.net.Socket;
 
 import static ServiceImpl.SyntaxSugar.portEmail;
 import static ServiceImpl.SyntaxSugar.portSMS;
@@ -14,18 +18,18 @@ public class MessageService {
     private Route route;
     private MessageImpl messageImpl;
 
-    public MessageService(OrderDetails orderDetails, Route route) {
+    public MessageService(OrderDetails orderDetails, Route route, MessageImpl messageImpl) {
         this.orderDetails = orderDetails;
         this.route = route;
-        messageImpl = new MessageImpl();
+        this.messageImpl = messageImpl;
     }
 
-    public void sendMessage(String phoneNumner, String email) {
+    public void sendMessage(String phoneNumner, String email) throws IOException {
         String message = createMessage(orderDetails, route);
         String emailMessage = email + "%" + message;
         String phoneMessage = phoneNumner + "%" + message;
-        messageImpl.sendMessage(emailMessage, portEmail);
-        messageImpl.sendMessage(phoneMessage, portSMS);
+        messageImpl.sendMessage(emailMessage, new Socket("localhost", SyntaxSugar.portEmail));
+        messageImpl.sendMessage(phoneMessage, new Socket("localhost", SyntaxSugar.portSMS));
     }
 
     private String createMessage(OrderDetails orderDetails, Route route) {
