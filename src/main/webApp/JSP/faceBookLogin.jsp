@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Facebook Login JavaScript Example</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+    function statusChangeCallback(response) {
+        if (response.status === 'connected') {
+            testAPI();
+
+        } else if (response.status === 'not_authorized') {
+            document.getElementById('status').innerHTML = 'Please log ' +
+                'into this app.';
+        } else {
+            document.getElementById('status').innerHTML = 'Please log ' +
+                'into Facebook.';
+        }
+    }
+
+    function checkLoginState() {
+        FB.getLoginStatus(function (response) {
+            statusChangeCallback(response);
+        });
+    }
+
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: 1121768444615597,
+            cookie: true,
+
+            xfbml: true,
+            version: 'v2.8'
+        });
+
+        FB.getLoginStatus(function (response) {
+            statusChangeCallback(response);
+        });
+
+    };
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    function testAPI() {
+        console.log('Welcome!  Fetching your information.... ');
+        var email = "sample";
+        FB.api('/me', {locale: 'en_US', fields: 'name, email'}, function (response) {
+            email = response.email;
+            window.location.replace("/validateFaceBook?" + response.email);
+
+        });
+    }
+</script>
+
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+
+<div id="status">
+</div>
+
+</body>
+</html>

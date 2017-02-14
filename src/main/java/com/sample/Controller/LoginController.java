@@ -27,8 +27,29 @@ public class LoginController {
         return "login";
     }
 
+    @RequestMapping(value = "/faceBookLogin", method = RequestMethod.GET)
+    public String faceBookLogin() {
+
+        return "faceBookLogin";
+    }
+
+    @RequestMapping(value = "/validateFaceBook", method = RequestMethod.GET)
+    public String validateFaceBook(HttpServletRequest request, HttpServletResponse response) {
+        HttpSession httpSession = request.getSession();
+        String email = request.getQueryString();
+        httpSession.setAttribute("email", email);
+        Cookie cookie = new Cookie("userEmail", email);
+        response.addCookie(cookie);
+
+        httpSession.setAttribute("status", SyntaxSugar.LOGGED_IN);
+
+        return "redirect:/searchRoutes";
+    }
+
     @RequestMapping(value = "/loginValidation", method = RequestMethod.GET)
     public String validateLogin() {
+
+
         return "redirect:/searchRoutes";
     }
 

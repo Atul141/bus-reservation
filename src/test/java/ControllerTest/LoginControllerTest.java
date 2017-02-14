@@ -71,7 +71,7 @@ public class LoginControllerTest {
         when(loginService.validateLogin(any(UserDetails.class))).thenReturn(true);
         mockMvc.perform(post("/loginValidation").flashAttr("User", userDetails)
                 .sessionAttr("status", SyntaxSugar.LOGGED_IN))
-        .andExpect(view().name("redirect:/searchRoutes"));
+                .andExpect(view().name("redirect:/searchRoutes"));
     }
 
     @Test
@@ -87,6 +87,18 @@ public class LoginControllerTest {
     @Test
     public void shouldRedirectToSearchRoutesIfDirectlyAccessed() throws Exception {
         mockMvc.perform(get("/loginValidation"))
+                .andExpect(view().name("redirect:/searchRoutes"));
+    }
+
+    @Test
+    public void sshouldReturnfaceBooklogin() throws Exception {
+        mockMvc.perform(get("/faceBookLogin"))
+                .andExpect(view().name("faceBookLogin"));
+    }
+
+    @Test
+    public void shouldValidateFaceBookLogin() throws Exception {
+        mockMvc.perform(get("/validateFaceBook"))
                 .andExpect(view().name("redirect:/searchRoutes"));
     }
 }
