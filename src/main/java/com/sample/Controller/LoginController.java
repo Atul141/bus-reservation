@@ -7,6 +7,7 @@ import Models.UserDetails;
 import ServiceImpl.ConfigDB;
 import ServiceImpl.SyntaxSugar;
 import Services.LoginService;
+import Validators.EmailValidator;
 import Validators.LoginValidator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,6 +38,11 @@ public class LoginController {
     public String validateFaceBook(HttpServletRequest request, HttpServletResponse response) {
         HttpSession httpSession = request.getSession();
         String email = request.getQueryString();
+        EmailValidator emailValidator = new EmailValidator();
+
+        if (!emailValidator.validate(email))
+            return "redirect:/login";
+
         httpSession.setAttribute("email", email);
         Cookie cookie = new Cookie("userEmail", email);
         response.addCookie(cookie);

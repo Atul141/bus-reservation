@@ -17,7 +17,6 @@ public class DeleteImpl {
         Transaction transaction = session.beginTransaction();
         try {
             session.delete(object);
-            session.lock(object, LockMode.READ);
             transaction.commit();
             session.close();
         } catch (Throwable ex) {

@@ -40,7 +40,6 @@ public class PassengerDetailsImpl {
         } catch (Throwable ex) {
             System.out.println("error creating session " + ex);
         }
-        System.out.println(passengerDaoList);
 
         return passengerDaoList;
     }

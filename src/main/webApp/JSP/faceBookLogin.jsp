@@ -54,7 +54,6 @@
         FB.api('/me', {locale: 'en_US', fields: 'name, email'}, function (response) {
             email = response.email;
             window.location.replace("/validateFaceBook?" + response.email);
-
         });
     }
 </script>

@@ -17,7 +17,7 @@ public class ExecuteAutoCancelService implements Runnable {
     public void run() {
         while (true) {
             try {
-                Thread.sleep(60000 * 5);
+                Thread.sleep(60000 * 15);
                 autoCancellationService.autoCancelOrder();
             } catch (InterruptedException e) {
                 e.printStackTrace();
