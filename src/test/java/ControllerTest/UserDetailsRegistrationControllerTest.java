@@ -83,4 +83,28 @@ public class UserDetailsRegistrationControllerTest {
         mockMvc.perform(get("/RegisterUserDetails"))
                 .andExpect(view().name("redirect:/searchRoutes"));
     }
+
+    @Test
+    public void shouldReturnVerifyMobile() throws Exception {
+        mockMvc.perform(get("/verifyOTP")
+                .sessionAttr("userDetails", configTest.getUserDetails()))
+                .andExpect(view().name("verifyMobile"));
+    }
+
+    @Test
+    public void shouldReturnSuccessIfMobileIsValidated() throws Exception {
+        mockMvc.perform(post("/validatePhoneNumber")
+                .sessionAttr("userDetails", configTest.getUserDetails())
+                .param("otp", "1111")
+                .sessionAttr("otp", "1111"))
+                .andExpect(view().name("success"));
+    }
+    @Test
+    public void shouldReturnUnSuccessIfMobileIsNotValidated() throws Exception {
+        mockMvc.perform(post("/validatePhoneNumber")
+                .sessionAttr("userDetails", configTest.getUserDetails())
+                .param("otp", "11110")
+                .sessionAttr("otp", "1111"))
+                .andExpect(view().name("verifyMobile"));
+    }
 }

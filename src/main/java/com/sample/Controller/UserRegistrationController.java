@@ -2,6 +2,7 @@ package com.sample.Controller;
 
 import Models.UserDetails;
 import ServiceImpl.ConfigDB;
+import Services.OTPService;
 import Services.UserDetailsService;
 import Validators.RegistrationFormValidator;
 import org.springframework.stereotype.Controller;
@@ -55,11 +56,11 @@ public class UserRegistrationController {
     @RequestMapping(value = "/RegisterUserDetails", method = RequestMethod.POST)
     public String submitForm(@ModelAttribute("User") UserDetails userDetails, RedirectAttributes redirectAttributes, HttpServletRequest request) {
         String error = validator.validateAllFields(userDetails);
+        HttpSession httpSession = request.getSession();
         if (error == null) {
             if (userDetailsService.checkIfUserExists(userDetails.getEmail()) == false) {
-                userDetailsService.saveUserDetails(userDetails);
-                redirectAttributes.addAttribute("userName", userDetails.getFirstName());
-                return "redirect:/success";
+                httpSession.setAttribute("userDetails", userDetails);
+                return "redirect:/verifyOTP";
             } else {
                 error = "Error!!:Email already registered";
             }
@@ -67,14 +68,40 @@ public class UserRegistrationController {
             error = "Error!!:" + error;
         }
         redirectAttributes.addAttribute("registrationError", error);
-        HttpSession httpSession = request.getSession();
         httpSession.setAttribute("formDetails", userDetails);
         return "redirect:/ReRegistration";
 
     }
 
+    @RequestMapping(value = "/verifyOTP", method = RequestMethod.GET)
+    public String verify(HttpServletRequest request) {
+        OTPService otpService = new OTPService();
+        String otp = otpService.generateOTP();
+        HttpSession httpSession = request.getSession();
+        String phoneNumber = ((UserDetails) httpSession.getAttribute("userDetails")).getPhone();
+        userDetailsService.sendOTP(otp, phoneNumber);
+        httpSession.setAttribute("otp", otp);
+        return "verifyMobile";
+    }
+
+    @RequestMapping(value = "/validatePhoneNumber", method = RequestMethod.POST)
+    public String validatePhoneNumber(Model model, @ModelAttribute("user") UserDetails userDetails, HttpServletRequest request) {
+        HttpSession httpSession = request.getSession();
+        UserDetails userDetailsSaved = (UserDetails) httpSession.getAttribute("userDetails");
+        String otpGenerated = (String) httpSession.getAttribute("otp");
+        String otp = request.getParameter("otp");
+        if (otpGenerated.equals(otp)) {
+            userDetailsService.saveUserDetails(userDetailsSaved);
+            return "success";
+        }
+        model.addAttribute("error", "Invalid OTP ");
+        return "verifyMobile";
+    }
+
     @RequestMapping(value = "/success", method = RequestMethod.GET)
-    public String success(@ModelAttribute("userName") String name, Model model) {
+    public String success(HttpServletRequest request, Model model) {
+        HttpSession httpSession = request.getSession();
+        String name = ((UserDetails) httpSession.getAttribute("userDetails")).getFirstName();
         model.addAttribute("userName", name);
         return "success";
     }

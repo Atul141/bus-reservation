@@ -2,9 +2,10 @@ package Services;
 
 import Dao.UserDetailsDao;
 import Models.UserDetails;
-import ServiceImpl.ConfigDB;
-import ServiceImpl.SequenceGenerator;
-import ServiceImpl.UserDetailsImpl;
+import ServiceImpl.*;
+
+import java.io.IOException;
+import java.net.Socket;
 
 public class UserDetailsService {
 
@@ -19,6 +20,8 @@ public class UserDetailsService {
 
     public void saveUserDetails(UserDetails userDetails) {
         UserDetailsDao userDetailsDao = mapToUserDetailsDao(userDetails);
+        System.out.println(userDetails.getFirstName());
+        System.out.println(userDetails.getLastName());
         userDetailsDao.setId(sequenceGenerator.generateSequenceUserDetails());
         userDetailsImpl.saveToDb(userDetailsDao);
 
@@ -64,5 +67,15 @@ public class UserDetailsService {
         UserDetailsDao userDetailsDao = mapToUserDetailsDao(userDetails);
         userDetailsDao.setId(userDetails.getId());
         userDetailsImpl.updateUserDetails(userDetailsDao);
+    }
+
+    public void sendOTP(String otp, String phone) {
+        String message=phone+"%"+otp;
+        MessageImpl messageImpl=new MessageImpl();
+        try {
+            messageImpl.sendMessage(message,new Socket(SyntaxSugar.SERVER,SyntaxSugar.portSMS));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
