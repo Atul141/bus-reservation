@@ -1,7 +1,6 @@
 package ServiceImpl;
 
 
-import Dao.OrderDetailsDao;
 import Dao.RouteDao;
 import Models.Route;
 import org.hibernate.LockMode;
@@ -37,7 +36,6 @@ public class RoutesImpl {
 
 
     public RouteDao getRoutesBasedOnId(long id) {
-        System.out.println("Hello");
         Session session = configDB.getSession();
         Transaction transaction = session.beginTransaction();
         String query = "FROM RouteDao route where route.id=" + "'" + id + "'";

@@ -7,6 +7,7 @@
 <body>
 <h3>${userName} ,Welcome to Bus Reservation System</h3><br><br>
 <a href="/UserBookings">Your Bookings</a><br><br><br>
+<a href="/viewUserDetails">View Profile</a><br><br><br>
 <a href="/default">Logout</a><br>
 <div align="center">
     <table cellpadding="10">

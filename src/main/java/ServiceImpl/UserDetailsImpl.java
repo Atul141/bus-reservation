@@ -33,7 +33,7 @@ public class UserDetailsImpl {
         return userDetailsDao.getPhone();
     }
 
-    private UserDetailsDao getUserdetails(String email) {
+    public UserDetailsDao getUserdetails(String email) {
         Session session = configDB.getSession();
         Transaction transaction = session.beginTransaction();
         String query = "FROM UserDetailsDao  user where user.email=" + "'" + email + "'";
@@ -50,5 +50,10 @@ public class UserDetailsImpl {
             return null;
         }
         return userDetails;
+    }
+
+    public void updateUserDetails(UserDetailsDao userDetailsDao) {
+        UpdateImpl update = new UpdateImpl(configDB);
+        update.UpdateDb(userDetailsDao);
     }
 }
