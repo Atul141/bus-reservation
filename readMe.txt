@@ -10,7 +10,7 @@ Features of this project
 2.Phone Number is verified using OTP
 3.User can login using Facebook credentials or with registered user Id and password
 4.User can search trips based on source , destination and date
-5.User can Select any umber of passengers and need to enter their details.
+5.User can Select any number of passengers and need to enter their details.
 6.User needs to pay using credit card(credentials are verfied with a mock payment gateway)
 7.If payment is successful user gets confirmation message to mobile number and email
 8.User can edit details

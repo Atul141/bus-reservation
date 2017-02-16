@@ -69,13 +69,5 @@ public class UserDetailsService {
         userDetailsImpl.updateUserDetails(userDetailsDao);
     }
 
-    public void sendOTP(String otp, String phone) {
-        String message=phone+"%"+otp;
-        MessageImpl messageImpl=new MessageImpl();
-        try {
-            messageImpl.sendMessage(message,new Socket(SyntaxSugar.SERVER,SyntaxSugar.portSMS));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
 }

@@ -79,7 +79,7 @@ public class UserRegistrationController {
         String otp = otpService.generateOTP();
         HttpSession httpSession = request.getSession();
         String phoneNumber = ((UserDetails) httpSession.getAttribute("userDetails")).getPhone();
-        userDetailsService.sendOTP(otp, phoneNumber);
+        otpService.sendOTP(otp, phoneNumber);
         httpSession.setAttribute("otp", otp);
         return "verifyMobile";
     }
