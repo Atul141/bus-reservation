@@ -5,6 +5,9 @@ import org.hibernate.LockMode;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserDetailsImpl {
 
     private ConfigDB configDB;
@@ -56,4 +59,23 @@ public class UserDetailsImpl {
         UpdateImpl update = new UpdateImpl(configDB);
         update.UpdateDb(userDetailsDao);
     }
+
+    public List<String> getAllPhoneNumberList() {
+        Session session = configDB.getSession();
+        Transaction transaction = session.beginTransaction();
+        String query = "SELECT user.phone FROM UserDetailsDao  user";
+        List<String> phoneNumberList = new ArrayList<String>();
+        try {
+            phoneNumberList = (List<String>) session.createQuery(query).list();
+            session.lock(phoneNumberList, LockMode.READ);
+            transaction.commit();
+            session.close();
+
+        } catch (Throwable ex) {
+            System.out.println("error creating session " + ex);
+            return null;
+        }
+        return phoneNumberList;
+    }
 }
+

@@ -6,7 +6,7 @@
 <body>
 
 <script src="https://apis.google.com/js/platform.js" async defer></script>
-<meta name="google-signin-client_id" content="11943417884034-6lf0tl2m51l2tlpfcd5jsp6gf39bub4t.apps.googleusercontent.com">
+<meta name="google-signin-client_id" content="943417884034-6lf0tl2m51l2tlpfcd5jsp6gf39bub4t.apps.googleusercontent.com">
 <div align="center" class="g-signin2" data-onsuccess="onSignIn"></div>
 
 <script>

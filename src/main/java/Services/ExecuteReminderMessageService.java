@@ -8,11 +8,11 @@ public class ExecuteReminderMessageService implements Runnable {
 
     private ConfigDB configDB;
     private Thread t;
-    private SendReminderMessageService sendReminderMessageService;
+    private ReminderMessageService reminderMessageService;
 
     public ExecuteReminderMessageService(ConfigDB configDB) {
         this.configDB = configDB;
-        sendReminderMessageService=new SendReminderMessageService(configDB);
+        reminderMessageService =new ReminderMessageService(configDB);
     }
 
     @Override
@@ -20,7 +20,7 @@ public class ExecuteReminderMessageService implements Runnable {
         while (true) {
             try {
                 Thread.sleep(60000 * 30);
-                sendReminderMessageService.sendReminderMessage();
+                reminderMessageService.sendReminderMessage();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (IOException e) {

@@ -6,6 +6,7 @@ import ServiceImpl.*;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.util.List;
 
 public class UserDetailsService {
 
@@ -70,4 +71,7 @@ public class UserDetailsService {
     }
 
 
+    public List<String> getPhoneNumberList() {
+        return userDetailsImpl.getAllPhoneNumberList();
+    }
 }

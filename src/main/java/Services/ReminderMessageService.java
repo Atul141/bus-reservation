@@ -14,12 +14,12 @@ import java.util.Date;
 import java.util.List;
 
 
-public class SendReminderMessageService {
+public class ReminderMessageService {
 
     private ConfigDB configDB;
     private MessageImpl messageImpl;
 
-    public SendReminderMessageService(ConfigDB configDB) {
+    public ReminderMessageService(ConfigDB configDB) {
         this.configDB = configDB;
         messageImpl = new MessageImpl();
     }
@@ -27,6 +27,8 @@ public class SendReminderMessageService {
     public void sendReminderMessage() throws IOException {
         RouteService routeService = new RouteService(configDB);
         List<Route> routeList = routeService.getRoutelistBasedOnDate(new Date());
+        if (routeList.isEmpty())
+            return;
         for (Route route : routeList) {
             if (shouldSendMessage(route)) {
                 sendMessageToMobile(route);
@@ -37,6 +39,8 @@ public class SendReminderMessageService {
     private void sendMessageToMobile(Route route) throws IOException {
         OrderDetailsService orderDetailsService = new OrderDetailsService(configDB);
         List<OrderDetails> orderDetailsList = orderDetailsService.getOrderBasedOnRouteId(route.getId());
+        if (orderDetailsList.isEmpty())
+            return;
         for (OrderDetails orderDetails : orderDetailsList) {
             String phoneNumber = getPhoneNumber(orderDetails.getEmail());
             String message = phoneNumber + "%" + getMessage(route);
