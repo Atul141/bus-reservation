@@ -19,7 +19,6 @@ public class UpdateImpl {
         Transaction transaction = session.beginTransaction();
         try {
             session.update(object);
-//            session.lock(object, LockMode.READ);
             transaction.commit();
             session.close();
         } catch (Throwable ex) {

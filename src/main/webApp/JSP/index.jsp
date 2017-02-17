@@ -8,6 +8,7 @@
     <a href="/login">Login</a><br><br>
     <a href="/Registration">Registration</a><br><br>
     <a href="/faceBookLogin">Login With Facebook</a><br><br>
+    <a href="/googleLogin">Login With google</a><br><br>
 </div>
 </body>
 </html>

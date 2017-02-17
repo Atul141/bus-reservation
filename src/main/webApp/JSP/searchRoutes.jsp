@@ -9,6 +9,7 @@
 <a href="/UserBookings">Your Bookings</a><br><br><br>
 <a href="/viewUserDetails">View Profile</a><br><br><br>
 <a href="/default">Logout</a><br>
+
 <div align="center">
     <table cellpadding="10">
         <caption><h2>Search Routes</h2></caption>
@@ -25,7 +26,6 @@
             </tr>
             <tr>
                 <td>Route Date</td>
-                    <%--<td><form:input path="bus_no" /></td>--%>
                 <td><input type="date" name="selectedDate" value="date"/></td>
             </tr>
             <br>

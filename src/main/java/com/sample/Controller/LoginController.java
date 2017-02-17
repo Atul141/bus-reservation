@@ -34,23 +34,23 @@ public class LoginController {
         return "faceBookLogin";
     }
 
+    @RequestMapping(value = "/googleLogin", method = RequestMethod.GET)
+    public String googleLogin() {
+
+        return "googleLogin";
+    }
+
     @RequestMapping(value = "/validateFaceBook", method = RequestMethod.GET)
     public String validateFaceBook(HttpServletRequest request, HttpServletResponse response) {
-        HttpSession httpSession = request.getSession();
-        String email = request.getQueryString();
-        EmailValidator emailValidator = new EmailValidator();
+        return validate(request, response);
 
-        if (!emailValidator.validate(email))
-            return "redirect:/login";
-
-        httpSession.setAttribute("email", email);
-        Cookie cookie = new Cookie("userEmail", email);
-        response.addCookie(cookie);
-
-        httpSession.setAttribute("status", SyntaxSugar.LOGGED_IN);
-
-        return "redirect:/searchRoutes";
     }
+
+    @RequestMapping(value = "/validateGoogle", method = RequestMethod.GET)
+    public String validateGoogle(HttpServletRequest request, HttpServletResponse response) {
+        return validate(request, response);
+    }
+
 
     @RequestMapping(value = "/loginValidation", method = RequestMethod.GET)
     public String validateLogin() {
@@ -94,4 +94,21 @@ public class LoginController {
             return "errorDisplay";
         }
     }
+    private String validate(HttpServletRequest request, HttpServletResponse response) {
+        HttpSession httpSession = request.getSession();
+        String email = request.getQueryString();
+        EmailValidator emailValidator = new EmailValidator();
+
+        if (!emailValidator.validate(email))
+            return "redirect:/login";
+
+        httpSession.setAttribute("email", email);
+        Cookie cookie = new Cookie("userEmail", email);
+        response.addCookie(cookie);
+
+        httpSession.setAttribute("status", SyntaxSugar.LOGGED_IN);
+
+        return "redirect:/searchRoutes";
+    }
+
 }
