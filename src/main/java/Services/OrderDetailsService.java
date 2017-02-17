@@ -119,4 +119,12 @@ public class OrderDetailsService {
         UpdateImpl update = new UpdateImpl(configDB);
         update.UpdateDb(mapOrderDetails(orderDetails));
     }
-}
+
+    public List<OrderDetails> getOrderBasedOnRouteId(long id) {
+        List<OrderDetailsDao> orderDetailsListDao = orderDetailsImpl.getOrderDetailsBasedOnRouteId(id);
+        List<OrderDetails> orderDetailsList = new ArrayList<OrderDetails>();
+        for (OrderDetailsDao orderDetailsDao : orderDetailsListDao) {
+            orderDetailsList.add(mapOrderDetailsDao(orderDetailsDao));
+        }
+        return orderDetailsList;
+}}

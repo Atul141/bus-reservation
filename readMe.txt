@@ -8,7 +8,7 @@ https://content.pivotal.io/blog/db-migrations-in-a-spring-project
 Features of this project
 1.User can register
 2.Phone Number is verified using OTP
-3.User can login using Facebook credentials or with registered user Id and password
+3.User can login using Facebook account or with Google account with registered user Id and password
 4.User can search trips based on source , destination and date
 5.User can Select any number of passengers and need to enter their details.
 6.User needs to pay using credit card(credentials are verfied with a mock payment gateway)
@@ -17,6 +17,7 @@ Features of this project
 9.User can view or cancel all order.
 10.Cancellation fees is applied as per cancellation policy
 11.If payment is not made for order within 30 min, order gets cancelled automatically
+12.30 minutes prior to the departure time of the bus, reminder message is sent out all customers booked for that route.
 
 This project consists of four different servers running parallel,
 

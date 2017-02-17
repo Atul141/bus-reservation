@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class RoutesImpl {
@@ -19,19 +20,8 @@ public class RoutesImpl {
     }
 
     public List<RouteDao> getRoutes(Route routes) {
-        Session session = configDB.getSession();
-        Transaction transaction = session.beginTransaction();
         String query = "FROM RouteDao route where route.source=" + "'" + routes.getSource() + "'" + "and route.destination=" + "'" + routes.getDestination() + "'" + "and route.date=" + "'" + routes.getDate() + "'";
-        List<RouteDao> routeDaoList = new ArrayList<RouteDao>();
-        try {
-            routeDaoList = (List<RouteDao>) session.createQuery(query).list();
-            session.lock(new RouteDao(), LockMode.READ);
-            transaction.commit();
-            session.close();
-        } catch (Throwable ex) {
-            System.out.println("error creating session " + ex);
-        }
-        return routeDaoList;
+        return getRouteList(query);
     }
 
 
@@ -56,4 +46,25 @@ public class RoutesImpl {
         update.UpdateDb(routeDao);
 
     }
+
+    public List<RouteDao> getrouteListBasedOnDate(Date date) {
+        String query = "FROM RouteDao route where  route.date=" + "'" + date + "'";
+        return getRouteList(query);
+    }
+
+    private List<RouteDao> getRouteList(String query) {
+        Session session = configDB.getSession();
+        Transaction transaction = session.beginTransaction();
+        List<RouteDao> routeDaoList = new ArrayList<RouteDao>();
+        try {
+            routeDaoList = (List<RouteDao>) session.createQuery(query).list();
+            session.lock(new RouteDao(), LockMode.READ);
+            transaction.commit();
+            session.close();
+        } catch (Throwable ex) {
+            System.out.println("error creating session " + ex);
+        }
+        return routeDaoList;
+    }
+
 }

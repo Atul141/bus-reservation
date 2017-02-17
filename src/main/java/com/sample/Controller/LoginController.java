@@ -30,20 +30,17 @@ public class LoginController {
 
     @RequestMapping(value = "/faceBookLogin", method = RequestMethod.GET)
     public String faceBookLogin() {
-
         return "faceBookLogin";
     }
 
     @RequestMapping(value = "/googleLogin", method = RequestMethod.GET)
     public String googleLogin() {
-
         return "googleLogin";
     }
 
     @RequestMapping(value = "/validateFaceBook", method = RequestMethod.GET)
     public String validateFaceBook(HttpServletRequest request, HttpServletResponse response) {
         return validate(request, response);
-
     }
 
     @RequestMapping(value = "/validateGoogle", method = RequestMethod.GET)
@@ -54,8 +51,6 @@ public class LoginController {
 
     @RequestMapping(value = "/loginValidation", method = RequestMethod.GET)
     public String validateLogin() {
-
-
         return "redirect:/searchRoutes";
     }
 

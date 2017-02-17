@@ -100,4 +100,25 @@ public class OrderDetailsImpl {
         return orderDetailsDaoList;
 
     }
+
+    public List<OrderDetailsDao> getOrderDetailsBasedOnRouteId(long id) {
+        String query = "FROM OrderDetailsDao orders where orders.route_id=" + id + " ";
+
+        return getOrderDetailsList(query);
+    }
+
+    private List<OrderDetailsDao> getOrderDetailsList(String query) {
+        Session session = configDB.getSession();
+        Transaction transaction = session.beginTransaction();
+        List<OrderDetailsDao> orderDetailsDaoList = new ArrayList<OrderDetailsDao>();
+        try {
+            orderDetailsDaoList = (List<OrderDetailsDao>) session.createQuery(query).list();
+            session.load(new OrderDetailsDao(), LockMode.READ);
+            transaction.commit();
+            session.close();
+        } catch (Throwable ex) {
+            System.out.println("error creating session " + ex);
+        }
+        return orderDetailsDaoList;
+    }
 }

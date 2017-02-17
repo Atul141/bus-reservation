@@ -8,6 +8,7 @@ import ServiceImpl.RoutesImpl;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class RouteService {
@@ -28,9 +29,9 @@ public class RouteService {
     }
 
     public Route getRouteBasedOnId(long id) {
-            List<RouteDao> routeDaoList = new ArrayList<RouteDao>();
-            routeDaoList.add(routesImpl.getRoutesBasedOnId(id));
-            return mapRoutes(routeDaoList).get(0);
+        List<RouteDao> routeDaoList = new ArrayList<RouteDao>();
+        routeDaoList.add(routesImpl.getRoutesBasedOnId(id));
+        return mapRoutes(routeDaoList).get(0);
     }
 
     public List<Route> mapRoutes(List<RouteDao> routesDaoList) {
@@ -81,6 +82,10 @@ public class RouteService {
         routeDao.setArrivalTime(route.getArrivalTime());
         routeDao.setBus_no(route.getBus_no());
         return routeDao;
+    }
+
+    public List<Route> getRoutelistBasedOnDate(Date date) {
+        return mapRoutes(routesImpl.getrouteListBasedOnDate(date));
     }
 }
 
