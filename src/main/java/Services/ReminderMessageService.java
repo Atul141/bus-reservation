@@ -19,9 +19,9 @@ public class ReminderMessageService {
     private ConfigDB configDB;
     private MessageImpl messageImpl;
 
-    public ReminderMessageService(ConfigDB configDB) {
+    public ReminderMessageService(ConfigDB configDB,MessageImpl messageImpl) {
         this.configDB = configDB;
-        messageImpl = new MessageImpl();
+        this.messageImpl = messageImpl;
     }
 
     public void sendReminderMessage() throws IOException {

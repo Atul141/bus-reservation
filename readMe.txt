@@ -18,6 +18,7 @@ Features of this project
 10.Cancellation fees is applied as per cancellation policy
 11.If payment is not made for order within 30 min, order gets cancelled automatically
 12.30 minutes prior to the departure time of the bus, reminder message is sent out all customers booked for that route.
+13.Admin can send a promotional offers to all customers
 
 This project consists of four different servers running parallel,
 

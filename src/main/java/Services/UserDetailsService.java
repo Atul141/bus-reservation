@@ -21,8 +21,6 @@ public class UserDetailsService {
 
     public void saveUserDetails(UserDetails userDetails) {
         UserDetailsDao userDetailsDao = mapToUserDetailsDao(userDetails);
-        System.out.println(userDetails.getFirstName());
-        System.out.println(userDetails.getLastName());
         userDetailsDao.setId(sequenceGenerator.generateSequenceUserDetails());
         userDetailsImpl.saveToDb(userDetailsDao);
 
@@ -58,7 +56,6 @@ public class UserDetailsService {
         userDetails.setFirstName(userDetailsDao.getFirstName());
         userDetails.setLastName(userDetailsDao.getLastName());
         userDetails.setId((int) userDetailsDao.getId());
-        System.out.println("Ser" + userDetails.getId());
         userDetails.setPassword(userDetailsDao.getPassword());
         userDetails.setPhone(userDetailsDao.getPhone());
         return userDetails;

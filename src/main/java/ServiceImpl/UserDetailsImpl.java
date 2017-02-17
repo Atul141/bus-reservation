@@ -1,6 +1,7 @@
 package ServiceImpl;
 
 import Dao.UserDetailsDao;
+import Models.UserDetails;
 import org.hibernate.LockMode;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -63,17 +64,25 @@ public class UserDetailsImpl {
     public List<String> getAllPhoneNumberList() {
         Session session = configDB.getSession();
         Transaction transaction = session.beginTransaction();
-        String query = "SELECT user.phone FROM UserDetailsDao  user";
-        List<String> phoneNumberList = new ArrayList<String>();
+        String query = "FROM UserDetailsDao  user";
+        List<UserDetailsDao> userDetailsDaoList;
         try {
-            phoneNumberList = (List<String>) session.createQuery(query).list();
-            session.lock(phoneNumberList, LockMode.READ);
+            userDetailsDaoList = (List<UserDetailsDao>) session.createQuery(query).list();
+            session.lock(userDetailsDaoList, LockMode.READ);
             transaction.commit();
             session.close();
-
         } catch (Throwable ex) {
             System.out.println("error creating session " + ex);
             return null;
+        }
+        return getPhoneNumberList(userDetailsDaoList);
+    }
+
+    private List<String> getPhoneNumberList(List<UserDetailsDao> userDetailsDaoList) {
+        List<String> phoneNumberList = new ArrayList<String>();
+        System.out.println(phoneNumberList.size());
+        for (UserDetailsDao userDetailsDao : userDetailsDaoList) {
+            phoneNumberList.add(userDetailsDao.getPhone());
         }
         return phoneNumberList;
     }

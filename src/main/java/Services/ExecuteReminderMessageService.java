@@ -1,6 +1,7 @@
 package Services;
 
 import ServiceImpl.ConfigDB;
+import ServiceImpl.MessageImpl;
 
 import java.io.IOException;
 
@@ -12,7 +13,7 @@ public class ExecuteReminderMessageService implements Runnable {
 
     public ExecuteReminderMessageService(ConfigDB configDB) {
         this.configDB = configDB;
-        reminderMessageService =new ReminderMessageService(configDB);
+        reminderMessageService = new ReminderMessageService(configDB, new MessageImpl());
     }
 
     @Override
